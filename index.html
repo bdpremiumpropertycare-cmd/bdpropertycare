@@ -3,211 +3,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BD Premium Property Care | Exterior Cleaning Experts</title>
-    <!-- Tailwind CSS for high-fidelity responsive layout -->
+    <title>BD Premium Property Care | Commercial & Residential Maintenance</title>
+    <!-- Tailwind CSS Engine -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Pro Icons -->
+    <!-- FontAwesome Vector Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Alpine.js for instantaneous application interactivity -->
+    <!-- Alpine.js Application state handling -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <style>
         html { scroll-behavior: smooth; }
-        .glass-panel { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); }
-        .neon-gradient { background: linear-gradient(135deg, #0284c7 0%, #0d9488 50%, #111827 100%); }
-        .accent-gradient { background: linear-gradient(90deg, #0ea5e9 0%, #2dd4bf 100%); }
-        .slider-handle { cursor: ew-resize; }
+        .glass-panel { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(16px); }
+        .neon-gradient { background: linear-gradient(135deg, #0284c7 0%, #0f172a 70%); }
+        .accent-gradient { background: linear-gradient(90deg, #38bdf8 0%, #2dd4bf 100%); }
     </style>
 </head>
-<body class="bg-slate-900 text-slate-100 font-sans antialiased selection:bg-teal-500 selection:text-white" x-data="{ mobileMenu: false, activeTab: 'pressure' }">
+<body class="bg-slate-900 text-slate-100 font-sans antialiased selection:bg-teal-500 selection:text-white" x-data="{ mobileMenu: false, activeTab: 'washing', jobType: 'washing', structuralUnits: 100 }">
 
-    <!-- DEEPENED & ENHANCED PREMIUM UNDER CONSTRUCTION BANNER -->
-    <div class="bg-gradient-to-r from-amber-600 via-orange-600 to-amber-600 text-slate-950 text-center py-4 px-6 shadow-2xl relative z-50 overflow-hidden border-b-2 border-orange-500/40">
-        <div class="absolute inset-0 bg-[linear-gradient(45deg,rgba(255,255,255,0.15)_25%,transparent_25%,transparent_50%,rgba(255,255,255,0.15)_50%,rgba(255,255,255,0.15)_75%,transparent_75%,transparent)] bg-[length:40px_40px] opacity-20"></div>
-        <div class="relative z-10 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-xs sm:text-sm font-black uppercase tracking-widest text-white">
+    <!-- CONSTRUCTION BANNER -->
+    <div class="bg-gradient-to-r from-amber-600 via-orange-600 to-amber-600 text-slate-950 text-center py-4 px-4 shadow-2xl relative z-50 border-b border-orange-500/30">
+        <div class="absolute inset-0 bg-[linear-gradient(45deg,rgba(255,255,255,0.1)_25%,transparent_25%,transparent_50%,rgba(255,255,255,0.1)_50%,rgba(255,255,255,0.1)_75%,transparent_75%,transparent)] bg-[length:40px_40px] opacity-10"></div>
+        <div class="relative z-10 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 text-xs sm:text-sm font-black uppercase tracking-wider text-white">
             <span class="flex items-center gap-2">
-                <i class="fas fa-person-digging animate-bounce text-slate-950 text-base"></i>
+                <i class="fas fa-hammer animate-pulse text-slate-950"></i>
                 <span>Site Under Construction</span>
             </span>
-            <span class="hidden md:inline-block text-orange-950/70 text-lg">|</span>
-            <span class="text-orange-100 font-bold normal-case text-xs tracking-normal text-center">Our fully interactive precision cost estimation pricing engine is live for client use!</span>
-            <i class="fas fa-triangle-exclamation animate-pulse text-slate-950 text-base"></i>
+            <span class="hidden sm:inline text-orange-950/50">|</span>
+            <span class="text-orange-100 font-bold normal-case text-center">Our main portal is coming soon, but you can still contact us with your project details below!</span>
         </div>
     </div>
 
-    <!-- Premium Floating Communications Center -->
+    <!-- Communication Float Nodes -->
     <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
-        <!-- WhatsApp Contact Connected directly to 0899479862 -->
-        <a href="https://wa.me/353899479862?text=Hi%20BD%20Premium%20Property%20Care!%20I%20would%20like%20to%20request%20a%20premium%20quote." target="_blank" class="bg-emerald-500 hover:bg-emerald-400 text-white p-4 rounded-2xl shadow-2xl hover:scale-110 transition-all duration-300 flex items-center justify-center w-14 h-14 border border-emerald-400/30" title="Chat on WhatsApp">
+        <a href="https://wa.me/353899479862?text=Hi%20BD%20Premium%20Property%20Care,%20I%20would%20like%20to%20get%20a%20maintenance%20estimate." target="_blank" class="bg-emerald-500 hover:bg-emerald-400 text-white p-4 rounded-2xl shadow-2xl hover:scale-110 transition-all duration-300 flex items-center justify-center w-14 h-14 border border-emerald-400/20" title="WhatsApp Business Line">
             <i class="fab fa-whatsapp text-2xl"></i>
         </a>
-        <!-- Facebook Page Live Link -->
-        <a href="https://www.facebook.com/share/1GhTwgttiZ/?mibextid=wwXIfr" target="_blank" class="bg-sky-500 hover:bg-sky-400 text-white p-4 rounded-2xl shadow-2xl hover:scale-110 transition-all duration-300 flex items-center justify-center w-14 h-14 border border-sky-400/30" title="Visit Facebook Page">
+        <a href="https://www.facebook.com/share/1GhTwgttiZ/?mibextid=wwXIfr" target="_blank" class="bg-sky-600 hover:bg-sky-500 text-white p-4 rounded-2xl shadow-2xl hover:scale-110 transition-all duration-300 flex items-center justify-center w-14 h-14 border border-sky-400/20" title="Facebook Page">
             <i class="fab fa-facebook-f text-xl"></i>
         </a>
     </div>
 
-    <!-- Cinematic Navigation Bar -->
-    <nav class="bg-slate-950/80 backdrop-blur-xl sticky top-0 z-40 border-b border-slate-800/60 transition duration-300">
+    <!-- Premium Navigation Bar with Encircled Logo Concept -->
+    <nav class="bg-slate-950/90 backdrop-blur-xl sticky top-0 z-40 border-b border-slate-800/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-24">
+            <div class="flex justify-between h-20">
                 <div class="flex items-center">
-                    <span class="text-2xl font-black tracking-wider flex items-center gap-3">
-                        <span class="bg-gradient-to-r from-sky-400 to-teal-400 bg-clip-text text-transparent font-black text-3xl">BD</span>
-                        <div class="h-6 w-[2px] bg-slate-700"></div>
-                        <span class="text-sm tracking-widest text-slate-400 font-bold uppercase block">Premium Property Care</span>
+                    <span class="text-2xl font-black tracking-wider flex items-center gap-2 sm:gap-3">
+                        <!-- Custom Encircled Logo Feature seen in image_7.png -->
+                        <div class="w-12 h-12 rounded-full border-2 border-teal-400 flex items-center justify-center bg-slate-900/50 shadow-lg shadow-teal-500/10">
+                            <span class="bg-gradient-to-r from-sky-400 to-teal-400 bg-clip-text text-transparent font-black text-xl">BD</span>
+                        </div>
+                        <div class="h-6 w-[1px] bg-slate-800"></div>
+                        <span class="text-[11px] sm:text-xs tracking-widest text-slate-400 font-black uppercase block">Premium Property Care</span>
                     </span>
                 </div>
-                <div class="hidden md:flex items-center space-x-8 font-semibold text-sm tracking-wide">
-                    <a href="#services" class="text-slate-300 hover:text-teal-400 transition-colors">Our Craft</a>
-                    <a href="#interactive-reveal" class="text-slate-300 hover:text-teal-400 transition-colors">The Proof</a>
-                    <a href="#pricing-engine" class="text-slate-300 hover:text-teal-400 transition-colors">Smart Costing</a>
-                    <a href="#reviews" class="text-slate-300 hover:text-teal-400 transition-colors">Reviews</a>
-                    <a href="#contact-hub" class="accent-gradient text-slate-950 font-bold px-6 py-3 rounded-xl hover:opacity-90 transition-all duration-300 shadow-lg shadow-teal-500/20 transform hover:-translate-y-0.5">Secure Booking</a>
+                <div class="hidden lg:flex items-center space-x-8 font-bold text-xs uppercase tracking-wider">
+                    <a href="#scope" class="text-slate-300 hover:text-sky-400 transition-colors">Our Scope</a>
+                    <a href="#visual-proof" class="text-slate-300 hover:text-sky-400 transition-colors">Quality Standard</a>
+                    <a href="#estimation-engine" class="text-slate-300 hover:text-sky-400 transition-colors">Estimator Base</a>
+                    <a href="#contact-hub" class="accent-gradient text-slate-950 px-5 py-3 rounded-xl hover:opacity-90 transition shadow-lg font-black">Submit Project Details</a>
                 </div>
-                <div class="flex items-center md:hidden">
-                    <button @click="mobileMenu = !mobileMenu" class="text-slate-300 focus:outline-none p-2 bg-slate-900 rounded-xl border border-slate-800">
-                        <i class="fas text-xl w-6" :class="mobileMenu ? 'fa-times' : 'fa-bars-staggered'"></i>
+                <div class="flex items-center lg:hidden">
+                    <button @click="mobileMenu = !mobileMenu" class="text-slate-300 p-2 bg-slate-900 rounded-xl border border-slate-800">
+                        <i class="fas text-lg" :class="mobileMenu ? 'fa-times' : 'fa-bars-staggered'"></i>
                     </button>
                 </div>
             </div>
         </div>
-        <div x-show="mobileMenu" x-collapse class="md:hidden bg-slate-950 border-t border-slate-900 px-6 pt-4 pb-8 space-y-4 shadow-2xl">
-            <a href="#services" @click="mobileMenu = false" class="block py-2 text-lg font-medium text-slate-300"><i class="fas fa-sparkles text-teal-400 mr-3"></i>Our Craft</a>
-            <a href="#interactive-reveal" @click="mobileMenu = false" class="block py-2 text-lg font-medium text-slate-300"><i class="fas fa-images text-teal-400 mr-3"></i>The Proof</a>
-            <a href="#pricing-engine" @click="mobileMenu = false" class="block py-2 text-lg font-medium text-slate-300"><i class="fas fa-calculator text-teal-400 mr-3"></i>Smart Costing</a>
-            <a href="#reviews" @click="mobileMenu = false" class="block py-2 text-lg font-medium text-slate-300"><i class="fas fa-comments text-teal-400 mr-3"></i>Reviews</a>
-            <a href="#contact-hub" @click="mobileMenu = false" class="block text-center accent-gradient text-slate-950 py-4 rounded-xl font-bold text-lg shadow-xl shadow-teal-500/20">Book Premium Care</a>
+        <div x-show="mobileMenu" x-collapse class="lg:hidden bg-slate-950 border-t border-slate-800 px-6 py-6 space-y-4 shadow-2xl">
+            <a href="#scope" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-cubes text-teal-400 mr-3"></i>Our Scope</a>
+            <a href="#visual-proof" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-eye text-teal-400 mr-3"></i>Quality Standard</a>
+            <a href="#estimation-engine" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-calculator text-teal-400 mr-3"></i>Estimator Base</a>
+            <a href="#contact-hub" @click="mobileMenu = false" class="block text-center accent-gradient text-slate-950 py-3.5 rounded-xl font-black text-sm uppercase">Submit Request</a>
         </div>
     </nav>
 
-    <!-- Premium Hero Showcase Section -->
-    <section class="relative neon-gradient pt-16 pb-24 lg:py-36 overflow-hidden border-b border-slate-800">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(45,212,191,0.12),transparent_45%)]"></div>
+    <!-- Master Hero Framework -->
+    <section class="relative neon-gradient pt-16 pb-24 lg:py-32 overflow-hidden border-b border-slate-800">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(45,212,191,0.08),transparent_50%)]"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid lg:grid-cols-12 gap-12 items-center">
-            <div class="space-y-8 text-center lg:text-left lg:col-span-7">
-                <div class="inline-flex items-center gap-2 bg-teal-500/10 border border-teal-500/30 text-teal-300 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest mx-auto lg:mx-0">
-                    <i class="fas fa-shield-halved text-teal-400"></i> Pure Residential Excellence
+            <div class="space-y-6 text-center lg:text-left lg:col-span-7">
+                <div class="inline-flex items-center gap-2 bg-sky-500/10 border border-sky-500/30 text-sky-400 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mx-auto lg:mx-0">
+                    <i class="fas fa-building text-xs"></i> Commercial & Residential Excellence
                 </div>
-                <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white leading-[1.1]">
-                    Say Goodbye to Stubborn Grime. <br>
-                    <span class="bg-gradient-to-r from-sky-400 to-teal-300 bg-clip-text text-transparent">Hello Premium Shine.</span>
+                <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white leading-[1.15]">
+                    Complete Property Care. <br>
+                    <span class="bg-gradient-to-r from-sky-400 to-teal-300 bg-clip-text text-transparent">Zero Compromise.</span>
                 </h1>
-                <p class="text-base sm:text-lg text-slate-300 max-w-xl mx-auto lg:mx-0 font-medium leading-relaxed">
-                    Harsh elements turn driveways green, gutters into blockages, and windows cloudy. **BD Premium Property Care** treats your exterior surfaces with surgical precision and deep commercial power.
+                <p class="text-base text-slate-300 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium">
+                    From professional power washing and low-level window/gutter clearing to precision lawn maintenance, minor painting repairs, and facility upkeep. We keep your property pristine.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
-                    <a href="#pricing-engine" class="accent-gradient text-slate-950 font-extrabold px-8 py-4 rounded-xl shadow-xl hover:scale-105 transition-all duration-300 text-center">
-                        <i class="fas fa-wand-magic-sparkles mr-2"></i> Instant Cost Estimate
+                    <a href="#estimation-engine" class="accent-gradient text-slate-950 font-black px-8 py-4 rounded-xl shadow-xl hover:scale-105 transition duration-300 text-center text-xs uppercase tracking-wider">
+                        <i class="fas fa-sliders mr-2"></i> High-Level Estimator
                     </a>
-                    <!-- Direct WhatsApp Connect -->
-                    <a href="https://wa.me/353899479862" target="_blank" class="bg-slate-900 border border-slate-700 hover:border-slate-500 text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 text-center flex items-center justify-center gap-2">
-                        <i class="fab fa-whatsapp text-emerald-400 text-lg"></i> WhatsApp Quick Quote
+                    <a href="https://wa.me/353899479862?text=Hi%20BD%20Premium%20Property%20Care,%20I%20would%20like%20to%20get%20a%20maintenance%20estimate." target="_blank" class="bg-slate-950 border border-slate-800 hover:border-slate-700 text-white font-bold px-8 py-4 rounded-xl transition duration-300 text-center flex items-center justify-center gap-2 text-xs uppercase tracking-wider">
+                        <i class="fab fa-whatsapp text-emerald-400"></i> Instant WhatsApp Chat
                     </a>
                 </div>
             </div>
             <div class="lg:col-span-5 relative">
-                <div class="absolute -inset-1 bg-gradient-to-r from-sky-500 to-teal-500 rounded-[2.5rem] blur opacity-30 animate-pulse"></div>
-                <div class="relative bg-slate-950 p-3 rounded-[2.5rem] border-2 border-slate-800 shadow-2xl mx-auto max-w-[360px]">
-                    <div class="bg-slate-900 rounded-[2rem] overflow-hidden relative aspect-[9/16]">
-                        <img src="https://images.unsplash.com/photo-1528740561666-42477bb08524?auto=format&fit=crop&w=600&q=80" alt="Exterior Pressure Cleaning" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent flex flex-col justify-end p-6">
-                            <span class="bg-teal-500 text-slate-950 text-[10px] uppercase font-black px-2 py-0.5 rounded-md self-start mb-2">Live Action</span>
-                            <h4 class="text-white text-lg font-black leading-snug">Blasting 10 Years of Moss Away.</h4>
-                            <p class="text-slate-400 text-xs mt-1">Our heavy-duty rotation jets leave zero residues behind.</p>
-                        </div>
+                <div class="absolute -inset-2 bg-gradient-to-r from-sky-500 to-teal-500 rounded-3xl blur opacity-20"></div>
+                <div class="relative bg-slate-950 p-3 rounded-3xl border border-slate-800 shadow-2xl overflow-hidden aspect-[4/3]">
+                    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80" alt="Professional Facility Maintenance Work" class="w-full h-full object-cover rounded-2xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scope of Work Specification Grid -->
+    <section id="scope" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <span class="text-teal-400 font-extrabold tracking-widest text-xs uppercase block mb-2">Capabilities Deck</span>
+            <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight">Our Professional Scope</h2>
+            <p class="mt-4 text-slate-400 text-sm font-medium">Explore our primary service areas below to review our performance metrics and execution details.</p>
+            
+            <div class="flex flex-wrap justify-center gap-2 mt-8 bg-slate-950 p-2 rounded-2xl border border-slate-800/80 max-w-lg mx-auto">
+                <button @click="activeTab = 'washing'" :class="activeTab === 'washing' ? 'bg-teal-500 text-slate-950 font-black' : 'text-slate-400 hover:text-white'" class="px-4 py-2.5 rounded-xl transition duration-300 text-[11px] uppercase tracking-wider flex-1">Washing & Gutters</button>
+                <button @click="activeTab = 'windows'" :class="activeTab === 'windows' ? 'bg-teal-500 text-slate-950 font-black' : 'text-slate-400 hover:text-white'" class="px-4 py-2.5 rounded-xl transition duration-300 text-[11px] uppercase tracking-wider flex-1">Windows</button>
+                <button @click="activeTab = 'grounds'" :class="activeTab === 'grounds' ? 'bg-teal-500 text-slate-950 font-black' : 'text-slate-400 hover:text-white'" class="px-4 py-2.5 rounded-xl transition duration-300 text-[11px] uppercase tracking-wider flex-1">Grounds & Repairs</button>
+            </div>
+        </div>
+
+        <div class="bg-slate-950 border border-slate-800 rounded-3xl overflow-hidden shadow-2xl">
+            <!-- Scope 1: Power Washing & Gutter Clearing -->
+            <div x-show="activeTab === 'washing'" x-transition class="grid md:grid-cols-2 gap-12 p-8 sm:p-12 items-center">
+                <div class="space-y-6">
+                    <div class="inline-flex p-3 bg-sky-500/10 text-sky-400 rounded-2xl text-xl border border-sky-500/20"><i class="fas fa-bolt-lightning"></i></div>
+                    <h3 class="text-2xl sm:text-3xl font-black text-white">Power Washing & Low-Level Gutters</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed font-medium">
+                        Using commercial-grade high-flow pressure pumps, we safely remove tarmac moss, stubborn surface weeds, and environmental oil stains. We combine this with safe, ground-based diagnostic tools for low-level gutter clearing to eliminate blockages and prevent water pooling issues.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 pt-2 text-xs font-bold text-slate-300">
+                        <div class="flex items-center gap-2"><i class="fas fa-check text-teal-400"></i> Driveways & Patios</div>
+                        <div class="flex items-center gap-2"><i class="fas fa-check text-teal-400"></i> Low-Level Gutter Extraction</div>
+                        <div class="flex items-center gap-2"><i class="fas fa-check text-teal-400"></i> Commercial Facades</div>
+                        <div class="flex items-center gap-2"><i class="fas fa-check text-teal-400"></i> Surface Treatments</div>
                     </div>
                 </div>
+                <div class="rounded-2xl overflow-hidden aspect-video sm:aspect-square bg-slate-900 border border-slate-800">
+                    <img src="https://images.unsplash.com/photo-1613214149874-4f88e530922e?auto=format&fit=crop&w=700&q=80" alt="Power Washing Service" class="w-full h-full object-cover">
+                </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Highly Interactive Service Showcase Tabs with Images -->
-    <section id="services" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-2xl mx-auto mb-16">
-            <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight">Our High-End Craft</h2>
-            <p class="mt-4 text-slate-400 font-medium">Click on a category below to explore real workflows, clear results, and precise engineering details.</p>
-            <div class="flex flex-wrap justify-center gap-2 mt-8 bg-slate-950 p-2 rounded-2xl border border-slate-800 max-w-lg mx-auto">
-                <button @click="activeTab = 'pressure'" :class="activeTab === 'pressure' ? 'bg-teal-500 text-slate-950 font-bold' : 'text-slate-400 hover:text-white'" class="px-4 py-2.5 rounded-xl transition duration-300 text-xs uppercase tracking-wider flex-1 whitespace-nowrap">Pressure</button>
-                <button @click="activeTab = 'window'" :class="activeTab === 'window' ? 'bg-teal-500 text-slate-950 font-bold' : 'text-slate-400 hover:text-white'" class="px-4 py-2.5 rounded-xl transition duration-300 text-xs uppercase tracking-wider flex-1 whitespace-nowrap">Windows</button>
-                <button @click="activeTab = 'gutter'" :class="activeTab === 'gutter' ? 'bg-teal-500 text-slate-950 font-bold' : 'text-slate-400 hover:text-white'" class="px-4 py-2.5 rounded-xl transition duration-300 text-xs uppercase tracking-wider flex-1 whitespace-nowrap">Gutters</button>
-            </div>
-        </div>
-
-        <div class="bg-slate-950 border border-slate-800/80 rounded-3xl overflow-hidden shadow-2xl">
-            <!-- Tab 1: Pressure Washer Details -->
-            <div x-show="activeTab === 'pressure'" x-transition class="grid md:grid-cols-2 gap-8 p-6 sm:p-12 items-center">
+            <!-- Scope 2: Window Cleaning -->
+            <div x-show="activeTab === 'windows'" x-transition class="grid md:grid-cols-2 gap-12 p-8 sm:p-12 items-center">
                 <div class="space-y-6">
-                    <div class="inline-flex p-3 bg-sky-500/10 text-sky-400 rounded-xl text-xl border border-sky-500/20"><i class="fas fa-shower"></i></div>
-                    <h3 class="text-2xl sm:text-3xl font-black text-white">Advanced Hyper-Pressure Blasting</h3>
-                    <p class="text-slate-400 leading-relaxed font-medium">
-                        We don't just splash water. We use commercial grade hot-water systems combined with variable nozzles to scrub tarmac, block paving, stone brick, and concrete driveways clean safely without dislodging essential structural joint sand.
+                    <div class="inline-flex p-3 bg-teal-500/10 text-teal-400 rounded-2xl text-xl border border-teal-500/20"><i class="fas fa-window-maximize"></i></div>
+                    <h3 class="text-2xl sm:text-3xl font-black text-white">Internal & External Window Cleaning</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed font-medium">
+                        We offer specialized low-level internal and external window cleaning for both commercial spaces and residential layouts. Utilizing pure water-fed extension poles, we ensure your glazing dries clear without mineral streaks, residue, or clouding.
                     </p>
-                    <ul class="space-y-2.5 text-sm font-semibold text-slate-300">
-                        <li><i class="fas fa-check-circle text-teal-400 mr-2"></i> Biocide post-treatments eliminate re-growth spores.</li>
-                        <li><i class="fas fa-check-circle text-teal-400 mr-2"></i> Restores slip resistance completely on oil spills.</li>
-                    </ul>
-                    <a href="#pricing-engine" class="inline-flex items-center gap-2 text-teal-400 font-bold hover:text-teal-300 transition group pt-2">Calculate Pressure Wash Cost <i class="fas fa-arrow-right text-xs transform group-hover:translate-x-1 transition-transform"></i></a>
+                    <div class="grid grid-cols-2 gap-4 pt-2 text-xs font-bold text-slate-300">
+                        <div class="flex items-center gap-2"><i class="fas fa-check text-teal-400"></i> Interior Window Buffing</div>
+                        <div class="flex items-center gap-2"><i class="fas fa-check text-teal-400"></i> Frame & Sill Squeegee</div>
+                        <div class="flex items-center gap-2"><i class="fas fa-check text-teal-400"></i> Pure Water Purification</div>
+                        <div class="flex items-center gap-2"><i class="fas fa-check text-teal-400"></i> Low-Level Ground Access</div>
+                    </div>
                 </div>
                 <div class="rounded-2xl overflow-hidden aspect-video sm:aspect-square bg-slate-900 border border-slate-800">
-                    <img src="https://images.unsplash.com/photo-1613214149874-4f88e530922e?auto=format&fit=crop&w=700&q=80" alt="Driveway Washing Machine" class="w-full h-full object-cover">
+                    <img src="https://images.unsplash.com/photo-1603796846097-bee99e4a60c9?auto=format&fit=crop&w=700&q=80" alt="Clean Window Glazing" class="w-full h-full object-cover">
                 </div>
             </div>
 
-            <!-- Tab 2: Window Cleaning Details -->
-            <div x-show="activeTab === 'window'" x-transition class="grid md:grid-cols-2 gap-8 p-6 sm:p-12 items-center">
+            <!-- Scope 3: Grounds, Minor Painting Repairs & Upkeep -->
+            <div x-show="activeTab === 'grounds'" x-transition class="grid md:grid-cols-2 gap-12 p-8 sm:p-12 items-center">
                 <div class="space-y-6">
-                    <div class="inline-flex p-3 bg-teal-500/10 text-teal-400 rounded-xl text-xl border border-teal-500/20"><i class="fas fa-window-shatter"></i></div>
-                    <h3 class="text-2xl sm:text-3xl font-black text-white">De-ionized Pure Water Cleaning</h3>
-                    <p class="text-slate-400 leading-relaxed font-medium">
-                        Using advanced telescopic water-fed carbon fibre poles and 100% molecularly filtered de-ionized water, we remove all dirt, pollen, and salts from frames, sills, and glass panes. Dries completely clear without streaks.
+                    <div class="inline-flex p-3 bg-amber-500/10 text-amber-400 rounded-2xl text-xl border border-amber-500/20"><i class="fas fa-trowel-bricks"></i></div>
+                    <h3 class="text-2xl sm:text-3xl font-black text-white">Grounds Maintenance & Minor Repairs</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed font-medium">
+                        Providing dependable, recurring landscape maintenance alongside handy structural upkeep. This covers precise grass cutting and perimeter strimming, detailed minor painting repairs, and simple facility maintenance fixes designed to keep your structural assets looking fresh and protected.
                     </p>
-                    <ul class="space-y-2.5 text-sm font-semibold text-slate-300">
-                        <li><i class="fas fa-check-circle text-teal-400 mr-2"></i> Zero chemicals used, entirely pet & garden friendly.</li>
-                        <li><i class="fas fa-check-circle text-teal-400 mr-2"></i> Safely reaches up to 3 stories from ground zero level.</li>
-                    </ul>
-                    <a href="#pricing-engine" class="inline-flex items-center gap-2 text-teal-400 font-bold hover:text-teal-300 transition group pt-2">Calculate Window Clean Cost <i class="fas fa-arrow-right text-xs transform group-hover:translate-x-1 transition-transform"></i></a>
+                    <div class="grid grid-cols-2 gap-4 pt-2 text-xs font-bold text-slate-300">
+                        <div class="flex items-center gap-2"><i class="fas fa-check text-teal-400"></i> Grass Cutting & Edging</div>
+                        <div class="flex items-center gap-2"><i class="fas fa-check text-teal-400"></i> Precision Strimming</div>
+                        <div class="flex items-center gap-2"><i class="fas fa-check text-teal-400"></i> Minor Painting Repairs</div>
+                        <div class="flex items-center gap-2"><i class="fas fa-check text-teal-400"></i> Minor Facility Maintenance</div>
+                    </div>
                 </div>
                 <div class="rounded-2xl overflow-hidden aspect-video sm:aspect-square bg-slate-900 border border-slate-800">
-                    <img src="https://images.unsplash.com/photo-1603796846097-bee99e4a60c9?auto=format&fit=crop&w=700&q=80" alt="Sparkling Clean Residential Window" class="w-full h-full object-cover">
-                </div>
-            </div>
-
-            <!-- Tab 3: Gutter Extraction Details -->
-            <div x-show="activeTab === 'gutter'" x-transition class="grid md:grid-cols-2 gap-8 p-6 sm:p-12 items-center">
-                <div class="space-y-6">
-                    <div class="inline-flex p-3 bg-amber-500/10 text-amber-400 rounded-xl text-xl border border-amber-500/20"><i class="fas fa-bucket"></i></div>
-                    <h3 class="text-2xl sm:text-3xl font-black text-white">Vacuum Gutter Extraction & Flush</h3>
-                    <p class="text-slate-400 leading-relaxed font-medium">
-                        Blocked gutters direct pooling water straight inside structural wall cavities causing dampness. We combine high-velocity industrial vacuums with diagnostic real-time video inspection lines to clear paths cleanly.
-                    </p>
-                    <ul class="space-y-2.5 text-sm font-semibold text-slate-300">
-                        <li><i class="fas fa-check-circle text-teal-400 mr-2"></i> Complete downspout clearing included as standard.</li>
-                        <li><i class="fas fa-check-circle text-teal-400 mr-2"></i> Video inspections available before and after execution.</li>
-                    </ul>
-                    <a href="#pricing-engine" class="inline-flex items-center gap-2 text-teal-400 font-bold hover:text-teal-300 transition group pt-2">Calculate Gutter Clean Cost <i class="fas fa-arrow-right text-xs transform group-hover:translate-x-1 transition-transform"></i></a>
-                </div>
-                <div class="rounded-2xl overflow-hidden aspect-video sm:aspect-square bg-slate-900 border border-slate-800">
-                    <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=700&q=80" alt="Roof Gutter Operations" class="w-full h-full object-cover">
+                    <img src="https://images.unsplash.com/photo-1534710910851-f67f41856d28?auto=format&fit=crop&w=700&q=80" alt="Lawn Care Landscaping" class="w-full h-full object-cover">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Interactive Before / After Visual Component -->
-    <section id="interactive-reveal" class="py-20 bg-slate-950 border-y border-slate-800">
+    <!-- Before / After Slider Section -->
+    <section id="visual-proof" class="py-20 bg-slate-950 border-y border-slate-800">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center" x-data="{ sliderPos: 50 }">
-            <h2 class="text-2xl sm:text-4xl font-black text-white mb-3">Slide to Reveal the BD Premium Magic</h2>
-            <p class="text-slate-400 text-sm max-w-xl mx-auto mb-10">Drag the central handle left and right horizontally across the layout block to contrast weathered surfaces with our premium treatments.</p>
-            <div class="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl border-4 border-slate-800 select-none">
-                <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=1200&q=80" alt="Before Cleaning" class="absolute inset-0 w-full h-full object-cover grayscale brightness-50 contrast-125">
-                <div class="absolute bottom-4 left-4 bg-red-600/90 text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded">Before Treatment</div>
+            <h2 class="text-2xl sm:text-4xl font-black text-white mb-2">The Quality Standard</h2>
+            <p class="text-slate-400 text-xs max-w-xl mx-auto mb-10">Slide the center controller horizontally to inspect our precision surface finish.</p>
+            <div class="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl border-2 border-slate-800 select-none">
+                <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=1200&q=80" alt="Weathered Surface" class="absolute inset-0 w-full h-full object-cover grayscale brightness-50 contrast-125">
+                <div class="absolute bottom-4 left-4 bg-red-600/90 text-white text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded">Before Care</div>
                 <div class="absolute inset-0 w-full h-full" :style="'clip-path: inset(0 0 0 ' + sliderPos + '%)'">
-                    <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=1200&q=80" alt="After Cleaning" class="absolute inset-0 w-full h-full object-cover">
-                    <div class="absolute bottom-4 right-4 bg-teal-500 text-slate-950 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded">BD Premium Clean</div>
+                    <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=1200&q=80" alt="Finished Surface" class="absolute inset-0 w-full h-full object-cover">
+                    <div class="absolute bottom-4 right-4 bg-teal-500 text-slate-950 text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded">BD Premium Standard</div>
                 </div>
                 <input type="range" min="0" max="100" x-model="sliderPos" class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-30">
-                <div class="absolute top-0 bottom-0 w-[4px] bg-teal-400 z-20 pointer-events-none shadow" :style="'left: ' + sliderPos + '%'">
-                    <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-8 bg-teal-400 text-slate-950 rounded-full flex items-center justify-center shadow-lg pointer-events-none text-xs">
+                <div class="absolute top-0 bottom-0 w-[2px] bg-teal-400 z-20 pointer-events-none" :style="'left: ' + sliderPos + '%'">
+                    <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-8 bg-teal-400 text-slate-950 rounded-full flex items-center justify-center shadow-lg text-xs">
                         <i class="fas fa-arrows-left-right"></i>
                     </div>
                 </div>
@@ -215,128 +209,117 @@
         </div>
     </section>
 
-    <!-- AI Smart Real-Time Cost Estimator Engine -->
-    <section id="pricing-engine" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" x-data="{ service: 'pressure', dimensions: 120, regionFee: 0 }">
+    <!-- High-Level Budget Estimator Matrix -->
+    <section id="estimation-engine" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-12 gap-12 items-center">
             <div class="lg:col-span-7 space-y-6">
-                <span class="text-teal-400 font-extrabold tracking-widest text-xs uppercase block">Intelligent Cost Calculator</span>
-                <h2 class="text-3xl sm:text-5xl font-black text-white">Clear Estimates. <br>Zero Confusing Pricing Loops.</h2>
-                <p class="text-slate-400 font-medium">Configure your service metrics and get an instant guide. No salesman, no hassle, no secret fees.</p>
+                <span class="text-teal-400 font-extrabold tracking-widest text-xs uppercase block">High-Level Budget Planner</span>
+                <h2 class="text-3xl sm:text-5xl font-black text-white leading-tight">Bespoke Scope Planning.</h2>
+                <p class="text-slate-400 text-sm font-medium">Configure rough parameters below to calculate a baseline indicator. Please note that all calculations are strictly high-level preliminary guide estimates to assist with structural scoping.</p>
+                
                 <div class="space-y-6 bg-slate-950 p-6 sm:p-8 rounded-2xl border border-slate-800">
                     <div>
-                        <label class="block text-xs font-bold uppercase tracking-wide text-slate-400 mb-2">Select Target Service Area</label>
-                        <select x-model="service" class="w-full bg-slate-900 border-2 border-slate-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-teal-500 font-semibold text-sm">
-                            <option value="pressure">Driveway / Patio Pressure Wash (€1.20 / sq m)</option>
-                            <option value="window">Exterior Pure Window Scrub (€9.00 / individual window)</option>
-                            <option value="gutter">Gutter Extraction & Downspout Flush (€3.50 / linear meter)</option>
+                        <label class="block text-xs font-black uppercase tracking-wide text-slate-400 mb-2">Core Service Category Selection</label>
+                        <select x-model="jobType" class="w-full bg-slate-900 border-2 border-slate-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-teal-500 font-bold text-sm">
+                            <option value="washing">Power Washing Base Indicator (€1.20 / sq meter)</option>
+                            <option value="windows">Window Cleaning Base Indicator (€9.00 / window module)</option>
+                            <option value="gutters">Low-Level Gutter Base Indicator (€3.50 / linear meter)</option>
+                            <option value="grounds">Grass Cutting / Minor Painting Repair Analysis Block</option>
                         </select>
                     </div>
                     <div>
-                        <label class="block text-xs font-bold uppercase tracking-wide text-slate-400 mb-2">Select Your Location Region</label>
-                        <select x-model.number="regionFee" class="w-full bg-slate-900 border-2 border-slate-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-teal-500 font-semibold text-sm">
-                            <option value="0">Zone A Central Hub (€0.00 Callout)</option>
-                            <option value="15">Zone B Commuter Ring (€15.00 Callout)</option>
-                            <option value="25">Zone C Outer Districts (€25.00 Callout)</option>
-                            <option value="35">Zone D Extended Territory (€35.00 Callout)</option>
-                        </select>
-                    </div>
-                    <div>
-                        <div class="flex justify-between font-bold text-sm mb-2 text-slate-300">
+                        <div class="flex justify-between font-bold text-xs uppercase tracking-wider mb-2 text-slate-400">
                             <span>
-                                <span x-show="service === 'pressure'">Total Surface Area (sq meters)</span>
-                                <span x-show="service === 'window'">Total Windows Count</span>
-                                <span x-show="service === 'gutter'">Total Gutter Run Length (meters)</span>
+                                <span x-show="jobType === 'washing'">Approx Surface Scope (sq m)</span>
+                                <span x-show="jobType === 'windows'">Approx Window Units</span>
+                                <span x-show="jobType === 'gutters'">Approx Gutter Scope (m)</span>
+                                <span x-show="jobType === 'grounds'">Fixed Scope Complexity Level</span>
                             </span>
-                            <span class="text-teal-400 text-base" x-text="dimensions"></span>
+                            <span class="text-teal-400 text-base" x-text="structuralUnits"></span>
                         </div>
-                        <input type="range" :min="service === 'window' ? 4 : 20" :max="service === 'window' ? 40 : 350" step="1" x-model="dimensions" class="w-full accent-teal-400 bg-slate-800 h-2 rounded-lg appearance-none cursor-pointer">
+                        <input type="range" :min="jobType === 'windows' ? 5 : 20" :max="jobType === 'windows' ? 30 : 300" step="1" x-model="structuralUnits" class="w-full accent-teal-400 bg-slate-800 h-2 rounded-lg appearance-none cursor-pointer">
                     </div>
                 </div>
-            </div>
-            <div class="lg:col-span-5 bg-gradient-to-b from-slate-950 to-slate-900 border-2 border-slate-800 p-8 sm:p-10 rounded-3xl relative text-center shadow-2xl">
-                <div class="absolute top-4 right-4 px-3 py-1 bg-teal-500/10 border border-teal-500/20 text-teal-400 rounded-md text-[10px] font-black uppercase tracking-wider">Estimated Invoice</div>
-                <i class="fas fa-file-invoice-dollar text-slate-800 text-7xl absolute left-6 top-6 pointer-events-none"></i>
-                <h4 class="text-slate-400 font-bold uppercase tracking-widest text-xs mt-4">Calculated Total</h4>
-                <div class="text-5xl sm:text-6xl font-black text-white my-6 tracking-tight">
-                    €<span x-text="( (service === 'pressure' ? (dimensions * 1.20) : (service === 'window' ? (dimensions * 9.00) : (dimensions * 3.50))) + regionFee ).toFixed(2)"></span>
-                </div>
-                <div class="border-t border-dashed border-slate-800 pt-6 space-y-2 text-left text-xs font-semibold text-slate-400">
-                    <p class="flex justify-between"><span>Premium Insurance Liability Cover:</span> <span class="text-teal-400">Included</span></p>
-                    <p class="flex justify-between"><span>Regional Callout Dispatch Fee:</span> <span class="text-teal-400" x-text="regionFee === 0 ? 'FREE' : '€' + regionFee.toFixed(2)"></span></p>
-                </div>
-                <a href="#contact-hub" class="block w-full accent-gradient text-slate-950 font-black py-4 rounded-xl mt-8 shadow-lg shadow-teal-400/10 transition transform hover:-translate-y-0.5 text-center text-sm uppercase tracking-wider">Book This Estimate Now</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Dynamic Client Review Integration Board -->
-    <section id="reviews" class="py-24 bg-slate-950 border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-xl mx-auto mb-12">
-                <h3 class="text-2xl sm:text-3xl font-black text-white">Client Feedback Engine</h3>
-                <p class="text-slate-400 text-sm mt-2">Verified local reviews are provisioning soon. Check back shortly to view recent residential transformations.</p>
             </div>
             
-            <!-- Sleek, High-End Placeholder Box -->
-            <div class="max-w-xl mx-auto bg-slate-900 border-2 border-dashed border-slate-800 rounded-2xl p-8 text-center space-y-4">
-                <div class="inline-flex items-center justify-center w-12 h-12 bg-teal-500/10 text-teal-400 rounded-full text-xl">
-                    <i class="fas fa-star-sharp-half-stroke animate-pulse"></i>
+            <div class="lg:col-span-5 bg-gradient-to-b from-slate-950 to-slate-900 border border-slate-800 p-8 rounded-3xl relative text-center shadow-2xl">
+                <div class="absolute top-4 right-4 px-2 py-0.5 bg-amber-500/10 border border-amber-500/20 text-amber-400 rounded text-[9px] font-black uppercase tracking-widest">Initial Guideline Only</div>
+                <h4 class="text-slate-500 font-bold uppercase tracking-widest text-xs mt-2">Preliminary Base Estimate</h4>
+                <div class="text-5xl sm:text-6xl font-black text-white my-6 tracking-tight">
+                    <span x-show="jobType !== 'grounds'">€<span x-text="(jobType === 'washing' ? (structuralUnits * 1.20) : (jobType === 'windows' ? (structuralUnits * 9.00) : (structuralUnits * 3.50))).toFixed(2)"></span></span>
+                    <span x-show="jobType === 'grounds'" class="text-2xl sm:text-3xl text-teal-400 font-black tracking-normal uppercase">Custom Quote</span>
                 </div>
-                <h4 class="text-white font-bold text-base">Have we recently cleaned your property?</h4>
-                <p class="text-slate-400 text-xs leading-relaxed">We take pride in our precision workmanship. Once your service contract wraps up, your custom completion link will publish your input safely here.</p>
-                <a href="#contact-hub" class="inline-block text-xs bg-slate-950 border border-slate-700 hover:border-teal-400 text-slate-300 hover:text-white px-4 py-2 rounded-xl font-bold transition duration-300">Request Call Back</a>
+                
+                <!-- LEGAL DISCLAIMERS INTEGRATED -->
+                <div class="text-left bg-slate-900/80 border border-slate-800 rounded-xl p-4 space-y-2.5 text-xs text-slate-400 mb-6 font-medium">
+                    <p class="flex items-start gap-2">
+                        <i class="fas fa-circle-info text-amber-400 mt-0.5 flex-shrink-0"></i>
+                        <span>This configuration is strictly a high-level tool and does not represent a final fixed binding contract valuation.</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                        <i class="fas fa-truck-ramp-box text-sky-400 mt-0.5 flex-shrink-0"></i>
+                        <span>Call-out charges are applicable depending on the distance to your location across County Cork.</span>
+                    </p>
+                </div>
+                
+                <a href="#contact-hub" class="block w-full accent-gradient text-slate-950 font-black py-4 rounded-xl text-xs uppercase tracking-wider shadow-lg">Request Accurate Field Evaluation</a>
             </div>
         </div>
     </section>
 
-    <!-- Comprehensive High-Conversion Booking Lead Form Section -->
+    <!-- Project Pipeline Dispatch System (Formspree Live Connection) -->
     <section id="contact-hub" class="py-24 max-w-5xl mx-auto px-4 sm:px-6">
         <div class="bg-slate-950 border border-slate-800/80 rounded-3xl shadow-2xl overflow-hidden grid md:grid-cols-12">
             <div class="bg-gradient-to-b from-slate-900 to-slate-950 p-8 md:col-span-5 flex flex-col justify-between border-b md:border-b-0 md:border-r border-slate-800">
                 <div class="space-y-4">
-                    <h3 class="text-2xl font-black text-white">Let’s Lock In Your Clean.</h3>
-                    <p class="text-slate-400 text-sm font-medium leading-relaxed">Fill out your parameters below. Our dispatch team handles routing schedules and contacts you promptly.</p>
+                    <h3 class="text-2xl font-black text-white">Let's Secure Your Project Details.</h3>
+                    <p class="text-slate-400 text-xs font-medium leading-relaxed">Provide your operational parameters and contact points below. Our scheduling office evaluates project specifics and issues final custom project pricing packages.</p>
                 </div>
-                <div class="space-y-3 pt-8 text-xs font-semibold text-slate-300">
-                    <p class="flex items-center gap-3"><i class="fas fa-phone text-teal-400 text-base"></i> 089 947 9862</p>
-                    <p class="flex items-center gap-3"><i class="fas fa-envelope text-teal-400 text-base"></i> info@bdpropertycare.ie</p>
-                    <p class="flex items-center gap-3"><i class="fas fa-shield-check text-teal-400 text-base"></i> Fully Insured & Certified Liability Cover</p>
+                <div class="space-y-3.5 pt-8 text-xs font-bold text-slate-300">
+                    <p class="flex items-center gap-3"><i class="fas fa-phone text-teal-400 text-sm"></i> 089 947 9862</p>
+                    <p class="flex items-center gap-3"><i class="fas fa-envelope text-teal-400 text-sm"></i> info@bdpropertycare.ie</p>
+                    <p class="flex items-center gap-3"><i class="fas fa-shield-halved text-teal-400 text-sm"></i> Fully Insured Public Liability Coverage</p>
                 </div>
             </div>
-            <form class="p-8 md:col-span-7 space-y-5 text-sm" onsubmit="alert('Thank you! The BD Premium Property Care crew has received your data and will ping your mobile device shortly.'); return false;">
+            
+            <!-- MASTER FORMSPREE PIPELINE LIVE CONNECTION -->
+            <form action="https://formspree.io/f/xeebgyae" method="POST" class="p-8 md:col-span-7 space-y-5 text-sm">
+                <!-- Anti-Spam Honeypot Integration -->
+                <input type="text" name="_gotcha" style="display:none">
+                
                 <div class="grid sm:grid-cols-2 gap-4">
                     <div>
-                        <label class="block text-xs font-bold uppercase text-slate-400 mb-1">Your Full Name</label>
-                        <input type="text" required class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-teal-500 font-medium" placeholder="First & Last Name">
+                        <label class="block text-xs font-black uppercase text-slate-400 mb-1 tracking-wider">Your Full Name</label>
+                        <input type="text" name="Client Name" required class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-teal-500 font-semibold" placeholder="First & Last Name">
                     </div>
                     <div>
-                        <label class="block text-xs font-bold uppercase text-slate-400 mb-1">Address / Eircode</label>
-                        <input type="text" required class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-teal-500 font-medium" placeholder="E.g., T12 X345">
+                        <label class="block text-xs font-black uppercase text-slate-400 mb-1 tracking-wider">Address / Eircode</label>
+                        <input type="text" name="Property Location Address" required class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-teal-500 font-semibold" placeholder="E.g., Cork City / T12 X345">
                     </div>
                 </div>
                 <div class="grid sm:grid-cols-2 gap-4">
                     <div>
-                        <label class="block text-xs font-bold uppercase text-slate-400 mb-1">Mobile Contact Number</label>
-                        <input type="tel" required class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-teal-500 font-medium" placeholder="E.g., 089 947 9862">
+                        <label class="block text-xs font-black uppercase text-slate-400 mb-1 tracking-wider">Mobile Contact Number</label>
+                        <input type="tel" name="Phone Contact" required class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-teal-500 font-semibold" placeholder="E.g., 089 947 9862">
                     </div>
                     <div>
-                        <label class="block text-xs font-bold uppercase text-slate-400 mb-1">Email Address</label>
-                        <input type="email" required class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-teal-500 font-medium" placeholder="name@example.com">
+                        <label class="block text-xs font-black uppercase text-slate-400 mb-1 tracking-wider">Email Address</label>
+                        <input type="email" name="Email Address" required class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-teal-500 font-semibold" placeholder="info@bdpropertycare.ie">
                     </div>
                 </div>
                 <div>
-                    <label class="block text-xs font-bold uppercase text-slate-400 mb-1">Special Condition Notes (Optional)</label>
-                    <textarea rows="3" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-teal-500 font-medium" placeholder="Mention heavy lichen growth, deep mud levels, specific gutter issues, etc..."></textarea>
+                    <label class="block text-xs font-black uppercase text-slate-400 mb-1 tracking-wider">Project Scope / Material Notes</label>
+                    <textarea rows="4" name="Project Details Description" required class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-teal-500 font-semibold" placeholder="Please list details (e.g., Grass cut areas, Internal window counts, Minor painting repairs, Repair requirements)..."></textarea>
                 </div>
-                <button type="submit" class="w-full accent-gradient text-slate-950 font-black py-4 rounded-xl shadow-xl transition-all transform hover:-translate-y-0.5 uppercase text-xs tracking-wider">Submit Secure Dispatch Request</button>
+                <button type="submit" class="w-full accent-gradient text-slate-950 font-black py-4 rounded-xl shadow-xl transition transform hover:-translate-y-0.5 uppercase text-xs tracking-widest">Submit Secure Dispatch Request</button>
             </form>
         </div>
     </section>
 
-    <!-- Clean Premium Footer -->
+    <!-- Footer Architecture -->
     <footer class="bg-slate-950 border-t border-slate-900 py-12 text-center text-xs text-slate-500 font-medium">
         <p class="mb-2">&copy; 2026 BD Premium Property Care. All Rights Reserved.</p>
-        <p class="text-slate-600">Engineered with absolute high-speed micro-framework components.</p>
+        <p class="text-slate-600">Commercial & Residential Property Maintenance Solutions.</p>
     </footer>
 
 </body>
