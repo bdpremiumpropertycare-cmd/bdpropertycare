@@ -22,6 +22,7 @@
         structuralUnits: 100, 
         gdprConsent: false,
         heroBookingConsent: false,
+        contactBookingConsent: false,
         showPrivacy: false,
         showTerms: false,
         cookieBanner: !localStorage.getItem('bd_cookies_accepted')
@@ -295,9 +296,16 @@
                 </div>
                 <div class="pt-8">
                     <p class="text-[11px] text-slate-500 font-medium mb-3">Prefer a quick form? Book directly online:</p>
-                    <a href="https://forms.gle/Vki1WeTkTdkCjz1T6" target="_blank" rel="noopener" class="w-full bg-slate-900 border border-slate-800 hover:border-teal-500/60 text-white font-black py-3.5 rounded-xl text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition">
-                        <i class="fas fa-calendar-check text-teal-400"></i> Booking & Quote Request Form
+                    <a href="https://forms.gle/Vki1WeTkTdkCjz1T6" target="_blank" rel="noopener"
+                       @click="if(!contactBookingConsent){ $event.preventDefault(); }"
+                       :class="contactBookingConsent ? 'bg-slate-900 border-slate-800 hover:border-teal-500/60 text-white cursor-pointer' : 'bg-slate-900/50 border-slate-800/50 text-slate-600 cursor-not-allowed'"
+                       class="w-full border font-black py-3.5 rounded-xl text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition">
+                        <i class="fas fa-calendar-check" :class="contactBookingConsent ? 'text-teal-400' : 'text-slate-600'"></i> Booking & Quote Request Form
                     </a>
+                    <label class="flex items-start gap-2 text-[11px] text-slate-500 font-medium mt-3 cursor-pointer select-none">
+                        <input type="checkbox" x-model="contactBookingConsent" class="mt-0.5 w-3.5 h-3.5 rounded border-slate-700 bg-slate-950 text-teal-500 focus:ring-teal-500 focus:ring-offset-slate-900 accent-teal-400">
+                        <span>I have read and agree to the <button type="button" @click="showTerms = true" class="text-teal-400 underline font-bold hover:text-teal-300">Terms & Conditions</button> before booking.</span>
+                    </label>
                 </div>
             </div>
             
