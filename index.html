@@ -21,11 +21,26 @@
         jobType: 'washing', 
         structuralUnits: 100, 
         gdprConsent: false,
-        heroBookingConsent: false,
-        contactBookingConsent: false,
+        bookingGateOpen: false,
+        bookingGateChecked: false,
+        bookingGateAgreed: false,
         showPrivacy: false,
         showTerms: false,
-        cookieBanner: !localStorage.getItem('bd_cookies_accepted')
+        cookieBanner: !localStorage.getItem('bd_cookies_accepted'),
+        openBookingGate() {
+            if (this.bookingGateAgreed) {
+                window.open('https://forms.gle/Vki1WeTkTdkCjz1T6', '_blank');
+            } else {
+                this.bookingGateChecked = false;
+                this.bookingGateOpen = true;
+            }
+        },
+        confirmBookingGate() {
+            if (!this.bookingGateChecked) return;
+            this.bookingGateAgreed = true;
+            this.bookingGateOpen = false;
+            window.open('https://forms.gle/Vki1WeTkTdkCjz1T6', '_blank');
+        }
       }">
 
     <div class="bg-gradient-to-r from-amber-600 via-orange-600 to-amber-600 text-slate-950 text-center py-4 px-4 shadow-2xl relative z-50 border-b border-orange-500/30">
@@ -41,7 +56,7 @@
     </div>
 
     <div class="fixed bottom-24 left-6 z-40 lg:hidden">
-        <a href="https://forms.gle/Vki1WeTkTdkCjz1T6" target="_blank" rel="noopener" class="accent-gradient text-slate-950 font-black px-4 py-3.5 rounded-xl shadow-2xl text-xs uppercase tracking-wider flex items-center gap-2 border border-teal-300/30">
+        <a href="https://forms.gle/Vki1WeTkTdkCjz1T6" target="_blank" rel="noopener" @click.prevent="openBookingGate()" class="accent-gradient text-slate-950 font-black px-4 py-3.5 rounded-xl shadow-2xl text-xs uppercase tracking-wider flex items-center gap-2 border border-teal-300/30">
             <i class="fas fa-calendar-check text-sm animate-bounce"></i> Free Estimate
         </a>
     </div>
@@ -71,7 +86,7 @@
                     <a href="#scope" class="text-slate-300 hover:text-sky-400 transition-colors">Our Scope</a>
                     <a href="#visual-proof" class="text-slate-300 hover:text-sky-400 transition-colors">Quality Standard</a>
                     <a href="#estimation-engine" class="text-slate-300 hover:text-sky-400 transition-colors">Estimator Base</a>
-                    <a href="https://forms.gle/Vki1WeTkTdkCjz1T6" target="_blank" rel="noopener" class="text-slate-300 hover:text-sky-400 transition-colors">Book Online</a>
+                    <a href="https://forms.gle/Vki1WeTkTdkCjz1T6" target="_blank" rel="noopener" @click.prevent="openBookingGate()" class="text-slate-300 hover:text-sky-400 transition-colors">Book Online</a>
                     <a href="#contact-hub" class="accent-gradient text-slate-950 px-5 py-3 rounded-xl hover:opacity-90 transition shadow-lg font-black">Submit Project Details</a>
                 </div>
                 <div class="flex items-center lg:hidden">
@@ -85,7 +100,7 @@
             <a href="#scope" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-cubes text-teal-400 mr-3"></i>Our Scope</a>
             <a href="#visual-proof" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-eye text-teal-400 mr-3"></i>Quality Standard</a>
             <a href="#estimation-engine" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-calculator text-teal-400 mr-3"></i>Estimator Base</a>
-            <a href="https://forms.gle/Vki1WeTkTdkCjz1T6" target="_blank" rel="noopener" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-calendar-check text-teal-400 mr-3"></i>Book Online</a>
+            <a href="https://forms.gle/Vki1WeTkTdkCjz1T6" target="_blank" rel="noopener" @click.prevent="mobileMenu = false; openBookingGate()" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-calendar-check text-teal-400 mr-3"></i>Book Online</a>
             <a href="#contact-hub" @click="mobileMenu = false" class="block text-center accent-gradient text-slate-950 py-3.5 rounded-xl font-black text-sm uppercase">Submit Request</a>
         </div>
     </nav>
@@ -105,10 +120,7 @@
                     Commercial-grade power washing, low-level glazing maintenance, and precision grounds upkeep across County Cork. Engineered for property managers and homeowners who demand immaculate results.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
-                    <a href="https://forms.gle/Vki1WeTkTdkCjz1T6" target="_blank" rel="noopener"
-                       @click="if(!heroBookingConsent){ $event.preventDefault(); }"
-                       :class="heroBookingConsent ? 'accent-gradient text-slate-950 opacity-100 cursor-pointer hover:scale-105' : 'bg-slate-800 text-slate-500 opacity-50 cursor-not-allowed'"
-                       class="font-black px-8 py-4 rounded-xl shadow-xl transition duration-300 text-center text-xs uppercase tracking-wider">
+                    <a href="https://forms.gle/Vki1WeTkTdkCjz1T6" target="_blank" rel="noopener" @click.prevent="openBookingGate()" class="accent-gradient text-slate-950 font-black px-8 py-4 rounded-xl shadow-xl hover:scale-105 transition duration-300 text-center text-xs uppercase tracking-wider">
                         <i class="fas fa-calendar-check mr-2"></i> Book a Free Quote
                     </a>
                     <a href="#estimation-engine" class="bg-slate-950 border border-slate-800 hover:border-slate-700 text-white font-bold px-8 py-4 rounded-xl transition duration-300 text-center flex items-center justify-center gap-2 text-xs uppercase tracking-wider">
@@ -118,10 +130,6 @@
                         <i class="fab fa-whatsapp text-emerald-400"></i> Instant WhatsApp Chat
                     </a>
                 </div>
-                <label class="flex items-start gap-2 justify-center lg:justify-start text-[11px] text-slate-400 font-medium max-w-md mx-auto lg:mx-0 cursor-pointer select-none pt-1">
-                    <input type="checkbox" x-model="heroBookingConsent" class="mt-0.5 w-3.5 h-3.5 rounded border-slate-700 bg-slate-950 text-teal-500 focus:ring-teal-500 focus:ring-offset-slate-900 accent-teal-400">
-                    <span>I have read and agree to the <button type="button" @click="showTerms = true" class="text-teal-400 underline font-bold hover:text-teal-300">Terms & Conditions</button> before booking a free quote.</span>
-                </label>
             </div>
             <div class="lg:col-span-5 relative">
                 <div class="absolute -inset-2 bg-gradient-to-r from-sky-500 to-teal-500 rounded-3xl blur opacity-20"></div>
@@ -296,16 +304,9 @@
                 </div>
                 <div class="pt-8">
                     <p class="text-[11px] text-slate-500 font-medium mb-3">Prefer a quick form? Book directly online:</p>
-                    <a href="https://forms.gle/Vki1WeTkTdkCjz1T6" target="_blank" rel="noopener"
-                       @click="if(!contactBookingConsent){ $event.preventDefault(); }"
-                       :class="contactBookingConsent ? 'bg-slate-900 border-slate-800 hover:border-teal-500/60 text-white cursor-pointer' : 'bg-slate-900/50 border-slate-800/50 text-slate-600 cursor-not-allowed'"
-                       class="w-full border font-black py-3.5 rounded-xl text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition">
-                        <i class="fas fa-calendar-check" :class="contactBookingConsent ? 'text-teal-400' : 'text-slate-600'"></i> Booking & Quote Request Form
+                    <a href="https://forms.gle/Vki1WeTkTdkCjz1T6" target="_blank" rel="noopener" @click.prevent="openBookingGate()" class="w-full bg-slate-900 border border-slate-800 hover:border-teal-500/60 text-white font-black py-3.5 rounded-xl text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition">
+                        <i class="fas fa-calendar-check text-teal-400"></i> Booking & Quote Request Form
                     </a>
-                    <label class="flex items-start gap-2 text-[11px] text-slate-500 font-medium mt-3 cursor-pointer select-none">
-                        <input type="checkbox" x-model="contactBookingConsent" class="mt-0.5 w-3.5 h-3.5 rounded border-slate-700 bg-slate-950 text-teal-500 focus:ring-teal-500 focus:ring-offset-slate-900 accent-teal-400">
-                        <span>I have read and agree to the <button type="button" @click="showTerms = true" class="text-teal-400 underline font-bold hover:text-teal-300">Terms & Conditions</button> before booking.</span>
-                    </label>
                 </div>
             </div>
             
@@ -467,6 +468,27 @@
             <div class="pt-4 border-t border-slate-800 text-right">
                 <button @click="showTerms = false" class="bg-slate-950 border border-slate-800 hover:border-slate-700 text-white font-bold px-5 py-2.5 rounded-xl text-xs uppercase tracking-wider transition">Close Framework View</button>
             </div>
+        </div>
+    </div>
+
+    <div x-show="bookingGateOpen" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 flex items-center justify-center p-4" x-transition>
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-md w-full p-6 sm:p-8 space-y-6 text-left shadow-2xl relative" @click.away="bookingGateOpen = false">
+            <button @click="bookingGateOpen = false" class="absolute top-6 right-6 text-slate-400 hover:text-white bg-slate-950 border border-slate-800 w-8 h-8 rounded-lg flex items-center justify-center"><i class="fas fa-times"></i></button>
+
+            <div class="border-b border-slate-800 pb-4 pr-8">
+                <div class="inline-flex p-2.5 bg-teal-500/10 text-teal-400 rounded-xl text-base border border-teal-500/20 mb-3"><i class="fas fa-calendar-check"></i></div>
+                <h3 class="text-lg font-black text-white uppercase tracking-wide">Before You Book</h3>
+                <p class="text-xs text-slate-500 mt-1 font-semibold">Please confirm before continuing to our booking form.</p>
+            </div>
+
+            <label class="flex items-start gap-3 cursor-pointer select-none">
+                <input type="checkbox" x-model="bookingGateChecked" class="mt-1 w-4 h-4 rounded border-slate-700 bg-slate-950 text-teal-500 focus:ring-teal-500 focus:ring-offset-slate-900 accent-teal-400">
+                <span class="text-xs text-slate-300 font-medium leading-relaxed">
+                    I have read and agree to BD Premium Property Care's <button type="button" @click="showTerms = true" class="text-teal-400 underline font-bold hover:text-teal-300">Terms & Conditions</button> and <button type="button" @click="showPrivacy = true" class="text-teal-400 underline font-bold hover:text-teal-300">Privacy Policy</button>.
+                </span>
+            </label>
+
+            <button @click="confirmBookingGate()" :disabled="!bookingGateChecked" :class="bookingGateChecked ? 'accent-gradient text-slate-950 opacity-100 cursor-pointer hover:-translate-y-0.5' : 'bg-slate-800 text-slate-500 opacity-50 cursor-not-allowed'" class="w-full font-black py-4 rounded-xl shadow-xl transition transform uppercase text-xs tracking-widest">Continue to Booking Form</button>
         </div>
     </div>
 
