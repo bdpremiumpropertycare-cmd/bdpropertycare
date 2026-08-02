@@ -379,7 +379,7 @@
         </div>
     </div>
 
-    <div x-show="showPrivacy" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 flex items-center justify-center p-4" x-transition>
+    <div x-show="showPrivacy" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-[60] flex items-center justify-center p-4" x-transition>
         <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto p-6 sm:p-8 space-y-6 text-left shadow-2xl relative" @click.away="showPrivacy = false">
             <button @click="showPrivacy = false" class="absolute top-6 right-6 text-slate-400 hover:text-white bg-slate-950 border border-slate-800 w-8 h-8 rounded-lg flex items-center justify-center"><i class="fas fa-times"></i></button>
             
@@ -413,7 +413,7 @@
         </div>
     </div>
 
-    <div x-show="showTerms" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 flex items-center justify-center p-4" x-transition>
+    <div x-show="showTerms" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-[60] flex items-center justify-center p-4" x-transition>
         <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto p-6 sm:p-8 space-y-6 text-left shadow-2xl relative" @click.away="showTerms = false">
             <button @click="showTerms = false" class="absolute top-6 right-6 text-slate-400 hover:text-white bg-slate-950 border border-slate-800 w-8 h-8 rounded-lg flex items-center justify-center"><i class="fas fa-times"></i></button>
 
