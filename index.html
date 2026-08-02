@@ -21,7 +21,9 @@
         jobType: 'washing', 
         structuralUnits: 100, 
         gdprConsent: false,
+        heroBookingConsent: false,
         showPrivacy: false,
+        showTerms: false,
         cookieBanner: !localStorage.getItem('bd_cookies_accepted')
       }">
 
@@ -38,7 +40,7 @@
     </div>
 
     <div class="fixed bottom-24 left-6 z-40 lg:hidden">
-        <a href="#contact-hub" class="accent-gradient text-slate-950 font-black px-4 py-3.5 rounded-xl shadow-2xl text-xs uppercase tracking-wider flex items-center gap-2 border border-teal-300/30">
+        <a href="https://forms.gle/Vki1WeTkTdkCjz1T6" target="_blank" rel="noopener" class="accent-gradient text-slate-950 font-black px-4 py-3.5 rounded-xl shadow-2xl text-xs uppercase tracking-wider flex items-center gap-2 border border-teal-300/30">
             <i class="fas fa-calendar-check text-sm animate-bounce"></i> Free Estimate
         </a>
     </div>
@@ -68,6 +70,7 @@
                     <a href="#scope" class="text-slate-300 hover:text-sky-400 transition-colors">Our Scope</a>
                     <a href="#visual-proof" class="text-slate-300 hover:text-sky-400 transition-colors">Quality Standard</a>
                     <a href="#estimation-engine" class="text-slate-300 hover:text-sky-400 transition-colors">Estimator Base</a>
+                    <a href="https://forms.gle/Vki1WeTkTdkCjz1T6" target="_blank" rel="noopener" class="text-slate-300 hover:text-sky-400 transition-colors">Book Online</a>
                     <a href="#contact-hub" class="accent-gradient text-slate-950 px-5 py-3 rounded-xl hover:opacity-90 transition shadow-lg font-black">Submit Project Details</a>
                 </div>
                 <div class="flex items-center lg:hidden">
@@ -81,6 +84,7 @@
             <a href="#scope" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-cubes text-teal-400 mr-3"></i>Our Scope</a>
             <a href="#visual-proof" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-eye text-teal-400 mr-3"></i>Quality Standard</a>
             <a href="#estimation-engine" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-calculator text-teal-400 mr-3"></i>Estimator Base</a>
+            <a href="https://forms.gle/Vki1WeTkTdkCjz1T6" target="_blank" rel="noopener" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-calendar-check text-teal-400 mr-3"></i>Book Online</a>
             <a href="#contact-hub" @click="mobileMenu = false" class="block text-center accent-gradient text-slate-950 py-3.5 rounded-xl font-black text-sm uppercase">Submit Request</a>
         </div>
     </nav>
@@ -100,13 +104,23 @@
                     Commercial-grade power washing, low-level glazing maintenance, and precision grounds upkeep across County Cork. Engineered for property managers and homeowners who demand immaculate results.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
-                    <a href="#estimation-engine" class="accent-gradient text-slate-950 font-black px-8 py-4 rounded-xl shadow-xl hover:scale-105 transition duration-300 text-center text-xs uppercase tracking-wider">
-                        <i class="fas fa-sliders mr-2"></i> High-Level Estimator
+                    <a href="https://forms.gle/Vki1WeTkTdkCjz1T6" target="_blank" rel="noopener"
+                       @click="if(!heroBookingConsent){ $event.preventDefault(); }"
+                       :class="heroBookingConsent ? 'accent-gradient text-slate-950 opacity-100 cursor-pointer hover:scale-105' : 'bg-slate-800 text-slate-500 opacity-50 cursor-not-allowed'"
+                       class="font-black px-8 py-4 rounded-xl shadow-xl transition duration-300 text-center text-xs uppercase tracking-wider">
+                        <i class="fas fa-calendar-check mr-2"></i> Book a Free Quote
+                    </a>
+                    <a href="#estimation-engine" class="bg-slate-950 border border-slate-800 hover:border-slate-700 text-white font-bold px-8 py-4 rounded-xl transition duration-300 text-center flex items-center justify-center gap-2 text-xs uppercase tracking-wider">
+                        <i class="fas fa-sliders text-sky-400"></i> High-Level Estimator
                     </a>
                     <a href="https://wa.me/353892066711?text=Hi%20BD%20Premium%20Property%20Care,%20I%20would%20like%20to%20get%20a%20maintenance%20estimate." target="_blank" class="bg-slate-950 border border-slate-800 hover:border-slate-700 text-white font-bold px-8 py-4 rounded-xl transition duration-300 text-center flex items-center justify-center gap-2 text-xs uppercase tracking-wider">
                         <i class="fab fa-whatsapp text-emerald-400"></i> Instant WhatsApp Chat
                     </a>
                 </div>
+                <label class="flex items-start gap-2 justify-center lg:justify-start text-[11px] text-slate-400 font-medium max-w-md mx-auto lg:mx-0 cursor-pointer select-none pt-1">
+                    <input type="checkbox" x-model="heroBookingConsent" class="mt-0.5 w-3.5 h-3.5 rounded border-slate-700 bg-slate-950 text-teal-500 focus:ring-teal-500 focus:ring-offset-slate-900 accent-teal-400">
+                    <span>I have read and agree to the <button type="button" @click="showTerms = true" class="text-teal-400 underline font-bold hover:text-teal-300">Terms & Conditions</button> before booking a free quote.</span>
+                </label>
             </div>
             <div class="lg:col-span-5 relative">
                 <div class="absolute -inset-2 bg-gradient-to-r from-sky-500 to-teal-500 rounded-3xl blur opacity-20"></div>
@@ -279,6 +293,12 @@
                     <p class="flex items-center gap-3"><i class="fas fa-envelope text-teal-400 text-sm"></i> info@bdpropertycare.ie</p>
                     <p class="flex items-center gap-3"><i class="fas fa-shield-halved text-teal-400 text-sm"></i> Fully Insured Public Liability Coverage</p>
                 </div>
+                <div class="pt-8">
+                    <p class="text-[11px] text-slate-500 font-medium mb-3">Prefer a quick form? Book directly online:</p>
+                    <a href="https://forms.gle/Vki1WeTkTdkCjz1T6" target="_blank" rel="noopener" class="w-full bg-slate-900 border border-slate-800 hover:border-teal-500/60 text-white font-black py-3.5 rounded-xl text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition">
+                        <i class="fas fa-calendar-check text-teal-400"></i> Booking & Quote Request Form
+                    </a>
+                </div>
             </div>
             
             <form action="https://formspree.io/f/xeebgyae" method="POST" class="p-8 md:col-span-7 space-y-5 text-sm">
@@ -313,7 +333,7 @@
                     <label class="flex items-start gap-3 cursor-pointer select-none">
                         <input type="checkbox" x-model="gdprConsent" required class="mt-1 w-4 h-4 rounded border-slate-700 bg-slate-950 text-teal-500 focus:ring-teal-500 focus:ring-offset-slate-900 accent-teal-400">
                         <span class="text-xs text-slate-300 font-medium leading-relaxed">
-                            I explicitly consent to BD Premium Property Care processing and storing my personal data (Name, Address, Phone, Email) strictly to issue an estimate, in full compliance with our <button type="button" @click="showPrivacy = true" class="text-teal-400 underline font-bold hover:text-teal-300">Privacy Policy</button>.
+                            I explicitly consent to BD Premium Property Care processing and storing my personal data (Name, Address, Phone, Email) strictly to issue an estimate, in full compliance with our <button type="button" @click="showPrivacy = true" class="text-teal-400 underline font-bold hover:text-teal-300">Privacy Policy</button>, and I agree to our <button type="button" @click="showTerms = true" class="text-teal-400 underline font-bold hover:text-teal-300">Terms & Conditions of Service</button>.
                         </span>
                     </label>
                     <hr class="border-slate-800/60">
@@ -331,6 +351,8 @@
         <p class="mb-4">&copy; 2026 BD Premium Property Care Private Limited Company. All Rights Reserved.</p>
         <p class="space-x-4">
             <button @click="showPrivacy = true" class="text-slate-400 hover:text-teal-400 underline transition font-bold">Company Information & Privacy Policy</button>
+            <span class="text-slate-700">|</span>
+            <button @click="showTerms = true" class="text-slate-400 hover:text-teal-400 underline transition font-bold">Terms & Conditions of Service</button>
         </p>
     </footer>
 
@@ -378,6 +400,64 @@
 
             <div class="pt-4 border-t border-slate-800 text-right">
                 <button @click="showPrivacy = false" class="bg-slate-950 border border-slate-800 hover:border-slate-700 text-white font-bold px-5 py-2.5 rounded-xl text-xs uppercase tracking-wider transition">Close Framework View</button>
+            </div>
+        </div>
+    </div>
+
+    <div x-show="showTerms" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 flex items-center justify-center p-4" x-transition>
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto p-6 sm:p-8 space-y-6 text-left shadow-2xl relative" @click.away="showTerms = false">
+            <button @click="showTerms = false" class="absolute top-6 right-6 text-slate-400 hover:text-white bg-slate-950 border border-slate-800 w-8 h-8 rounded-lg flex items-center justify-center"><i class="fas fa-times"></i></button>
+
+            <div class="border-b border-slate-800 pb-4">
+                <h3 class="text-xl font-black text-white uppercase tracking-wide">Terms and Conditions of Service</h3>
+                <p class="text-xs text-slate-500 mt-1 font-semibold">BD - Premium Property Care Limited (bdpropertycare.ie)</p>
+            </div>
+
+            <div class="space-y-4 text-xs text-slate-300 leading-relaxed font-medium">
+                <section>
+                    <h4 class="font-black text-white uppercase text-xs text-teal-400 mb-1">1. Introduction and Agreement</h4>
+                    <p>These Terms and Conditions govern all exterior property maintenance and cleaning services provided by BD - Premium Property Care Limited ("we", "us", "our") accessed via bdpropertycare.ie or booked directly by any client ("you", "your"). By booking an estimate, using our online estimator tool, or permitting us to commence work on your property, you agree to be legally bound by these Terms and Conditions.</p>
+                </section>
+                <section>
+                    <h4 class="font-black text-white uppercase text-xs text-teal-400 mb-1">2. Quotations and Pricing</h4>
+                    <p>All estimates generated via bdpropertycare.ie or provided directly are valid for 30 days from the date issued unless otherwise specified. Online estimates are based on general measurements or information provided by the client; if hidden issues, unexpected severe contamination, structural defects, or inaccurate details arise once work begins, we reserve the right to adjust the price, and any variation will be discussed and agreed with you before proceeding. All prices quoted may be subject to VAT where applicable.</p>
+                </section>
+                <section>
+                    <h4 class="font-black text-white uppercase text-xs text-teal-400 mb-1">3. Client Responsibilities and Property Access</h4>
+                    <p>The client must ensure uninterrupted access to the property, including outdoor water sources, electricity supply (if required), and work areas, on the scheduled date and time. The client warrants that external surfaces, drainage, windows, and seals are in a sound state of repair and capable of withstanding standard professional cleaning methods. Any pre-existing damage, fragile surfaces, loose roof tiles, faulty seals, or leaky windows must be disclosed prior to work commencing; we are not liable for pre-existing damage revealed during cleaning. For safety, children and pets must be kept away from the immediate work zone at all times.</p>
+                </section>
+                <section>
+                    <h4 class="font-black text-white uppercase text-xs text-teal-400 mb-1">4. Water and Power Supply</h4>
+                    <p>Unless otherwise agreed in writing, the client agrees to supply access to an outdoor water tap and electricity if required. The client is responsible for ensuring adequate water pressure and flow; we accept no liability for equipment disruption or delays caused by insufficient or interrupted local water supplies.</p>
+                </section>
+                <section>
+                    <h4 class="font-black text-white uppercase text-xs text-teal-400 mb-1">5. Liability and Limitations</h4>
+                    <p>We clear gutters and downpipes of blockages but do not inspect underground drainage integrity, and are not responsible for overflow or pooling caused by blocked underground downpipes or full soakaways. We apply industry-standard methods on exterior surfaces but accept no liability for stripping loose, degraded, or flaking paint/render that was already failing, nor for minor botanical drift or damage to plants and landscaping unless caused by gross negligence. Any claims for property damage alleged to have been caused by our team must be reported to us in writing within 48 hours of service completion, accompanied by photographic evidence.</p>
+                </section>
+                <section>
+                    <h4 class="font-black text-white uppercase text-xs text-teal-400 mb-1">6. Weather and Scheduling</h4>
+                    <p>Exterior property maintenance is weather-dependent. In the event of severe weather (heavy rain, high winds, freezing temperatures), we reserve the right to reschedule the job to the next available date without financial penalty.</p>
+                </section>
+                <section>
+                    <h4 class="font-black text-white uppercase text-xs text-teal-400 mb-1">7. Payment Terms</h4>
+                    <p>Payment is due upon completion of the work unless a prior corporate credit or invoice agreement has been established in writing. Accepted payment methods include bank transfer, card, or other platforms specified on your invoice or via info@bdpropertycare.ie. Late payments may incur interest in accordance with the European Communities (Late Payment in Commercial Transactions) Regulations, alongside reasonable debt recovery costs.</p>
+                </section>
+                <section>
+                    <h4 class="font-black text-white uppercase text-xs text-teal-400 mb-1">8. Cancellation and Rescheduling</h4>
+                    <p>Clients may cancel or reschedule a booking by providing at least 24 hours' notice prior to the scheduled start time. Cancellations made with less than 24 hours' notice, or instances where our team arrives on-site and cannot gain access due to client fault, may be subject to a call-out or cancellation fee.</p>
+                </section>
+                <section>
+                    <h4 class="font-black text-white uppercase text-xs text-teal-400 mb-1">9. Governing Law</h4>
+                    <p>These Terms and Conditions shall be governed by and construed in accordance with the laws of Ireland, and the courts of Ireland shall have exclusive jurisdiction over any disputes.</p>
+                </section>
+                <section>
+                    <h4 class="font-black text-white uppercase text-xs text-teal-400 mb-1">10. Contact Information</h4>
+                    <p>For any queries regarding these Terms and Conditions or our services, you can contact us via our official website at bdpropertycare.ie or through our professional email at <a href="mailto:info@bdpropertycare.ie" class="text-sky-400 font-bold underline">info@bdpropertycare.ie</a>.</p>
+                </section>
+            </div>
+
+            <div class="pt-4 border-t border-slate-800 text-right">
+                <button @click="showTerms = false" class="bg-slate-950 border border-slate-800 hover:border-slate-700 text-white font-bold px-5 py-2.5 rounded-xl text-xs uppercase tracking-wider transition">Close Framework View</button>
             </div>
         </div>
     </div>
