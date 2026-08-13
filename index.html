@@ -260,16 +260,21 @@
                         </select>
                     </div>
                     <div>
-                        <div class="flex justify-between font-bold text-xs uppercase tracking-wider mb-2 text-slate-400">
+                        <div class="flex justify-between items-center font-bold text-xs uppercase tracking-wider mb-2 text-slate-400">
                             <span>
                                 <span x-show="jobType === 'washing'">Approx Surface Scope (sq m)</span>
                                 <span x-show="jobType === 'windows'">Approx Window Units</span>
                                 <span x-show="jobType === 'gutters'">Approx Gutter Scope (m)</span>
                                 <span x-show="jobType === 'grounds'">Fixed Scope Complexity Level</span>
                             </span>
-                            <span class="text-teal-400 text-base" x-text="structuralUnits"></span>
+                            <input type="number"
+                                   x-model.number="structuralUnits"
+                                   :min="jobType === 'windows' ? 5 : 20"
+                                   :max="jobType === 'windows' ? 30 : 300"
+                                   step="1"
+                                   class="w-20 bg-slate-900 border border-slate-700 rounded-lg px-2 py-1 text-teal-400 text-base font-black text-right focus:outline-none focus:border-teal-500">
                         </div>
-                        <input type="range" :min="jobType === 'windows' ? 5 : 20" :max="jobType === 'windows' ? 30 : 300" step="1" x-model="structuralUnits" class="w-full accent-teal-400 bg-slate-800 h-2 rounded-lg appearance-none cursor-pointer">
+                        <input type="range" :min="jobType === 'windows' ? 5 : 20" :max="jobType === 'windows' ? 30 : 300" step="1" x-model.number="structuralUnits" class="w-full accent-teal-400 bg-slate-800 h-2 rounded-lg appearance-none cursor-pointer">
                     </div>
                 </div>
             </div>

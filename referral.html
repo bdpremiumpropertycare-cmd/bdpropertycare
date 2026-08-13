@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refer a Friend & Earn Free Services | BD Premium Property Care</title>
+    <meta name="description" content="Refer friends and neighbours to BD Premium Property Care. 7 referrals earns free window cleaning, 11 referrals earns free grass cutting.">
+    <link rel="canonical" href="https://bdpropertycare.ie/referral">
+    <meta property="og:title" content="Refer a Friend & Earn Free Services | BD Premium Property Care">
+    <meta property="og:description" content="7 referrals = free window cleaning. 11 referrals = free grass cutting. Share this page to start earning.">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+        [x-cloak] { display: none !important; }
+        html { scroll-behavior: smooth; }
+        .accent-gradient { background: linear-gradient(90deg, #38bdf8 0%, #2dd4bf 100%); }
+        .offer-gradient { background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%); }
+        .glow-ring { box-shadow: 0 0 0 1px rgba(45,212,191,0.25), 0 20px 60px -20px rgba(45,212,191,0.35); }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased selection:bg-teal-500 selection:text-white"
+      x-data="{
+        showTerms: false,
+        showPrivacy: false,
+        consentChecked: false,
+        linkCopied: false,
+        copyLink() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                this.linkCopied = true;
+                setTimeout(() => this.linkCopied = false, 2500);
+            });
+        }
+      }">
+
+    <!-- NAV -->
+    <nav class="bg-slate-950/90 backdrop-blur-xl sticky top-0 z-40 border-b border-slate-800/80">
+        <div class="max-w-5xl mx-auto px-6 flex justify-between items-center h-20">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="w-11 h-11 rounded-full border-2 border-teal-400 flex items-center justify-center bg-slate-900/50">
+                    <span class="bg-gradient-to-r from-sky-400 to-teal-400 bg-clip-text text-transparent font-black text-lg">BD</span>
+                </div>
+                <span class="text-[11px] tracking-widest text-slate-400 font-black uppercase hidden sm:block">Premium Property Care</span>
+            </a>
+            <a href="index.html" class="text-[11px] font-bold uppercase tracking-wider text-slate-400 hover:text-teal-400 transition"><i class="fas fa-arrow-left mr-1"></i> Back to Homepage</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="max-w-4xl mx-auto px-6 pt-16 sm:pt-20 pb-12 text-center">
+        <div class="inline-flex items-center gap-2 bg-teal-500/10 border border-teal-500/30 text-teal-300 rounded-full px-4 py-1.5 text-[11px] font-black uppercase tracking-widest mb-8">
+            <i class="fas fa-people-arrows"></i> Refer & Earn
+        </div>
+        <h1 class="text-4xl sm:text-6xl font-black text-white leading-[1.05] tracking-tight">
+            Share Us With Your<br><span class="bg-gradient-to-r from-sky-400 to-teal-400 bg-clip-text text-transparent">Neighbours</span>
+        </h1>
+        <p class="text-slate-400 mt-6 text-base sm:text-lg leading-relaxed font-medium max-w-xl mx-auto">
+            Every person you send our way brings you closer to free work on your own property. No catch &mdash; just pass this page along.
+        </p>
+    </header>
+
+    <!-- SHARE BAR -->
+    <section class="max-w-2xl mx-auto px-6 pb-16">
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 flex flex-col sm:flex-row items-center gap-4">
+            <div class="flex-1 w-full">
+                <p class="text-[11px] text-slate-500 font-bold uppercase tracking-widest mb-1">Share This Page</p>
+                <p class="text-slate-300 text-sm font-semibold truncate">bdpropertycare.ie/referral</p>
+            </div>
+            <div class="flex gap-3 w-full sm:w-auto">
+                <a href="https://api.whatsapp.com/send?text=Check%20out%20BD%20Premium%20Property%20Care%20%E2%80%94%20refer%20them%20and%20earn%20free%20window%20cleaning%20or%20grass%20cutting%3A%20https%3A%2F%2Fbdpropertycare.ie%2Freferral" target="_blank" class="flex-1 sm:flex-none bg-slate-950 border border-slate-800 hover:border-teal-500/60 text-white font-bold px-5 py-3 rounded-xl text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition">
+                    <i class="fab fa-whatsapp text-emerald-400"></i> Share
+                </a>
+                <button @click="copyLink()" class="flex-1 sm:flex-none bg-slate-950 border border-slate-800 hover:border-teal-500/60 text-white font-bold px-5 py-3 rounded-xl text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition">
+                    <i class="fas" :class="linkCopied ? 'fa-check text-teal-400' : 'fa-link'"></i> <span x-text="linkCopied ? 'Copied' : 'Copy Link'"></span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- REWARDS -->
+    <section class="max-w-4xl mx-auto px-6 pb-16">
+        <div class="grid sm:grid-cols-2 gap-6">
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 relative overflow-hidden">
+                <div class="absolute top-0 right-0 text-8xl font-black text-slate-800/60 leading-none -mr-2 -mt-2">7</div>
+                <div class="relative">
+                    <div class="inline-flex p-3 bg-teal-500/10 text-teal-400 rounded-xl text-lg border border-teal-500/20 mb-5"><i class="fas fa-window-maximize"></i></div>
+                    <h3 class="text-white font-black text-lg mb-2">7 Referrals = Free Window Cleaning</h3>
+                    <p class="text-slate-400 text-sm font-medium leading-relaxed">Once 7 people you've referred book and complete a paid job, your next window cleaning visit is on us.</p>
+                </div>
+            </div>
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 relative overflow-hidden">
+                <div class="absolute top-0 right-0 text-8xl font-black text-slate-800/60 leading-none -mr-2 -mt-2">11</div>
+                <div class="relative">
+                    <div class="inline-flex p-3 bg-amber-500/10 text-amber-400 rounded-xl text-lg border border-amber-500/20 mb-5"><i class="fas fa-seedling"></i></div>
+                    <h3 class="text-white font-black text-lg mb-2">11 Referrals = Free Grass Cutting</h3>
+                    <p class="text-slate-400 text-sm font-medium leading-relaxed">Reach 11 successful referrals and we'll cut your grass free on your next scheduled grounds visit.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="max-w-4xl mx-auto px-6 pb-20">
+        <h2 class="text-center text-2xl sm:text-3xl font-black text-white mb-10">How It Works</h2>
+        <div class="grid sm:grid-cols-3 gap-6">
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 text-center">
+                <div class="w-10 h-10 rounded-full accent-gradient text-slate-950 font-black flex items-center justify-center mx-auto mb-4 text-sm">1</div>
+                <h3 class="text-white font-black text-sm uppercase tracking-wide mb-2">Ask For Your Code</h3>
+                <p class="text-slate-500 text-xs font-medium leading-relaxed">Request your personal referral code using the form below.</p>
+            </div>
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 text-center">
+                <div class="w-10 h-10 rounded-full accent-gradient text-slate-950 font-black flex items-center justify-center mx-auto mb-4 text-sm">2</div>
+                <h3 class="text-white font-black text-sm uppercase tracking-wide mb-2">Share It Around</h3>
+                <p class="text-slate-500 text-xs font-medium leading-relaxed">Pass your code and this page on to friends, family, or neighbours.</p>
+            </div>
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 text-center">
+                <div class="w-10 h-10 rounded-full accent-gradient text-slate-950 font-black flex items-center justify-center mx-auto mb-4 text-sm">3</div>
+                <h3 class="text-white font-black text-sm uppercase tracking-wide mb-2">We Track It For You</h3>
+                <p class="text-slate-500 text-xs font-medium leading-relaxed">Every completed job under your code counts toward your free service.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ASK FOR REFERRAL CODE FORM -->
+    <section class="max-w-2xl mx-auto px-6 pb-24">
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 sm:p-10">
+            <div class="flex items-center gap-3 mb-2">
+                <div class="inline-flex p-2.5 bg-teal-500/10 text-teal-400 rounded-xl text-sm border border-teal-500/20"><i class="fas fa-ticket"></i></div>
+                <h2 class="text-lg font-black text-white uppercase tracking-wide">Ask For Your Referral Code</h2>
+            </div>
+            <p class="text-slate-500 text-xs font-medium mb-6">Fill this in and we'll send your personal code so we can start tracking your referrals.</p>
+
+            <form action="https://formspree.io/f/xeebgyae" method="POST" class="space-y-5 text-sm">
+                <input type="text" name="_gotcha" style="display:none">
+                <input type="hidden" name="_subject" value="Referral Code Request">
+                <input type="hidden" name="Request Type" value="Referral Code Request">
+
+                <div>
+                    <label class="block text-xs font-black uppercase text-slate-400 mb-1 tracking-wider">Your Full Name</label>
+                    <input type="text" name="Client Name" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-teal-500 font-semibold" placeholder="First & Last Name">
+                </div>
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-black uppercase text-slate-400 mb-1 tracking-wider">Mobile Contact Number</label>
+                        <input type="tel" name="Phone Contact" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-teal-500 font-semibold" placeholder="E.g., 089 206 6711">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-black uppercase text-slate-400 mb-1 tracking-wider">Email Address</label>
+                        <input type="email" name="Email Address" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-teal-500 font-semibold" placeholder="you@example.com">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-black uppercase text-slate-400 mb-1 tracking-wider">Have You Booked With Us Before? (Optional)</label>
+                    <input type="text" name="Previous Booking Note" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-teal-500 font-semibold" placeholder="E.g., Yes, gutter cleaning in July">
+                </div>
+
+                <label class="flex items-start gap-3 cursor-pointer select-none pt-2">
+                    <input type="checkbox" x-model="consentChecked" required class="mt-1 w-4 h-4 rounded border-slate-700 bg-slate-950 text-teal-500 focus:ring-teal-500 focus:ring-offset-slate-900 accent-teal-400">
+                    <span class="text-xs text-slate-300 font-medium leading-relaxed">I consent to BD Premium Property Care storing my details to issue and track my referral code, in line with the <button type="button" @click="showPrivacy = true" class="text-teal-400 underline font-bold hover:text-teal-300">Privacy Policy</button> and <button type="button" @click="showTerms = true" class="text-teal-400 underline font-bold hover:text-teal-300">Terms & Conditions</button>.</span>
+                </label>
+
+                <button type="submit" :disabled="!consentChecked" :class="consentChecked ? 'accent-gradient text-slate-950 opacity-100 cursor-pointer hover:-translate-y-0.5' : 'bg-slate-800 text-slate-500 opacity-50 cursor-not-allowed'" class="w-full font-black py-4 rounded-xl shadow-xl transition transform uppercase text-xs tracking-widest">
+                    <i class="fas fa-paper-plane mr-2"></i> Request My Referral Code
+                </button>
+            </form>
+        </div>
+
+        <p class="text-center mt-8">
+            <a href="promotion.html" class="text-[11px] text-slate-600 hover:text-slate-400 font-bold uppercase tracking-wider transition">See Our Pre-Launch Booking Offer <i class="fas fa-arrow-right ml-1"></i></a>
+        </p>
+    </section>
+
+    <footer class="bg-slate-950 border-t border-slate-900 py-12 text-center text-xs text-slate-500 font-medium">
+        <p class="mb-4">&copy; 2026 BD Premium Property Care Private Limited Company. All Rights Reserved.</p>
+        <p class="space-x-4">
+            <button @click="showPrivacy = true" class="text-slate-400 hover:text-teal-400 underline transition font-bold">Company Information & Privacy Policy</button>
+            <span class="text-slate-700">|</span>
+            <button @click="showTerms = true" class="text-slate-400 hover:text-teal-400 underline transition font-bold">Terms & Conditions of Service</button>
+        </p>
+    </footer>
+
+    <div x-show="showPrivacy" x-cloak class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-[60] flex items-center justify-center p-4" x-transition>
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto p-6 sm:p-8 space-y-6 text-left shadow-2xl relative" @click.away="showPrivacy = false">
+            <button @click="showPrivacy = false" class="absolute top-6 right-6 text-slate-400 hover:text-white bg-slate-950 border border-slate-800 w-8 h-8 rounded-lg flex items-center justify-center"><i class="fas fa-times"></i></button>
+            <div class="border-b border-slate-800 pb-4">
+                <h3 class="text-xl font-black text-white uppercase tracking-wide">Privacy & Data Governance Statement</h3>
+                <p class="text-xs text-slate-500 mt-1 font-semibold">Effective Date: June 2026 | Compliant with Irish DPC & EU GDPR Guidelines</p>
+            </div>
+            <div class="space-y-4 text-xs text-slate-300 leading-relaxed font-medium">
+                <section>
+                    <h4 class="font-black text-white uppercase text-xs text-teal-400 mb-1">1. Legal Controller Information</h4>
+                    <p>This digital platform is fully operated by <strong>BD Premium Property Care Private Limited Company</strong>, with its official registered corporate operational physical address localized at <strong>1 Sunny Nook Magazine Road, Cork, Ireland</strong>. You can establish direct legal correspondence via: <a href="mailto:info@bdpropertycare.ie" class="text-sky-400 font-bold underline">info@bdpropertycare.ie</a>.</p>
+                </section>
+                <section>
+                    <h4 class="font-black text-white uppercase text-xs text-teal-400 mb-1">2. Types of Personal Information Managed</h4>
+                    <p>When you fill out our pipeline forms, we safely handle: Individual Identity Name, Exact Property Location Address/Eircode, Personal Mobile Contact Line, and Email Information parameters.</p>
+                </section>
+                <section>
+                    <h4 class="font-black text-white uppercase text-xs text-teal-400 mb-1">3. Purpose and Third-Party Pipelines</h4>
+                    <p>This structural material is exclusively handled to process pricing estimations and referral tracking. Transmission occurs safely using end-to-end secure pipelines managed by our vendor processor, Formspree Inc. (acting under strict standard data protection rules). We do not share information with brokers, advertising engines, or tracking parties.</p>
+                </section>
+                <section>
+                    <h4 class="font-black text-white uppercase text-xs text-teal-400 mb-1">4. Retention & Your Erasure Rights</h4>
+                    <p>We keep information for a maximum of 12 months after your evaluation unless you move forward with a full operations contract. Under EU Law, you have the complete right to request a full report on your data or order immediate removal. To execute this, email us at <a href="mailto:info@bdpropertycare.ie" class="text-sky-400 font-bold">info@bdpropertycare.ie</a>, and we will delete your records within 48 hours.</p>
+                </section>
+            </div>
+            <div class="pt-4 border-t border-slate-800 text-right">
+                <button @click="showPrivacy = false" class="bg-slate-950 border border-slate-800 hover:border-slate-700 text-white font-bold px-5 py-2.5 rounded-xl text-xs uppercase tracking-wider transition">Close Framework View</button>
+            </div>
+        </div>
+    </div>
+
+    <div x-show="showTerms" x-cloak class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-[60] flex items-center justify-center p-4" x-transition>
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto p-6 sm:p-8 space-y-6 text-left shadow-2xl relative" @click.away="showTerms = false">
+            <button @click="showTerms = false" class="absolute top-6 right-6 text-slate-400 hover:text-white bg-slate-950 border border-slate-800 w-8 h-8 rounded-lg flex items-center justify-center"><i class="fas fa-times"></i></button>
+            <div class="border-b border-slate-800 pb-4">
+                <h3 class="text-xl font-black text-white uppercase tracking-wide">Terms and Conditions of Service</h3>
+                <p class="text-xs text-slate-500 mt-1 font-semibold">BD - Premium Property Care Limited (bdpropertycare.ie)</p>
+            </div>
+            <div class="space-y-4 text-xs text-slate-300 leading-relaxed font-medium">
+                <section><h4 class="font-black text-white uppercase text-xs text-teal-400 mb-1">1. Introduction and Agreement</h4><p>These Terms and Conditions govern all exterior property maintenance and cleaning services provided by BD - Premium Property Care Limited ("we", "us", "our") accessed via bdpropertycare.ie or booked directly by any client ("you", "your"). By booking an estimate, using our online estimator tool, or permitting us to commence work on your property, you agree to be legally bound by these Terms and Conditions.</p></section>
+                <section><h4 class="font-black text-white uppercase text-xs text-teal-400 mb-1">2. Quotations and Pricing</h4><p>All estimates are valid for 30 days from the date issued unless otherwise specified. Online estimates are based on general measurements or information provided by the client; if hidden issues, unexpected severe contamination, structural defects, or inaccurate details arise once work begins, we reserve the right to adjust the price, and any variation will be discussed and agreed with you before proceeding. All prices quoted may be subject to VAT where applicable.</p></section>
+                <section><h4 class="font-black text-white uppercase text-xs text-teal-400 mb-1">3. Client Responsibilities and Property Access</h4><p>The client must ensure uninterrupted access to the property, including outdoor water sources, electricity supply (if required), and work areas, on the scheduled date and time. Any pre-existing damage, fragile surfaces, loose roof tiles, faulty seals, or leaky windows must be disclosed prior to work commencing; we are not liable for pre-existing damage revealed during cleaning. For safety, children and pets must be kept away from the immediate work zone at all times.</p></section>
+                <section><h4 class="font-black text-white uppercase text-xs text-teal-400 mb-1">4. Water and Power Supply</h4><p>Unless otherwise agreed in writing, the client agrees to supply access to an outdoor water tap and electricity if required. We accept no liability for equipment disruption or delays caused by insufficient or interrupted local water supplies.</p></section>
+                <section><h4 class="font-black text-white uppercase text-xs text-teal-400 mb-1">5. Liability and Limitations</h4><p>We clear gutters and downpipes of blockages but do not inspect underground drainage integrity, and are not responsible for overflow or pooling caused by blocked underground downpipes or full soakaways. We apply industry-standard methods but accept no liability for stripping loose, degraded, or flaking paint/render that was already failing, nor for minor botanical drift or damage to plants unless caused by gross negligence. Claims for property damage must be reported in writing within 48 hours of service completion, with photographic evidence.</p></section>
+                <section><h4 class="font-black text-white uppercase text-xs text-teal-400 mb-1">6. Weather and Scheduling</h4><p>Exterior property maintenance is weather-dependent. In severe weather, we reserve the right to reschedule the job to the next available date without financial penalty.</p></section>
+                <section><h4 class="font-black text-white uppercase text-xs text-teal-400 mb-1">7. Payment Terms</h4><p>Payment is due upon completion of the work unless a prior corporate credit or invoice agreement has been established in writing. Late payments may incur a fixed administrative late-payment charge and reasonable debt recovery costs, in line with applicable Irish commercial payment regulations.</p></section>
+                <section><h4 class="font-black text-white uppercase text-xs text-teal-400 mb-1">8. Cancellation and Rescheduling</h4><p>Clients may cancel or reschedule with at least 24 hours' notice. Cancellations with less notice, or on-site access failures due to client fault, may incur a call-out or cancellation fee.</p></section>
+                <section><h4 class="font-black text-white uppercase text-xs text-teal-400 mb-1">9. Governing Law</h4><p>These Terms and Conditions are governed by the laws of Ireland, and the courts of Ireland have exclusive jurisdiction over any disputes.</p></section>
+                <section><h4 class="font-black text-white uppercase text-xs text-teal-400 mb-1">10. Contact Information</h4><p>For queries, contact us at <a href="mailto:info@bdpropertycare.ie" class="text-sky-400 font-bold underline">info@bdpropertycare.ie</a> or via bdpropertycare.ie.</p></section>
+            </div>
+            <div class="pt-4 border-t border-slate-800 text-right">
+                <button @click="showTerms = false" class="bg-slate-950 border border-slate-800 hover:border-slate-700 text-white font-bold px-5 py-2.5 rounded-xl text-xs uppercase tracking-wider transition">Close Framework View</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
