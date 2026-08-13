@@ -131,41 +131,21 @@
                 <div class="inline-flex p-2.5 bg-teal-500/10 text-teal-400 rounded-xl text-sm border border-teal-500/20"><i class="fas fa-ticket"></i></div>
                 <h2 class="text-lg font-black text-white uppercase tracking-wide">Ask For Your Referral Code</h2>
             </div>
-            <p class="text-slate-500 text-xs font-medium mb-6">Fill this in and we'll send your personal code so we can start tracking your referrals.</p>
+            <p class="text-slate-500 text-xs font-medium mb-6">Fill in our short form and we'll send your personal code so we can start tracking your referrals.</p>
 
-            <form action="https://formspree.io/f/xeebgyae" method="POST" class="space-y-5 text-sm">
-                <input type="text" name="_gotcha" style="display:none">
-                <input type="hidden" name="_subject" value="Referral Code Request">
-                <input type="hidden" name="Request Type" value="Referral Code Request">
-
-                <div>
-                    <label class="block text-xs font-black uppercase text-slate-400 mb-1 tracking-wider">Your Full Name</label>
-                    <input type="text" name="Client Name" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-teal-500 font-semibold" placeholder="First & Last Name">
-                </div>
-                <div class="grid sm:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-xs font-black uppercase text-slate-400 mb-1 tracking-wider">Mobile Contact Number</label>
-                        <input type="tel" name="Phone Contact" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-teal-500 font-semibold" placeholder="E.g., 089 206 6711">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-black uppercase text-slate-400 mb-1 tracking-wider">Email Address</label>
-                        <input type="email" name="Email Address" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-teal-500 font-semibold" placeholder="you@example.com">
-                    </div>
-                </div>
-                <div>
-                    <label class="block text-xs font-black uppercase text-slate-400 mb-1 tracking-wider">Have You Booked With Us Before? (Optional)</label>
-                    <input type="text" name="Previous Booking Note" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-teal-500 font-semibold" placeholder="E.g., Yes, gutter cleaning in July">
-                </div>
-
-                <label class="flex items-start gap-3 cursor-pointer select-none pt-2">
-                    <input type="checkbox" x-model="consentChecked" required class="mt-1 w-4 h-4 rounded border-slate-700 bg-slate-950 text-teal-500 focus:ring-teal-500 focus:ring-offset-slate-900 accent-teal-400">
+            <div class="space-y-5 text-sm">
+                <label class="flex items-start gap-3 cursor-pointer select-none">
+                    <input type="checkbox" x-model="consentChecked" class="mt-1 w-4 h-4 rounded border-slate-700 bg-slate-950 text-teal-500 focus:ring-teal-500 focus:ring-offset-slate-900 accent-teal-400">
                     <span class="text-xs text-slate-300 font-medium leading-relaxed">I consent to BD Premium Property Care storing my details to issue and track my referral code, in line with the <button type="button" @click="showPrivacy = true" class="text-teal-400 underline font-bold hover:text-teal-300">Privacy Policy</button> and <button type="button" @click="showTerms = true" class="text-teal-400 underline font-bold hover:text-teal-300">Terms & Conditions</button>.</span>
                 </label>
 
-                <button type="submit" :disabled="!consentChecked" :class="consentChecked ? 'accent-gradient text-slate-950 opacity-100 cursor-pointer hover:-translate-y-0.5' : 'bg-slate-800 text-slate-500 opacity-50 cursor-not-allowed'" class="w-full font-black py-4 rounded-xl shadow-xl transition transform uppercase text-xs tracking-widest">
+                <a href="https://forms.gle/MGtG5FQR4qYzdM2w8" target="_blank" rel="noopener"
+                   @click="if(!consentChecked){ $event.preventDefault(); }"
+                   :class="consentChecked ? 'accent-gradient text-slate-950 opacity-100 cursor-pointer hover:-translate-y-0.5' : 'bg-slate-800 text-slate-500 opacity-50 cursor-not-allowed'"
+                   class="w-full font-black py-4 rounded-xl shadow-xl transition transform uppercase text-xs tracking-widest text-center block">
                     <i class="fas fa-paper-plane mr-2"></i> Request My Referral Code
-                </button>
-            </form>
+                </a>
+            </div>
         </div>
 
         <p class="text-center mt-8">
@@ -200,7 +180,7 @@
                 </section>
                 <section>
                     <h4 class="font-black text-white uppercase text-xs text-teal-400 mb-1">3. Purpose and Third-Party Pipelines</h4>
-                    <p>This structural material is exclusively handled to process pricing estimations and referral tracking. Transmission occurs safely using end-to-end secure pipelines managed by our vendor processor, Formspree Inc. (acting under strict standard data protection rules). We do not share information with brokers, advertising engines, or tracking parties.</p>
+                    <p>This structural material is exclusively handled to process pricing estimations and referral code tracking. Transmission occurs safely using end-to-end secure pipelines managed by our vendor processors, Formspree Inc. and Google LLC (Google Forms), each acting under strict standard data protection rules. We do not share information with brokers, advertising engines, or tracking parties.</p>
                 </section>
                 <section>
                     <h4 class="font-black text-white uppercase text-xs text-teal-400 mb-1">4. Retention & Your Erasure Rights</h4>
