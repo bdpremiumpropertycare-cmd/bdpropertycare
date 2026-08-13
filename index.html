@@ -17,6 +17,7 @@
         .glass-panel { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(16px); }
         .neon-gradient { background: linear-gradient(135deg, #0284c7 0%, #0f172a 70%); }
         .accent-gradient { background: linear-gradient(90deg, #38bdf8 0%, #2dd4bf 100%); }
+        .offer-gradient { background: linear-gradient(90deg, #f59e0b 0%, #ef4444 100%); }
     </style>
 </head>
 <body class="bg-slate-900 text-slate-100 font-sans antialiased selection:bg-teal-500 selection:text-white relative" 
@@ -60,6 +61,14 @@
         </div>
     </div>
 
+    <a href="promotion.html" class="block offer-gradient text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-2.5 flex items-center justify-center gap-2 text-[11px] sm:text-xs font-black uppercase tracking-wider text-center">
+            <i class="fas fa-tag"></i>
+            <span>Pre-Launch Special: Up to 50% Off Your Quote &mdash; Plus Referral Rewards</span>
+            <i class="fas fa-arrow-right"></i>
+        </div>
+    </a>
+
     <div class="fixed bottom-24 left-6 z-40 lg:hidden">
         <a href="https://forms.gle/Vki1WeTkTdkCjz1T6" target="_blank" rel="noopener" @click.prevent="openBookingGate()" class="accent-gradient text-slate-950 font-black px-4 py-3.5 rounded-xl shadow-2xl text-xs uppercase tracking-wider flex items-center gap-2 border border-teal-300/30">
             <i class="fas fa-calendar-check text-sm animate-bounce"></i> Free Estimate
@@ -92,6 +101,7 @@
                     <a href="#visual-proof" class="text-slate-300 hover:text-sky-400 transition-colors">Quality Standard</a>
                     <a href="#estimation-engine" class="text-slate-300 hover:text-sky-400 transition-colors">Estimator Base</a>
                     <a href="https://forms.gle/Vki1WeTkTdkCjz1T6" target="_blank" rel="noopener" @click.prevent="openBookingGate()" class="text-slate-300 hover:text-sky-400 transition-colors">Book Online</a>
+                    <a href="promotion.html" class="text-amber-400 hover:text-amber-300 transition-colors"><i class="fas fa-tag mr-1"></i> Pre-Launch Offer</a>
                     <a href="#contact-hub" class="accent-gradient text-slate-950 px-5 py-3 rounded-xl hover:opacity-90 transition shadow-lg font-black">Submit Project Details</a>
                 </div>
                 <div class="flex items-center lg:hidden">
@@ -106,6 +116,7 @@
             <a href="#visual-proof" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-eye text-teal-400 mr-3"></i>Quality Standard</a>
             <a href="#estimation-engine" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-calculator text-teal-400 mr-3"></i>Estimator Base</a>
             <a href="https://forms.gle/Vki1WeTkTdkCjz1T6" target="_blank" rel="noopener" @click.prevent="mobileMenu = false; openBookingGate()" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-calendar-check text-teal-400 mr-3"></i>Book Online</a>
+            <a href="promotion.html" class="block py-2 text-sm font-bold uppercase text-amber-400"><i class="fas fa-tag mr-3"></i>Pre-Launch Offer</a>
             <a href="#contact-hub" @click="mobileMenu = false" class="block text-center accent-gradient text-slate-950 py-3.5 rounded-xl font-black text-sm uppercase">Submit Request</a>
         </div>
     </nav>
@@ -114,8 +125,13 @@
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(45,212,191,0.08),transparent_50%)]"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid lg:grid-cols-12 gap-12 items-center">
             <div class="space-y-6 text-center lg:text-left lg:col-span-7">
-                <div class="inline-flex items-center gap-2 bg-teal-500/10 border border-teal-500/30 text-teal-400 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mx-auto lg:mx-0">
-                    <i class="fas fa-shield-check text-xs"></i> Fully Insured Exterior Restoration
+                <div class="flex flex-wrap items-center gap-3 justify-center lg:justify-start">
+                    <div class="inline-flex items-center gap-2 bg-teal-500/10 border border-teal-500/30 text-teal-400 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest">
+                        <i class="fas fa-shield-check text-xs"></i> Fully Insured Exterior Restoration
+                    </div>
+                    <a href="promotion.html" class="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/30 text-amber-300 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest hover:bg-amber-500/20 transition">
+                        <i class="fas fa-tag text-xs"></i> Up to 50% Off &mdash; Pre-Launch Offer
+                    </a>
                 </div>
                 <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white leading-[1.15]">
                     Premium Exterior Care. <br>
