@@ -9,8 +9,16 @@
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bdpropertycare.ie/book">
     <meta property="og:title" content="Book Your Free Quote | BD Premium Property Care">
-    <meta property="og:description" content="Request your free, no-obligation exterior property maintenance quote in Cork.">
+    <meta property="og:image" content="https://bdpropertycare.ie/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Book Your Free Quote | BD Premium Property Care">
+    <meta name="twitter:description" content="Request your free, no-obligation exterior property maintenance quote from BD Premium Property Care, Cork.">
+    <meta name="twitter:image" content="https://bdpropertycare.ie/og-image.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -26,15 +34,23 @@
         consentChecked: false
       }">
 
+    <nav class="bg-slate-950/90 backdrop-blur-xl sticky top-0 z-40 border-b border-slate-800/80">
+        <div class="max-w-5xl mx-auto px-6 flex justify-between items-center h-20">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="w-11 h-11 rounded-full border-2 border-teal-400 flex items-center justify-center bg-slate-900/50">
+                    <span class="bg-gradient-to-r from-sky-400 to-teal-400 bg-clip-text text-transparent font-black text-lg">BD</span>
+                </div>
+                <div class="h-6 w-[1px] bg-slate-800"></div>
+                <span class="text-[11px] tracking-widest text-slate-400 font-black uppercase">Premium Property Care</span>
+            </a>
+            <a href="index.html" class="text-[11px] font-bold uppercase tracking-wider text-slate-400 hover:text-teal-400 transition"><i class="fas fa-arrow-left mr-1"></i> All Services</a>
+        </div>
+    </nav>
+
     <div class="flex-1 flex items-center justify-center px-6 py-14">
         <div class="max-w-md w-full">
 
             <div class="text-center mb-8">
-                <a href="index.html" class="inline-flex items-center gap-3 mb-6">
-                    <div class="w-14 h-14 rounded-full border-2 border-teal-400 flex items-center justify-center bg-slate-900/50 shadow-lg shadow-teal-500/10">
-                        <span class="bg-gradient-to-r from-sky-400 to-teal-400 bg-clip-text text-transparent font-black text-2xl">BD</span>
-                    </div>
-                </a>
                 <p class="text-[11px] tracking-widest text-slate-400 font-black uppercase mb-3">Premium Property Care</p>
                 <h1 class="text-2xl sm:text-3xl font-black text-white leading-tight">Request Your Free Quote</h1>
                 <p class="text-slate-400 text-sm mt-3 font-medium">Tell us about your project and we'll get back to you with a free, no-obligation estimate.</p>
