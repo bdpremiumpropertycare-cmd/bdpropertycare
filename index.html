@@ -48,12 +48,61 @@
       ]
     }
     </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Are you insured?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes — BD Premium Property Care Limited holds public liability and employer's liability insurance, and we're a registered Irish company (CRO 819130, VAT IE4753323OH)." }
+        },
+        {
+          "@type": "Question",
+          "name": "Will pressure washing damage my driveway or patio?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Not when done correctly for the surface type — we match pressure and technique to what your surface can handle. Surfaces that are already loose, cracked, or failing before we arrive aren't something we can be held responsible for, which is why we photograph and flag any pre-existing damage before starting." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is soft washing safe for my roof?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes — soft washing is specifically the low-pressure, chemical-based method we use on roofs, render, and other delicate surfaces, precisely because high pressure isn't safe for them. It's gentler than pressure washing, not more aggressive." }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I know if my gutters need cleaning?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Common signs: water overflowing during rain, visible plant growth in the gutter line, staining down the exterior walls, or it's simply been over a year since the last clean." }
+        },
+        {
+          "@type": "Question",
+          "name": "Why don't you squeegee or wipe the windows dry?",
+          "acceptedAnswer": { "@type": "Answer", "text": "We use purified water specifically because it dries completely clear on its own, without mineral residue — so there's no need for a traditional wipe-down, and you get a streak-free finish without it." }
+        },
+        {
+          "@type": "Question",
+          "name": "What's your cancellation policy?",
+          "acceptedAnswer": { "@type": "Answer", "text": "We ask for at least 24 hours' notice to cancel or reschedule. As a consumer booking online, you also have a statutory 14-day cooling-off right under EU distance-selling regulations." }
+        },
+        {
+          "@type": "Question",
+          "name": "What if I'm not happy with the work?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Tell us — ideally on the day, or within 48 hours if you spot an issue afterward, with photos if possible. We'd always rather put something right than leave a client unhappy." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you offer recurring or scheduled visits?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes — many clients set up regular gutter clearing, window cleaning, or grounds maintenance on a repeat schedule." }
+        }
+      ]
+    }
+    </script>
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
     <link rel="icon" href="/favicon-16.png" type="image/png" sizes="16x16">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <style>
         [x-cloak] { display: none !important; }
@@ -70,6 +119,7 @@
         activeTab: 'washing', 
         jobType: 'washing', 
         structuralUnits: 100, 
+        openFaq: null,
         gdprConsent: false,
         bookingGateOpen: false,
         bookingGateChecked: false,
@@ -141,6 +191,7 @@
                 <div class="hidden lg:flex items-center space-x-8 font-bold text-xs uppercase tracking-wider">
                     <a href="#scope" class="text-slate-300 hover:text-sky-400 transition-colors">Our Scope</a>
                     <a href="#visual-proof" class="text-slate-300 hover:text-sky-400 transition-colors">Quality Standard</a>
+                    <a href="#faq" class="text-slate-300 hover:text-sky-400 transition-colors">FAQ</a>
                     <a href="#estimation-engine" class="text-slate-300 hover:text-sky-400 transition-colors">Estimator Base</a>
                     <a href="https://forms.gle/Vki1WeTkTdkCjz1T6" target="_blank" rel="noopener" @click.prevent="openBookingGate()" class="text-slate-300 hover:text-sky-400 transition-colors">Book Online</a>
                     <a href="promotion.html" class="text-amber-400 hover:text-amber-300 transition-colors"><i class="fas fa-tag mr-1"></i> Pre-Launch Offer</a>
@@ -156,6 +207,7 @@
         <div x-show="mobileMenu" x-collapse class="lg:hidden bg-slate-950 border-t border-slate-800 px-6 py-6 space-y-4 shadow-2xl">
             <a href="#scope" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-cubes text-teal-400 mr-3"></i>Our Scope</a>
             <a href="#visual-proof" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-eye text-teal-400 mr-3"></i>Quality Standard</a>
+            <a href="#faq" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-circle-question text-teal-400 mr-3"></i>FAQ</a>
             <a href="#estimation-engine" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-calculator text-teal-400 mr-3"></i>Estimator Base</a>
             <a href="https://forms.gle/Vki1WeTkTdkCjz1T6" target="_blank" rel="noopener" @click.prevent="mobileMenu = false; openBookingGate()" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-calendar-check text-teal-400 mr-3"></i>Book Online</a>
             <a href="promotion.html" class="block py-2 text-sm font-bold uppercase text-amber-400"><i class="fas fa-tag mr-3"></i>Pre-Launch Offer</a>
@@ -424,6 +476,37 @@
 
                 <button type="submit" :disabled="!gdprConsent" :class="gdprConsent ? 'accent-gradient text-slate-950 opacity-100 cursor-pointer hover:-translate-y-0.5' : 'bg-slate-800 text-slate-500 opacity-50 cursor-not-allowed'" class="w-full font-black py-4 rounded-xl shadow-xl transition transform uppercase text-xs tracking-widest">Submit Secure Dispatch Request</button>
             </form>
+        </div>
+    </section>
+
+    <section id="faq" class="py-24 max-w-4xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-14">
+            <span class="text-teal-400 font-extrabold tracking-widest text-xs uppercase block mb-2">Common Questions</span>
+            <h2 class="text-3xl sm:text-4xl font-black text-white">Frequently Asked Questions</h2>
+            <p class="text-slate-400 mt-4 max-w-xl mx-auto font-medium">Answers straight from our Terms &amp; Conditions and service standards. Don't see yours? <a href="#contact-hub" class="text-teal-400 underline font-bold">Ask us directly</a>.</p>
+        </div>
+
+        <div class="space-y-3">
+            <template x-for="(faq, idx) in [
+                { q: 'Are you insured?', a: 'Yes — BD Premium Property Care Limited holds public liability and employer\'s liability insurance, and we\'re a registered Irish company (CRO 819130, VAT IE4753323OH).' },
+                { q: 'Will pressure washing damage my driveway or patio?', a: 'Not when done correctly for the surface type — we match pressure and technique to what your surface can handle. Surfaces that are already loose, cracked, or failing before we arrive aren\'t something we can be held responsible for, which is why we photograph and flag any pre-existing damage before starting.' },
+                { q: 'Is soft washing safe for my roof?', a: 'Yes — soft washing is specifically the low-pressure, chemical-based method we use on roofs, render, and other delicate surfaces, precisely because high pressure isn\'t safe for them. It\'s gentler than pressure washing, not more aggressive.' },
+                { q: 'How do I know if my gutters need cleaning?', a: 'Common signs: water overflowing during rain, visible plant growth in the gutter line, staining down the exterior walls, or it\'s simply been over a year since the last clean.' },
+                { q: 'Why don\'t you squeegee or wipe the windows dry?', a: 'We use purified water specifically because it dries completely clear on its own, without mineral residue — so there\'s no need for a traditional wipe-down, and you get a streak-free finish without it.' },
+                { q: 'What\'s your cancellation policy?', a: 'We ask for at least 24 hours\' notice to cancel or reschedule. As a consumer booking online, you also have a statutory 14-day cooling-off right under EU distance-selling regulations — full detail is in our Terms & Conditions.' },
+                { q: 'What if I\'m not happy with the work?', a: 'Tell us — ideally on the day, or within 48 hours if you spot an issue afterward, with photos if possible. We\'d always rather put something right than leave a client unhappy.' },
+                { q: 'Do you offer recurring or scheduled visits?', a: 'Yes — many clients set up regular gutter clearing, window cleaning, or grounds maintenance on a repeat schedule. Ask when booking and we\'ll set up a plan that suits you.' },
+            ]" :key="idx">
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden">
+                    <button @click="openFaq = openFaq === idx ? null : idx" class="w-full flex items-center justify-between gap-4 text-left px-6 py-5">
+                        <span class="font-bold text-white text-sm sm:text-base" x-text="faq.q"></span>
+                        <i class="fas fa-chevron-down text-teal-400 text-sm flex-shrink-0 transition-transform duration-300" :class="openFaq === idx ? 'rotate-180' : ''"></i>
+                    </button>
+                    <div x-show="openFaq === idx" x-collapse>
+                        <p class="px-6 pb-5 text-slate-400 text-sm leading-relaxed font-medium" x-text="faq.a"></p>
+                    </div>
+                </div>
+            </template>
         </div>
     </section>
 
