@@ -208,10 +208,9 @@
             <a href="#visual-proof" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-eye text-teal-400 mr-3"></i>Quality Standard</a>
             <a href="#faq" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-circle-question text-teal-400 mr-3"></i>FAQ</a>
             <a href="#estimation-engine" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-calculator text-teal-400 mr-3"></i>Estimator Base</a>
-<a href="about.html" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300">
-    <i class="fas fa-circle-info text-teal-400 mr-3"></i>About Us
-</a>
-
+            <a href="about.html" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300">
+                <i class="fas fa-circle-info text-teal-400 mr-3"></i>About Us
+            </a>
             <a href="https://forms.gle/Vki1WeTkTdkCjz1T6" target="_blank" rel="noopener" @click.prevent="mobileMenu = false; openBookingGate()" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-calendar-check text-teal-400 mr-3"></i>Book Online</a>
             <a href="promotion.html" class="block py-2 text-sm font-bold uppercase text-amber-400"><i class="fas fa-tag mr-3"></i>Pre-Launch Offer</a>
             <a href="#contact-hub" @click="mobileMenu = false" class="block text-center accent-gradient text-slate-950 py-3.5 rounded-xl font-black text-sm uppercase">Submit Request</a>
@@ -515,21 +514,17 @@
 
     <footer class="bg-slate-950 border-t border-slate-900 py-12 text-center text-xs text-slate-500 font-medium">
         <p class="mb-4">&copy; 2026 BD Premium Property Care Limited. All Rights Reserved.</p>
-        <<p class="space-x-4">
-    <a href="about.html" class="text-slate-400 hover:text-teal-400 underline transition font-bold">About Us</a>
-
-    <span class="text-slate-700">|</span>
-
-    <button @click="showPrivacy = true" class="text-slate-400 hover:text-teal-400 underline transition font-bold">
-        Company Information & Privacy Policy
-    </button>
-
-    <span class="text-slate-700">|</span>
-
-    <button @click="showTerms = true" class="text-slate-400 hover:text-teal-400 underline transition font-bold">
-        Terms & Conditions of Service
-    </button>
-</p>
+        <p class="space-x-4">
+            <a href="about.html" class="text-slate-400 hover:text-teal-400 underline transition font-bold">About Us</a>
+            <span class="text-slate-700">|</span>
+            <button @click="showPrivacy = true" class="text-slate-400 hover:text-teal-400 underline transition font-bold">
+                Company Information & Privacy Policy
+            </button>
+            <span class="text-slate-700">|</span>
+            <button @click="showTerms = true" class="text-slate-400 hover:text-teal-400 underline transition font-bold">
+                Terms & Conditions of Service
+            </button>
+        </p>
     </footer>
 
     <div x-show="cookieBanner" x-cloak x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 translate-y-10" x-transition:enter-end="opacity-100 translate-y-0" class="fixed bottom-4 left-4 right-4 md:left-8 md:right-auto md:max-w-md bg-slate-950 border border-slate-800 p-6 rounded-2xl shadow-2xl z-50">
