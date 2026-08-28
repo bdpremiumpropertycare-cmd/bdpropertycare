@@ -121,6 +121,7 @@
         structuralUnits: 100, 
         openFaq: null,
         gdprConsent: false,
+        formSubmitted: false,
         bookingGateOpen: false,
         bookingGateChecked: false,
         bookingGateAgreed: false,
@@ -336,12 +337,12 @@
     <section id="visual-proof" class="py-20 bg-slate-950 border-y border-slate-800">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center" x-data="{ sliderPos: 50 }">
             <h2 class="text-2xl sm:text-4xl font-black text-white mb-2">The Quality Standard</h2>
-            <p class="text-slate-400 text-xs max-w-xl mx-auto mb-10">Slide the center controller horizontally to inspect our precision surface finish.</p>
+            <p class="text-slate-400 text-xs max-w-xl mx-auto mb-10">Slide to compare a neglected exterior with our finished standard.</p>
             <div class="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl border-2 border-slate-800 select-none">
-                <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=1200&q=80" alt="Weathered Surface" class="absolute inset-0 w-full h-full object-cover grayscale brightness-50 contrast-125">
+                <img src="before-care-patio.jpg" alt="Weathered patio and garden before care" class="absolute inset-0 w-full h-full object-cover grayscale brightness-75 contrast-125">
                 <div class="absolute bottom-4 left-4 bg-red-600/90 text-white text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded">Before Care</div>
                 <div class="absolute inset-0 w-full h-full" :style="'clip-path: inset(0 0 0 ' + sliderPos + '%)'">
-                    <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=1200&q=80" alt="Finished Surface" class="absolute inset-0 w-full h-full object-cover">
+                    <img src="bd-premium-standard-patio.jpg" alt="Clean patio, roof, windows and garden after BD Premium Property Care" class="absolute inset-0 w-full h-full object-cover">
                     <div class="absolute bottom-4 right-4 bg-teal-500 text-slate-950 text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded">BD Premium Standard</div>
                 </div>
                 <input type="range" min="0" max="100" x-model="sliderPos" class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-30">
@@ -435,7 +436,14 @@
                 </div>
             </div>
             
-            <form action="https://formspree.io/f/xeebgyae" method="POST" class="p-8 md:col-span-7 space-y-5 text-sm">
+            <form action="https://formspree.io/f/xeebgyae" method="POST" class="p-8 md:col-span-7 space-y-5 text-sm"
+                  @submit.prevent="
+                    fetch($event.target.action, {
+                        method: 'POST',
+                        body: new FormData($event.target),
+                        headers: { 'Accept': 'application/json' }
+                    }).then(() => { formSubmitted = true; }).catch(() => { formSubmitted = true; });
+                  ">
                 <input type="text" name="_gotcha" style="display:none">
                 
                 <div class="grid sm:grid-cols-2 gap-4">
@@ -467,16 +475,16 @@
                     <label class="flex items-start gap-3 cursor-pointer select-none">
                         <input type="checkbox" x-model="gdprConsent" required class="mt-1 w-4 h-4 rounded border-slate-700 bg-slate-950 text-teal-500 focus:ring-teal-500 focus:ring-offset-slate-900 accent-teal-400">
                         <span class="text-xs text-slate-300 font-medium leading-relaxed">
-                            I explicitly consent to BD Premium Property Care processing and storing my personal data (Name, Address, Phone, Email) strictly to issue an estimate, in full compliance with our <button type="button" @click="showPrivacy = true" class="text-teal-400 underline font-bold hover:text-teal-300">Privacy Policy</button>, and I agree to our <button type="button" @click="showTerms = true" class="text-teal-400 underline font-bold hover:text-teal-300">Terms & Conditions of Service</button>.
+                            I agree to let BD Premium Property Care store my name, address, phone number and email to prepare my estimate, in line with the <button type="button" @click="showPrivacy = true" class="text-teal-400 underline font-bold hover:text-teal-300">Privacy Policy</button> and <button type="button" @click="showTerms = true" class="text-teal-400 underline font-bold hover:text-teal-300">Terms & Conditions</button>.
                         </span>
                     </label>
                     <hr class="border-slate-800/60">
                     <p class="text-[10px] text-slate-500 font-medium leading-normal">
-                        <strong>GDPR Data Protection Disclosure:</strong> Your structural parameters are securely transmitted to Formspree processing engines over encrypted channels. We hold zero tracking metrics, will never sell your details, and you have the immediate right to request deletion via <a href="mailto:info@bdpropertycare.ie" class="text-sky-400 hover:underline">info@bdpropertycare.ie</a>.
+                        Your details are sent securely to our form provider, are never sold, and you can ask us to delete them anytime at <a href="mailto:info@bdpropertycare.ie" class="text-sky-400 hover:underline">info@bdpropertycare.ie</a>.
                     </p>
                 </div>
 
-                <button type="submit" :disabled="!gdprConsent" :class="gdprConsent ? 'accent-gradient text-slate-950 opacity-100 cursor-pointer hover:-translate-y-0.5' : 'bg-slate-800 text-slate-500 opacity-50 cursor-not-allowed'" class="w-full font-black py-4 rounded-xl shadow-xl transition transform uppercase text-xs tracking-widest">Submit Secure Dispatch Request</button>
+                <button type="submit" :disabled="!gdprConsent || formSubmitted" :class="(gdprConsent && !formSubmitted) ? 'accent-gradient text-slate-950 opacity-100 cursor-pointer hover:-translate-y-0.5' : 'bg-slate-800 text-slate-500 opacity-50 cursor-not-allowed'" class="w-full font-black py-4 rounded-xl shadow-xl transition transform uppercase text-xs tracking-widest" x-text="formSubmitted ? 'Submitted' : 'Submit'"></button>
             </form>
         </div>
     </section>
