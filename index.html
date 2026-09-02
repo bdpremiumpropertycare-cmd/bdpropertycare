@@ -92,6 +92,36 @@
           "@type": "Question",
           "name": "Do you offer recurring or scheduled visits?",
           "acceptedAnswer": { "@type": "Answer", "text": "Yes — many clients set up regular gutter clearing, window cleaning, or grounds maintenance on a repeat schedule." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you provide free quotations?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes — every quote is free and comes with no obligation." }
+        },
+        {
+          "@type": "Question",
+          "name": "What areas do you cover?",
+          "acceptedAnswer": { "@type": "Answer", "text": "We cover Cork City and the wider county, including Douglas, Ballincollig, Carrigaline, Midleton, Cobh, Mallow, and Bandon." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you work with commercial properties?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes — alongside residential jobs, we work with property managers, businesses, and commercial premises across County Cork." }
+        },
+        {
+          "@type": "Question",
+          "name": "How quickly can you attend?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Response times vary with demand and location, but we aim to respond promptly and schedule work as soon as practical." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I book recurring maintenance visits?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes — we offer scheduled repeat visits for gutter cleaning, window cleaning, and grounds maintenance." }
+        },
+        {
+          "@type": "Question",
+          "name": "How are prices calculated?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on property size, the service required, access, and condition. We provide a clear, itemised free quote before any work begins." }
         }
       ]
     }
@@ -141,6 +171,12 @@
             this.bookingGateAgreed = true;
             this.bookingGateOpen = false;
             window.open('https://forms.gle/Vki1WeTkTdkCjz1T6', '_blank');
+        },
+        init() {
+            const modalToOpen = sessionStorage.getItem('bdOpenModal');
+            if (modalToOpen === 'privacy') this.showPrivacy = true;
+            if (modalToOpen === 'terms') this.showTerms = true;
+            if (modalToOpen) sessionStorage.removeItem('bdOpenModal');
         }
       }">
 
@@ -190,12 +226,14 @@
                     </a>
                 </div>
                 <div class="hidden lg:flex items-center space-x-8 font-bold text-xs uppercase tracking-wider">
-                    <a href="#scope" class="text-slate-300 hover:text-sky-400 transition-colors">Our Scope</a>
-                    <a href="#visual-proof" class="text-slate-300 hover:text-sky-400 transition-colors">Quality Standard</a>
-                    <a href="#faq" class="text-slate-300 hover:text-sky-400 transition-colors">FAQ</a>
-                    <a href="#estimation-engine" class="text-slate-300 hover:text-sky-400 transition-colors">Estimator Base</a>
                     <a href="about.html" class="text-slate-300 hover:text-sky-400 transition-colors">About Us</a>
+                    <a href="#why-choose-us" class="text-slate-300 hover:text-sky-400 transition-colors">Why Us</a>
+                    <a href="#scope" class="text-slate-300 hover:text-sky-400 transition-colors">Our Scope</a>
+                    <a href="#areas-we-cover" class="text-slate-300 hover:text-sky-400 transition-colors">Areas Covered</a>
+                    <a href="#visual-proof" class="text-slate-300 hover:text-sky-400 transition-colors">Quality Standard</a>
+                    <a href="#estimation-engine" class="text-slate-300 hover:text-sky-400 transition-colors">Estimator Base</a>
                     <a href="https://forms.gle/Vki1WeTkTdkCjz1T6" target="_blank" rel="noopener" @click.prevent="openBookingGate()" class="text-slate-300 hover:text-sky-400 transition-colors">Book Online</a>
+                    <a href="#faq" class="text-slate-300 hover:text-sky-400 transition-colors">FAQ</a>
                     <a href="promotion.html" class="text-amber-400 hover:text-amber-300 transition-colors"><i class="fas fa-tag mr-1"></i> Pre-Launch Offer</a>
                     <a href="#contact-hub" class="accent-gradient text-slate-950 px-5 py-3 rounded-xl hover:opacity-90 transition shadow-lg font-black">Submit Project Details</a>
                 </div>
@@ -207,14 +245,16 @@
             </div>
         </div>
         <div x-show="mobileMenu" x-collapse class="lg:hidden bg-slate-950 border-t border-slate-800 px-6 py-6 space-y-4 shadow-2xl">
-            <a href="#scope" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-cubes text-teal-400 mr-3"></i>Our Scope</a>
-            <a href="#visual-proof" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-eye text-teal-400 mr-3"></i>Quality Standard</a>
-            <a href="#faq" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-circle-question text-teal-400 mr-3"></i>FAQ</a>
-            <a href="#estimation-engine" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-calculator text-teal-400 mr-3"></i>Estimator Base</a>
             <a href="about.html" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300">
                 <i class="fas fa-circle-info text-teal-400 mr-3"></i>About Us
             </a>
+            <a href="#why-choose-us" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-shield-halved text-teal-400 mr-3"></i>Why Us</a>
+            <a href="#scope" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-cubes text-teal-400 mr-3"></i>Our Scope</a>
+            <a href="#areas-we-cover" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-map-location-dot text-teal-400 mr-3"></i>Areas Covered</a>
+            <a href="#visual-proof" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-eye text-teal-400 mr-3"></i>Quality Standard</a>
+            <a href="#estimation-engine" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-calculator text-teal-400 mr-3"></i>Estimator Base</a>
             <a href="https://forms.gle/Vki1WeTkTdkCjz1T6" target="_blank" rel="noopener" @click.prevent="mobileMenu = false; openBookingGate()" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-calendar-check text-teal-400 mr-3"></i>Book Online</a>
+            <a href="#faq" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-circle-question text-teal-400 mr-3"></i>FAQ</a>
             <a href="promotion.html" class="block py-2 text-sm font-bold uppercase text-amber-400"><i class="fas fa-tag mr-3"></i>Pre-Launch Offer</a>
             <a href="#contact-hub" @click="mobileMenu = false" class="block text-center accent-gradient text-slate-950 py-3.5 rounded-xl font-black text-sm uppercase">Submit Request</a>
         </div>
@@ -260,6 +300,103 @@
         </div>
     </section>
 
+    <section id="why-choose-us" class="py-24 bg-slate-950/40 border-y border-slate-800/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-teal-400 font-extrabold tracking-widest text-xs uppercase block mb-2">Why Choose Us</span>
+                <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight">Built On Trust & Precision</h2>
+                <p class="mt-4 text-slate-400 text-sm font-medium">Here's what property owners and businesses across Cork can expect when they work with us.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 rounded-2xl p-6 hover:border-teal-500/40 transition-colors">
+                    <div class="w-12 h-12 rounded-xl accent-gradient flex items-center justify-center mb-4">
+                        <i class="fas fa-shield-halved text-slate-950 text-lg"></i>
+                    </div>
+                    <h3 class="text-white font-black text-sm uppercase tracking-wide mb-2">Fully Insured</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">Every job we carry out is backed by full insurance cover, so you have total peace of mind from start to finish.</p>
+                </div>
+                <div class="bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 rounded-2xl p-6 hover:border-teal-500/40 transition-colors">
+                    <div class="w-12 h-12 rounded-xl accent-gradient flex items-center justify-center mb-4">
+                        <i class="fas fa-building text-slate-950 text-lg"></i>
+                    </div>
+                    <h3 class="text-white font-black text-sm uppercase tracking-wide mb-2">Residential & Commercial</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">From private homes to commercial units and managed properties, we tailor our approach to the scale of the job.</p>
+                </div>
+                <div class="bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 rounded-2xl p-6 hover:border-teal-500/40 transition-colors">
+                    <div class="w-12 h-12 rounded-xl accent-gradient flex items-center justify-center mb-4">
+                        <i class="fas fa-file-invoice-dollar text-slate-950 text-lg"></i>
+                    </div>
+                    <h3 class="text-white font-black text-sm uppercase tracking-wide mb-2">Free No-Obligation Quotes</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">Get a clear, accurate estimate before any work begins — no pressure, no hidden costs.</p>
+                </div>
+                <div class="bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 rounded-2xl p-6 hover:border-teal-500/40 transition-colors">
+                    <div class="w-12 h-12 rounded-xl accent-gradient flex items-center justify-center mb-4">
+                        <i class="fas fa-map-location-dot text-slate-950 text-lg"></i>
+                    </div>
+                    <h3 class="text-white font-black text-sm uppercase tracking-wide mb-2">County Cork Coverage</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">We serve Cork City and the wider county, bringing the same standard of care to every job, wherever you are.</p>
+                </div>
+                <div class="bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 rounded-2xl p-6 hover:border-teal-500/40 transition-colors">
+                    <div class="w-12 h-12 rounded-xl accent-gradient flex items-center justify-center mb-4">
+                        <i class="fas fa-gears text-slate-950 text-lg"></i>
+                    </div>
+                    <h3 class="text-white font-black text-sm uppercase tracking-wide mb-2">Professional Equipment</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">We use commercial-grade pressure washing and glazing equipment, maintained to a high standard for reliable results.</p>
+                </div>
+                <div class="bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 rounded-2xl p-6 hover:border-teal-500/40 transition-colors">
+                    <div class="w-12 h-12 rounded-xl accent-gradient flex items-center justify-center mb-4">
+                        <i class="fas fa-comments text-slate-950 text-lg"></i>
+                    </div>
+                    <h3 class="text-white font-black text-sm uppercase tracking-wide mb-2">Reliable Communication</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">Clear updates, prompt responses, and a team that's easy to reach by phone, WhatsApp, or email.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="areas-we-cover" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <span class="text-teal-400 font-extrabold tracking-widest text-xs uppercase block mb-2">Local Coverage</span>
+            <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight">Areas We Cover</h2>
+            <p class="mt-4 text-slate-400 text-sm font-medium">BD Premium Property Care provides professional property maintenance services throughout County Cork for residential and commercial customers.</p>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            <div class="bg-slate-900/60 border border-slate-800/80 rounded-xl px-4 py-5 text-center hover:border-teal-500/40 transition-colors">
+                <i class="fas fa-location-dot text-teal-400 mb-2"></i>
+                <p class="text-white font-bold text-xs uppercase tracking-wide">Cork City</p>
+            </div>
+            <div class="bg-slate-900/60 border border-slate-800/80 rounded-xl px-4 py-5 text-center hover:border-teal-500/40 transition-colors">
+                <i class="fas fa-location-dot text-teal-400 mb-2"></i>
+                <p class="text-white font-bold text-xs uppercase tracking-wide">Douglas</p>
+            </div>
+            <div class="bg-slate-900/60 border border-slate-800/80 rounded-xl px-4 py-5 text-center hover:border-teal-500/40 transition-colors">
+                <i class="fas fa-location-dot text-teal-400 mb-2"></i>
+                <p class="text-white font-bold text-xs uppercase tracking-wide">Ballincollig</p>
+            </div>
+            <div class="bg-slate-900/60 border border-slate-800/80 rounded-xl px-4 py-5 text-center hover:border-teal-500/40 transition-colors">
+                <i class="fas fa-location-dot text-teal-400 mb-2"></i>
+                <p class="text-white font-bold text-xs uppercase tracking-wide">Carrigaline</p>
+            </div>
+            <div class="bg-slate-900/60 border border-slate-800/80 rounded-xl px-4 py-5 text-center hover:border-teal-500/40 transition-colors">
+                <i class="fas fa-location-dot text-teal-400 mb-2"></i>
+                <p class="text-white font-bold text-xs uppercase tracking-wide">Midleton</p>
+            </div>
+            <div class="bg-slate-900/60 border border-slate-800/80 rounded-xl px-4 py-5 text-center hover:border-teal-500/40 transition-colors">
+                <i class="fas fa-location-dot text-teal-400 mb-2"></i>
+                <p class="text-white font-bold text-xs uppercase tracking-wide">Cobh</p>
+            </div>
+            <div class="bg-slate-900/60 border border-slate-800/80 rounded-xl px-4 py-5 text-center hover:border-teal-500/40 transition-colors">
+                <i class="fas fa-location-dot text-teal-400 mb-2"></i>
+                <p class="text-white font-bold text-xs uppercase tracking-wide">Mallow</p>
+            </div>
+            <div class="bg-slate-900/60 border border-slate-800/80 rounded-xl px-4 py-5 text-center hover:border-teal-500/40 transition-colors">
+                <i class="fas fa-location-dot text-teal-400 mb-2"></i>
+                <p class="text-white font-bold text-xs uppercase tracking-wide">Bandon</p>
+            </div>
+        </div>
+        <p class="text-center text-slate-500 text-xs mt-8">Don't see your area listed? <a href="#contact-hub" class="text-teal-400 font-bold underline">Get in touch</a> — we cover all of County Cork.</p>
+    </section>
+
     <section id="scope" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-16">
             <span class="text-teal-400 font-extrabold tracking-widest text-xs uppercase block mb-2">Capabilities Deck</span>
@@ -297,7 +434,7 @@
             <div x-show="activeTab === 'windows'" x-transition class="grid md:grid-cols-2 gap-12 p-8 sm:p-12 items-center">
                 <div class="space-y-6">
                     <div class="inline-flex p-3 bg-teal-500/10 text-teal-400 rounded-2xl text-xl border border-teal-500/20"><i class="fas fa-window-maximize"></i></div>
-                    <h3 class="text-2xl sm:text-3xl font-black text-white">Internal & External Window Cleaning</h3>
+                    <h3 class="text-2xl sm:text-3xl font-black text-white">Window Cleaning</h3>
                     <p class="text-slate-400 text-sm leading-relaxed font-medium">
                         We offer specialized low-level internal and external window cleaning for both commercial spaces and residential layouts. Utilizing pure water-fed extension poles, we ensure your glazing dries clear without mineral streaks, residue, or clouding.
                     </p>
@@ -508,6 +645,12 @@
                 { q: 'What\'s your cancellation policy?', a: 'We ask for at least 24 hours\' notice to cancel or reschedule. As a consumer booking online, you also have a statutory 14-day cooling-off right under EU distance-selling regulations — full detail is in our Terms & Conditions.' },
                 { q: 'What if I\'m not happy with the work?', a: 'Tell us — ideally on the day, or within 48 hours if you spot an issue afterward, with photos if possible. We\'d always rather put something right than leave a client unhappy.' },
                 { q: 'Do you offer recurring or scheduled visits?', a: 'Yes — many clients set up regular gutter clearing, window cleaning, or grounds maintenance on a repeat schedule. Ask when booking and we\'ll set up a plan that suits you.' },
+                { q: 'Do you provide free quotations?', a: 'Yes — every quote is free and comes with no obligation. Reach out with your property details and we\'ll get back to you with an accurate estimate.' },
+                { q: 'What areas do you cover?', a: 'We cover Cork City and the wider county, including Douglas, Ballincollig, Carrigaline, Midleton, Cobh, Mallow, and Bandon. Not sure if we reach you? Just ask.' },
+                { q: 'Do you work with commercial properties?', a: 'Yes — alongside residential jobs, we work with property managers, businesses, and commercial premises across County Cork.' },
+                { q: 'How quickly can you attend?', a: 'Response times vary with demand and location, but we aim to get back to every enquiry promptly and schedule work as soon as practical. Get in touch and we\'ll confirm the earliest available slot.' },
+                { q: 'Can I book recurring maintenance visits?', a: 'Yes — we offer scheduled repeat visits for gutter cleaning, window cleaning, and grounds maintenance so your property stays consistently maintained.' },
+                { q: 'How are prices calculated?', a: 'Pricing depends on factors like property size, the service required, access, and condition. We provide a clear, itemised free quote before any work begins.' },
             ]" :key="idx">
                 <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden">
                     <button @click="openFaq = openFaq === idx ? null : idx" class="w-full flex items-center justify-between gap-4 text-left px-6 py-5">
@@ -519,6 +662,19 @@
                     </div>
                 </div>
             </template>
+        </div>
+    </section>
+
+    <section id="google-profile" class="py-16 max-w-4xl mx-auto px-4 sm:px-6">
+        <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-8 sm:p-10 text-center">
+            <div class="w-14 h-14 rounded-2xl accent-gradient flex items-center justify-center mx-auto mb-5">
+                <i class="fab fa-google text-slate-950 text-2xl"></i>
+            </div>
+            <h3 class="text-white font-black text-xl uppercase tracking-wide mb-3">Find Us On Google</h3>
+            <p class="text-slate-400 text-sm font-medium max-w-lg mx-auto mb-6">View our Google Business Profile for company information, service updates and customer reviews.</p>
+            <a href="https://maps.app.goo.gl/3AZu8zPawaaFJbGK9" target="_blank" rel="noopener" class="inline-flex items-center gap-2 accent-gradient text-slate-950 font-black px-6 py-3.5 rounded-xl shadow-lg hover:opacity-90 transition text-xs uppercase tracking-wider">
+                <i class="fab fa-google"></i> View Google Business Profile
+            </a>
         </div>
     </section>
 
