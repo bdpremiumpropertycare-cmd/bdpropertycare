@@ -231,6 +231,7 @@
                     <a href="#scope" class="text-slate-300 hover:text-sky-400 transition-colors">Our Scope</a>
                     <a href="#areas-we-cover" class="text-slate-300 hover:text-sky-400 transition-colors">Areas Covered</a>
                     <a href="#visual-proof" class="text-slate-300 hover:text-sky-400 transition-colors">Quality Standard</a>
+                    <a href="#our-equipment" class="text-slate-300 hover:text-sky-400 transition-colors">Our Equipment</a>
                     <a href="#estimation-engine" class="text-slate-300 hover:text-sky-400 transition-colors">Estimator Base</a>
                     <a href="https://forms.gle/Vki1WeTkTdkCjz1T6" target="_blank" rel="noopener" @click.prevent="openBookingGate()" class="text-slate-300 hover:text-sky-400 transition-colors">Book Online</a>
                     <a href="blog.html" class="text-slate-300 hover:text-sky-400 transition-colors">Blog</a>
@@ -253,6 +254,7 @@
             <a href="#scope" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-cubes text-teal-400 mr-3"></i>Our Scope</a>
             <a href="#areas-we-cover" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-map-location-dot text-teal-400 mr-3"></i>Areas Covered</a>
             <a href="#visual-proof" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-eye text-teal-400 mr-3"></i>Quality Standard</a>
+            <a href="#our-equipment" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-truck-ramp-box text-teal-400 mr-3"></i>Our Equipment</a>
             <a href="#estimation-engine" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-calculator text-teal-400 mr-3"></i>Estimator Base</a>
             <a href="https://forms.gle/Vki1WeTkTdkCjz1T6" target="_blank" rel="noopener" @click.prevent="mobileMenu = false; openBookingGate()" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-calendar-check text-teal-400 mr-3"></i>Book Online</a>
             <a href="blog.html" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-newspaper text-teal-400 mr-3"></i>Blog</a>
@@ -492,6 +494,53 @@
                         <i class="fas fa-arrows-left-right"></i>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="our-equipment" class="py-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8"
+             x-data="{
+                equipSlide: 0,
+                equipImages: [
+                    'https://raw.githubusercontent.com/YOUR-GITHUB-USERNAME/YOUR-REPO-NAME/main/equipment/equip-1-storage-tools.jpg',
+                    'https://raw.githubusercontent.com/YOUR-GITHUB-USERNAME/YOUR-REPO-NAME/main/equipment/equip-2-hoses-tank.jpg',
+                    'https://raw.githubusercontent.com/YOUR-GITHUB-USERNAME/YOUR-REPO-NAME/main/equipment/equip-3-motor-tank.jpg',
+                    'https://raw.githubusercontent.com/YOUR-GITHUB-USERNAME/YOUR-REPO-NAME/main/equipment/equip-4-pump-unit.jpg'
+                ],
+                equipTimer: null,
+                nextSlide() { this.equipSlide = (this.equipSlide + 1) % this.equipImages.length },
+                prevSlide() { this.equipSlide = (this.equipSlide - 1 + this.equipImages.length) % this.equipImages.length },
+                goTo(i) { this.equipSlide = i; this.resetTimer() },
+                startTimer() { this.equipTimer = setInterval(() => this.nextSlide(), 4000) },
+                resetTimer() { clearInterval(this.equipTimer); this.startTimer() }
+             }"
+             x-init="startTimer()">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+            <span class="text-teal-400 font-extrabold tracking-widest text-xs uppercase block mb-2">Behind The Scenes</span>
+            <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight">Our Equipment</h2>
+            <p class="mt-4 text-slate-400 text-sm font-medium">Professional-grade pressure washing equipment, ready to go on every job across County Cork.</p>
+        </div>
+
+        <div class="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl border-2 border-slate-800 bg-slate-950"
+             @mouseenter="clearInterval(equipTimer)" @mouseleave="startTimer()">
+            <template x-for="(img, i) in equipImages" :key="i">
+                <img :src="img" alt="BD Premium Property Care professional pressure washing equipment"
+                     class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
+                     :class="equipSlide === i ? 'opacity-100' : 'opacity-0 pointer-events-none'">
+            </template>
+
+            <button @click="prevSlide(); resetTimer()" class="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-slate-950/70 border border-slate-700 text-white flex items-center justify-center hover:bg-slate-900 transition">
+                <i class="fas fa-chevron-left text-xs"></i>
+            </button>
+            <button @click="nextSlide(); resetTimer()" class="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-slate-950/70 border border-slate-700 text-white flex items-center justify-center hover:bg-slate-900 transition">
+                <i class="fas fa-chevron-right text-xs"></i>
+            </button>
+
+            <div class="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex gap-2">
+                <template x-for="(img, i) in equipImages" :key="i">
+                    <button @click="goTo(i)" class="w-2.5 h-2.5 rounded-full transition-all"
+                            :class="equipSlide === i ? 'bg-teal-400 w-6' : 'bg-slate-600 hover:bg-slate-400'"></button>
+                </template>
             </div>
         </div>
     </section>
