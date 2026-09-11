@@ -228,10 +228,10 @@
                 <div class="hidden lg:flex items-center space-x-8 font-bold text-xs uppercase tracking-wider">
                     <a href="about.html" class="text-slate-300 hover:text-sky-400 transition-colors">About Us</a>
                     <a href="#why-choose-us" class="text-slate-300 hover:text-sky-400 transition-colors">Why Us</a>
-                    <a href="#scope" class="text-slate-300 hover:text-sky-400 transition-colors">Our Scope</a>
-                    <a href="#areas-we-cover" class="text-slate-300 hover:text-sky-400 transition-colors">Areas Covered</a>
-                    <a href="#visual-proof" class="text-slate-300 hover:text-sky-400 transition-colors">Quality Standard</a>
                     <a href="#our-equipment" class="text-slate-300 hover:text-sky-400 transition-colors">Our Equipment</a>
+                    <a href="#areas-we-cover" class="text-slate-300 hover:text-sky-400 transition-colors">Areas Covered</a>
+                    <a href="#scope" class="text-slate-300 hover:text-sky-400 transition-colors">Our Scope</a>
+                    <a href="#visual-proof" class="text-slate-300 hover:text-sky-400 transition-colors">Quality Standard</a>
                     <a href="#estimation-engine" class="text-slate-300 hover:text-sky-400 transition-colors">Estimator Base</a>
                     <a href="https://forms.gle/Vki1WeTkTdkCjz1T6" target="_blank" rel="noopener" @click.prevent="openBookingGate()" class="text-slate-300 hover:text-sky-400 transition-colors">Book Online</a>
                     <a href="blog.html" class="text-slate-300 hover:text-sky-400 transition-colors">Blog</a>
@@ -251,10 +251,10 @@
                 <i class="fas fa-circle-info text-teal-400 mr-3"></i>About Us
             </a>
             <a href="#why-choose-us" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-shield-halved text-teal-400 mr-3"></i>Why Us</a>
-            <a href="#scope" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-cubes text-teal-400 mr-3"></i>Our Scope</a>
-            <a href="#areas-we-cover" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-map-location-dot text-teal-400 mr-3"></i>Areas Covered</a>
-            <a href="#visual-proof" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-eye text-teal-400 mr-3"></i>Quality Standard</a>
             <a href="#our-equipment" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-truck-ramp-box text-teal-400 mr-3"></i>Our Equipment</a>
+            <a href="#areas-we-cover" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-map-location-dot text-teal-400 mr-3"></i>Areas Covered</a>
+            <a href="#scope" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-cubes text-teal-400 mr-3"></i>Our Scope</a>
+            <a href="#visual-proof" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-eye text-teal-400 mr-3"></i>Quality Standard</a>
             <a href="#estimation-engine" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-calculator text-teal-400 mr-3"></i>Estimator Base</a>
             <a href="https://forms.gle/Vki1WeTkTdkCjz1T6" target="_blank" rel="noopener" @click.prevent="mobileMenu = false; openBookingGate()" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-calendar-check text-teal-400 mr-3"></i>Book Online</a>
             <a href="blog.html" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-newspaper text-teal-400 mr-3"></i>Blog</a>
@@ -264,7 +264,7 @@
         </div>
     </nav>
 
-    <section class="relative neon-gradient pt-16 pb-24 lg:py-32 overflow-hidden border-b border-slate-800">
+    <section class="relative neon-gradient pt-14 pb-16 lg:py-20 overflow-hidden border-b border-slate-800">
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(45,212,191,0.08),transparent_50%)]"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid lg:grid-cols-12 gap-12 items-center">
             <div class="space-y-6 text-center lg:text-left lg:col-span-7">
@@ -304,9 +304,9 @@
         </div>
     </section>
 
-    <section id="why-choose-us" class="py-24 bg-slate-950/40 border-y border-slate-800/60">
+    <section id="why-choose-us" class="py-16 bg-slate-950/40 border-y border-slate-800/60">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-16">
+            <div class="text-center max-w-2xl mx-auto mb-10">
                 <span class="text-teal-400 font-extrabold tracking-widest text-xs uppercase block mb-2">Why Choose Us</span>
                 <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight">Built On Trust & Precision</h2>
                 <p class="mt-4 text-slate-400 text-sm font-medium">Here's what property owners and businesses across Cork can expect when they work with us.</p>
@@ -355,11 +355,53 @@
                     <p class="text-slate-400 text-xs leading-relaxed">Clear updates, prompt responses, and a team that's easy to reach by phone, WhatsApp, or email.</p>
                 </div>
             </div>
+
+            <div id="our-equipment" class="mt-10 max-w-4xl mx-auto scroll-mt-24"
+                 x-data="{
+                    equipSlide: 0,
+                    equipImages: [
+                        'https://raw.githubusercontent.com/bdpremiumpropertycare-cmd/bdpropertycare/main/equipment/equip-1-storage-tools.jpg',
+                        'https://raw.githubusercontent.com/bdpremiumpropertycare-cmd/bdpropertycare/main/equipment/equip-2-hoses-tank.jpg',
+                        'https://raw.githubusercontent.com/bdpremiumpropertycare-cmd/bdpropertycare/main/equipment/equip-3-motor-tank.jpg',
+                        'https://raw.githubusercontent.com/bdpremiumpropertycare-cmd/bdpropertycare/main/equipment/equip-4-pump-unit.jpg'
+                    ],
+                    equipTimer: null,
+                    nextSlide() { this.equipSlide = (this.equipSlide + 1) % this.equipImages.length },
+                    prevSlide() { this.equipSlide = (this.equipSlide - 1 + this.equipImages.length) % this.equipImages.length },
+                    goTo(i) { this.equipSlide = i; this.resetTimer() },
+                    startTimer() { this.equipTimer = setInterval(() => this.nextSlide(), 4000) },
+                    resetTimer() { clearInterval(this.equipTimer); this.startTimer() }
+                 }"
+                 x-init="startTimer()">
+                <p class="text-center text-slate-500 text-[11px] font-black uppercase tracking-widest mb-3">See The Equipment In Action</p>
+                <div class="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl border-2 border-slate-800 bg-slate-950"
+                     @mouseenter="clearInterval(equipTimer)" @mouseleave="startTimer()">
+                    <template x-for="(img, i) in equipImages" :key="i">
+                        <img :src="img" alt="BD Premium Property Care professional pressure washing equipment"
+                             class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
+                             :class="equipSlide === i ? 'opacity-100' : 'opacity-0 pointer-events-none'">
+                    </template>
+
+                    <button @click="prevSlide(); resetTimer()" class="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-slate-950/70 border border-slate-700 text-white flex items-center justify-center hover:bg-slate-900 transition">
+                        <i class="fas fa-chevron-left text-xs"></i>
+                    </button>
+                    <button @click="nextSlide(); resetTimer()" class="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-slate-950/70 border border-slate-700 text-white flex items-center justify-center hover:bg-slate-900 transition">
+                        <i class="fas fa-chevron-right text-xs"></i>
+                    </button>
+
+                    <div class="absolute bottom-3 left-1/2 -translate-x-1/2 z-10 flex gap-2">
+                        <template x-for="(img, i) in equipImages" :key="i">
+                            <button @click="goTo(i)" class="w-2 h-2 rounded-full transition-all"
+                                    :class="equipSlide === i ? 'bg-teal-400 w-5' : 'bg-slate-600 hover:bg-slate-400'"></button>
+                        </template>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section id="areas-we-cover" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-2xl mx-auto mb-16">
+    <section id="areas-we-cover" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-10">
             <span class="text-teal-400 font-extrabold tracking-widest text-xs uppercase block mb-2">Local Coverage</span>
             <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight">Areas We Cover</h2>
             <p class="mt-4 text-slate-400 text-sm font-medium">BD Premium Property Care provides professional property maintenance services throughout County Cork for residential and commercial customers.</p>
@@ -401,8 +443,8 @@
         <p class="text-center text-slate-500 text-xs mt-8">Don't see your area listed? <a href="#contact-hub" class="text-teal-400 font-bold underline">Get in touch</a> — we cover all of County Cork.</p>
     </section>
 
-    <section id="scope" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-2xl mx-auto mb-16">
+    <section id="scope" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-10">
             <span class="text-teal-400 font-extrabold tracking-widest text-xs uppercase block mb-2">What We Do</span>
             <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight">Our Professional Scope</h2>
             <p class="mt-4 text-slate-400 text-sm font-medium">Explore our main services below to see what's included and what to expect.</p>
@@ -477,7 +519,7 @@
         </div>
     </section>
 
-    <section id="visual-proof" class="py-20 bg-slate-950 border-y border-slate-800">
+    <section id="visual-proof" class="py-14 bg-slate-950 border-y border-slate-800">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center" x-data="{ sliderPos: 50 }">
             <h2 class="text-2xl sm:text-4xl font-black text-white mb-2">The Quality Standard</h2>
             <p class="text-slate-400 text-xs max-w-xl mx-auto mb-10">Slide to compare a neglected exterior with our finished standard.</p>
@@ -498,54 +540,7 @@
         </div>
     </section>
 
-    <section id="our-equipment" class="py-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8"
-             x-data="{
-                equipSlide: 0,
-                equipImages: [
-                    'https://raw.githubusercontent.com/bdpremiumpropertycare-cmd/bdpropertycare/main/equip-1-storage-tools.jpg',
-                    'https://raw.githubusercontent.com/bdpremiumpropertycare-cmd/bdpropertycare/main/equip-2-hoses-tank.jpg',
-                    'https://raw.githubusercontent.com/bdpremiumpropertycare-cmd/bdpropertycare/main/equip-3-motor-tank.jpg',
-                    'https://raw.githubusercontent.com/bdpremiumpropertycare-cmd/bdpropertycare/main/equip-4-pump-unit.jpg'
-                ],
-                equipTimer: null,
-                nextSlide() { this.equipSlide = (this.equipSlide + 1) % this.equipImages.length },
-                prevSlide() { this.equipSlide = (this.equipSlide - 1 + this.equipImages.length) % this.equipImages.length },
-                goTo(i) { this.equipSlide = i; this.resetTimer() },
-                startTimer() { this.equipTimer = setInterval(() => this.nextSlide(), 4000) },
-                resetTimer() { clearInterval(this.equipTimer); this.startTimer() }
-             }"
-             x-init="startTimer()">
-        <div class="text-center max-w-2xl mx-auto mb-12">
-            <span class="text-teal-400 font-extrabold tracking-widest text-xs uppercase block mb-2">Behind The Scenes</span>
-            <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight">Our Equipment</h2>
-            <p class="mt-4 text-slate-400 text-sm font-medium">Professional-grade pressure washing equipment, ready to go on every job across County Cork.</p>
-        </div>
-
-        <div class="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl border-2 border-slate-800 bg-slate-950"
-             @mouseenter="clearInterval(equipTimer)" @mouseleave="startTimer()">
-            <template x-for="(img, i) in equipImages" :key="i">
-                <img :src="img" alt="BD Premium Property Care professional pressure washing equipment"
-                     class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
-                     :class="equipSlide === i ? 'opacity-100' : 'opacity-0 pointer-events-none'">
-            </template>
-
-            <button @click="prevSlide(); resetTimer()" class="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-slate-950/70 border border-slate-700 text-white flex items-center justify-center hover:bg-slate-900 transition">
-                <i class="fas fa-chevron-left text-xs"></i>
-            </button>
-            <button @click="nextSlide(); resetTimer()" class="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-slate-950/70 border border-slate-700 text-white flex items-center justify-center hover:bg-slate-900 transition">
-                <i class="fas fa-chevron-right text-xs"></i>
-            </button>
-
-            <div class="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex gap-2">
-                <template x-for="(img, i) in equipImages" :key="i">
-                    <button @click="goTo(i)" class="w-2.5 h-2.5 rounded-full transition-all"
-                            :class="equipSlide === i ? 'bg-teal-400 w-6' : 'bg-slate-600 hover:bg-slate-400'"></button>
-                </template>
-            </div>
-        </div>
-    </section>
-
-    <section id="estimation-engine" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="estimation-engine" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-12 gap-12 items-center">
             <div class="lg:col-span-7 space-y-6">
                 <span class="text-teal-400 font-extrabold tracking-widest text-xs uppercase block">High-Level Budget Planner</span>
@@ -606,7 +601,7 @@
         </div>
     </section>
 
-    <section id="contact-hub" class="py-24 max-w-5xl mx-auto px-4 sm:px-6">
+    <section id="contact-hub" class="py-16 max-w-5xl mx-auto px-4 sm:px-6">
         <div class="bg-slate-950 border border-slate-800/80 rounded-3xl shadow-2xl overflow-hidden grid md:grid-cols-12">
             <div class="bg-gradient-to-b from-slate-900 to-slate-950 p-8 md:col-span-5 flex flex-col justify-between border-b md:border-b-0 md:border-r border-slate-800">
                 <div class="space-y-4">
@@ -679,8 +674,8 @@
         </div>
     </section>
 
-    <section id="faq" class="py-24 max-w-4xl mx-auto px-4 sm:px-6">
-        <div class="text-center mb-14">
+    <section id="faq" class="py-16 max-w-4xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-10">
             <span class="text-teal-400 font-extrabold tracking-widest text-xs uppercase block mb-2">Common Questions</span>
             <h2 class="text-3xl sm:text-4xl font-black text-white">Frequently Asked Questions</h2>
             <p class="text-slate-400 mt-4 max-w-xl mx-auto font-medium">Answers straight from our Terms &amp; Conditions and service standards. Don't see yours? <a href="#contact-hub" class="text-teal-400 underline font-bold">Ask us directly</a>.</p>
@@ -716,7 +711,7 @@
         </div>
     </section>
 
-    <section id="google-profile" class="py-16 max-w-4xl mx-auto px-4 sm:px-6">
+    <section id="google-profile" class="py-12 max-w-4xl mx-auto px-4 sm:px-6">
         <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-8 sm:p-10 text-center">
             <div class="w-14 h-14 rounded-2xl accent-gradient flex items-center justify-center mx-auto mb-5">
                 <i class="fab fa-google text-slate-950 text-2xl"></i>
