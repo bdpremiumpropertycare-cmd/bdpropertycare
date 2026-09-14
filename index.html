@@ -360,10 +360,10 @@
                  x-data="{
                     equipSlide: 0,
                     equipImages: [
-                        'https://raw.githubusercontent.com/bdpremiumpropertycare-cmd/bdpropertycare/main/equip-1-storage-tools.jpg',
-                        'https://raw.githubusercontent.com/bdpremiumpropertycare-cmd/bdpropertycare/main/equip-2-hoses-tank.jpg',
-                        'https://raw.githubusercontent.com/bdpremiumpropertycare-cmd/bdpropertycare/main/equip-3-motor-tank.jpg',
-                        'https://raw.githubusercontent.com/bdpremiumpropertycare-cmd/bdpropertycare/main/equip-4-pump-unit.jpg'
+                        'https://raw.githubusercontent.com/bdpremiumpropertycare-cmd/bdpropertycare/main/equipment/equip-1-storage-tools.jpg',
+                        'https://raw.githubusercontent.com/bdpremiumpropertycare-cmd/bdpropertycare/main/equipment/equip-2-hoses-tank.jpg',
+                        'https://raw.githubusercontent.com/bdpremiumpropertycare-cmd/bdpropertycare/main/equipment/equip-3-motor-tank.jpg',
+                        'https://raw.githubusercontent.com/bdpremiumpropertycare-cmd/bdpropertycare/main/equipment/equip-4-pump-unit.jpg'
                     ],
                     equipTimer: null,
                     nextSlide() { this.equipSlide = (this.equipSlide + 1) % this.equipImages.length },
@@ -540,6 +540,22 @@
         </div>
     </section>
 
+    <section id="real-results" class="py-16 max-w-5xl mx-auto px-4 sm:px-6">
+        <div class="text-center max-w-2xl mx-auto mb-10">
+            <span class="text-teal-400 font-extrabold tracking-widest text-xs uppercase block mb-2">Real Jobs, Real Results</span>
+            <h2 class="text-3xl sm:text-4xl font-black text-white tracking-tight">Recent Work</h2>
+            <p class="mt-3 text-slate-400 text-sm font-medium">Actual before-and-after photos from a driveway and steps pressure washing job across County Cork.</p>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-6">
+            <div class="rounded-2xl overflow-hidden border-2 border-slate-800 shadow-xl">
+                <img src="https://raw.githubusercontent.com/bdpremiumpropertycare-cmd/bdpropertycare/main/gallery/gallery-1-steps.jpg" alt="Before and after pressure washing of garden steps, County Cork" class="w-full h-auto">
+            </div>
+            <div class="rounded-2xl overflow-hidden border-2 border-slate-800 shadow-xl">
+                <img src="https://raw.githubusercontent.com/bdpremiumpropertycare-cmd/bdpropertycare/main/gallery/gallery-2-steps.jpg" alt="Before and after pressure washing of driveway steps, County Cork" class="w-full h-auto">
+            </div>
+        </div>
+    </section>
+
     <section id="estimation-engine" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-12 gap-12 items-center">
             <div class="lg:col-span-7 space-y-6">
@@ -708,6 +724,25 @@
                     </div>
                 </div>
             </template>
+        </div>
+    </section>
+
+    <section id="reviews" class="py-16 max-w-4xl mx-auto px-4 sm:px-6">
+        <div class="text-center max-w-2xl mx-auto mb-10">
+            <span class="text-teal-400 font-extrabold tracking-widest text-xs uppercase block mb-2">Customer Feedback</span>
+            <h2 class="text-3xl sm:text-4xl font-black text-white tracking-tight">What Our Customers Say</h2>
+        </div>
+        <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-8 sm:p-10">
+            <div class="flex items-center gap-1 mb-4 text-amber-400 text-lg">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="text-slate-200 text-base sm:text-lg font-medium leading-relaxed mb-6">"We got our front driveway power washed by BD Property care services, they did excellent job and very professionals, high grade equipment.. Highly recommended!"</p>
+            <div class="flex items-center justify-between flex-wrap gap-3">
+                <p class="text-slate-400 text-sm font-bold">Monta Gedrovica Arshad</p>
+                <a href="https://maps.app.goo.gl/uoYvLUUTLTNPUDsA9" target="_blank" rel="noopener" class="text-teal-400 text-xs font-bold uppercase tracking-wider hover:text-teal-300 transition inline-flex items-center gap-1.5">
+                    <i class="fab fa-google"></i> Read on Google
+                </a>
+            </div>
         </div>
     </section>
 
