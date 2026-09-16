@@ -179,7 +179,7 @@
             if (modalToOpen) sessionStorage.removeItem('bdOpenModal');
         }
       }">
-
+ 
    <div class="bg-gradient-to-r from-teal-600 via-sky-600 to-teal-600 text-white text-center py-4 px-4 shadow-2xl relative z-50 border-b border-teal-500/30">
     <div class="relative z-10 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 text-xs sm:text-sm font-black uppercase tracking-wider">
         <span>Now Accepting New Customers Across County Cork</span>
@@ -189,7 +189,7 @@
         </span>
     </div>
 </div>
-
+ 
     <a href="promotion.html" class="block offer-gradient text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 py-2.5 flex items-center justify-center gap-2 text-[11px] sm:text-xs font-black uppercase tracking-wider text-center">
             <i class="fas fa-tag"></i>
@@ -197,14 +197,14 @@
             <i class="fas fa-arrow-right"></i>
         </div>
     </a>
-
+ 
     <div x-data="{ fabVisible: true, fabTimer: null, resetFab() { this.fabVisible = true; clearTimeout(this.fabTimer); this.fabTimer = setTimeout(() => { this.fabVisible = false }, 2500) }, init() { this.resetFab() } }" @scroll.window="resetFab()" @touchstart.window="resetFab()">
         <div class="fixed bottom-24 left-6 z-40 lg:hidden transition-all duration-500" :class="fabVisible ? 'opacity-100 translate-x-0 pointer-events-auto' : 'opacity-0 -translate-x-4 pointer-events-none'">
             <a href="https://forms.gle/Vki1WeTkTdkCjz1T6" target="_blank" rel="noopener" @click.prevent="openBookingGate()" class="accent-gradient text-slate-950 font-black px-4 py-3.5 rounded-xl shadow-2xl text-xs uppercase tracking-wider flex items-center gap-2 border border-teal-300/30">
                 <i class="fas fa-calendar-check text-sm" :class="fabVisible ? 'animate-bounce' : ''"></i> Free Estimate
             </a>
         </div>
-
+ 
         <div class="fixed bottom-6 right-6 z-40 flex flex-col gap-3 transition-all duration-500" :class="fabVisible ? 'opacity-100 translate-x-0 pointer-events-auto' : 'opacity-0 translate-x-4 pointer-events-none'">
             <a href="https://wa.me/353892066711?text=Hi%20BD%20Premium%20Property%20Care,%20I%20would%20like%20to%20get%20a%20maintenance%20estimate." target="_blank" class="bg-emerald-500 hover:bg-emerald-400 text-white p-4 rounded-2xl shadow-2xl hover:scale-110 transition-all duration-300 flex items-center justify-center w-14 h-14 border border-emerald-400/20" title="WhatsApp Business Line">
                 <i class="fab fa-whatsapp text-2xl"></i>
@@ -214,7 +214,7 @@
             </a>
         </div>
     </div>
-
+ 
     <nav class="bg-slate-950/90 backdrop-blur-xl sticky top-0 z-40 border-b border-slate-800/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20">
@@ -232,7 +232,7 @@
                     <a href="#areas-we-cover" class="text-slate-300 hover:text-sky-400 transition-colors">Areas Covered</a>
                     <a href="#scope" class="text-slate-300 hover:text-sky-400 transition-colors">Our Scope</a>
                     <a href="#visual-proof" class="text-slate-300 hover:text-sky-400 transition-colors">Quality Standard</a>
-                    <a href="#estimation-engine" class="text-slate-300 hover:text-sky-400 transition-colors">Estimator Base</a>
+                    <a href="#estimation-engine" class="text-slate-300 hover:text-sky-400 transition-colors">Price Guide</a>
                     <a href="https://forms.gle/Vki1WeTkTdkCjz1T6" target="_blank" rel="noopener" @click.prevent="openBookingGate()" class="text-slate-300 hover:text-sky-400 transition-colors">Book Online</a>
                     <a href="blog.html" class="text-slate-300 hover:text-sky-400 transition-colors">Blog</a>
                     <a href="#faq" class="text-slate-300 hover:text-sky-400 transition-colors">FAQ</a>
@@ -255,7 +255,7 @@
             <a href="#areas-we-cover" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-map-location-dot text-teal-400 mr-3"></i>Areas Covered</a>
             <a href="#scope" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-cubes text-teal-400 mr-3"></i>Our Scope</a>
             <a href="#visual-proof" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-eye text-teal-400 mr-3"></i>Quality Standard</a>
-            <a href="#estimation-engine" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-calculator text-teal-400 mr-3"></i>Estimator Base</a>
+            <a href="#estimation-engine" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-calculator text-teal-400 mr-3"></i>Price Guide</a>
             <a href="https://forms.gle/Vki1WeTkTdkCjz1T6" target="_blank" rel="noopener" @click.prevent="mobileMenu = false; openBookingGate()" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-calendar-check text-teal-400 mr-3"></i>Book Online</a>
             <a href="blog.html" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-newspaper text-teal-400 mr-3"></i>Blog</a>
             <a href="#faq" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-circle-question text-teal-400 mr-3"></i>FAQ</a>
@@ -263,7 +263,7 @@
             <a href="#contact-hub" @click="mobileMenu = false" class="block text-center accent-gradient text-slate-950 py-3.5 rounded-xl font-black text-sm uppercase">Submit Request</a>
         </div>
     </nav>
-
+ 
     <section class="relative neon-gradient pt-14 pb-16 lg:py-20 overflow-hidden border-b border-slate-800">
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(45,212,191,0.08),transparent_50%)]"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid lg:grid-cols-12 gap-12 items-center">
@@ -303,7 +303,7 @@
             </div>
         </div>
     </section>
-
+ 
     <section id="why-choose-us" class="py-16 bg-slate-950/40 border-y border-slate-800/60">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-10">
@@ -355,15 +355,15 @@
                     <p class="text-slate-400 text-xs leading-relaxed">Clear updates, prompt responses, and a team that's easy to reach by phone, WhatsApp, or email.</p>
                 </div>
             </div>
-
+ 
             <div id="our-equipment" class="mt-10 max-w-4xl mx-auto scroll-mt-24"
                  x-data="{
                     equipSlide: 0,
                     equipImages: [
-                        'https://raw.githubusercontent.com/bdpremiumpropertycare-cmd/bdpropertycare/equip-1-storage-tools.jpg',
-                        'https://raw.githubusercontent.com/bdpremiumpropertycare-cmd/bdpropertycare/equip-2-hoses-tank.jpg',
-                        'https://raw.githubusercontent.com/bdpremiumpropertycare-cmd/bdpropertycare/equip-3-motor-tank.jpg',
-                        'https://raw.githubusercontent.com/bdpremiumpropertycare-cmd/bdpropertycare/equip-4-pump-unit.jpg'
+                        'https://raw.githubusercontent.com/bdpremiumpropertycare-cmd/bdpropertycare/main/equip-1-storage-tools.jpg',
+                        'https://raw.githubusercontent.com/bdpremiumpropertycare-cmd/bdpropertycare/main/equip-2-hoses-tank.jpg',
+                        'https://raw.githubusercontent.com/bdpremiumpropertycare-cmd/bdpropertycare/main/equip-3-motor-tank.jpg',
+                        'https://raw.githubusercontent.com/bdpremiumpropertycare-cmd/bdpropertycare/main/equip-4-pump-unit.jpg'
                     ],
                     equipTimer: null,
                     nextSlide() { this.equipSlide = (this.equipSlide + 1) % this.equipImages.length },
@@ -381,14 +381,14 @@
                              class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
                              :class="equipSlide === i ? 'opacity-100' : 'opacity-0 pointer-events-none'">
                     </template>
-
+ 
                     <button @click="prevSlide(); resetTimer()" class="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-slate-950/70 border border-slate-700 text-white flex items-center justify-center hover:bg-slate-900 transition">
                         <i class="fas fa-chevron-left text-xs"></i>
                     </button>
                     <button @click="nextSlide(); resetTimer()" class="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-slate-950/70 border border-slate-700 text-white flex items-center justify-center hover:bg-slate-900 transition">
                         <i class="fas fa-chevron-right text-xs"></i>
                     </button>
-
+ 
                     <div class="absolute bottom-3 left-1/2 -translate-x-1/2 z-10 flex gap-2">
                         <template x-for="(img, i) in equipImages" :key="i">
                             <button @click="goTo(i)" class="w-2 h-2 rounded-full transition-all"
@@ -399,7 +399,7 @@
             </div>
         </div>
     </section>
-
+ 
     <section id="areas-we-cover" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-10">
             <span class="text-teal-400 font-extrabold tracking-widest text-xs uppercase block mb-2">Local Coverage</span>
@@ -442,7 +442,7 @@
         </div>
         <p class="text-center text-slate-500 text-xs mt-8">Don't see your area listed? <a href="#contact-hub" class="text-teal-400 font-bold underline">Get in touch</a> — we cover all of County Cork.</p>
     </section>
-
+ 
     <section id="scope" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-10">
             <span class="text-teal-400 font-extrabold tracking-widest text-xs uppercase block mb-2">What We Do</span>
@@ -455,7 +455,7 @@
                 <button @click="activeTab = 'grounds'" :class="activeTab === 'grounds' ? 'bg-teal-500 text-slate-950 font-black' : 'text-slate-400 hover:text-white'" class="px-4 py-2.5 rounded-xl transition duration-300 text-[11px] uppercase tracking-wider flex-1">Grounds & Repairs</button>
             </div>
         </div>
-
+ 
         <div class="bg-slate-950 border border-slate-800 rounded-3xl overflow-hidden shadow-2xl">
             <div x-show="activeTab === 'washing'" x-transition class="grid md:grid-cols-2 gap-12 p-8 sm:p-12 items-center">
                 <div class="space-y-6">
@@ -476,7 +476,7 @@
                     <img src="gutter-pressure-washing-cork.jpg" alt="Power washing a driveway and low-level gutter clearing at a home in Cork by BD Premium Property Care" class="w-full h-full object-contain" loading="lazy" width="760" height="1330">
                 </div>
             </div>
-
+ 
             <div x-show="activeTab === 'windows'" x-transition class="grid md:grid-cols-2 gap-12 p-8 sm:p-12 items-center">
                 <div class="space-y-6">
                     <div class="inline-flex p-3 bg-teal-500/10 text-teal-400 rounded-2xl text-xl border border-teal-500/20"><i class="fas fa-window-maximize"></i></div>
@@ -496,7 +496,7 @@
                     <img src="window-cleaning-cork.jpg" alt="BD Premium Property Care technician cleaning external windows in Cork using a pure water-fed pole" class="w-full h-full object-contain" loading="lazy" width="760" height="1295">
                 </div>
             </div>
-
+ 
             <div x-show="activeTab === 'grounds'" x-transition class="grid md:grid-cols-2 gap-12 p-8 sm:p-12 items-center">
                 <div class="space-y-6">
                     <div class="inline-flex p-3 bg-amber-500/10 text-amber-400 rounded-2xl text-xl border border-amber-500/20"><i class="fas fa-trowel-bricks"></i></div>
@@ -518,7 +518,7 @@
             </div>
         </div>
     </section>
-
+ 
     <section id="visual-proof" class="py-14 bg-slate-950 border-y border-slate-800">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center" x-data="{ sliderPos: 50 }">
             <h2 class="text-2xl sm:text-4xl font-black text-white mb-2">The Quality Standard</h2>
@@ -539,7 +539,7 @@
             </div>
         </div>
     </section>
-
+ 
     <section id="real-results" class="py-16 max-w-5xl mx-auto px-4 sm:px-6">
         <div class="text-center max-w-2xl mx-auto mb-10">
             <span class="text-teal-400 font-extrabold tracking-widest text-xs uppercase block mb-2">Real Jobs, Real Results</span>
@@ -555,31 +555,31 @@
             </div>
         </div>
     </section>
-
+ 
     <section id="estimation-engine" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-12 gap-12 items-center">
             <div class="lg:col-span-7 space-y-6">
-                <span class="text-teal-400 font-extrabold tracking-widest text-xs uppercase block">High-Level Budget Planner</span>
+                <span class="text-teal-400 font-extrabold tracking-widest text-xs uppercase block">Price Guide</span>
                 <h2 class="text-3xl sm:text-5xl font-black text-white leading-tight">Get A Rough Price Estimate</h2>
-                <p class="text-slate-400 text-sm font-medium">Fill in a few details below for a rough price range. This is a quick guide only — your final price is confirmed after we've seen the job.</p>
+                <p class="text-slate-400 text-sm font-medium">Fill in a few details below for a rough price range, based on our average job pricing. This is a quick guide only — your final price is confirmed after we've seen the job.</p>
                 
                 <div class="space-y-6 bg-slate-950 p-6 sm:p-8 rounded-2xl border border-slate-800">
                     <div>
-                        <label class="block text-xs font-black uppercase tracking-wide text-slate-400 mb-2">Core Service Category Selection</label>
+                        <label class="block text-xs font-black uppercase tracking-wide text-slate-400 mb-2">What Service Do You Need?</label>
                         <select x-model="jobType" class="w-full bg-slate-900 border-2 border-slate-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-teal-500 font-bold text-sm">
-                            <option value="washing">Power Washing Base Indicator (€1.20 / sq meter)</option>
-                            <option value="windows">Window Cleaning Base Indicator (€9.00 / window module)</option>
-                            <option value="gutters">Low-Level Gutter Base Indicator (€3.50 / linear meter)</option>
-                            <option value="grounds">Grass Cutting / Minor Painting Repair Analysis Block</option>
+                            <option value="washing">Pressure / Soft Washing (avg. €7.35 / m²)</option>
+                            <option value="windows">Window Cleaning (avg. €12.00 / window)</option>
+                            <option value="gutters">Gutter Clearance (avg. €5.15 / linear metre)</option>
+                            <option value="grounds">Grass Cutting / Minor Repairs</option>
                         </select>
                     </div>
                     <div>
                         <div class="flex justify-between items-center font-bold text-xs uppercase tracking-wider mb-2 text-slate-400">
                             <span>
-                                <span x-show="jobType === 'washing'">Approx Surface Scope (sq m)</span>
-                                <span x-show="jobType === 'windows'">Approx Window Units</span>
-                                <span x-show="jobType === 'gutters'">Approx Gutter Scope (m)</span>
-                                <span x-show="jobType === 'grounds'">Fixed Scope Complexity Level</span>
+                                <span x-show="jobType === 'washing'">Approx Area (m²)</span>
+                                <span x-show="jobType === 'windows'">Number Of Windows</span>
+                                <span x-show="jobType === 'gutters'">Approx Gutter Length (m)</span>
+                                <span x-show="jobType === 'grounds'">Job Size</span>
                             </span>
                             <input type="number"
                                    x-model.number="structuralUnits"
@@ -597,18 +597,18 @@
                 <div class="absolute top-4 right-4 px-2 py-0.5 bg-amber-500/10 border border-amber-500/20 text-amber-400 rounded text-[9px] font-black uppercase tracking-widest">Rough Guide Only</div>
                 <h4 class="text-slate-500 font-bold uppercase tracking-widest text-xs mt-2">Estimated Price Range</h4>
                 <div class="text-5xl sm:text-6xl font-black text-white my-6 tracking-tight">
-                    <span x-show="jobType !== 'grounds'">€<span x-text="(jobType === 'washing' ? (structuralUnits * 1.20) : (jobType === 'windows' ? (structuralUnits * 9.00) : (structuralUnits * 3.50))).toFixed(2)"></span></span>
+                    <span x-show="jobType !== 'grounds'">€<span x-text="Math.max((jobType === 'washing' ? (structuralUnits * 7.35) : (jobType === 'windows' ? (structuralUnits * 12.00) : (structuralUnits * 5.15))), 50).toFixed(2)"></span></span>
                     <span x-show="jobType === 'grounds'" class="text-2xl sm:text-3xl text-teal-400 font-black tracking-normal uppercase">Custom Quote</span>
                 </div>
                 
                 <div class="text-left bg-slate-900/80 border border-slate-800 rounded-xl p-4 space-y-2.5 text-xs text-slate-400 mb-6 font-medium">
                     <p class="flex items-start gap-2">
                         <i class="fas fa-circle-info text-amber-400 mt-0.5 flex-shrink-0"></i>
-                        <span>This tool gives a rough guide only and isn't a final, binding quote.</span>
+                        <span>This is an average-based guide, not a final quote — the actual price could be higher or lower depending on surface condition, access, and job specifics.</span>
                     </p>
                     <p class="flex items-start gap-2">
                         <i class="fas fa-truck-ramp-box text-sky-400 mt-0.5 flex-shrink-0"></i>
-                        <span>A call-out charge may apply depending on how far the job is from us within County Cork.</span>
+                        <span>A minimum call-out charge of €50 applies to all jobs, which may be higher depending on distance within County Cork.</span>
                     </p>
                 </div>
                 
@@ -616,7 +616,7 @@
             </div>
         </div>
     </section>
-
+ 
     <section id="contact-hub" class="py-16 max-w-5xl mx-auto px-4 sm:px-6">
         <div class="bg-slate-950 border border-slate-800/80 rounded-3xl shadow-2xl overflow-hidden grid md:grid-cols-12">
             <div class="bg-gradient-to-b from-slate-900 to-slate-950 p-8 md:col-span-5 flex flex-col justify-between border-b md:border-b-0 md:border-r border-slate-800">
@@ -671,7 +671,7 @@
                     <label class="block text-xs font-black uppercase text-slate-400 mb-1 tracking-wider">Project Scope / Material Notes</label>
                     <textarea rows="4" name="Project Details Description" required class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-teal-500 font-semibold" placeholder="Please list details (e.g., Grass cut areas, Internal window counts, Repair requirements)..."></textarea>
                 </div>
-
+ 
                 <div class="bg-slate-900/60 border border-slate-800/80 rounded-xl p-4 space-y-3">
                     <label class="flex items-start gap-3 cursor-pointer select-none">
                         <input type="checkbox" x-model="gdprConsent" required class="mt-1 w-4 h-4 rounded border-slate-700 bg-slate-950 text-teal-500 focus:ring-teal-500 focus:ring-offset-slate-900 accent-teal-400">
@@ -684,19 +684,19 @@
                         Your details are sent securely to our form provider, are never sold, and you can ask us to delete them anytime at <a href="mailto:info@bdpropertycare.ie" class="text-sky-400 hover:underline">info@bdpropertycare.ie</a>.
                     </p>
                 </div>
-
+ 
                 <button type="submit" :disabled="!gdprConsent || formSubmitted" :class="(gdprConsent && !formSubmitted) ? 'accent-gradient text-slate-950 opacity-100 cursor-pointer hover:-translate-y-0.5' : 'bg-slate-800 text-slate-500 opacity-50 cursor-not-allowed'" class="w-full font-black py-4 rounded-xl shadow-xl transition transform uppercase text-xs tracking-widest" x-text="formSubmitted ? 'Submitted' : 'Submit'"></button>
             </form>
         </div>
     </section>
-
+ 
     <section id="faq" class="py-16 max-w-4xl mx-auto px-4 sm:px-6">
         <div class="text-center mb-10">
             <span class="text-teal-400 font-extrabold tracking-widest text-xs uppercase block mb-2">Common Questions</span>
             <h2 class="text-3xl sm:text-4xl font-black text-white">Frequently Asked Questions</h2>
             <p class="text-slate-400 mt-4 max-w-xl mx-auto font-medium">Answers straight from our Terms &amp; Conditions and service standards. Don't see yours? <a href="#contact-hub" class="text-teal-400 underline font-bold">Ask us directly</a>.</p>
         </div>
-
+ 
         <div class="space-y-3">
             <template x-for="(faq, idx) in [
                 { q: 'Are you insured?', a: 'Yes — BD Premium Property Care Limited holds public liability and employer\'s liability insurance, and we\'re a registered Irish company (CRO 819130, VAT IE4753323OH).' },
@@ -726,7 +726,7 @@
             </template>
         </div>
     </section>
-
+ 
     <section id="reviews" class="py-16 max-w-4xl mx-auto px-4 sm:px-6">
         <div class="text-center max-w-2xl mx-auto mb-10">
             <span class="text-teal-400 font-extrabold tracking-widest text-xs uppercase block mb-2">Customer Feedback</span>
@@ -745,7 +745,7 @@
             </div>
         </div>
     </section>
-
+ 
     <section id="google-profile" class="py-12 max-w-4xl mx-auto px-4 sm:px-6">
         <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-8 sm:p-10 text-center">
             <div class="w-14 h-14 rounded-2xl accent-gradient flex items-center justify-center mx-auto mb-5">
@@ -758,7 +758,7 @@
             </a>
         </div>
     </section>
-
+ 
     <footer class="bg-slate-950 border-t border-slate-900 py-12 text-center text-xs text-slate-500 font-medium">
         <p class="mb-4">&copy; 2026 BD Premium Property Care Limited. All Rights Reserved.</p>
         <p class="space-x-4">
@@ -775,7 +775,7 @@
             </button>
         </p>
     </footer>
-
+ 
     <div x-show="cookieBanner" x-cloak x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 translate-y-10" x-transition:enter-end="opacity-100 translate-y-0" class="fixed bottom-4 left-4 right-4 md:left-8 md:right-auto md:max-w-md bg-slate-950 border border-slate-800 p-6 rounded-2xl shadow-2xl z-50">
         <div class="flex items-start gap-4">
             <div class="p-2.5 bg-teal-500/10 text-teal-400 rounded-xl text-base border border-teal-500/20"><i class="fas fa-cookie-bite"></i></div>
@@ -789,7 +789,7 @@
             </div>
         </div>
     </div>
-
+ 
     <div x-show="showPrivacy" x-cloak class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-[60] flex items-center justify-center p-4" x-transition>
         <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto p-6 sm:p-8 space-y-6 text-left shadow-2xl relative" @click.away="showPrivacy = false">
             <button @click="showPrivacy = false" class="absolute top-6 right-6 text-slate-400 hover:text-white bg-slate-950 border border-slate-800 w-8 h-8 rounded-lg flex items-center justify-center"><i class="fas fa-times"></i></button>
@@ -798,7 +798,7 @@
                 <h3 class="text-xl font-black text-white uppercase tracking-wide">Privacy Statement</h3>
                 <p class="text-xs text-slate-500 mt-1 font-semibold">Effective Date: June 2026 | Compliant with Irish DPC & EU GDPR Guidelines</p>
             </div>
-
+ 
             <div class="space-y-4 text-xs text-slate-300 leading-relaxed font-medium">
                 <section>
                     <h4 class="font-black text-white uppercase text-xs text-teal-400 mb-1">1. Who We Are</h4>
@@ -841,22 +841,22 @@
                     <p>If you ever feel we haven't handled your data properly, you have the right to contact the Irish Data Protection Commission (DPC) via their website at <a href="https://dataprotection.ie" target="_blank" class="text-sky-400 font-bold underline">dataprotection.ie</a>.</p>
                 </section>
             </div>
-
+ 
             <div class="pt-4 border-t border-slate-800 text-right">
                 <button @click="showPrivacy = false" class="bg-slate-950 border border-slate-800 hover:border-slate-700 text-white font-bold px-5 py-2.5 rounded-xl text-xs uppercase tracking-wider transition">Close Framework View</button>
             </div>
         </div>
     </div>
-
+ 
     <div x-show="showTerms" x-cloak class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-[60] flex items-center justify-center p-4" x-transition>
         <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto p-6 sm:p-8 space-y-6 text-left shadow-2xl relative" @click.away="showTerms = false">
             <button @click="showTerms = false" class="absolute top-6 right-6 text-slate-400 hover:text-white bg-slate-950 border border-slate-800 w-8 h-8 rounded-lg flex items-center justify-center"><i class="fas fa-times"></i></button>
-
+ 
             <div class="border-b border-slate-800 pb-4">
                 <h3 class="text-xl font-black text-white uppercase tracking-wide">Terms and Conditions of Service</h3>
                 <p class="text-xs text-slate-500 mt-1 font-semibold">BD Premium Property Care Limited (bdpropertycare.ie)</p>
             </div>
-
+ 
             <div class="space-y-4 text-xs text-slate-300 leading-relaxed font-medium">
                 <section>
                     <h4 class="font-black text-white uppercase text-xs text-teal-400 mb-1">1. Introduction and Agreement</h4>
@@ -924,33 +924,34 @@
                     <p>BD Premium Property Care Limited, 1 Sunny Nook, Magazine Road, Cork, Ireland. Email: <a href="mailto:info@bdpropertycare.ie" class="text-sky-400 font-bold underline">info@bdpropertycare.ie</a>. Phone: 089 206 6711.</p>
                 </section>
             </div>
-
+ 
             <div class="pt-4 border-t border-slate-800 text-right">
                 <button @click="showTerms = false" class="bg-slate-950 border border-slate-800 hover:border-slate-700 text-white font-bold px-5 py-2.5 rounded-xl text-xs uppercase tracking-wider transition">Close Framework View</button>
             </div>
         </div>
     </div>
-
+ 
     <div x-show="bookingGateOpen" x-cloak class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 flex items-center justify-center p-4" x-transition>
         <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-md w-full p-6 sm:p-8 space-y-6 text-left shadow-2xl relative" @click.away="bookingGateOpen = false">
             <button @click="bookingGateOpen = false" class="absolute top-6 right-6 text-slate-400 hover:text-white bg-slate-950 border border-slate-800 w-8 h-8 rounded-lg flex items-center justify-center"><i class="fas fa-times"></i></button>
-
+ 
             <div class="border-b border-slate-800 pb-4 pr-8">
                 <div class="inline-flex p-2.5 bg-teal-500/10 text-teal-400 rounded-xl text-base border border-teal-500/20 mb-3"><i class="fas fa-calendar-check"></i></div>
                 <h3 class="text-lg font-black text-white uppercase tracking-wide">Before You Book</h3>
                 <p class="text-xs text-slate-500 mt-1 font-semibold">Please confirm before continuing to our booking form.</p>
             </div>
-
+ 
             <label class="flex items-start gap-3 cursor-pointer select-none">
                 <input type="checkbox" x-model="bookingGateChecked" class="mt-1 w-4 h-4 rounded border-slate-700 bg-slate-950 text-teal-500 focus:ring-teal-500 focus:ring-offset-slate-900 accent-teal-400">
                 <span class="text-xs text-slate-300 font-medium leading-relaxed">
                     I have read and agree to BD Premium Property Care's <button type="button" @click="showTerms = true" class="text-teal-400 underline font-bold hover:text-teal-300">Terms & Conditions</button> and <button type="button" @click="showPrivacy = true" class="text-teal-400 underline font-bold hover:text-teal-300">Privacy Policy</button>.
                 </span>
             </label>
-
+ 
             <button @click="confirmBookingGate()" :disabled="!bookingGateChecked" :class="bookingGateChecked ? 'accent-gradient text-slate-950 opacity-100 cursor-pointer hover:-translate-y-0.5' : 'bg-slate-800 text-slate-500 opacity-50 cursor-not-allowed'" class="w-full font-black py-4 rounded-xl shadow-xl transition transform uppercase text-xs tracking-widest">Continue to Booking Form</button>
         </div>
     </div>
-
+ 
 </body>
 </html>
+ 
