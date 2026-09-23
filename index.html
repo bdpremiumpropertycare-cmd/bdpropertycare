@@ -179,7 +179,7 @@
             if (modalToOpen) sessionStorage.removeItem('bdOpenModal');
         }
       }">
- 
+
    <div class="bg-gradient-to-r from-teal-600 via-sky-600 to-teal-600 text-white text-center py-4 px-4 shadow-2xl relative z-50 border-b border-teal-500/30">
     <div class="relative z-10 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 text-xs sm:text-sm font-black uppercase tracking-wider">
         <span>Now Accepting New Customers Across County Cork</span>
@@ -189,7 +189,7 @@
         </span>
     </div>
 </div>
- 
+
     <a href="promotion.html" class="block offer-gradient text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 py-2.5 flex items-center justify-center gap-2 text-[11px] sm:text-xs font-black uppercase tracking-wider text-center">
             <i class="fas fa-tag"></i>
@@ -197,14 +197,14 @@
             <i class="fas fa-arrow-right"></i>
         </div>
     </a>
- 
+
     <div x-data="{ fabVisible: true, fabTimer: null, resetFab() { this.fabVisible = true; clearTimeout(this.fabTimer); this.fabTimer = setTimeout(() => { this.fabVisible = false }, 2500) }, init() { this.resetFab() } }" @scroll.window="resetFab()" @touchstart.window="resetFab()">
         <div class="fixed bottom-24 left-6 z-40 lg:hidden transition-all duration-500" :class="fabVisible ? 'opacity-100 translate-x-0 pointer-events-auto' : 'opacity-0 -translate-x-4 pointer-events-none'">
             <a href="https://forms.gle/Vki1WeTkTdkCjz1T6" target="_blank" rel="noopener" @click.prevent="openBookingGate()" class="accent-gradient text-slate-950 font-black px-4 py-3.5 rounded-xl shadow-2xl text-xs uppercase tracking-wider flex items-center gap-2 border border-teal-300/30">
                 <i class="fas fa-calendar-check text-sm" :class="fabVisible ? 'animate-bounce' : ''"></i> Free Estimate
             </a>
         </div>
- 
+
         <div class="fixed bottom-6 right-6 z-40 flex flex-col gap-3 transition-all duration-500" :class="fabVisible ? 'opacity-100 translate-x-0 pointer-events-auto' : 'opacity-0 translate-x-4 pointer-events-none'">
             <a href="https://wa.me/353892066711?text=Hi%20BD%20Premium%20Property%20Care,%20I%20would%20like%20to%20get%20a%20maintenance%20estimate." target="_blank" class="bg-emerald-500 hover:bg-emerald-400 text-white p-4 rounded-2xl shadow-2xl hover:scale-110 transition-all duration-300 flex items-center justify-center w-14 h-14 border border-emerald-400/20" title="WhatsApp Business Line">
                 <i class="fab fa-whatsapp text-2xl"></i>
@@ -214,7 +214,7 @@
             </a>
         </div>
     </div>
- 
+
     <nav class="bg-slate-950/90 backdrop-blur-xl sticky top-0 z-40 border-b border-slate-800/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20">
@@ -263,7 +263,7 @@
             <a href="#contact-hub" @click="mobileMenu = false" class="block text-center accent-gradient text-slate-950 py-3.5 rounded-xl font-black text-sm uppercase">Submit Request</a>
         </div>
     </nav>
- 
+
     <section class="relative neon-gradient pt-14 pb-16 lg:py-20 overflow-hidden border-b border-slate-800">
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(45,212,191,0.08),transparent_50%)]"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid lg:grid-cols-12 gap-12 items-center">
@@ -303,7 +303,7 @@
             </div>
         </div>
     </section>
- 
+
     <section id="why-choose-us" class="py-16 bg-slate-950/40 border-y border-slate-800/60">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-10">
@@ -355,7 +355,7 @@
                     <p class="text-slate-400 text-xs leading-relaxed">Clear updates, prompt responses, and a team that's easy to reach by phone, WhatsApp, or email.</p>
                 </div>
             </div>
- 
+
             <div id="our-equipment" class="mt-10 max-w-4xl mx-auto scroll-mt-24"
                  x-data="{
                     equipSlide: 0,
@@ -381,14 +381,14 @@
                              class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
                              :class="equipSlide === i ? 'opacity-100' : 'opacity-0 pointer-events-none'">
                     </template>
- 
+
                     <button @click="prevSlide(); resetTimer()" class="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-slate-950/70 border border-slate-700 text-white flex items-center justify-center hover:bg-slate-900 transition">
                         <i class="fas fa-chevron-left text-xs"></i>
                     </button>
                     <button @click="nextSlide(); resetTimer()" class="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-slate-950/70 border border-slate-700 text-white flex items-center justify-center hover:bg-slate-900 transition">
                         <i class="fas fa-chevron-right text-xs"></i>
                     </button>
- 
+
                     <div class="absolute bottom-3 left-1/2 -translate-x-1/2 z-10 flex gap-2">
                         <template x-for="(img, i) in equipImages" :key="i">
                             <button @click="goTo(i)" class="w-2 h-2 rounded-full transition-all"
@@ -399,7 +399,7 @@
             </div>
         </div>
     </section>
- 
+
     <section id="areas-we-cover" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-10">
             <span class="text-teal-400 font-extrabold tracking-widest text-xs uppercase block mb-2">Local Coverage</span>
@@ -442,7 +442,7 @@
         </div>
         <p class="text-center text-slate-500 text-xs mt-8">Don't see your area listed? <a href="#contact-hub" class="text-teal-400 font-bold underline">Get in touch</a> — we cover all of County Cork.</p>
     </section>
- 
+
     <section id="scope" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-10">
             <span class="text-teal-400 font-extrabold tracking-widest text-xs uppercase block mb-2">What We Do</span>
@@ -455,7 +455,7 @@
                 <button @click="activeTab = 'grounds'" :class="activeTab === 'grounds' ? 'bg-teal-500 text-slate-950 font-black' : 'text-slate-400 hover:text-white'" class="px-4 py-2.5 rounded-xl transition duration-300 text-[11px] uppercase tracking-wider flex-1">Grounds & Repairs</button>
             </div>
         </div>
- 
+
         <div class="bg-slate-950 border border-slate-800 rounded-3xl overflow-hidden shadow-2xl">
             <div x-show="activeTab === 'washing'" x-transition class="grid md:grid-cols-2 gap-12 p-8 sm:p-12 items-center">
                 <div class="space-y-6">
@@ -476,7 +476,7 @@
                     <img src="gutter-pressure-washing-cork.jpg" alt="Power washing a driveway and low-level gutter clearing at a home in Cork by BD Premium Property Care" class="w-full h-full object-contain" loading="lazy" width="760" height="1330">
                 </div>
             </div>
- 
+
             <div x-show="activeTab === 'windows'" x-transition class="grid md:grid-cols-2 gap-12 p-8 sm:p-12 items-center">
                 <div class="space-y-6">
                     <div class="inline-flex p-3 bg-teal-500/10 text-teal-400 rounded-2xl text-xl border border-teal-500/20"><i class="fas fa-window-maximize"></i></div>
@@ -496,7 +496,7 @@
                     <img src="window-cleaning-cork.jpg" alt="BD Premium Property Care technician cleaning external windows in Cork using a pure water-fed pole" class="w-full h-full object-contain" loading="lazy" width="760" height="1295">
                 </div>
             </div>
- 
+
             <div x-show="activeTab === 'grounds'" x-transition class="grid md:grid-cols-2 gap-12 p-8 sm:p-12 items-center">
                 <div class="space-y-6">
                     <div class="inline-flex p-3 bg-amber-500/10 text-amber-400 rounded-2xl text-xl border border-amber-500/20"><i class="fas fa-trowel-bricks"></i></div>
@@ -518,7 +518,7 @@
             </div>
         </div>
     </section>
- 
+
     <section id="visual-proof" class="py-14 bg-slate-950 border-y border-slate-800">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center" x-data="{ sliderPos: 50 }">
             <h2 class="text-2xl sm:text-4xl font-black text-white mb-2">The Quality Standard</h2>
@@ -539,7 +539,7 @@
             </div>
         </div>
     </section>
- 
+
     <section id="real-results" class="py-16 max-w-5xl mx-auto px-4 sm:px-6">
         <div class="text-center max-w-2xl mx-auto mb-10">
             <span class="text-teal-400 font-extrabold tracking-widest text-xs uppercase block mb-2">Real Jobs, Real Results</span>
@@ -555,7 +555,7 @@
             </div>
         </div>
     </section>
- 
+
     <section id="estimation-engine" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-12 gap-12 items-center">
             <div class="lg:col-span-7 space-y-6">
@@ -616,7 +616,7 @@
             </div>
         </div>
     </section>
- 
+
     <section id="contact-hub" class="py-16 max-w-5xl mx-auto px-4 sm:px-6">
         <div class="bg-slate-950 border border-slate-800/80 rounded-3xl shadow-2xl overflow-hidden grid md:grid-cols-12">
             <div class="bg-gradient-to-b from-slate-900 to-slate-950 p-8 md:col-span-5 flex flex-col justify-between border-b md:border-b-0 md:border-r border-slate-800">
@@ -671,7 +671,7 @@
                     <label class="block text-xs font-black uppercase text-slate-400 mb-1 tracking-wider">Project Scope / Material Notes</label>
                     <textarea rows="4" name="Project Details Description" required class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-teal-500 font-semibold" placeholder="Please list details (e.g., Grass cut areas, Internal window counts, Repair requirements)..."></textarea>
                 </div>
- 
+
                 <div class="bg-slate-900/60 border border-slate-800/80 rounded-xl p-4 space-y-3">
                     <label class="flex items-start gap-3 cursor-pointer select-none">
                         <input type="checkbox" x-model="gdprConsent" required class="mt-1 w-4 h-4 rounded border-slate-700 bg-slate-950 text-teal-500 focus:ring-teal-500 focus:ring-offset-slate-900 accent-teal-400">
@@ -684,19 +684,19 @@
                         Your details are sent securely to our form provider, are never sold, and you can ask us to delete them anytime at <a href="mailto:info@bdpropertycare.ie" class="text-sky-400 hover:underline">info@bdpropertycare.ie</a>.
                     </p>
                 </div>
- 
+
                 <button type="submit" :disabled="!gdprConsent || formSubmitted" :class="(gdprConsent && !formSubmitted) ? 'accent-gradient text-slate-950 opacity-100 cursor-pointer hover:-translate-y-0.5' : 'bg-slate-800 text-slate-500 opacity-50 cursor-not-allowed'" class="w-full font-black py-4 rounded-xl shadow-xl transition transform uppercase text-xs tracking-widest" x-text="formSubmitted ? 'Submitted' : 'Submit'"></button>
             </form>
         </div>
     </section>
- 
+
     <section id="faq" class="py-16 max-w-4xl mx-auto px-4 sm:px-6">
         <div class="text-center mb-10">
             <span class="text-teal-400 font-extrabold tracking-widest text-xs uppercase block mb-2">Common Questions</span>
             <h2 class="text-3xl sm:text-4xl font-black text-white">Frequently Asked Questions</h2>
             <p class="text-slate-400 mt-4 max-w-xl mx-auto font-medium">Answers straight from our Terms &amp; Conditions and service standards. Don't see yours? <a href="#contact-hub" class="text-teal-400 underline font-bold">Ask us directly</a>.</p>
         </div>
- 
+
         <div class="space-y-3">
             <template x-for="(faq, idx) in [
                 { q: 'Are you insured?', a: 'Yes — BD Premium Property Care Limited holds public liability and employer\'s liability insurance, and we\'re a registered Irish company (CRO 819130, VAT IE4753323OH).' },
@@ -726,7 +726,7 @@
             </template>
         </div>
     </section>
- 
+
     <section id="reviews" class="py-16 max-w-4xl mx-auto px-4 sm:px-6">
         <div class="text-center max-w-2xl mx-auto mb-10">
             <span class="text-teal-400 font-extrabold tracking-widest text-xs uppercase block mb-2">Customer Feedback</span>
@@ -745,7 +745,7 @@
             </div>
         </div>
     </section>
- 
+
     <section id="google-profile" class="py-12 max-w-4xl mx-auto px-4 sm:px-6">
         <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-8 sm:p-10 text-center">
             <div class="w-14 h-14 rounded-2xl accent-gradient flex items-center justify-center mx-auto mb-5">
@@ -758,7 +758,7 @@
             </a>
         </div>
     </section>
- 
+
     <footer class="bg-slate-950 border-t border-slate-900 py-12 text-center text-xs text-slate-500 font-medium">
         <p class="mb-4">&copy; 2026 BD Premium Property Care Limited. All Rights Reserved.</p>
         <p class="space-x-4">
@@ -775,7 +775,7 @@
             </button>
         </p>
     </footer>
- 
+
     <div x-show="cookieBanner" x-cloak x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 translate-y-10" x-transition:enter-end="opacity-100 translate-y-0" class="fixed bottom-4 left-4 right-4 md:left-8 md:right-auto md:max-w-md bg-slate-950 border border-slate-800 p-6 rounded-2xl shadow-2xl z-50">
         <div class="flex items-start gap-4">
             <div class="p-2.5 bg-teal-500/10 text-teal-400 rounded-xl text-base border border-teal-500/20"><i class="fas fa-cookie-bite"></i></div>
@@ -789,169 +789,715 @@
             </div>
         </div>
     </div>
- 
+
     <div x-show="showPrivacy" x-cloak class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-[60] flex items-center justify-center p-4" x-transition>
         <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto p-6 sm:p-8 space-y-6 text-left shadow-2xl relative" @click.away="showPrivacy = false">
             <button @click="showPrivacy = false" class="absolute top-6 right-6 text-slate-400 hover:text-white bg-slate-950 border border-slate-800 w-8 h-8 rounded-lg flex items-center justify-center"><i class="fas fa-times"></i></button>
             
             <div class="border-b border-slate-800 pb-4">
-                <h3 class="text-xl font-black text-white uppercase tracking-wide">Privacy Statement</h3>
-                <p class="text-xs text-slate-500 mt-1 font-semibold">Effective Date: June 2026 | Compliant with Irish DPC & EU GDPR Guidelines</p>
+                <h3 class="text-xl font-black text-white uppercase tracking-wide">Privacy Policy</h3>
             </div>
- 
-            <div class="space-y-4 text-xs text-slate-300 leading-relaxed font-medium">
-                <section>
-                    <h4 class="font-black text-white uppercase text-xs text-teal-400 mb-1">1. Who We Are</h4>
-                    <p>We are <strong>BD Premium Property Care Limited</strong>, a property maintenance business registered at <strong>1 Sunny Nook, Magazine Road, Cork, Ireland</strong> (CRO Number: <strong>819130</strong>, VAT Number: <strong>IE4753323OH</strong>). We are the data controller responsible for your personal information. You can contact us anytime at <a href="mailto:info@bdpropertycare.ie" class="text-sky-400 font-bold underline">info@bdpropertycare.ie</a>.</p>
-                </section>
-                <section>
-                    <h4 class="font-black text-white uppercase text-xs text-teal-400 mb-1">2. What Information We Collect</h4>
-                    <p>When you reach out to us through our website forms or Google Forms to get a price estimate, we collect: your full name, your property address or Eircode, your mobile phone number, and your email address.</p>
-                </section>
-                <section>
-                    <h4 class="font-black text-white uppercase text-xs text-teal-400 mb-1">3. How We Use Your Information & Legal Basis</h4>
-                    <p>We use your details strictly to get in touch with you, look at your property needs, and provide an accurate price quote for our cleaning and maintenance services. Our legal basis for this processing is our legitimate interest in responding to your enquiry and, where you go on to hire us, the performance of a contract with you. We do not use your information for advertising, tracking, or selling to third parties.</p>
-                </section>
-                <section>
-                    <h4 class="font-black text-white uppercase text-xs text-teal-400 mb-1">4. Tools, Service Providers & International Transfers</h4>
-                    <p>To run our booking and inquiry system smoothly, your information passes through secure digital tools we use, including Formspree and Google Forms. Both handle your data securely according to high safety standards. These providers may process data on servers located outside Ireland or the EEA; where this happens, they do so under appropriate safeguards such as Standard Contractual Clauses. We do not otherwise share your information with third parties.</p>
-                </section>
-                <section>
-                    <h4 class="font-black text-white uppercase text-xs text-teal-400 mb-1">5. How Long We Keep Your Data</h4>
-                    <p>If you just ask for a quote and do not proceed with our services, we delete your personal information after 12 months. If you hire us for a job, we keep your records for 6 years from the end of the relevant tax year, in line with Irish Revenue recordkeeping requirements, after which they are securely deleted.</p>
-                </section>
-                <section>
-                    <h4 class="font-black text-white uppercase text-xs text-teal-400 mb-1">6. How We Protect Your Data</h4>
-                    <p>We take reasonable technical and organisational measures to protect your personal information, including transmitting data over encrypted (HTTPS) connections and limiting access to your details to the people who need it to respond to your enquiry or carry out your job. No method of transmission or storage is completely secure, but we take proportionate steps appropriate to a small business handling this level of data.</p>
-                </section>
-                <section>
-                    <h4 class="font-black text-white uppercase text-xs text-teal-400 mb-1">7. Cookies</h4>
-                    <p>Our website uses a small amount of essential local storage to remember that you've responded to our cookie notice, so it doesn't reappear on every visit. This is not used for advertising or cross-site tracking, and no data is shared with third-party advertisers. You can clear this at any time by clearing your browser's site data.</p>
-                </section>
-                <section>
-                    <h4 class="font-black text-white uppercase text-xs text-teal-400 mb-1">8. Your Rights</h4>
-                    <p>Under GDPR, you are always in control of your personal information. You can ask us at any time to: see what information we have about you (access), correct any mistakes in your details (rectification), delete your information (erasure), restrict how we use it, object to our processing, or receive a copy in a portable format. To exercise any of these rights, simply email us at <a href="mailto:info@bdpropertycare.ie" class="text-sky-400 font-bold">info@bdpropertycare.ie</a>. We aim to respond within 48 hours where possible, and in all cases without undue delay and within one month as required by law.</p>
-                </section>
-                <section>
-                    <h4 class="font-black text-white uppercase text-xs text-teal-400 mb-1">9. Automated Decision-Making</h4>
-                    <p>We do not use automated decision-making or profiling based on your personal information. All price estimates and business decisions are reviewed by a person.</p>
-                </section>
-                <section>
-                    <h4 class="font-black text-white uppercase text-xs text-teal-400 mb-1">10. Making a Complaint</h4>
-                    <p>If you ever feel we haven't handled your data properly, you have the right to contact the Irish Data Protection Commission (DPC) via their website at <a href="https://dataprotection.ie" target="_blank" class="text-sky-400 font-bold underline">dataprotection.ie</a>.</p>
-                </section>
+
+            <div class="text-left">
+<div class="sticky top-0 z-10 bg-slate-900 pb-3 mb-2 border-b border-slate-800">
+<label class="block text-[10px] font-black uppercase tracking-widest text-slate-500 mb-1.5">Jump To Section</label>
+<select onchange="document.getElementById(this.value)?.scrollIntoView({behavior:'smooth', block:'start'}); this.selectedIndex=0;" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-white font-bold focus:outline-none focus:border-teal-500">
+<option value="">Select a section...</option>
+<option value="privacy-sec-1">1. Who We Are</option>
+<option value="privacy-sec-2">2. Information We May Collect</option>
+<option value="privacy-sec-3">3. How We Collect Information</option>
+<option value="privacy-sec-4">4. How We Use Your Information</option>
+<option value="privacy-sec-5">5. Legal Bases for Processing</option>
+<option value="privacy-sec-6">6. Photographs, Video and Marketing</option>
+<option value="privacy-sec-7">7. Reviews and Testimonials</option>
+<option value="privacy-sec-8">8. Who We May Share Information With</option>
+<option value="privacy-sec-9">9. Service Providers and International Transfers</option>
+<option value="privacy-sec-10">10. Retention of Information</option>
+<option value="privacy-sec-11">11. Security</option>
+<option value="privacy-sec-12">12. Cookies and Similar Technologies</option>
+<option value="privacy-sec-13">13. Automated Decision-Making and Online Estimates</option>
+<option value="privacy-sec-14">14. Children</option>
+<option value="privacy-sec-15">15. Your Data Protection Rights</option>
+<option value="privacy-sec-16">16. Direct Marketing</option>
+<option value="privacy-sec-17">17. Complaints</option>
+<option value="privacy-sec-18">18. Changes to This Privacy Policy</option>
+<option value="privacy-sec-19">19. Contact Us</option>
+</select></div>
+<div class="pb-3 border-b border-slate-800 text-xs text-slate-400 leading-relaxed">
+<p class="font-bold text-white">BD Premium Property Care Limited</p>
+<p>1 Sunny Nook, Magazine Road, Cork, Ireland<br>CRO Number: 819130<br>VAT Number: IE4753323OH<br>Email: info@bdpropertycare.ie<br>Phone: 089 206 6711</p>
+<p class="mt-2 text-slate-500 font-semibold">Effective date: June 2026</p>
+</div>
+<div class="space-y-3 text-xs text-slate-300 leading-relaxed font-medium pt-3">
+<p>BD Premium Property Care Limited (“BD Premium Property Care”, “we”, “us” or “our”) respects your privacy and is committed to handling personal information responsibly.</p>
+<p>This Privacy Policy explains what personal information we may collect, why we use it, how we protect it, when we may share it and the rights you have under applicable data protection law, including the EU General Data Protection Regulation (GDPR) and Irish data protection legislation.</p>
+</div>
+<div class="space-y-6 text-xs text-slate-300 leading-relaxed font-medium mt-6">
+<section id="privacy-sec-1" class="scroll-mt-20 pt-2 border-t border-slate-800/60 first:border-t-0 first:pt-0">
+<h4 class="font-black text-white uppercase text-xs text-teal-400 mb-2">1. Who We Are</h4>
+<p class="mb-2">BD Premium Property Care Limited is an Irish property-care and cleaning business operating from County Cork.</p>
+<p class="mb-2">For data protection purposes, BD Premium Property Care Limited is generally the data controller for personal information collected in connection with our website, enquiries, quotations, bookings, customer relationships and services.</p>
+</section>
+<section id="privacy-sec-2" class="scroll-mt-20 pt-2 border-t border-slate-800/60 first:border-t-0 first:pt-0">
+<h4 class="font-black text-white uppercase text-xs text-teal-400 mb-2">2. Information We May Collect</h4>
+<p class="mb-2">Depending on how you interact with us, we may collect:</p>
+<ul class="list-disc pl-5 mb-2 space-y-1">
+<li>Your name and contact details.</li>
+<li>Email address, telephone number and other contact information.</li>
+<li>Property address and relevant access information.</li>
+<li>Information provided when requesting an estimate or quotation.</li>
+<li>Details about the services you are interested in or have booked.</li>
+<li>Information about the property or work required.</li>
+<li>Photographs or videos relating to work, where appropriate.</li>
+<li>Communications between you and us, including emails, messages and other service-related correspondence.</li>
+<li>Payment and invoicing information necessary to process or record payments.</li>
+<li>Information relating to complaints, incidents, damage or disputes.</li>
+<li>Information required for insurance, legal, accounting or regulatory purposes.</li>
+<li>Information you voluntarily provide through our website forms, Google Forms or other enquiry channels.</li>
+<li>Technical information about your use of our website, where collected through cookies or similar technologies.</li>
+</ul>
+<p class="mb-2">We generally do not need sensitive personal information to provide our services. Please avoid providing sensitive personal information unless it is genuinely necessary.</p>
+</section>
+<section id="privacy-sec-3" class="scroll-mt-20 pt-2 border-t border-slate-800/60 first:border-t-0 first:pt-0">
+<h4 class="font-black text-white uppercase text-xs text-teal-400 mb-2">3. How We Collect Information</h4>
+<p class="mb-2">We may collect information when you:</p>
+<ul class="list-disc pl-5 mb-2 space-y-1">
+<li>Visit or use our website.</li>
+<li>Complete a website enquiry or contact form.</li>
+<li>Complete a Google Form.</li>
+<li>Request an estimate or quotation.</li>
+<li>Contact us by email, telephone, WhatsApp, text message or social media.</li>
+<li>Book or receive a service.</li>
+<li>Provide information during a site visit.</li>
+<li>Make a payment.</li>
+<li>Communicate with us about an existing or completed job.</li>
+<li>Submit a complaint, review or other feedback.</li>
+</ul>
+<p class="mb-2">Some Google Forms may require you to sign in with a Google account. Where this is used, the email address associated with the submission may be recorded as part of the form response.</p>
+</section>
+<section id="privacy-sec-4" class="scroll-mt-20 pt-2 border-t border-slate-800/60 first:border-t-0 first:pt-0">
+<h4 class="font-black text-white uppercase text-xs text-teal-400 mb-2">4. How We Use Your Information</h4>
+<p class="mb-2">We may use personal information to:</p>
+<ul class="list-disc pl-5 mb-2 space-y-1">
+<li>Respond to enquiries.</li>
+<li>Prepare estimates and quotations.</li>
+<li>Arrange and provide services.</li>
+<li>Communicate about appointments, access, weather, changes or other service matters.</li>
+<li>Process payments and issue invoices or receipts.</li>
+<li>Maintain business and customer records.</li>
+<li>Deal with complaints, damage reports and disputes.</li>
+<li>Take appropriate photographs or videos for operational records and quality control.</li>
+<li>Use photographs or videos for marketing where the necessary consent or other lawful basis exists.</li>
+<li>Request or manage customer reviews and testimonials.</li>
+<li>Improve our services and customer experience.</li>
+<li>Maintain website security and prevent misuse.</li>
+<li>Meet legal, accounting, tax, insurance and regulatory obligations.</li>
+<li>Establish, exercise or defend legal claims where necessary.</li>
+<li>Protect the safety of customers, our staff and other people.</li>
+<li>Communicate important information about our services.</li>
+</ul>
+<p class="mb-2">We do not use personal information for purposes that are incompatible with the purposes for which it was collected unless permitted or required by law.</p>
+</section>
+<section id="privacy-sec-5" class="scroll-mt-20 pt-2 border-t border-slate-800/60 first:border-t-0 first:pt-0">
+<h4 class="font-black text-white uppercase text-xs text-teal-400 mb-2">5. Legal Bases for Processing</h4>
+<p class="mb-2">Depending on the circumstances, we may process personal information because:</p>
+<ul class="list-disc pl-5 mb-2 space-y-1">
+<li>It is necessary to take steps at your request before entering into a contract.</li>
+<li>It is necessary to perform a contract with you.</li>
+<li>We have a legitimate business interest in operating, administering and protecting our business, provided those interests do not override your rights.</li>
+<li>We have a legal or regulatory obligation.</li>
+<li>You have given consent where consent is the appropriate legal basis.</li>
+</ul>
+<p class="mb-2">Where we rely on consent, you may generally withdraw that consent for future processing. Withdrawal of consent does not affect processing that was lawful before consent was withdrawn.</p>
+</section>
+<section id="privacy-sec-6" class="scroll-mt-20 pt-2 border-t border-slate-800/60 first:border-t-0 first:pt-0">
+<h4 class="font-black text-white uppercase text-xs text-teal-400 mb-2">6. Photographs, Video and Marketing</h4>
+<p class="mb-2">We may take photographs or videos of work areas, completed work, surfaces or property features where reasonably necessary for:</p>
+<ul class="list-disc pl-5 mb-2 space-y-1">
+<li>Job records.</li>
+<li>Quality control.</li>
+<li>Assessing or documenting work.</li>
+<li>Complaints, disputes or insurance matters.</li>
+<li>Portfolio or promotional purposes where appropriate.</li>
+</ul>
+<p class="mb-2">Where photographs or videos are used publicly for marketing, we will take reasonable steps not to deliberately publish identifying information such as:</p>
+<ul class="list-disc pl-5 mb-2 space-y-1">
+<li>Customer names.</li>
+<li>Full property addresses.</li>
+<li>House numbers.</li>
+<li>Eircodes.</li>
+<li>Deliberate customer tagging or identification.</li>
+</ul>
+<p class="mb-2">We will also take reasonable steps to avoid unnecessarily capturing identifiable people in public marketing material and, where reasonably practicable, crop or blur people unless appropriate permission has been obtained.</p>
+<p class="mb-2">Marketing use of photographs or videos will be subject to the applicable consent or other lawful basis.</p>
+<p class="mb-2">You may contact us if you wish to withdraw consent for future marketing use of content where consent is the relevant legal basis. Withdrawal does not necessarily require us to remove material that was lawfully published before withdrawal, although we will consider reasonable requests.</p>
+</section>
+<section id="privacy-sec-7" class="scroll-mt-20 pt-2 border-t border-slate-800/60 first:border-t-0 first:pt-0">
+<h4 class="font-black text-white uppercase text-xs text-teal-400 mb-2">7. Reviews and Testimonials</h4>
+<p class="mb-2">We may invite customers to leave reviews, including through independent review platforms such as Google.</p>
+<p class="mb-2">A customer is not required to provide a positive review in exchange for receiving our services.</p>
+<p class="mb-2">If we wish to republish a customer’s review or testimonial on our website, social media or other business marketing material, we will seek appropriate permission.</p>
+<p class="mb-2">Unless a customer specifically agrees otherwise, we will generally avoid publishing identifying information alongside a testimonial.</p>
+</section>
+<section id="privacy-sec-8" class="scroll-mt-20 pt-2 border-t border-slate-800/60 first:border-t-0 first:pt-0">
+<h4 class="font-black text-white uppercase text-xs text-teal-400 mb-2">8. Who We May Share Information With</h4>
+<p class="mb-2">We may share personal information where reasonably necessary with:</p>
+<ul class="list-disc pl-5 mb-2 space-y-1">
+<li>Employees or authorised personnel who need the information to perform their duties.</li>
+<li>Contractors or subcontractors where required to provide or administer a service.</li>
+<li>Accountants, bookkeepers and professional advisers.</li>
+<li>Payment providers and financial institutions.</li>
+<li>Website, hosting, form, email, communication or IT service providers.</li>
+<li>Insurance providers or claims handlers.</li>
+<li>Legal advisers where appropriate.</li>
+<li>Public authorities, regulators, courts or law-enforcement bodies where legally required or permitted.</li>
+<li>Other parties where necessary to establish, exercise or defend legal rights.</li>
+</ul>
+<p class="mb-2">We do not sell customer personal information.</p>
+</section>
+<section id="privacy-sec-9" class="scroll-mt-20 pt-2 border-t border-slate-800/60 first:border-t-0 first:pt-0">
+<h4 class="font-black text-white uppercase text-xs text-teal-400 mb-2">9. Service Providers and International Transfers</h4>
+<p class="mb-2">Some third-party service providers we use may process information on our behalf and may operate outside Ireland or the European Economic Area.</p>
+<p class="mb-2">Where personal information is transferred outside the EEA, we will seek to ensure that an appropriate legal mechanism or safeguard is in place where required by applicable data protection law.</p>
+<p class="mb-2">Third-party services may have their own privacy policies and terms, and you should review those where appropriate.</p>
+</section>
+<section id="privacy-sec-10" class="scroll-mt-20 pt-2 border-t border-slate-800/60 first:border-t-0 first:pt-0">
+<h4 class="font-black text-white uppercase text-xs text-teal-400 mb-2">10. Retention of Information</h4>
+<p class="mb-2">We keep personal information only for as long as reasonably necessary for the purpose for which it was collected, taking account of:</p>
+<ul class="list-disc pl-5 mb-2 space-y-1">
+<li>The nature of the information.</li>
+<li>The length and nature of the customer relationship.</li>
+<li>Accounting, tax and legal requirements.</li>
+<li>Insurance requirements.</li>
+<li>Complaints or potential disputes.</li>
+<li>Our legitimate business and record-keeping needs.</li>
+</ul>
+<p class="mb-2">Enquiry and booking information may be archived or deleted when it is no longer reasonably required.</p>
+<p class="mb-2">Operational photographs and videos will generally be retained only for as long as reasonably necessary for operational, quality-control, complaint, insurance, legal or dispute purposes.</p>
+<p class="mb-2">Information that we are legally required to retain may be kept for the applicable statutory period.</p>
+</section>
+<section id="privacy-sec-11" class="scroll-mt-20 pt-2 border-t border-slate-800/60 first:border-t-0 first:pt-0">
+<h4 class="font-black text-white uppercase text-xs text-teal-400 mb-2">11. Security</h4>
+<p class="mb-2">We take reasonable technical and organisational measures to protect personal information against unauthorised access, loss, misuse, alteration or disclosure.</p>
+<p class="mb-2">However, no website, electronic communication system or method of storing information can be guaranteed to be completely secure.</p>
+<p class="mb-2">You should avoid sending unnecessary sensitive information through ordinary email, messaging services or website forms.</p>
+</section>
+<section id="privacy-sec-12" class="scroll-mt-20 pt-2 border-t border-slate-800/60 first:border-t-0 first:pt-0">
+<h4 class="font-black text-white uppercase text-xs text-teal-400 mb-2">12. Cookies and Similar Technologies</h4>
+<p class="mb-2">Our website may use cookies and similar technologies.</p>
+<p class="mb-2">Some cookies may be necessary for the website to function correctly. Other cookies or technologies may be used for analytics, functionality or other purposes depending on how the website is configured.</p>
+<p class="mb-2">Where consent is legally required for non-essential cookies or similar technologies, we will seek to obtain it through the appropriate mechanism.</p>
+<p class="mb-2">You can manage cookies through your browser settings and, where available, our website cookie controls.</p>
+</section>
+<section id="privacy-sec-13" class="scroll-mt-20 pt-2 border-t border-slate-800/60 first:border-t-0 first:pt-0">
+<h4 class="font-black text-white uppercase text-xs text-teal-400 mb-2">13. Automated Decision-Making and Online Estimates</h4>
+<p class="mb-2">Our online estimator may use information you enter, such as service type and relevant job details, to provide an indicative estimate or price range.</p>
+<p class="mb-2">The estimator is not a final quotation, booking confirmation or contract.</p>
+<p class="mb-2">Actual pricing may depend on factors including surface condition, access, job complexity, distance, materials and other circumstances.</p>
+<p class="mb-2">We do not intend to use personal information to make decisions producing legal or similarly significant effects about you solely through automated processing.</p>
+</section>
+<section id="privacy-sec-14" class="scroll-mt-20 pt-2 border-t border-slate-800/60 first:border-t-0 first:pt-0">
+<h4 class="font-black text-white uppercase text-xs text-teal-400 mb-2">14. Children</h4>
+<p class="mb-2">Our services are generally provided to adults and businesses.</p>
+<p class="mb-2">We do not knowingly seek to collect personal information from children for marketing or unrelated purposes.</p>
+<p class="mb-2">Where a service takes place at a property where children are present, safety requirements relating to the work area apply.</p>
+</section>
+<section id="privacy-sec-15" class="scroll-mt-20 pt-2 border-t border-slate-800/60 first:border-t-0 first:pt-0">
+<h4 class="font-black text-white uppercase text-xs text-teal-400 mb-2">15. Your Data Protection Rights</h4>
+<p class="mb-2">Depending on the circumstances and applicable law, you may have rights including:</p>
+<ul class="list-disc pl-5 mb-2 space-y-1">
+<li>The right to access your personal information.</li>
+<li>The right to have inaccurate information corrected.</li>
+<li>The right to request deletion of personal information in certain circumstances.</li>
+<li>The right to restrict processing in certain circumstances.</li>
+<li>The right to object to certain processing.</li>
+<li>The right to data portability where applicable.</li>
+<li>The right to withdraw consent where processing is based on consent.</li>
+<li>Rights relating to automated decision-making where applicable.</li>
+</ul>
+<p class="mb-2">These rights are subject to legal conditions and exceptions.</p>
+<p class="mb-2">To exercise a data protection right, contact us using the details at the end of this Privacy Policy.</p>
+<p class="mb-2">We may need to verify your identity before responding to certain requests.</p>
+</section>
+<section id="privacy-sec-16" class="scroll-mt-20 pt-2 border-t border-slate-800/60 first:border-t-0 first:pt-0">
+<h4 class="font-black text-white uppercase text-xs text-teal-400 mb-2">16. Direct Marketing</h4>
+<p class="mb-2">At launch, our communications will primarily relate to enquiries, quotations, bookings, appointments, services, payments and customer support.</p>
+<p class="mb-2">If we introduce direct marketing in the future, we will handle it in accordance with applicable data protection and electronic communications laws.</p>
+<p class="mb-2">You can contact us if you do not wish to receive direct marketing where applicable.</p>
+<p class="mb-2">Service-related communications are different from direct marketing and may still be necessary to administer an existing enquiry, booking or customer relationship.</p>
+</section>
+<section id="privacy-sec-17" class="scroll-mt-20 pt-2 border-t border-slate-800/60 first:border-t-0 first:pt-0">
+<h4 class="font-black text-white uppercase text-xs text-teal-400 mb-2">17. Complaints</h4>
+<p class="mb-2">If you have concerns about how we have handled your personal information, please contact us first so that we have an opportunity to investigate and resolve the issue.</p>
+<p class="mb-2">You also have the right, where applicable, to complain to the Irish Data Protection Commission (DPC).</p>
+<p class="mb-2">Further information is available from the Data Protection Commission at:</p>
+<p class="mb-2"><a href="https://www.dataprotection.ie" target="_blank" rel="noopener" class="text-sky-400 font-bold underline">www.dataprotection.ie</a></p>
+</section>
+<section id="privacy-sec-18" class="scroll-mt-20 pt-2 border-t border-slate-800/60 first:border-t-0 first:pt-0">
+<h4 class="font-black text-white uppercase text-xs text-teal-400 mb-2">18. Changes to This Privacy Policy</h4>
+<p class="mb-2">We may update this Privacy Policy from time to time to reflect changes to our services, technology, legal requirements or business practices.</p>
+<p class="mb-2">The updated version will be published on our website with an updated effective date where appropriate.</p>
+</section>
+<section id="privacy-sec-19" class="scroll-mt-20 pt-2 border-t border-slate-800/60 first:border-t-0 first:pt-0">
+<h4 class="font-black text-white uppercase text-xs text-teal-400 mb-2">19. Contact Us</h4>
+<p class="mb-2">For privacy or data protection enquiries, please contact:</p>
+<p class="mt-2">BD Premium Property Care Limited<br>1 Sunny Nook, Magazine Road, Cork, Ireland<br>Email: <a href="mailto:info@bdpropertycare.ie" class="text-sky-400 font-bold underline">info@bdpropertycare.ie</a><br>Phone: <a href="tel:+353892066711" class="text-sky-400 font-bold underline">089 206 6711</a></p>
+<p class="mb-2">We will consider and respond to privacy requests within the timeframe required by applicable law.</p>
+</section>
+</div>
             </div>
- 
+
             <div class="pt-4 border-t border-slate-800 text-right">
                 <button @click="showPrivacy = false" class="bg-slate-950 border border-slate-800 hover:border-slate-700 text-white font-bold px-5 py-2.5 rounded-xl text-xs uppercase tracking-wider transition">Close Framework View</button>
             </div>
         </div>
     </div>
- 
+
     <div x-show="showTerms" x-cloak class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-[60] flex items-center justify-center p-4" x-transition>
         <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto p-6 sm:p-8 space-y-6 text-left shadow-2xl relative" @click.away="showTerms = false">
             <button @click="showTerms = false" class="absolute top-6 right-6 text-slate-400 hover:text-white bg-slate-950 border border-slate-800 w-8 h-8 rounded-lg flex items-center justify-center"><i class="fas fa-times"></i></button>
- 
+
             <div class="border-b border-slate-800 pb-4">
-                <h3 class="text-xl font-black text-white uppercase tracking-wide">Terms and Conditions of Service</h3>
-                <p class="text-xs text-slate-500 mt-1 font-semibold">BD Premium Property Care Limited (bdpropertycare.ie)</p>
+                <h3 class="text-xl font-black text-white uppercase tracking-wide">Terms &amp; Conditions</h3>
             </div>
- 
-            <div class="space-y-4 text-xs text-slate-300 leading-relaxed font-medium">
-                <section>
-                    <h4 class="font-black text-white uppercase text-xs text-teal-400 mb-1">1. Introduction and Agreement</h4>
-                    <p>These Terms and Conditions govern all exterior property maintenance and cleaning services provided by BD Premium Property Care Limited ("we", "us", "our") accessed via bdpropertycare.ie or booked directly by any client ("you", "your"). By requesting a quotation, booking a service, using our online estimator tool, or permitting us to commence work on your property, you agree to be legally bound by these Terms and Conditions.</p>
-                </section>
-                <section>
-                    <h4 class="font-black text-white uppercase text-xs text-teal-400 mb-1">2. Quotations and Pricing</h4>
-                    <p>All quotations are valid for 30 days from the date issued unless otherwise stated. Quotations are based on the information supplied by you. If hidden issues, severe contamination, structural defects, or inaccurate information are discovered once work begins, we reserve the right to adjust the price. Any variation will be discussed and agreed with you before proceeding. Prices may be subject to VAT where applicable.</p>
-                </section>
-                <section>
-                    <h4 class="font-black text-white uppercase text-xs text-teal-400 mb-1">3. Client Responsibilities, Disclosure and Indemnity</h4>
-                    <p>You must ensure uninterrupted access to the property, including outdoor water supply and electricity if required. You warrant that the surfaces to be cleaned are in a sound condition and suitable for professional cleaning methods. You must disclose any pre-existing damage, fragile surfaces, loose roof tiles, faulty seals, or leaky windows before work begins. Children and pets must be kept away from the work area at all times.</p>
-                    <p class="mt-2">You agree to indemnify and hold us harmless against any loss, damage, cost or claim arising from inaccurate information you provide, or from your failure to disclose a defect, fragile surface, or unsuitable condition that a reasonable pre-job inspection by you would have identified.</p>
-                </section>
-                <section>
-                    <h4 class="font-black text-white uppercase text-xs text-teal-400 mb-1">4. Water and Power Supply</h4>
-                    <p>Unless otherwise agreed in writing, you are responsible for providing access to an outdoor water tap and electricity if needed. We accept no liability for delays or equipment issues caused by insufficient water pressure or interrupted supply.</p>
-                </section>
-                <section>
-                    <h4 class="font-black text-white uppercase text-xs text-teal-400 mb-1">5. Insurance</h4>
-                    <p>We maintain Public Liability Insurance and Employers Liability Insurance. A copy of our insurance certificate, including current limits of indemnity, is available on request. Our insurance does not replace your obligation to maintain adequate buildings insurance. Your own insurance shall be primary in respect of any damage to the property, and our cover responds secondary to it.</p>
-                </section>
-                <section>
-                    <h4 class="font-black text-white uppercase text-xs text-teal-400 mb-1">6. Liability and Limitations</h4>
-                    <p>6.1 We will perform the services with reasonable care and skill.</p>
-                    <p class="mt-2">6.2 We shall not be liable for: pre-existing damage, defects, or weaknesses in the property; damage arising from the condition of the surfaces being cleaned or your failure to disclose relevant information; blocked underground drains, soakaways, or drainage systems beyond the gutters and downpipes we clear; minor botanical damage or drift of cleaning solutions onto plants, unless caused by our gross negligence; or any consequential, indirect, or economic loss, including loss of profit, loss of use, or inconvenience.</p>
-                    <p class="mt-2">6.3 Our total liability for any claim arising from the services shall be limited to the price paid for the specific job, except in cases of death or personal injury caused by our negligence, or fraud, where liability is not limited.</p>
-                    <p class="mt-2">6.4 Any claim for alleged damage must be notified to us in writing within 48 hours of completion of the works, together with clear photographic evidence. Failure to notify within this period may affect our ability to investigate the claim and may result in it being rejected.</p>
-                </section>
-                <section>
-                    <h4 class="font-black text-white uppercase text-xs text-teal-400 mb-1">7. Weather and Force Majeure</h4>
-                    <p>Exterior work is weather-dependent. We reserve the right to reschedule in cases of severe weather without penalty. We shall not be liable for any failure or delay in performing our obligations caused by circumstances beyond our reasonable control, including but not limited to extreme weather, power or water supply failure, civil disruption, or a change in law.</p>
-                </section>
-                <section>
-                    <h4 class="font-black text-white uppercase text-xs text-teal-400 mb-1">8. Payment Terms</h4>
-                    <p>Payment is due immediately upon completion of the work unless a prior written credit arrangement has been agreed. Accepted payment methods include bank transfer, card, or other methods notified to you. Late payments may incur a fixed administrative charge and recovery costs in accordance with Irish commercial payment regulations.</p>
-                </section>
-                <section>
-                    <h4 class="font-black text-white uppercase text-xs text-teal-400 mb-1">9. Cancellation and Rescheduling</h4>
-                    <p>You may cancel or reschedule by giving at least 24 hours' notice. Cancellations with less than 24 hours' notice, or where we arrive and cannot gain access due to your fault, may incur a call-out or cancellation fee.</p>
-                    <p class="mt-2"><strong>Statutory Cancellation Rights (Distance Contracts):</strong> If you book as a consumer via our website, form, or telephone, you have a 14-day cooling-off period under the European Union (Consumer Information, Cancellation and Other Rights) Regulations 2013. By confirming a service date within this 14-day period, you expressly request that we begin work early. Once the service has been fully completed, you lose the right to cancel. If you cancel after work has started but before completion, you must pay for the work already carried out.</p>
-                </section>
-                <section>
-                    <h4 class="font-black text-white uppercase text-xs text-teal-400 mb-1">10. Photos, Media and Intellectual Property</h4>
-                    <p>We may take before-and-after photographs or video of completed work for quality control, insurance, and marketing purposes, including use on our website and social media. No images identifying your address or personal details will be published without your consent. If you would prefer your job is not photographed or used in this way, let us know before work begins.</p>
-                </section>
-                <section>
-                    <h4 class="font-black text-white uppercase text-xs text-teal-400 mb-1">11. Subcontractors</h4>
-                    <p>We may, at our discretion, engage suitably qualified and insured subcontractors to carry out all or part of the work. Any subcontractor engaged will be required to hold equivalent insurance cover and to carry out work to the same standard as set out in these Terms.</p>
-                </section>
-                <section>
-                    <h4 class="font-black text-white uppercase text-xs text-teal-400 mb-1">12. Complaints</h4>
-                    <p>If you are unhappy with any aspect of our service, please contact us at <a href="mailto:info@bdpropertycare.ie" class="text-sky-400 font-bold underline">info@bdpropertycare.ie</a> as soon as possible so we can put things right. We aim to acknowledge complaints promptly and work with you to reach a fair resolution.</p>
-                </section>
-                <section>
-                    <h4 class="font-black text-white uppercase text-xs text-teal-400 mb-1">13. Variations</h4>
-                    <p>No variation to these Terms shall be valid unless agreed by us in writing.</p>
-                </section>
-                <section>
-                    <h4 class="font-black text-white uppercase text-xs text-teal-400 mb-1">14. Governing Law</h4>
-                    <p>These Terms are governed by the laws of Ireland. The Irish courts shall have exclusive jurisdiction over any disputes.</p>
-                </section>
-                <section>
-                    <h4 class="font-black text-white uppercase text-xs text-teal-400 mb-1">15. Contact</h4>
-                    <p>BD Premium Property Care Limited, 1 Sunny Nook, Magazine Road, Cork, Ireland. Email: <a href="mailto:info@bdpropertycare.ie" class="text-sky-400 font-bold underline">info@bdpropertycare.ie</a>. Phone: 089 206 6711.</p>
-                </section>
+
+            <div class="text-left">
+<div class="sticky top-0 z-10 bg-slate-900 pb-3 mb-2 border-b border-slate-800">
+<label class="block text-[10px] font-black uppercase tracking-widest text-slate-500 mb-1.5">Jump To Section</label>
+<select onchange="document.getElementById(this.value)?.scrollIntoView({behavior:'smooth', block:'start'}); this.selectedIndex=0;" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-white font-bold focus:outline-none focus:border-teal-500">
+<option value="">Select a section...</option>
+<option value="terms-sec-1">1. Our Services</option>
+<option value="terms-sec-2">2. Services We Do Not Normally Provide</option>
+<option value="terms-sec-3">3. Enquiries, Estimates and Quotations</option>
+<option value="terms-sec-4">4. When a Contract Is Formed</option>
+<option value="terms-sec-5">5. Changes and Additional Work</option>
+<option value="terms-sec-6">6. Your Responsibilities, Access and the Property</option>
+<option value="terms-sec-7">7. Property Condition and Service Limitations</option>
+<option value="terms-sec-8">8. Safety, Hazardous Conditions and Specialist Work</option>
+<option value="terms-sec-9">9. Water, Chemicals, Drainage and Environmental Conditions</option>
+<option value="terms-sec-10">10. Waste and Debris</option>
+<option value="terms-sec-11">11. Weather and Appointments</option>
+<option value="terms-sec-12">12. Prices, VAT and Travel</option>
+<option value="terms-sec-13">13. Deposits</option>
+<option value="terms-sec-14">14. Payment</option>
+<option value="terms-sec-15">15. Cancellation, Rescheduling and Failed Access</option>
+<option value="terms-sec-16">16. Consumer Cancellation Rights</option>
+<option value="terms-sec-17">17. Recurring and Regular Services</option>
+<option value="terms-sec-18">18. Results, Re-Cleans and Remedial Work</option>
+<option value="terms-sec-19">19. Damage and Liability for Property</option>
+<option value="terms-sec-20">20. Customer-Supplied Materials and Equipment</option>
+<option value="terms-sec-21">21. Pets, Children, Neighbours and Other People</option>
+<option value="terms-sec-22">22. Parking and Site Access</option>
+<option value="terms-sec-23">23. Photography, Video and Reviews</option>
+<option value="terms-sec-24">24. Insurance and Subcontractors</option>
+<option value="terms-sec-25">25. Privacy, Communications and Business Customers</option>
+<option value="terms-sec-26">26. Service Area, General Terms and Contact</option>
+</select></div>
+<div class="pb-3 border-b border-slate-800 text-xs text-slate-400 leading-relaxed">
+<p class="font-bold text-white">BD Premium Property Care Limited</p>
+<p>1 Sunny Nook, Magazine Road, Cork, Ireland<br>CRO Number: 819130<br>VAT Number: IE4753323OH<br>Email: info@bdpropertycare.ie<br>Phone: 089 206 6711</p>
+<p class="mt-2 text-slate-500 font-semibold">Effective date: June 2026</p>
+</div>
+<div class="space-y-3 text-xs text-slate-300 leading-relaxed font-medium pt-3">
+<p>These Terms &amp; Conditions apply to services provided by BD Premium Property Care Limited (“BD Premium Property Care”, “we”, “us” or “our”).</p>
+<p>By requesting or accepting our services, you agree to these Terms together with the specific quotation, booking details or other written agreement applicable to your job.</p>
+<p>Where consumer law gives you rights that cannot legally be excluded or restricted, those rights continue to apply.</p>
+</div>
+<div class="space-y-6 text-xs text-slate-300 leading-relaxed font-medium mt-6">
+<section id="terms-sec-1" class="scroll-mt-20 pt-2 border-t border-slate-800/60 first:border-t-0 first:pt-0">
+<h4 class="font-black text-white uppercase text-xs text-teal-400 mb-2">1. Our Services</h4>
+<p class="mb-2">Our services currently include property cleaning and related property-care services such as:</p>
+<ul class="list-disc pl-5 mb-2 space-y-1">
+<li>Pressure washing and exterior cleaning.</li>
+<li>Driveway cleaning.</li>
+<li>Patio cleaning.</li>
+<li>Wall and render cleaning.</li>
+<li>Gutter cleaning.</li>
+<li>Fascia and soffit cleaning.</li>
+<li>Window cleaning.</li>
+<li>Conservatory cleaning.</li>
+<li>Minor external painting and touch-ups.</li>
+<li>Minor non-structural property repairs.</li>
+<li>Minor pointing and sealing.</li>
+<li>Soft washing and appropriate cleaning treatments.</li>
+<li>Other property-care services specifically agreed in writing.</li>
+</ul>
+<p class="mb-2">The exact work to be carried out will be determined by the quotation, booking or other written agreement for your particular job.</p>
+<p class="mb-2">We may introduce additional services in the future. A future service is not considered available unless we specifically offer and agree it with you.</p>
+</section>
+<section id="terms-sec-2" class="scroll-mt-20 pt-2 border-t border-slate-800/60 first:border-t-0 first:pt-0">
+<h4 class="font-black text-white uppercase text-xs text-teal-400 mb-2">2. Services We Do Not Normally Provide</h4>
+<p class="mb-2">Unless specifically agreed in writing and where we have the appropriate competence, equipment, training, authorisation and insurance, we do not normally provide:</p>
+<ul class="list-disc pl-5 mb-2 space-y-1">
+<li>Major structural or building works.</li>
+<li>Major repairs.</li>
+<li>Major painting or decorating projects.</li>
+<li>Electrical installation, repair, alteration, testing, inspection or certification.</li>
+<li>Emergency or emergency-response services.</li>
+<li>Landscaping services.</li>
+<li>Major waste removal.</li>
+<li>Hazardous or specialist waste handling.</li>
+<li>Specialist work requiring certification, registration or professional authorisation that we do not hold.</li>
+<li>Specialist drainage or underground works outside the agreed scope.</li>
+</ul>
+<p class="mb-2">We may decline, pause or stop work where a job is outside our competence, training, equipment, authorisation, insurance or safe working capabilities.</p>
+</section>
+<section id="terms-sec-3" class="scroll-mt-20 pt-2 border-t border-slate-800/60 first:border-t-0 first:pt-0">
+<h4 class="font-black text-white uppercase text-xs text-teal-400 mb-2">3. Enquiries, Estimates and Quotations</h4>
+<p class="mb-2">You may contact us through our website, forms, email, telephone, WhatsApp, text message or social media.</p>
+<p class="mb-2">Our online estimator provides an indicative guide only. It is not a final quotation, booking confirmation or contract.</p>
+<p class="mb-2">The estimator may state:</p>
+<blockquote class="border-l-4 border-teal-500/50 pl-4 italic text-slate-300 mb-2 bg-slate-950/50 py-2 rounded-r">“This is an average-based guide, not a final quote — the actual price could be higher or lower depending on surface condition, access, and job specifics. A minimum call-out charge of €50 applies to all jobs, which may be higher depending on distance within County Cork.”</blockquote>
+<p class="mb-2">The €50 amount is a minimum call-out/travel charge where applicable. It is not necessarily the minimum total price of a job.</p>
+<p class="mb-2">A final quotation may take account of the property, access, surface condition, distance, scope, materials, equipment and other relevant circumstances.</p>
+<p class="mb-2">Unless stated otherwise, quotations are valid for 14 days.</p>
+<p class="mb-2">If a quotation is accepted after it has expired, we may confirm whether the original price remains available.</p>
+</section>
+<section id="terms-sec-4" class="scroll-mt-20 pt-2 border-t border-slate-800/60 first:border-t-0 first:pt-0">
+<h4 class="font-black text-white uppercase text-xs text-teal-400 mb-2">4. When a Contract Is Formed</h4>
+<p class="mb-2">A contract is generally formed when:</p>
+<ol class="list-decimal pl-5 mb-2 space-y-1">
+<li>We provide a quotation or agreed scope;</li>
+<li>You accept it; and</li>
+<li>We confirm the booking or otherwise agree to proceed.</li>
+</ol>
+<p class="mb-2">For formal quotation acceptance, we may require acceptance by email so that there is a clear written record.</p>
+<p class="mb-2">WhatsApp, text message or other messaging channels may be used for ordinary service communications, but we may require email for formal acceptance, changes or other important contractual matters.</p>
+<p class="mb-2">The quotation and agreed scope take priority over general descriptions on our website.</p>
+</section>
+<section id="terms-sec-5" class="scroll-mt-20 pt-2 border-t border-slate-800/60 first:border-t-0 first:pt-0">
+<h4 class="font-black text-white uppercase text-xs text-teal-400 mb-2">5. Changes and Additional Work</h4>
+<p class="mb-2">If you request additional or different work after a quotation has been accepted, we will normally confirm any material change to the scope, price or timing before carrying out that additional work.</p>
+<p class="mb-2">Where reasonably practicable, approval should be provided in writing, preferably by email.</p>
+<p class="mb-2">If an unexpected issue is discovered during a job, we will normally stop or pause the affected work and discuss the issue with you before proceeding.</p>
+<p class="mb-2">A proportionate immediate safety measure may be taken where reasonably necessary to prevent injury or further damage.</p>
+<p class="mb-2">If you change your mind after work has started, you may be charged for work already completed and reasonable costs already incurred, subject to your statutory rights.</p>
+</section>
+<section id="terms-sec-6" class="scroll-mt-20 pt-2 border-t border-slate-800/60 first:border-t-0 first:pt-0">
+<h4 class="font-black text-white uppercase text-xs text-teal-400 mb-2">6. Your Responsibilities, Access and the Property</h4>
+<p class="mb-2">You are responsible for:</p>
+<ul class="list-disc pl-5 mb-2 space-y-1">
+<li>Providing accurate information about the property and requested work.</li>
+<li>Ensuring that you have authority to instruct us.</li>
+<li>Obtaining permissions or consents that are your responsibility.</li>
+<li>Providing reasonable access at the agreed time.</li>
+<li>Providing suitable water or electricity where required and agreed.</li>
+<li>Telling us about relevant access restrictions, hazards, defects or unusual conditions.</li>
+<li>Protecting or removing valuable, fragile, delicate or irreplaceable belongings from the work area.</li>
+<li>Ensuring vehicles and other obstructions are moved where necessary and agreed.</li>
+<li>Keeping children and pets away from active work areas.</li>
+</ul>
+<p class="mb-2">We may move ordinary lightweight items where it is safe to do so and you have given permission. We are not obliged to move heavy, fragile, valuable, electrical or specialist items.</p>
+<p class="mb-2">Vehicles will not normally be moved by us unless this has been specifically agreed and it is safe and appropriate to do so.</p>
+<p class="mb-2">You may arrange for us to carry out agreed work while you are not present.</p>
+<p class="mb-2">Where keys or access codes are provided, you confirm that you have authority to provide them. We will take reasonable care of keys and access information.</p>
+<p class="mb-2">Keys will not normally be retained after a visit unless separately agreed. Temporary access information will be deleted or securely disposed of when no longer needed, subject to any minimal record that we reasonably need to retain.</p>
+<p class="mb-2">For apartments, managed properties or properties subject to management-company rules, you are responsible for obtaining required permissions and telling us about applicable site rules. We will comply with reasonable rules communicated to us in advance provided they do not make the work unsafe, impractical or materially different from what was quoted.</p>
+<p class="mb-2">Undisclosed restrictions that prevent the agreed work may result in the work being paused, rescheduled or declined, with any reasonable applicable charge explained where possible.</p>
+<p class="mb-2">We may stop work and leave where abusive, threatening, aggressive or discriminatory behaviour creates a genuine safety concern. Serious or repeated unacceptable behaviour may result in future bookings being declined, subject to applicable law.</p>
+</section>
+<section id="terms-sec-7" class="scroll-mt-20 pt-2 border-t border-slate-800/60 first:border-t-0 first:pt-0">
+<h4 class="font-black text-white uppercase text-xs text-teal-400 mb-2">7. Property Condition and Service Limitations</h4>
+<p class="mb-2">You should tell us about known:</p>
+<ul class="list-disc pl-5 mb-2 space-y-1">
+<li>Cracks or structural defects.</li>
+<li>Loose or damaged materials.</li>
+<li>Leaks.</li>
+<li>Previous damage.</li>
+<li>Previous coatings or treatments.</li>
+<li>Fragile surfaces.</li>
+<li>Defective gutters, windows, render or other relevant features.</li>
+<li>Other conditions that could affect the work.</li>
+</ul>
+<p class="mb-2">We will carry out a reasonable visual assessment within the scope of the service.</p>
+<p class="mb-2">If a surface or item appears unsuitable, unsafe or unusually fragile, we may recommend changing the method, limiting the work, pausing or declining the affected work.</p>
+<p class="mb-2">If a hidden or previously unknown risk becomes apparent during the work, we may stop and discuss it with you.</p>
+<p class="mb-2">We are not responsible for damage resulting from a pre-existing, latent or unusually fragile condition that could not reasonably have been identified through an appropriate assessment, provided we have exercised reasonable professional care.</p>
+<p class="mb-2">This does not exclude responsibility for damage caused by our own negligence or failure to exercise reasonable care.</p>
+</section>
+<section id="terms-sec-8" class="scroll-mt-20 pt-2 border-t border-slate-800/60 first:border-t-0 first:pt-0">
+<h4 class="font-black text-white uppercase text-xs text-teal-400 mb-2">8. Safety, Hazardous Conditions and Specialist Work</h4>
+<p class="mb-2">We may stop, refuse or modify work where there is a serious safety concern or where conditions appear unsuitable for us to work safely.</p>
+<p class="mb-2">Examples include suspected:</p>
+<ul class="list-disc pl-5 mb-2 space-y-1">
+<li>Asbestos.</li>
+<li>Dangerous chemicals.</li>
+<li>Sharps.</li>
+<li>Significant biological contamination.</li>
+<li>Unstable structures or materials.</li>
+<li>Unsafe electrical conditions.</li>
+<li>Other hazards requiring specialist assessment or remediation.</li>
+</ul>
+<p class="mb-2">Where specialist work is required, we may ask you to arrange a suitably qualified specialist.</p>
+<p class="mb-2">We are not an emergency-response service.</p>
+<p class="mb-2">If an undisclosed hazard prevents us from carrying out a booked visit, the visit may be treated as a failed or aborted visit and a reasonable applicable charge may apply where this has been disclosed or is otherwise permitted by law.</p>
+<p class="mb-2">If you ask us to carry out work that we reasonably consider unsafe, unlawful or outside our competence, we may refuse, pause or reschedule that work.</p>
+</section>
+<section id="terms-sec-9" class="scroll-mt-20 pt-2 border-t border-slate-800/60 first:border-t-0 first:pt-0">
+<h4 class="font-black text-white uppercase text-xs text-teal-400 mb-2">9. Water, Chemicals, Drainage and Environmental Conditions</h4>
+<p class="mb-2">Some services may involve water, cleaning products, chemicals, pressure or runoff.</p>
+<p class="mb-2">You should tell us about relevant conditions including:</p>
+<ul class="list-disc pl-5 mb-2 space-y-1">
+<li>Ponds or water features.</li>
+<li>Sensitive plants.</li>
+<li>Septic tanks.</li>
+<li>Soakaways.</li>
+<li>Rainwater harvesting systems.</li>
+<li>Drainage restrictions.</li>
+<li>Sensitive or delicate surfaces.</li>
+<li>Areas where runoff could cause particular problems.</li>
+</ul>
+<p class="mb-2">We will take reasonable precautions appropriate to the service to control runoff and avoid foreseeable damage.</p>
+<p class="mb-2">We cannot guarantee that every drain, surface, coating, plant or system will tolerate unlimited water, pressure or cleaning products.</p>
+<p class="mb-2">Where conditions are unsafe or unsuitable, we may pause, modify or decline the affected work.</p>
+</section>
+<section id="terms-sec-10" class="scroll-mt-20 pt-2 border-t border-slate-800/60 first:border-t-0 first:pt-0">
+<h4 class="font-black text-white uppercase text-xs text-teal-400 mb-2">10. Waste and Debris</h4>
+<p class="mb-2">Normal small amounts of job-related debris may be handled as part of the service where reasonably practicable.</p>
+<p class="mb-2">Large, unusual, pre-existing, hazardous or specialist waste is not included unless specifically agreed.</p>
+<p class="mb-2">Gutter debris may be handled as part of ordinary gutter cleaning. Where the quantity or nature of debris is unusually large, additional work or charges may apply where agreed.</p>
+<p class="mb-2">Where off-site disposal is specifically agreed, we will use appropriate lawful disposal, recycling or recovery arrangements.</p>
+</section>
+<section id="terms-sec-11" class="scroll-mt-20 pt-2 border-t border-slate-800/60 first:border-t-0 first:pt-0">
+<h4 class="font-black text-white uppercase text-xs text-teal-400 mb-2">11. Weather and Appointments</h4>
+<p class="mb-2">We will agree an appointment date and, where practical, an approximate time or time window.</p>
+<p class="mb-2">Weather or site conditions may require work to be postponed where conditions are unsafe or reasonably likely to materially compromise the service or result.</p>
+<p class="mb-2">Examples may include:</p>
+<ul class="list-disc pl-5 mb-2 space-y-1">
+<li>High winds.</li>
+<li>Lightning.</li>
+<li>Freezing conditions.</li>
+<li>Heavy rain.</li>
+<li>Unsuitable temperatures for particular coatings or treatments.</li>
+<li>Other conditions that make the work unsafe or unsuitable.</li>
+</ul>
+<p class="mb-2">We will provide reasonable notice of weather-related or operational changes where practicable.</p>
+<p class="mb-2">We do not provide an emergency service.</p>
+</section>
+<section id="terms-sec-12" class="scroll-mt-20 pt-2 border-t border-slate-800/60 first:border-t-0 first:pt-0">
+<h4 class="font-black text-white uppercase text-xs text-teal-400 mb-2">12. Prices, VAT and Travel</h4>
+<p class="mb-2">Prices will be set out in the quotation, booking confirmation or other agreed pricing information.</p>
+<p class="mb-2">Unless otherwise stated, prices are subject to VAT at the applicable rate, where applicable.</p>
+<p class="mb-2">A minimum call-out/travel charge of €50 applies to jobs where applicable. Additional travel-related pricing may depend on the location and circumstances within County Cork and will be identified in the quotation where applicable.</p>
+<p class="mb-2">Other foreseeable costs, such as parking, tolls, permits or unusual access costs, may be included or identified in the quotation.</p>
+<p class="mb-2">We will not add unexpected charges without approval where reasonably practicable.</p>
+</section>
+<section id="terms-sec-13" class="scroll-mt-20 pt-2 border-t border-slate-800/60 first:border-t-0 first:pt-0">
+<h4 class="font-black text-white uppercase text-xs text-teal-400 mb-2">13. Deposits</h4>
+<p class="mb-2">A deposit may be requested for certain jobs, particularly where the work involves larger commitments, special-order materials or materials that cannot reasonably be returned.</p>
+<p class="mb-2">Where a deposit is required, the quotation or booking information will state:</p>
+<ul class="list-disc pl-5 mb-2 space-y-1">
+<li>The deposit amount.</li>
+<li>What it is for.</li>
+<li>The balance payable.</li>
+<li>Relevant cancellation consequences.</li>
+</ul>
+<p class="mb-2">A deposit is not automatically or universally non-refundable.</p>
+<p class="mb-2">If you cancel, we may retain only reasonable and legitimate costs or losses actually incurred, subject to applicable consumer law.</p>
+<p class="mb-2">Any amount properly due to be refunded will normally be returned using the original payment method where practicable, or by bank transfer where that is not reasonably practicable.</p>
+</section>
+<section id="terms-sec-14" class="scroll-mt-20 pt-2 border-t border-slate-800/60 first:border-t-0 first:pt-0">
+<h4 class="font-black text-white uppercase text-xs text-teal-400 mb-2">14. Payment</h4>
+<p class="mb-2">We accept payment methods including:</p>
+<ul class="list-disc pl-5 mb-2 space-y-1">
+<li>Bank transfer.</li>
+<li>Cash.</li>
+<li>Card.</li>
+<li>Revolut.</li>
+<li>Payment links or online payment methods where available.</li>
+</ul>
+<p class="mb-2">Payment is normally due immediately on completion for ordinary jobs unless the quotation or invoice states another due date.</p>
+<p class="mb-2">Commercial customers may have agreed credit or invoicing terms.</p>
+<p class="mb-2">If you dispute part of an invoice, please tell us promptly and identify the disputed amount and reason. Undisputed amounts should normally still be paid while the disputed element is investigated.</p>
+<p class="mb-2">We do not charge interest on overdue payments.</p>
+<p class="mb-2">If an undisputed amount remains overdue, we may send reminders and may suspend or decline future work until the account is brought up to date.</p>
+<p class="mb-2">Where legally permitted, we may seek reasonable actual costs associated with recovering an undisputed debt.</p>
+<p class="mb-2">Where a refund is due, it will normally be made to the original payment method where practicable, or by bank transfer where necessary, within a reasonable period.</p>
+</section>
+<section id="terms-sec-15" class="scroll-mt-20 pt-2 border-t border-slate-800/60 first:border-t-0 first:pt-0">
+<h4 class="font-black text-white uppercase text-xs text-teal-400 mb-2">15. Cancellation, Rescheduling and Failed Access</h4>
+<p class="mb-2">You may contact us by email, WhatsApp or text to cancel or request a change, provided the message clearly identifies the booking.</p>
+<p class="mb-2">We may ask for formal confirmation by email where necessary.</p>
+<p class="mb-2">We will try to accommodate reasonable rescheduling requests.</p>
+<p class="mb-2">Where a cancellation, short-notice change or failed access causes us genuine costs, we may apply a reasonable charge reflecting those costs where this has been disclosed and is legally permitted.</p>
+<p class="mb-2">A €50 call-out/travel charge is not automatically a cancellation fee.</p>
+<p class="mb-2">Charges will not be intended to operate as punitive penalties and may be reduced or waived where appropriate.</p>
+</section>
+<section id="terms-sec-16" class="scroll-mt-20 pt-2 border-t border-slate-800/60 first:border-t-0 first:pt-0">
+<h4 class="font-black text-white uppercase text-xs text-teal-400 mb-2">16. Consumer Cancellation Rights</h4>
+<p class="mb-2">If you are a consumer, you may have statutory cancellation rights depending on how and where the contract was entered into and the nature of the service.</p>
+<p class="mb-2">Where applicable, we will provide the information required by consumer law regarding cancellation rights.</p>
+<p class="mb-2">If you ask us to begin a service before the end of an applicable statutory cancellation period, we may require an appropriate affirmative request or confirmation from you before starting.</p>
+<p class="mb-2">If you cancel after work has properly begun at your request, applicable consumer-law rules may allow us to charge for the proportion of the service supplied and/or certain reasonable amounts.</p>
+<p class="mb-2">Where a service has been fully performed following your appropriate request and the legal requirements have been satisfied, statutory cancellation rights may cease where the law permits.</p>
+<p class="mb-2">Nothing in these Terms removes or restricts mandatory consumer rights.</p>
+</section>
+<section id="terms-sec-17" class="scroll-mt-20 pt-2 border-t border-slate-800/60 first:border-t-0 first:pt-0">
+<h4 class="font-black text-white uppercase text-xs text-teal-400 mb-2">17. Recurring and Regular Services</h4>
+<p class="mb-2">We may provide recurring or regular cleaning and maintenance services where agreed.</p>
+<p class="mb-2">Unless a separate written agreement states otherwise, there is no fixed minimum commitment.</p>
+<p class="mb-2">You may ask to end a recurring arrangement with reasonable notice.</p>
+<p class="mb-2">We may periodically review recurring-service prices. Where a new price is proposed, we will provide reasonable advance notice before the affected visit.</p>
+<p class="mb-2">You may accept the new price or end the recurring arrangement without a penalty for simply declining the increase.</p>
+<p class="mb-2">Work already accepted at an agreed price will remain subject to that agreed price unless otherwise agreed.</p>
+</section>
+<section id="terms-sec-18" class="scroll-mt-20 pt-2 border-t border-slate-800/60 first:border-t-0 first:pt-0">
+<h4 class="font-black text-white uppercase text-xs text-teal-400 mb-2">18. Results, Re-Cleans and Remedial Work</h4>
+<p class="mb-2">We will provide services with reasonable care and skill.</p>
+<p class="mb-2">Cleaning results can be affected by factors outside our control, including:</p>
+<ul class="list-disc pl-5 mb-2 space-y-1">
+<li>Age and condition of the surface.</li>
+<li>Existing damage.</li>
+<li>Staining.</li>
+<li>Weathering.</li>
+<li>Moss, algae or biological growth.</li>
+<li>Previous treatments.</li>
+<li>Porosity or composition of materials.</li>
+<li>Access limitations.</li>
+<li>Conditions that become apparent only during the work.</li>
+</ul>
+<p class="mb-2">We therefore cannot guarantee complete removal of every stain, mark, deposit or discolouration or a particular visual result where that result depends on the condition of the property.</p>
+<p class="mb-2">If you believe a service has not been carried out properly, please contact us promptly.</p>
+<p class="mb-2">Where appropriate, we may inspect the work and offer a reasonable re-clean, correction or other remedy.</p>
+<p class="mb-2">You should give us a reasonable opportunity to inspect and, where appropriate, remedy an issue before arranging third-party remedial work, except where urgent action is reasonably necessary to protect health, safety or prevent further damage.</p>
+<p class="mb-2">Nothing in this section limits your statutory rights.</p>
+</section>
+<section id="terms-sec-19" class="scroll-mt-20 pt-2 border-t border-slate-800/60 first:border-t-0 first:pt-0">
+<h4 class="font-black text-white uppercase text-xs text-teal-400 mb-2">19. Damage and Liability for Property</h4>
+<p class="mb-2">We take reasonable care when carrying out our work.</p>
+<p class="mb-2">If you believe that our work has caused damage, please notify us as soon as reasonably practicable after becoming aware of it and provide photographs or other relevant information where possible.</p>
+<p class="mb-2">We should be given a reasonable opportunity to inspect and investigate before third-party remedial work is arranged, except where urgent action is necessary to protect safety or prevent further damage.</p>
+<p class="mb-2">We may first seek to remedy damage where this is reasonably possible.</p>
+<p class="mb-2">Where repair is not reasonably possible or appropriate, an appropriate financial remedy may be considered, taking account of the circumstances and applicable law.</p>
+<p class="mb-2">We are not responsible for damage caused solely by a pre-existing, latent or unusually fragile condition that could not reasonably have been identified through appropriate professional care.</p>
+<p class="mb-2">However, this does not exclude responsibility for our own negligence, breach of contract or other liability that cannot legally be excluded.</p>
+<p class="mb-2">A delay in reporting an issue will not automatically prevent a claim. However, if the delay materially prejudices our ability to investigate, establish the cause or mitigate the damage, this may be relevant when considering the claim.</p>
+</section>
+<section id="terms-sec-20" class="scroll-mt-20 pt-2 border-t border-slate-800/60 first:border-t-0 first:pt-0">
+<h4 class="font-black text-white uppercase text-xs text-teal-400 mb-2">20. Customer-Supplied Materials and Equipment</h4>
+<p class="mb-2">We normally use our own equipment, tools and cleaning products.</p>
+<p class="mb-2">We are not required to use customer-supplied equipment, tools or chemicals.</p>
+<p class="mb-2">Where customer-supplied materials are agreed, you are responsible for their suitability unless we have expressly agreed otherwise.</p>
+<p class="mb-2">We may refuse to use materials that appear unsuitable, unsafe, defective or incompatible with the work.</p>
+<p class="mb-2">We cannot guarantee the performance, durability or manufacturer’s warranty of customer-supplied materials.</p>
+<p class="mb-2">We will use our own products in accordance with applicable manufacturer instructions, available safety information and appropriate professional practice.</p>
+</section>
+<section id="terms-sec-21" class="scroll-mt-20 pt-2 border-t border-slate-800/60 first:border-t-0 first:pt-0">
+<h4 class="font-black text-white uppercase text-xs text-teal-400 mb-2">21. Pets, Children, Neighbours and Other People</h4>
+<p class="mb-2">Pets and animals must be kept away from active work areas.</p>
+<p class="mb-2">Children must be kept away from areas where equipment, chemicals, ladders, machinery or other hazards are present and should not be left unsupervised in such areas.</p>
+<p class="mb-2">Smoking, vaping and open flames may need to be kept away from the work area where reasonably necessary for safety.</p>
+<p class="mb-2">You should tell us about neighbouring properties, shared boundaries, access restrictions or sensitive areas that may be affected by the work.</p>
+<p class="mb-2">You are responsible for obtaining permissions that are your responsibility.</p>
+<p class="mb-2">We will take reasonable precautions regarding water, chemicals, spray, noise and equipment where appropriate.</p>
+<p class="mb-2">If other contractors, workers or tradespeople are working at the property, you should tell us in advance.</p>
+<p class="mb-2">People may be required to remain clear of active work areas. We may pause, coordinate or reschedule work where simultaneous activities make it unsafe or impractical.</p>
+<p class="mb-2">We are not responsible for the independent actions of third parties outside our control.</p>
+</section>
+<section id="terms-sec-22" class="scroll-mt-20 pt-2 border-t border-slate-800/60 first:border-t-0 first:pt-0">
+<h4 class="font-black text-white uppercase text-xs text-teal-400 mb-2">22. Parking and Site Access</h4>
+<p class="mb-2">Where reasonably possible, you should provide suitable parking and access for our vehicles and equipment.</p>
+<p class="mb-2">You should tell us in advance about:</p>
+<ul class="list-disc pl-5 mb-2 space-y-1">
+<li>Parking restrictions.</li>
+<li>Permit requirements.</li>
+<li>Gates.</li>
+<li>Narrow access.</li>
+<li>Height restrictions.</li>
+<li>Weight restrictions.</li>
+<li>Other access limitations.</li>
+</ul>
+<p class="mb-2">Foreseeable parking, toll or permit charges will normally be identified in the quotation where applicable.</p>
+<p class="mb-2">Unexpected charges will not be added without approval where reasonably practicable.</p>
+</section>
+<section id="terms-sec-23" class="scroll-mt-20 pt-2 border-t border-slate-800/60 first:border-t-0 first:pt-0">
+<h4 class="font-black text-white uppercase text-xs text-teal-400 mb-2">23. Photography, Video and Reviews</h4>
+<p class="mb-2">We may take photographs or videos of work areas and completed work for operational records, quality control, complaints, insurance and other legitimate business purposes.</p>
+<p class="mb-2">Where photographs or videos are used for public marketing, we will take reasonable steps not to deliberately publish:</p>
+<ul class="list-disc pl-5 mb-2 space-y-1">
+<li>Customer names.</li>
+<li>Full addresses.</li>
+<li>House numbers.</li>
+<li>Eircodes.</li>
+<li>Deliberate customer tagging or identification.</li>
+</ul>
+<p class="mb-2">We will also take reasonable steps to avoid unnecessarily publishing identifiable people and, where reasonably practicable, crop or blur people unless appropriate permission has been obtained.</p>
+<p class="mb-2">Marketing use will be subject to the applicable consent or other lawful basis.</p>
+<p class="mb-2">If you have provided consent for marketing use, you may contact us to withdraw consent for future use where consent is the relevant legal basis.</p>
+<p class="mb-2">We may invite customers to leave independent reviews, including Google Reviews. We will not require a positive review as a condition of receiving our services.</p>
+<p class="mb-2">If we wish to republish a customer review or testimonial on our website, social media or other marketing material, we will seek appropriate permission.</p>
+</section>
+<section id="terms-sec-24" class="scroll-mt-20 pt-2 border-t border-slate-800/60 first:border-t-0 first:pt-0">
+<h4 class="font-black text-white uppercase text-xs text-teal-400 mb-2">24. Insurance and Subcontractors</h4>
+<p class="mb-2">We maintain appropriate business insurance relevant to the services we provide.</p>
+<p class="mb-2">We may use subcontractors or other suitably qualified persons in the future where reasonably necessary.</p>
+<p class="mb-2">Where subcontractors are used, we will take reasonable steps to ensure that they are appropriately suitable for the work being undertaken.</p>
+<p class="mb-2">Insurance does not itself determine legal liability. The terms and conditions of the relevant insurance policy apply.</p>
+<p class="mb-2">We do not publish our insurance policy limits in these Terms.</p>
+</section>
+<section id="terms-sec-25" class="scroll-mt-20 pt-2 border-t border-slate-800/60 first:border-t-0 first:pt-0">
+<h4 class="font-black text-white uppercase text-xs text-teal-400 mb-2">25. Privacy, Communications and Business Customers</h4>
+<p class="mb-2">Our Privacy Policy explains how we handle personal information and forms part of the information provided to customers.</p>
+<p class="mb-2">You can communicate with us by email, telephone, WhatsApp, text message and other channels we make available.</p>
+<p class="mb-2">We may use whichever communication method is reasonably appropriate for the matter, while taking reasonable account of any clear communication preference you have given us.</p>
+<p class="mb-2">Important contractual matters may be confirmed by email to maintain a clear written record.</p>
+<p class="mb-2">At launch, we are not an emergency service and do not guarantee responses or work outside normal operational availability.</p>
+<p class="mb-2">For business customers, including landlords, property managers, letting agents, businesses and public bodies, we may agree additional written commercial terms covering matters such as:</p>
+<ul class="list-disc pl-5 mb-2 space-y-1">
+<li>Credit terms.</li>
+<li>Invoicing.</li>
+<li>Procurement requirements.</li>
+<li>Site requirements.</li>
+<li>Access procedures.</li>
+<li>Service levels.</li>
+<li>Reporting requirements.</li>
+<li>Other customer-specific arrangements.</li>
+</ul>
+<p class="mb-2">Where agreed in writing, those specific commercial terms will apply alongside these Terms.</p>
+</section>
+<section id="terms-sec-26" class="scroll-mt-20 pt-2 border-t border-slate-800/60 first:border-t-0 first:pt-0">
+<h4 class="font-black text-white uppercase text-xs text-teal-400 mb-2">26. Service Area, General Terms and Contact</h4>
+<p class="mb-2">Our normal operating area is County Cork.</p>
+<p class="mb-2">We may decline individual locations based on distance, access, workload, safety or other operational circumstances.</p>
+<p class="mb-2">We may introduce services or expand our operating area in the future. Such services or areas will only be offered where we specifically confirm availability.</p>
+<p class="mb-2">Irish law applies to these Terms to the extent permitted by law.</p>
+<p class="mb-2">If you are a consumer, nothing in these Terms prevents you from relying on mandatory consumer protections or rights available to you under applicable law.</p>
+<p class="mb-2">We encourage customers to contact us first if there is a problem so that we can try to resolve it informally. Where appropriate, we may agree to mediation or another form of alternative dispute resolution by mutual agreement. This does not prevent either party from exercising statutory or legal rights.</p>
+<p class="mb-2">If any provision of these Terms is found to be invalid or unenforceable, the remaining provisions will continue to apply to the extent permitted by law.</p>
+<p class="mb-2">If we do not immediately enforce a provision of these Terms, this does not mean that we have permanently waived our right to do so.</p>
+<p class="mb-2">We may update these Terms from time to time to reflect changes to our services, business practices or legal requirements. The version applicable to a particular booking will generally be the version in force when the contract was formed, unless a later change is required by law or otherwise agreed.</p>
+<p class="mb-2">For questions about these Terms or our services, contact:</p>
+<p class="mt-2">BD Premium Property Care Limited<br>1 Sunny Nook, Magazine Road, Cork, Ireland<br>Email: <a href="mailto:info@bdpropertycare.ie" class="text-sky-400 font-bold underline">info@bdpropertycare.ie</a><br>Phone: <a href="tel:+353892066711" class="text-sky-400 font-bold underline">089 206 6711</a></p>
+</section>
+</div>
             </div>
- 
+
             <div class="pt-4 border-t border-slate-800 text-right">
                 <button @click="showTerms = false" class="bg-slate-950 border border-slate-800 hover:border-slate-700 text-white font-bold px-5 py-2.5 rounded-xl text-xs uppercase tracking-wider transition">Close Framework View</button>
             </div>
         </div>
     </div>
- 
+
     <div x-show="bookingGateOpen" x-cloak class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 flex items-center justify-center p-4" x-transition>
         <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-md w-full p-6 sm:p-8 space-y-6 text-left shadow-2xl relative" @click.away="bookingGateOpen = false">
             <button @click="bookingGateOpen = false" class="absolute top-6 right-6 text-slate-400 hover:text-white bg-slate-950 border border-slate-800 w-8 h-8 rounded-lg flex items-center justify-center"><i class="fas fa-times"></i></button>
- 
+
             <div class="border-b border-slate-800 pb-4 pr-8">
                 <div class="inline-flex p-2.5 bg-teal-500/10 text-teal-400 rounded-xl text-base border border-teal-500/20 mb-3"><i class="fas fa-calendar-check"></i></div>
                 <h3 class="text-lg font-black text-white uppercase tracking-wide">Before You Book</h3>
                 <p class="text-xs text-slate-500 mt-1 font-semibold">Please confirm before continuing to our booking form.</p>
             </div>
- 
+
             <label class="flex items-start gap-3 cursor-pointer select-none">
                 <input type="checkbox" x-model="bookingGateChecked" class="mt-1 w-4 h-4 rounded border-slate-700 bg-slate-950 text-teal-500 focus:ring-teal-500 focus:ring-offset-slate-900 accent-teal-400">
                 <span class="text-xs text-slate-300 font-medium leading-relaxed">
                     I have read and agree to BD Premium Property Care's <button type="button" @click="showTerms = true" class="text-teal-400 underline font-bold hover:text-teal-300">Terms & Conditions</button> and <button type="button" @click="showPrivacy = true" class="text-teal-400 underline font-bold hover:text-teal-300">Privacy Policy</button>.
                 </span>
             </label>
- 
+
             <button @click="confirmBookingGate()" :disabled="!bookingGateChecked" :class="bookingGateChecked ? 'accent-gradient text-slate-950 opacity-100 cursor-pointer hover:-translate-y-0.5' : 'bg-slate-800 text-slate-500 opacity-50 cursor-not-allowed'" class="w-full font-black py-4 rounded-xl shadow-xl transition transform uppercase text-xs tracking-widest">Continue to Booking Form</button>
         </div>
     </div>
- 
+
 </body>
 </html>
- 
