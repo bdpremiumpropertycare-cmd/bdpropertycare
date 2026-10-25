@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Refer a Friend & Earn Free Services | BD Premium Property Care</title>
-    <meta name="description" content="Refer friends and neighbours to BD Premium Property Care. 7 referrals earns free window cleaning, 11 referrals earns free grass cutting.">
+    <title>Refer a Friend & Earn €5 Credit | BD Premium Property Care</title>
+    <meta name="description" content="Refer friends and neighbours to BD Premium Property Care. earn €5 credit for every successful referral.">
     <link rel="canonical" href="https://www.bdpropertycare.ie/referral.html">
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.bdpropertycare.ie/referral.html">
-    <meta property="og:title" content="Refer a Friend & Earn Free Services | BD Premium Property Care">
-    <meta property="og:description" content="Refer friends and neighbours to BD Premium Property Care. 7 referrals earns free window cleaning, 11 referrals earns free grass cutting.">
+    <meta property="og:title" content="Refer a Friend & Earn €5 Credit | BD Premium Property Care">
+    <meta property="og:description" content="Refer friends and neighbours to BD Premium Property Care. earn €5 credit for every successful referral.">
     <meta property="og:image" content="https://www.bdpropertycare.ie/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Refer a Friend & Earn Free Services | BD Premium Property Care">
-    <meta name="twitter:description" content="Refer friends and neighbours to BD Premium Property Care. 7 referrals earns free window cleaning, 11 referrals earns free grass cutting.">
+    <meta name="twitter:title" content="Refer a Friend & Earn €5 Credit | BD Premium Property Care">
+    <meta name="twitter:description" content="Refer friends and neighbours to BD Premium Property Care. earn €5 credit for every successful referral.">
     <meta name="twitter:image" content="https://www.bdpropertycare.ie/og-image.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -30,6 +30,13 @@
         .offer-gradient { background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%); }
         .glow-ring { box-shadow: 0 0 0 1px rgba(45,212,191,0.25), 0 20px 60px -20px rgba(45,212,191,0.35); }
     </style>
+<style id="bd-glow">
+@keyframes bdGlow{0%,100%{color:#6fb9b0;opacity:.62;text-shadow:0 0 2px rgba(45,212,191,.12)}50%{color:#ccfbf1;opacity:1;text-shadow:0 0 8px rgba(45,212,191,.85),0 0 22px rgba(56,189,248,.55)}}
+@keyframes bdGlowBox{0%,100%{box-shadow:0 0 0 rgba(45,212,191,0);border-color:rgba(45,212,191,.22)}50%{box-shadow:0 0 24px rgba(45,212,191,.32);border-color:rgba(45,212,191,.7)}}
+.glow-text{animation:bdGlow 3.8s ease-in-out infinite}
+.glow-box{border:1px solid rgba(45,212,191,.22);animation:bdGlowBox 3.8s ease-in-out infinite}
+@media (prefers-reduced-motion:reduce){.glow-text,.glow-box{animation:none}.glow-text{color:#99f6e4;opacity:1;text-shadow:0 0 8px rgba(45,212,191,.5)}}
+</style>
 </head>
 <body class="bg-slate-950 text-slate-100 antialiased selection:bg-teal-500 selection:text-white"
       x-data="{
@@ -45,15 +52,50 @@
 
     <!-- NAV -->
     <nav class="bg-slate-950/90 backdrop-blur-xl sticky top-0 z-40 border-b border-slate-800/80">
-        <div class="max-w-5xl mx-auto px-6 flex justify-between items-center h-20">
-            <a href="index.html" class="flex items-center gap-3">
-                <img src="bd-logo.png" alt="BD Premium Property Care logo" class="w-11 h-11 rounded-full" width="44" height="44">
-                <div class="h-6 w-[1px] bg-slate-800"></div>
-                <span class="text-[11px] tracking-widest text-slate-400 font-black uppercase">Premium Property Care</span>
-            </a>
-            <a href="index.html" class="text-[11px] font-bold uppercase tracking-wider text-slate-400 hover:text-teal-400 transition"><i class="fas fa-arrow-left mr-1"></i> Back to Homepage</a>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-20">
+            <div class="flex items-center">
+                <a href="index.html" class="flex items-center gap-3">
+                    <img src="bd-logo.png" alt="BD Premium Property Care logo" class="w-11 h-11 rounded-full" width="44" height="44">
+                    <div class="h-6 w-[1px] bg-slate-800"></div>
+                    <span class="text-[11px] tracking-widest text-slate-400 font-black uppercase">Premium Property Care</span>
+                </a>
+            </div>
+            <div class="hidden xl:flex items-center space-x-5 font-bold text-[11px] uppercase tracking-wider">
+                <a href="about.html" class="text-slate-300 hover:text-sky-400 transition-colors">About Us</a>
+<a href="index.html#why-choose-us" class="text-slate-300 hover:text-sky-400 transition-colors">Why Us</a>
+<div class="relative group"><a href="index.html#scope" class="text-slate-300 hover:text-sky-400 transition-colors">Services <i class="fas fa-chevron-down text-[8px] ml-1"></i></a><div class="hidden group-hover:block group-focus-within:block absolute left-0 top-full pt-3 z-50"><div class="w-52 bg-slate-950 border border-slate-800 rounded-xl shadow-2xl py-2"><a href="washing-gutters.html" class="block px-4 py-2.5 text-slate-300 hover:text-teal-400 hover:bg-slate-900 normal-case tracking-normal text-xs">Pressure Washing</a><a href="soft-washing.html" class="block px-4 py-2.5 text-slate-300 hover:text-teal-400 hover:bg-slate-900 normal-case tracking-normal text-xs">Soft Washing</a><a href="steam-cleaning.html" class="block px-4 py-2.5 text-slate-300 hover:text-teal-400 hover:bg-slate-900 normal-case tracking-normal text-xs">Steam Cleaning</a><a href="windows.html" class="block px-4 py-2.5 text-slate-300 hover:text-teal-400 hover:bg-slate-900 normal-case tracking-normal text-xs">Window Cleaning</a><a href="gutter-cleaning.html" class="block px-4 py-2.5 text-slate-300 hover:text-teal-400 hover:bg-slate-900 normal-case tracking-normal text-xs">Gutter Cleaning</a><a href="grounds-repairs.html" class="block px-4 py-2.5 text-slate-300 hover:text-teal-400 hover:bg-slate-900 normal-case tracking-normal text-xs">Grounds &amp; Repairs</a></div></div></div>
+<a href="gallery.html" class="text-slate-300 hover:text-sky-400 transition-colors">Equipment &amp; Results</a>
+<a href="index.html#areas-we-cover" class="text-slate-300 hover:text-sky-400 transition-colors">Areas Covered</a>
+<a href="index.html#estimation-engine" class="text-slate-300 hover:text-sky-400 transition-colors">Price Guide</a>
+<a href="book.html" class="text-slate-300 hover:text-sky-400 transition-colors">Book Online</a>
+<a href="blog.html" class="text-slate-300 hover:text-sky-400 transition-colors">Blog</a>
+<a href="index.html#faq" class="text-slate-300 hover:text-sky-400 transition-colors">FAQ</a>
+<a href="referral.html" class="text-slate-300 hover:text-sky-400 transition-colors">Refer &amp; Earn</a>
+<a href="promotion.html" class="text-amber-400 hover:text-amber-300 transition-colors"><i class="fas fa-tag mr-1"></i> Early Customer Offer</a>
+                <a href="index.html#contact-hub" class="accent-gradient text-slate-950 px-4 py-3 rounded-xl hover:opacity-90 transition shadow-lg font-black">Submit Project Details</a>
+            </div>
+            <div class="flex items-center xl:hidden">
+                <button id="bd-burger" type="button" aria-label="Menu" aria-expanded="false" class="text-slate-300 p-2 bg-slate-900 rounded-xl border border-slate-800"><i class="fas fa-bars-staggered text-lg"></i></button>
+            </div>
         </div>
-    </nav>
+    </div>
+    <div id="bd-drawer" class="hidden xl:hidden bg-slate-950 border-t border-slate-800 px-6 py-5 space-y-1 shadow-2xl max-h-[80vh] overflow-y-auto">
+        <a href="about.html" class="block py-2 text-sm font-bold uppercase text-slate-300">About Us</a>
+<a href="index.html#why-choose-us" class="block py-2 text-sm font-bold uppercase text-slate-300">Why Us</a>
+<p class="pt-2 text-[10px] font-black uppercase tracking-widest text-slate-500">Services</p><a href="washing-gutters.html" class="block py-2 text-sm font-bold uppercase text-slate-300 pl-4"><i class="fas fa-bolt-lightning text-teal-400 mr-3 w-4 text-center"></i>Pressure Washing</a><a href="soft-washing.html" class="block py-2 text-sm font-bold uppercase text-slate-300 pl-4"><i class="fas fa-droplet text-teal-400 mr-3 w-4 text-center"></i>Soft Washing</a><a href="steam-cleaning.html" class="block py-2 text-sm font-bold uppercase text-slate-300 pl-4"><i class="fas fa-temperature-high text-teal-400 mr-3 w-4 text-center"></i>Steam Cleaning</a><a href="windows.html" class="block py-2 text-sm font-bold uppercase text-slate-300 pl-4"><i class="fas fa-window-maximize text-teal-400 mr-3 w-4 text-center"></i>Window Cleaning</a><a href="gutter-cleaning.html" class="block py-2 text-sm font-bold uppercase text-slate-300 pl-4"><i class="fas fa-broom text-teal-400 mr-3 w-4 text-center"></i>Gutter Cleaning</a><a href="grounds-repairs.html" class="block py-2 text-sm font-bold uppercase text-slate-300 pl-4"><i class="fas fa-trowel-bricks text-teal-400 mr-3 w-4 text-center"></i>Grounds &amp; Repairs</a>
+<a href="gallery.html" class="block py-2 text-sm font-bold uppercase text-slate-300">Equipment &amp; Results</a>
+<a href="index.html#areas-we-cover" class="block py-2 text-sm font-bold uppercase text-slate-300">Areas Covered</a>
+<a href="index.html#estimation-engine" class="block py-2 text-sm font-bold uppercase text-slate-300">Price Guide</a>
+<a href="book.html" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-calendar-check text-teal-400 mr-3"></i>Book Online</a>
+<a href="blog.html" class="block py-2 text-sm font-bold uppercase text-slate-300">Blog</a>
+<a href="index.html#faq" class="block py-2 text-sm font-bold uppercase text-slate-300">FAQ</a>
+<a href="referral.html" class="block py-2 text-sm font-bold uppercase text-slate-300">Refer &amp; Earn</a>
+<a href="promotion.html" class="block py-2 text-sm font-bold uppercase text-slate-300 !text-amber-400"><i class="fas fa-tag mr-3"></i>Early Customer Offer</a>
+        <a href="index.html#contact-hub" class="block text-center accent-gradient text-slate-950 py-3.5 rounded-xl font-black text-sm uppercase mt-3">Submit Request</a>
+    </div>
+    <script>(function(){var b=document.getElementById('bd-burger'),d=document.getElementById('bd-drawer');b.addEventListener('click',function(){var h=d.classList.toggle('hidden');b.setAttribute('aria-expanded',String(!h));b.firstElementChild.className='fas text-lg '+(h?'fa-bars-staggered':'fa-times')});d.addEventListener('click',function(e){if(e.target.closest('a'))d.classList.add('hidden')})})();</script>
+</nav>
 
     <!-- HERO -->
     <header class="max-w-4xl mx-auto px-6 pt-16 sm:pt-20 pb-12 text-center">
@@ -76,7 +118,7 @@
                 <p class="text-slate-300 text-sm font-semibold truncate">bdpropertycare.ie/referral</p>
             </div>
             <div class="flex gap-3 w-full sm:w-auto">
-                <a href="https://api.whatsapp.com/send?text=Check%20out%20BD%20Premium%20Property%20Care%20%E2%80%94%20refer%20them%20and%20earn%20free%20window%20cleaning%20or%20grass%20cutting%3A%20https%3A%2F%2Fbdpropertycare.ie%2Freferral" target="_blank" class="flex-1 sm:flex-none bg-slate-950 border border-slate-800 hover:border-teal-500/60 text-white font-bold px-5 py-3 rounded-xl text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition">
+                <a href="https://api.whatsapp.com/send?text=Check%20out%20BD%20Premium%20Property%20Care%20%E2%80%94%20refer%20them%20and%20earn%20%E2%82%AC5%20credit%20for%20every%20successful%20referral%3A%20https%3A%2F%2Fbdpropertycare.ie%2Freferral" target="_blank" class="flex-1 sm:flex-none bg-slate-950 border border-slate-800 hover:border-teal-500/60 text-white font-bold px-5 py-3 rounded-xl text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition">
                     <i class="fab fa-whatsapp text-emerald-400"></i> Share
                 </a>
                 <button @click="copyLink()" class="flex-1 sm:flex-none bg-slate-950 border border-slate-800 hover:border-teal-500/60 text-white font-bold px-5 py-3 rounded-xl text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition">
@@ -87,24 +129,11 @@
     </section>
 
     <!-- REWARDS -->
-    <section class="max-w-4xl mx-auto px-6 pb-16">
-        <div class="grid sm:grid-cols-2 gap-6">
-            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 relative overflow-hidden">
-                <div class="absolute top-0 right-0 text-8xl font-black text-slate-800/60 leading-none -mr-2 -mt-2">7</div>
-                <div class="relative">
-                    <div class="inline-flex p-3 bg-teal-500/10 text-teal-400 rounded-xl text-lg border border-teal-500/20 mb-5"><i class="fas fa-window-maximize"></i></div>
-                    <h3 class="text-white font-black text-lg mb-2">7 Referrals = Free Window Cleaning</h3>
-                    <p class="text-slate-400 text-sm font-medium leading-relaxed">Once 7 people you've referred book and complete a paid job, your next window cleaning visit is on us.</p>
-                </div>
-            </div>
-            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 relative overflow-hidden">
-                <div class="absolute top-0 right-0 text-8xl font-black text-slate-800/60 leading-none -mr-2 -mt-2">11</div>
-                <div class="relative">
-                    <div class="inline-flex p-3 bg-amber-500/10 text-amber-400 rounded-xl text-lg border border-amber-500/20 mb-5"><i class="fas fa-seedling"></i></div>
-                    <h3 class="text-white font-black text-lg mb-2">11 Referrals = Free Grass Cutting</h3>
-                    <p class="text-slate-400 text-sm font-medium leading-relaxed">Reach 11 successful referrals and we'll cut your grass free on your next scheduled grounds visit.</p>
-                </div>
-            </div>
+    <section class="max-w-3xl mx-auto px-6 pb-16">
+        <div class="glow-box rounded-2xl p-8 bg-slate-900 text-center">
+            <div class="text-6xl font-black text-white leading-none mb-2">&euro;5</div>
+            <p class="glow-text text-sm sm:text-base font-semibold">credit for every successful order or referral</p>
+            <p class="text-slate-400 text-sm font-medium leading-relaxed mt-4">Credits accumulate and can be redeemed against future services. Enter your referral credit code when you book to deduct your credit from your quote. Credits expire two years after the date they are earned, can only be redeemed against our services, and have no cash value.</p>
         </div>
     </section>
 
@@ -125,7 +154,7 @@
             <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 text-center">
                 <div class="w-10 h-10 rounded-full accent-gradient text-slate-950 font-black flex items-center justify-center mx-auto mb-4 text-sm">3</div>
                 <h3 class="text-white font-black text-sm uppercase tracking-wide mb-2">We Track It For You</h3>
-                <p class="text-slate-500 text-xs font-medium leading-relaxed">Every completed job under your code counts toward your free service.</p>
+                <p class="text-slate-500 text-xs font-medium leading-relaxed">Every completed job under your code adds &euro;5 to your credit balance, ready to use on your next booking.</p>
             </div>
         </div>
     </section>

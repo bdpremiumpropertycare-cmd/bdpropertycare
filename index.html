@@ -142,11 +142,17 @@
         .accent-gradient { background: linear-gradient(90deg, #38bdf8 0%, #2dd4bf 100%); }
         .offer-gradient { background: linear-gradient(90deg, #f59e0b 0%, #ef4444 100%); }
     </style>
+<style id="bd-glow">
+@keyframes bdGlow{0%,100%{color:#6fb9b0;opacity:.62;text-shadow:0 0 2px rgba(45,212,191,.12)}50%{color:#ccfbf1;opacity:1;text-shadow:0 0 8px rgba(45,212,191,.85),0 0 22px rgba(56,189,248,.55)}}
+@keyframes bdGlowBox{0%,100%{box-shadow:0 0 0 rgba(45,212,191,0);border-color:rgba(45,212,191,.22)}50%{box-shadow:0 0 24px rgba(45,212,191,.32);border-color:rgba(45,212,191,.7)}}
+.glow-text{animation:bdGlow 3.8s ease-in-out infinite}
+.glow-box{border:1px solid rgba(45,212,191,.22);animation:bdGlowBox 3.8s ease-in-out infinite}
+@media (prefers-reduced-motion:reduce){.glow-text,.glow-box{animation:none}.glow-text{color:#99f6e4;opacity:1;text-shadow:0 0 8px rgba(45,212,191,.5)}}
+</style>
 </head>
 <body class="bg-slate-900 text-slate-100 font-sans antialiased selection:bg-teal-500 selection:text-white relative" 
       x-data="{ 
-        mobileMenu: false, 
-        activeTab: 'washing', 
+        mobileMenu: false,
         jobType: 'washing', 
         structuralUnits: 100, 
         openFaq: null,
@@ -193,7 +199,7 @@
     <a href="promotion.html" class="block offer-gradient text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 py-2.5 flex items-center justify-center gap-2 text-[11px] sm:text-xs font-black uppercase tracking-wider text-center">
             <i class="fas fa-tag"></i>
-            <span>Early Customer Discount: Up to 50% Off Your Quote &mdash; Plus Referral Rewards</span>
+            <span>Early Customer Discount: Up to 50% Off Your Quote &mdash; Plus &euro;5 Credit Per Referral</span>
             <i class="fas fa-arrow-right"></i>
         </div>
     </a>
@@ -216,59 +222,56 @@
     </div>
 
     <nav class="bg-slate-950/90 backdrop-blur-xl sticky top-0 z-40 border-b border-slate-800/80">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-20">
-                <div class="flex items-center">
-                    <a href="index.html" class="flex items-center gap-3">
-                        <img src="bd-logo.png" alt="BD Premium Property Care logo" class="w-11 h-11 rounded-full" width="44" height="44">
-                        <div class="h-6 w-[1px] bg-slate-800"></div>
-                        <span class="text-[11px] tracking-widest text-slate-400 font-black uppercase">Premium Property Care</span>
-                    </a>
-                </div>
-                <div class="hidden lg:flex items-center space-x-8 font-bold text-xs uppercase tracking-wider">
-                    <a href="about.html" class="text-slate-300 hover:text-sky-400 transition-colors">About Us</a>
-                    <a href="#why-choose-us" class="text-slate-300 hover:text-sky-400 transition-colors">Why Us</a>
-                    <a href="#our-equipment" class="text-slate-300 hover:text-sky-400 transition-colors">Our Equipment</a>
-                    <a href="#areas-we-cover" class="text-slate-300 hover:text-sky-400 transition-colors">Areas Covered</a>
-                    <a href="#scope" class="text-slate-300 hover:text-sky-400 transition-colors">Our Scope</a>
-                    <a href="#visual-proof" class="text-slate-300 hover:text-sky-400 transition-colors">Quality Standard</a>
-                    <a href="#estimation-engine" class="text-slate-300 hover:text-sky-400 transition-colors">Price Guide</a>
-                    <a href="https://forms.gle/Vki1WeTkTdkCjz1T6" target="_blank" rel="noopener" @click.prevent="openBookingGate()" class="text-slate-300 hover:text-sky-400 transition-colors">Book Online</a>
-                    <a href="blog.html" class="text-slate-300 hover:text-sky-400 transition-colors">Blog</a>
-                    <a href="#faq" class="text-slate-300 hover:text-sky-400 transition-colors">FAQ</a>
-                    <a href="promotion.html" class="text-amber-400 hover:text-amber-300 transition-colors"><i class="fas fa-tag mr-1"></i> Early Customer Offer</a>
-                    <a href="#contact-hub" class="accent-gradient text-slate-950 px-5 py-3 rounded-xl hover:opacity-90 transition shadow-lg font-black">Submit Project Details</a>
-                </div>
-                <div class="flex items-center lg:hidden">
-                    <button @click="mobileMenu = !mobileMenu" class="text-slate-300 p-2 bg-slate-900 rounded-xl border border-slate-800">
-                        <i class="fas text-lg" :class="mobileMenu ? 'fa-times' : 'fa-bars-staggered'"></i>
-                    </button>
-                </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-20">
+            <div class="flex items-center">
+                <a href="index.html" class="flex items-center gap-3">
+                    <img src="bd-logo.png" alt="BD Premium Property Care logo" class="w-11 h-11 rounded-full" width="44" height="44">
+                    <div class="h-6 w-[1px] bg-slate-800"></div>
+                    <span class="text-[11px] tracking-widest text-slate-400 font-black uppercase">Premium Property Care</span>
+                </a>
+            </div>
+            <div class="hidden xl:flex items-center space-x-5 font-bold text-[11px] uppercase tracking-wider">
+                <a href="about.html" class="text-slate-300 hover:text-sky-400 transition-colors">About Us</a>
+<a href="index.html#why-choose-us" class="text-slate-300 hover:text-sky-400 transition-colors">Why Us</a>
+<div class="relative group"><a href="index.html#scope" class="text-slate-300 hover:text-sky-400 transition-colors">Services <i class="fas fa-chevron-down text-[8px] ml-1"></i></a><div class="hidden group-hover:block group-focus-within:block absolute left-0 top-full pt-3 z-50"><div class="w-52 bg-slate-950 border border-slate-800 rounded-xl shadow-2xl py-2"><a href="washing-gutters.html" class="block px-4 py-2.5 text-slate-300 hover:text-teal-400 hover:bg-slate-900 normal-case tracking-normal text-xs">Pressure Washing</a><a href="soft-washing.html" class="block px-4 py-2.5 text-slate-300 hover:text-teal-400 hover:bg-slate-900 normal-case tracking-normal text-xs">Soft Washing</a><a href="steam-cleaning.html" class="block px-4 py-2.5 text-slate-300 hover:text-teal-400 hover:bg-slate-900 normal-case tracking-normal text-xs">Steam Cleaning</a><a href="windows.html" class="block px-4 py-2.5 text-slate-300 hover:text-teal-400 hover:bg-slate-900 normal-case tracking-normal text-xs">Window Cleaning</a><a href="gutter-cleaning.html" class="block px-4 py-2.5 text-slate-300 hover:text-teal-400 hover:bg-slate-900 normal-case tracking-normal text-xs">Gutter Cleaning</a><a href="grounds-repairs.html" class="block px-4 py-2.5 text-slate-300 hover:text-teal-400 hover:bg-slate-900 normal-case tracking-normal text-xs">Grounds &amp; Repairs</a></div></div></div>
+<a href="gallery.html" class="text-slate-300 hover:text-sky-400 transition-colors">Equipment &amp; Results</a>
+<a href="index.html#areas-we-cover" class="text-slate-300 hover:text-sky-400 transition-colors">Areas Covered</a>
+<a href="index.html#estimation-engine" class="text-slate-300 hover:text-sky-400 transition-colors">Price Guide</a>
+<a href="https://forms.gle/Vki1WeTkTdkCjz1T6" target="_blank" rel="noopener" @click.prevent="openBookingGate()" class="text-slate-300 hover:text-sky-400 transition-colors">Book Online</a>
+<a href="blog.html" class="text-slate-300 hover:text-sky-400 transition-colors">Blog</a>
+<a href="index.html#faq" class="text-slate-300 hover:text-sky-400 transition-colors">FAQ</a>
+<a href="referral.html" class="text-slate-300 hover:text-sky-400 transition-colors">Refer &amp; Earn</a>
+<a href="promotion.html" class="text-amber-400 hover:text-amber-300 transition-colors"><i class="fas fa-tag mr-1"></i> Early Customer Offer</a>
+                <a href="index.html#contact-hub" class="accent-gradient text-slate-950 px-4 py-3 rounded-xl hover:opacity-90 transition shadow-lg font-black">Submit Project Details</a>
+            </div>
+            <div class="flex items-center xl:hidden">
+                <button id="bd-burger" type="button" aria-label="Menu" aria-expanded="false" class="text-slate-300 p-2 bg-slate-900 rounded-xl border border-slate-800"><i class="fas fa-bars-staggered text-lg"></i></button>
             </div>
         </div>
-        <div x-show="mobileMenu" x-collapse class="lg:hidden bg-slate-950 border-t border-slate-800 px-6 py-6 space-y-4 shadow-2xl">
-            <a href="about.html" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300">
-                <i class="fas fa-circle-info text-teal-400 mr-3"></i>About Us
-            </a>
-            <a href="#why-choose-us" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-shield-halved text-teal-400 mr-3"></i>Why Us</a>
-            <a href="#our-equipment" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-truck-ramp-box text-teal-400 mr-3"></i>Our Equipment</a>
-            <a href="#areas-we-cover" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-map-location-dot text-teal-400 mr-3"></i>Areas Covered</a>
-            <a href="#scope" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-cubes text-teal-400 mr-3"></i>Our Scope</a>
-            <a href="#visual-proof" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-eye text-teal-400 mr-3"></i>Quality Standard</a>
-            <a href="#estimation-engine" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-calculator text-teal-400 mr-3"></i>Price Guide</a>
-            <a href="https://forms.gle/Vki1WeTkTdkCjz1T6" target="_blank" rel="noopener" @click.prevent="mobileMenu = false; openBookingGate()" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-calendar-check text-teal-400 mr-3"></i>Book Online</a>
-            <a href="blog.html" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-newspaper text-teal-400 mr-3"></i>Blog</a>
-            <a href="#faq" @click="mobileMenu = false" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-circle-question text-teal-400 mr-3"></i>FAQ</a>
-            <a href="promotion.html" class="block py-2 text-sm font-bold uppercase text-amber-400"><i class="fas fa-tag mr-3"></i>Early Customer Offer</a>
-            <a href="#contact-hub" @click="mobileMenu = false" class="block text-center accent-gradient text-slate-950 py-3.5 rounded-xl font-black text-sm uppercase">Submit Request</a>
-        </div>
-    </nav>
+    </div>
+    <div id="bd-drawer" class="hidden xl:hidden bg-slate-950 border-t border-slate-800 px-6 py-5 space-y-1 shadow-2xl max-h-[80vh] overflow-y-auto">
+        <a href="about.html" class="block py-2 text-sm font-bold uppercase text-slate-300">About Us</a>
+<a href="index.html#why-choose-us" class="block py-2 text-sm font-bold uppercase text-slate-300">Why Us</a>
+<p class="pt-2 text-[10px] font-black uppercase tracking-widest text-slate-500">Services</p><a href="washing-gutters.html" class="block py-2 text-sm font-bold uppercase text-slate-300 pl-4"><i class="fas fa-bolt-lightning text-teal-400 mr-3 w-4 text-center"></i>Pressure Washing</a><a href="soft-washing.html" class="block py-2 text-sm font-bold uppercase text-slate-300 pl-4"><i class="fas fa-droplet text-teal-400 mr-3 w-4 text-center"></i>Soft Washing</a><a href="steam-cleaning.html" class="block py-2 text-sm font-bold uppercase text-slate-300 pl-4"><i class="fas fa-temperature-high text-teal-400 mr-3 w-4 text-center"></i>Steam Cleaning</a><a href="windows.html" class="block py-2 text-sm font-bold uppercase text-slate-300 pl-4"><i class="fas fa-window-maximize text-teal-400 mr-3 w-4 text-center"></i>Window Cleaning</a><a href="gutter-cleaning.html" class="block py-2 text-sm font-bold uppercase text-slate-300 pl-4"><i class="fas fa-broom text-teal-400 mr-3 w-4 text-center"></i>Gutter Cleaning</a><a href="grounds-repairs.html" class="block py-2 text-sm font-bold uppercase text-slate-300 pl-4"><i class="fas fa-trowel-bricks text-teal-400 mr-3 w-4 text-center"></i>Grounds &amp; Repairs</a>
+<a href="gallery.html" class="block py-2 text-sm font-bold uppercase text-slate-300">Equipment &amp; Results</a>
+<a href="index.html#areas-we-cover" class="block py-2 text-sm font-bold uppercase text-slate-300">Areas Covered</a>
+<a href="index.html#estimation-engine" class="block py-2 text-sm font-bold uppercase text-slate-300">Price Guide</a>
+<a href="https://forms.gle/Vki1WeTkTdkCjz1T6" target="_blank" rel="noopener" @click.prevent="openBookingGate()" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-calendar-check text-teal-400 mr-3"></i>Book Online</a>
+<a href="blog.html" class="block py-2 text-sm font-bold uppercase text-slate-300">Blog</a>
+<a href="index.html#faq" class="block py-2 text-sm font-bold uppercase text-slate-300">FAQ</a>
+<a href="referral.html" class="block py-2 text-sm font-bold uppercase text-slate-300">Refer &amp; Earn</a>
+<a href="promotion.html" class="block py-2 text-sm font-bold uppercase text-slate-300 !text-amber-400"><i class="fas fa-tag mr-3"></i>Early Customer Offer</a>
+        <a href="index.html#contact-hub" class="block text-center accent-gradient text-slate-950 py-3.5 rounded-xl font-black text-sm uppercase mt-3">Submit Request</a>
+    </div>
+    <script>(function(){var b=document.getElementById('bd-burger'),d=document.getElementById('bd-drawer');b.addEventListener('click',function(){var h=d.classList.toggle('hidden');b.setAttribute('aria-expanded',String(!h));b.firstElementChild.className='fas text-lg '+(h?'fa-bars-staggered':'fa-times')});d.addEventListener('click',function(e){if(e.target.closest('a'))d.classList.add('hidden')})})();</script>
+</nav>
 
     <section class="relative neon-gradient pt-14 pb-16 lg:py-20 overflow-hidden border-b border-slate-800">
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(45,212,191,0.08),transparent_50%)]"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid lg:grid-cols-12 gap-12 items-center">
-            <div class="space-y-6 text-center lg:text-left lg:col-span-7">
-                <div class="flex flex-wrap items-center gap-3 justify-center lg:justify-start">
+            <div class="space-y-6 text-center  lg:col-span-12 max-w-4xl mx-auto">
+                <div class="flex flex-wrap items-center gap-3 justify-center lg:justify-center">
                     <div class="inline-flex items-center gap-2 bg-teal-500/10 border border-teal-500/30 text-teal-400 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest">
                         <i class="fas fa-shield-check text-xs"></i> Fully Insured Exterior Restoration
                     </div>
@@ -280,10 +283,10 @@
                     Premium Exterior Care. <br>
                     <span class="bg-gradient-to-r from-sky-400 to-teal-300 bg-clip-text text-transparent">No Damage. Total Peace of Mind.</span>
                 </h1>
-                <p class="text-base text-slate-300 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium">
+                <p class="text-base text-slate-300 max-w-xl mx-auto  leading-relaxed font-medium">
                     Commercial-grade power washing, soft washing, steam cleaning, gutter and window cleaning from ground level, and precision grounds upkeep across Cork City & County Cork. Engineered for property managers and homeowners who demand immaculate results.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-center pt-2">
                     <a href="https://forms.gle/Vki1WeTkTdkCjz1T6" target="_blank" rel="noopener" @click.prevent="openBookingGate()" class="accent-gradient text-slate-950 font-black px-8 py-4 rounded-xl shadow-xl hover:scale-105 transition duration-300 text-center text-xs uppercase tracking-wider">
                         <i class="fas fa-calendar-check mr-2"></i> Book a Free Quote
                     </a>
@@ -293,12 +296,6 @@
                     <a href="https://wa.me/353892066711?text=Hi%20BD%20Premium%20Property%20Care,%20I%20would%20like%20to%20get%20a%20maintenance%20estimate." target="_blank" class="bg-slate-950 border border-slate-800 hover:border-slate-700 text-white font-bold px-8 py-4 rounded-xl transition duration-300 text-center flex items-center justify-center gap-2 text-xs uppercase tracking-wider">
                         <i class="fab fa-whatsapp text-emerald-400"></i> Instant WhatsApp Chat
                     </a>
-                </div>
-            </div>
-            <div class="lg:col-span-5 relative">
-                <div class="absolute -inset-2 bg-gradient-to-r from-sky-500 to-teal-500 rounded-3xl blur opacity-20"></div>
-                <div class="relative bg-slate-950 p-3 rounded-3xl border border-slate-800 shadow-2xl overflow-hidden aspect-[4/3]">
-                    <img src="exterior-maintenance-team-cork.jpg" alt="BD Premium Property Care technicians carrying out gutter clearing and driveway pressure washing in Cork" class="w-full h-full object-cover rounded-2xl" loading="lazy" width="760" height="570">
                 </div>
             </div>
         </div>
@@ -356,47 +353,7 @@
                 </div>
             </div>
 
-            <div id="our-equipment" class="mt-10 max-w-4xl mx-auto scroll-mt-24"
-                 x-data="{
-                    equipSlide: 0,
-                    equipImages: [
-                        'https://raw.githubusercontent.com/bdpremiumpropertycare-cmd/bdpropertycare/main/equip-1-storage-tools.jpg',
-                        'https://raw.githubusercontent.com/bdpremiumpropertycare-cmd/bdpropertycare/main/equip-2-hoses-tank.jpg',
-                        'https://raw.githubusercontent.com/bdpremiumpropertycare-cmd/bdpropertycare/main/equip-3-motor-tank.jpg',
-                        'https://raw.githubusercontent.com/bdpremiumpropertycare-cmd/bdpropertycare/main/equip-4-pump-unit.jpg'
-                    ],
-                    equipTimer: null,
-                    nextSlide() { this.equipSlide = (this.equipSlide + 1) % this.equipImages.length },
-                    prevSlide() { this.equipSlide = (this.equipSlide - 1 + this.equipImages.length) % this.equipImages.length },
-                    goTo(i) { this.equipSlide = i; this.resetTimer() },
-                    startTimer() { this.equipTimer = setInterval(() => this.nextSlide(), 4000) },
-                    resetTimer() { clearInterval(this.equipTimer); this.startTimer() }
-                 }"
-                 x-init="startTimer()">
-                <p class="text-center text-slate-500 text-[11px] font-black uppercase tracking-widest mb-3">See The Equipment In Action</p>
-                <div class="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl border-2 border-slate-800 bg-slate-950"
-                     @mouseenter="clearInterval(equipTimer)" @mouseleave="startTimer()">
-                    <template x-for="(img, i) in equipImages" :key="i">
-                        <img :src="img" alt="BD Premium Property Care professional pressure washing equipment"
-                             class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
-                             :class="equipSlide === i ? 'opacity-100' : 'opacity-0 pointer-events-none'">
-                    </template>
-
-                    <button @click="prevSlide(); resetTimer()" class="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-slate-950/70 border border-slate-700 text-white flex items-center justify-center hover:bg-slate-900 transition">
-                        <i class="fas fa-chevron-left text-xs"></i>
-                    </button>
-                    <button @click="nextSlide(); resetTimer()" class="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-slate-950/70 border border-slate-700 text-white flex items-center justify-center hover:bg-slate-900 transition">
-                        <i class="fas fa-chevron-right text-xs"></i>
-                    </button>
-
-                    <div class="absolute bottom-3 left-1/2 -translate-x-1/2 z-10 flex gap-2">
-                        <template x-for="(img, i) in equipImages" :key="i">
-                            <button @click="goTo(i)" class="w-2 h-2 rounded-full transition-all"
-                                    :class="equipSlide === i ? 'bg-teal-400 w-5' : 'bg-slate-600 hover:bg-slate-400'"></button>
-                        </template>
-                    </div>
-                </div>
-            </div>
+            
         </div>
     </section>
 
@@ -443,122 +400,64 @@
         <p class="text-center text-slate-500 text-xs mt-8">Don't see your area listed? <a href="#contact-hub" class="text-teal-400 font-bold underline">Get in touch</a> — we cover all of County Cork.</p>
     </section>
 
-    <section id="scope" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="scope" class="py-16 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-10">
             <span class="text-teal-400 font-extrabold tracking-widest text-xs uppercase block mb-2">What We Do</span>
             <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight">Our Professional Scope</h2>
-            <p class="mt-4 text-slate-400 text-sm font-medium">Explore our main services below to see what's included and what to expect.</p>
-            
-            <div class="flex flex-wrap justify-center gap-2 mt-8 bg-slate-950 p-2 rounded-2xl border border-slate-800/80 max-w-lg mx-auto">
-                <button @click="activeTab = 'washing'" :class="activeTab === 'washing' ? 'bg-teal-500 text-slate-950 font-black' : 'text-slate-400 hover:text-white'" class="px-4 py-2.5 rounded-xl transition duration-300 text-[11px] uppercase tracking-wider flex-1">Washing & Gutters</button>
-                <button @click="activeTab = 'windows'" :class="activeTab === 'windows' ? 'bg-teal-500 text-slate-950 font-black' : 'text-slate-400 hover:text-white'" class="px-4 py-2.5 rounded-xl transition duration-300 text-[11px] uppercase tracking-wider flex-1">Windows</button>
-                <button @click="activeTab = 'grounds'" :class="activeTab === 'grounds' ? 'bg-teal-500 text-slate-950 font-black' : 'text-slate-400 hover:text-white'" class="px-4 py-2.5 rounded-xl transition duration-300 text-[11px] uppercase tracking-wider flex-1">Grounds & Repairs</button>
-            </div>
+            <p class="mt-4 text-slate-400 text-sm font-medium">Tap a service to see what's included and what to expect.</p>
         </div>
-
-        <div class="bg-slate-950 border border-slate-800 rounded-3xl overflow-hidden shadow-2xl">
-            <div x-show="activeTab === 'washing'" x-transition class="grid md:grid-cols-2 gap-12 p-8 sm:p-12 items-center">
-                <div class="space-y-6">
-                    <div class="inline-flex p-3 bg-sky-500/10 text-sky-400 rounded-2xl text-xl border border-sky-500/20"><i class="fas fa-bolt-lightning"></i></div>
-                    <h3 class="text-2xl sm:text-3xl font-black text-white">Pressure, Soft & Steam Washing & Gutters</h3>
-<p class="text-slate-400 text-sm leading-relaxed font-medium">
-    Using commercial-grade high-flow pressure pumps, steam cleaning, and gentle soft washing, we safely remove moss, weeds, and organic stains from all hard and delicate surfaces. We also provide professional gutter clearing from ground level up to 40 feet to eliminate blockages and prevent water pooling issues.
-</p>
-
-                    </p>
-                    <div class="grid grid-cols-2 gap-4 pt-2 text-xs font-bold text-slate-300">
-    <div class="flex items-center gap-2"><i class="fas fa-check text-teal-400"></i> Driveways, Patios & Steam Wash</div>
-    <div class="flex items-center gap-2"><i class="fas fa-check text-teal-400"></i> Gutter Clearance (Up to 40ft)</div>
-    <div class="flex items-center gap-2"><i class="fas fa-check text-teal-400"></i> Soft Washing & Facades</div>
-    <div class="flex items-center gap-2"><i class="fas fa-check text-teal-400"></i> Surface Treatments</div>
-</div>
-
-                    </div>
-                    <a href="washing-gutters.html" class="inline-flex items-center gap-2 text-teal-400 hover:text-teal-300 text-xs font-black uppercase tracking-wider pt-2">Full Service Details <i class="fas fa-arrow-right"></i></a>
+        <div class="grid md:grid-cols-2 gap-4">
+            <a href="washing-gutters.html" class="group block bg-slate-950 border border-slate-800 hover:border-teal-500/60 rounded-2xl p-6 transition">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="inline-flex p-2.5 bg-sky-500/10 text-sky-400 rounded-xl text-base border border-sky-500/20"><i class="fas fa-bolt-lightning"></i></div>
+                    <h3 class="text-white font-black text-sm uppercase tracking-wider">Pressure Washing</h3>
+                    <i class="fas fa-arrow-right text-teal-400 ml-auto transition group-hover:translate-x-1"></i>
                 </div>
-                <div class="rounded-2xl overflow-hidden aspect-video sm:aspect-square bg-slate-900 border border-slate-800">
-                    <img src="gutter-pressure-washing-cork.jpg" alt="Power washing a driveway and low-level gutter clearing at a home in Cork by BD Premium Property Care" class="w-full h-full object-contain" loading="lazy" width="760" height="1330">
+                <p class="glow-text text-sm sm:text-base font-semibold leading-relaxed" style="animation-delay:0.0s">Commercial-grade, high-flow washing that lifts moss, weeds, algae and oil staining from driveways, patios, paths and facades, with pressure matched to each surface.</p>
+            </a>
+            <a href="soft-washing.html" class="group block bg-slate-950 border border-slate-800 hover:border-teal-500/60 rounded-2xl p-6 transition">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="inline-flex p-2.5 bg-teal-500/10 text-teal-400 rounded-xl text-base border border-teal-500/20"><i class="fas fa-droplet"></i></div>
+                    <h3 class="text-white font-black text-sm uppercase tracking-wider">Soft Washing</h3>
+                    <i class="fas fa-arrow-right text-teal-400 ml-auto transition group-hover:translate-x-1"></i>
                 </div>
-            </div>
-
-            <div x-show="activeTab === 'windows'" x-transition class="grid md:grid-cols-2 gap-12 p-8 sm:p-12 items-center">
-                <div class="space-y-6">
-                    <div class="inline-flex p-3 bg-teal-500/10 text-teal-400 rounded-2xl text-xl border border-teal-500/20"><i class="fas fa-window-maximize"></i></div>
-                    <h3 class="text-2xl sm:text-3xl font-black text-white">Window Cleaning</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed font-medium">
-    We offer specialized external window cleaning for commercial spaces and residential layouts, operating safely from the ground level up to 30 feet. Utilizing pure water-fed extension poles, we ensure your glazing dries clear without mineral streaks, residue, or clouding.
-</p>
-
-                    </p>
-                    <div class="grid grid-cols-2 gap-4 pt-2 text-xs font-bold text-slate-300">
-                        
-                        <div class="flex items-center gap-2"><i class="fas fa-check text-teal-400"></i> Pure Water Purification</div>
-                        <div class="flex items-center gap-2"><i class="fas fa-check text-teal-400"></i> Low-Level Ground Access</div>
-                    </div>
-                    <a href="windows.html" class="inline-flex items-center gap-2 text-teal-400 hover:text-teal-300 text-xs font-black uppercase tracking-wider pt-2">Full Service Details <i class="fas fa-arrow-right"></i></a>
+                <p class="glow-text text-sm sm:text-base font-semibold leading-relaxed" style="animation-delay:0.5s">Low-pressure, detergent-led cleaning for roofs, render, cladding and other delicate finishes, so growth is treated at the root without blasting the surface.</p>
+            </a>
+            <a href="steam-cleaning.html" class="group block bg-slate-950 border border-slate-800 hover:border-teal-500/60 rounded-2xl p-6 transition">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="inline-flex p-2.5 bg-amber-500/10 text-amber-400 rounded-xl text-base border border-amber-500/20"><i class="fas fa-temperature-high"></i></div>
+                    <h3 class="text-white font-black text-sm uppercase tracking-wider">Steam Cleaning</h3>
+                    <i class="fas fa-arrow-right text-teal-400 ml-auto transition group-hover:translate-x-1"></i>
                 </div>
-                <div class="rounded-2xl overflow-hidden aspect-video sm:aspect-square bg-slate-900 border border-slate-800">
-                    <img src="window-cleaning-cork.jpg" alt="BD Premium Property Care technician cleaning external windows in Cork using a pure water-fed pole" class="w-full h-full object-contain" loading="lazy" width="760" height="1295">
+                <p class="glow-text text-sm sm:text-base font-semibold leading-relaxed" style="animation-delay:1.0s">Gentle, heat-led cleaning for delicate stone, masonry and sensitive surfaces where high pressure could cause damage.</p>
+            </a>
+            <a href="windows.html" class="group block bg-slate-950 border border-slate-800 hover:border-teal-500/60 rounded-2xl p-6 transition">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="inline-flex p-2.5 bg-teal-500/10 text-teal-400 rounded-xl text-base border border-teal-500/20"><i class="fas fa-window-maximize"></i></div>
+                    <h3 class="text-white font-black text-sm uppercase tracking-wider">Window Cleaning</h3>
+                    <i class="fas fa-arrow-right text-teal-400 ml-auto transition group-hover:translate-x-1"></i>
                 </div>
-            </div>
-
-            <div x-show="activeTab === 'grounds'" x-transition class="grid md:grid-cols-2 gap-12 p-8 sm:p-12 items-center">
-                <div class="space-y-6">
-                    <div class="inline-flex p-3 bg-amber-500/10 text-amber-400 rounded-2xl text-xl border border-amber-500/20"><i class="fas fa-trowel-bricks"></i></div>
-                    <h3 class="text-2xl sm:text-3xl font-black text-white">Grounds Maintenance & Minor Repairs</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed font-medium">
-                        Providing dependable, recurring landscape maintenance alongside handy structural upkeep. This covers precise grass cutting and perimeter strimming, detailed minor painting repairs, and simple facility maintenance fixes designed to keep your structural assets looking fresh and protected.
-                    </p>
-                    <div class="grid grid-cols-2 gap-4 pt-2 text-xs font-bold text-slate-300">
-                        <div class="flex items-center gap-2"><i class="fas fa-check text-teal-400"></i> Grass Cutting & Edging</div>
-                        <div class="flex items-center gap-2"><i class="fas fa-check text-teal-400"></i> Precision Strimming</div>
-                        <div class="flex items-center gap-2"><i class="fas fa-check text-teal-400"></i> Minor Painting Repairs</div>
-                        <div class="flex items-center gap-2"><i class="fas fa-check text-teal-400"></i> Minor Facility Maintenance</div>
-                    </div>
-                    <a href="grounds-repairs.html" class="inline-flex items-center gap-2 text-teal-400 hover:text-teal-300 text-xs font-black uppercase tracking-wider pt-2">Full Service Details <i class="fas fa-arrow-right"></i></a>
+                <p class="glow-text text-sm sm:text-base font-semibold leading-relaxed" style="animation-delay:1.5s">External-only pure water-fed pole cleaning that dries clear without streaks, reaching high glazing safely from the ground.</p>
+            </a>
+            <a href="gutter-cleaning.html" class="group block bg-slate-950 border border-slate-800 hover:border-teal-500/60 rounded-2xl p-6 transition">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="inline-flex p-2.5 bg-sky-500/10 text-sky-400 rounded-xl text-base border border-sky-500/20"><i class="fas fa-broom"></i></div>
+                    <h3 class="text-white font-black text-sm uppercase tracking-wider">Gutter Cleaning</h3>
+                    <i class="fas fa-arrow-right text-teal-400 ml-auto transition group-hover:translate-x-1"></i>
                 </div>
-                <div class="rounded-2xl overflow-hidden aspect-video sm:aspect-square bg-slate-900 border border-slate-800">
-                    <img src="grounds-maintenance-cork.jpg" alt="BD Premium Property Care crew mowing lawn, strimming, and carrying out grounds maintenance in Cork" class="w-full h-full object-contain" loading="lazy" width="760" height="1168">
+                <p class="glow-text text-sm sm:text-base font-semibold leading-relaxed" style="animation-delay:2.0s">High-reach gutter clearing up to 40ft, carried out from the ground, to remove blockages before overflow causes damp or fascia damage.</p>
+            </a>
+            <a href="grounds-repairs.html" class="group block bg-slate-950 border border-slate-800 hover:border-teal-500/60 rounded-2xl p-6 transition">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="inline-flex p-2.5 bg-amber-500/10 text-amber-400 rounded-xl text-base border border-amber-500/20"><i class="fas fa-trowel-bricks"></i></div>
+                    <h3 class="text-white font-black text-sm uppercase tracking-wider">Grounds &amp; Repairs</h3>
+                    <i class="fas fa-arrow-right text-teal-400 ml-auto transition group-hover:translate-x-1"></i>
                 </div>
-            </div>
+                <p class="glow-text text-sm sm:text-base font-semibold leading-relaxed" style="animation-delay:2.5s">Reliable grass cutting, edging and strimming, plus minor painting repairs and small facility fixes.</p>
+            </a>
         </div>
-    </section>
-
-    <section id="visual-proof" class="py-14 bg-slate-950 border-y border-slate-800">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center" x-data="{ sliderPos: 50 }">
-            <h2 class="text-2xl sm:text-4xl font-black text-white mb-2">The Quality Standard</h2>
-            <p class="text-slate-400 text-xs max-w-xl mx-auto mb-10">Slide to compare a neglected exterior with our finished standard.</p>
-            <div class="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl border-2 border-slate-800 select-none">
-                <img src="before-care-patio.jpg" alt="Weathered patio and garden before care" class="absolute inset-0 w-full h-full object-cover">
-                <div class="absolute bottom-4 left-4 bg-red-600/90 text-white text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded">Before Care</div>
-                <div class="absolute inset-0 w-full h-full" :style="'clip-path: inset(0 0 0 ' + sliderPos + '%)'">
-                    <img src="bd-premium-standard-patio.jpg" alt="Clean patio, roof, windows and garden after BD Premium Property Care" class="absolute inset-0 w-full h-full object-cover">
-                    <div class="absolute bottom-4 right-4 bg-teal-500 text-slate-950 text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded">BD Premium Standard</div>
-                </div>
-                <input type="range" min="0" max="100" x-model="sliderPos" class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-30">
-                <div class="absolute top-0 bottom-0 w-[2px] bg-teal-400 z-20 pointer-events-none" :style="'left: ' + sliderPos + '%'">
-                    <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-8 bg-teal-400 text-slate-950 rounded-full flex items-center justify-center shadow-lg text-xs">
-                        <i class="fas fa-arrows-left-right"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="real-results" class="py-16 max-w-5xl mx-auto px-4 sm:px-6">
-        <div class="text-center max-w-2xl mx-auto mb-10">
-            <span class="text-teal-400 font-extrabold tracking-widest text-xs uppercase block mb-2">Real Jobs, Real Results</span>
-            <h2 class="text-3xl sm:text-4xl font-black text-white tracking-tight">Recent Work</h2>
-            <p class="mt-3 text-slate-400 text-sm font-medium">Actual before-and-after photos from a driveway and steps pressure washing job across County Cork.</p>
-        </div>
-        <div class="grid sm:grid-cols-2 gap-6">
-            <div class="rounded-2xl overflow-hidden border-2 border-slate-800 shadow-xl">
-                <img src="https://raw.githubusercontent.com/bdpremiumpropertycare-cmd/bdpropertycare/main/gallery-1-steps.jpg" alt="Before and after pressure washing of garden steps, County Cork" class="w-full h-auto">
-            </div>
-            <div class="rounded-2xl overflow-hidden border-2 border-slate-800 shadow-xl">
-                <img src="https://raw.githubusercontent.com/bdpremiumpropertycare-cmd/bdpropertycare/main/gallery-2-steps.jpg" alt="Before and after pressure washing of driveway steps, County Cork" class="w-full h-auto">
-            </div>
-        </div>
+        <p class="text-center text-slate-500 text-xs font-medium mt-6">All window cleaning is external. Access from the ground, including 40ft gutter clearing and pure-water poles.</p>
+        <p class="text-center mt-6"><a href="gallery.html" class="text-teal-400 hover:text-teal-300 text-xs font-black uppercase tracking-wider">See Our Equipment, Before &amp; After Results <i class="fas fa-arrow-right ml-1"></i></a></p>
     </section>
 
     <section id="estimation-engine" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -673,6 +572,10 @@
                     </div>
                 </div>
                 <div>
+                        <label class="block text-xs font-black uppercase text-slate-400 mb-1 tracking-wider">Referral Credit Code <span class="text-slate-600 normal-case font-medium">(optional)</span></label>
+                        <input type="text" name="Referral Credit Code" maxlength="40" autocomplete="off" placeholder="Enter your code to use your credit" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-teal-500 text-sm">
+                    </div>
+                    <div>
                     <label class="block text-xs font-black uppercase text-slate-400 mb-1 tracking-wider">Project Scope / Material Notes</label>
                     <textarea rows="4" name="Project Details Description" required class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-teal-500 font-semibold" placeholder="Please list details (e.g., Grass cut areas, Repair requirements)..."></textarea>
                 </div>
@@ -749,6 +652,8 @@
                 </a>
             </div>
         </div>
+        <!-- ADD MORE REVIEWS: copy the review card above and replace a dashed placeholder below -->
+        <div class="grid sm:grid-cols-2 gap-6 mt-6"><div class="bg-slate-950/60 border-2 border-dashed border-slate-700 rounded-2xl p-6 text-center text-slate-600"><div class="text-amber-400/40 mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="text-[10px] font-black uppercase tracking-widest">Customer review coming soon</p></div><div class="bg-slate-950/60 border-2 border-dashed border-slate-700 rounded-2xl p-6 text-center text-slate-600"><div class="text-amber-400/40 mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="text-[10px] font-black uppercase tracking-widest">Customer review coming soon</p></div></div>
     </section>
 
     <section id="google-profile" class="py-12 max-w-4xl mx-auto px-4 sm:px-6">
