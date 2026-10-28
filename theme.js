@@ -38,3 +38,22 @@
   });
   document.addEventListener('DOMContentLoaded', sync);
 })();
+
+/* Back-to-top button: appears after scrolling down, scrolls smoothly to the top. */
+(function () {
+  function init() {
+    if (document.getElementById('bd-top')) return;
+    var b = document.createElement('button');
+    b.id = 'bd-top'; b.type = 'button'; b.setAttribute('aria-label', 'Back to top'); b.title = 'Back to top';
+    b.innerHTML = '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>';
+    document.body.appendChild(b);
+    function update() { b.classList.toggle('bd-top-show', (window.pageYOffset || document.documentElement.scrollTop) > 400); }
+    window.addEventListener('scroll', update, { passive: true });
+    b.addEventListener('click', function () {
+      var calm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: 0, behavior: calm ? 'auto' : 'smooth' });
+    });
+    update();
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
