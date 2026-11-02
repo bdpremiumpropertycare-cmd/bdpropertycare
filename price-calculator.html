@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Price Estimate Calculator | BD Premium Property Care Cork</title>
+    <meta name="description" content="Get an instant, indicative price estimate for pressure washing, soft washing, gutter clearing, window cleaning and repairs in County Cork. Final quote confirmed after a free assessment.">
+    <link rel="canonical" href="https://www.bdpropertycare.ie/price-calculator.html">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.bdpropertycare.ie/price-calculator.html">
+    <meta property="og:title" content="Price Estimate Calculator | BD Premium Property Care">
+    <meta property="og:image" content="https://www.bdpropertycare.ie/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Price Estimate Calculator | BD Premium Property Care">
+    <meta name="twitter:description" content="Indicative price estimates for exterior property care in County Cork.">
+    <meta name="twitter:image" content="https://www.bdpropertycare.ie/og-image.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
+    <style>
+        [x-cloak] { display: none !important; }
+        .accent-gradient { background: linear-gradient(90deg, #38bdf8 0%, #2dd4bf 100%); }
+        .offer-gradient { background: linear-gradient(90deg, #f59e0b 0%, #ef4444 100%); }
+        html { scroll-behavior: smooth; }
+    </style>
+<style id="bd-glow">
+@keyframes bdGlow{0%,100%{color:#6fb9b0;opacity:.62;text-shadow:0 0 2px rgba(45,212,191,.12)}50%{color:#ccfbf1;opacity:1;text-shadow:0 0 8px rgba(45,212,191,.85),0 0 22px rgba(56,189,248,.55)}}
+@keyframes bdGlowBox{0%,100%{box-shadow:0 0 0 rgba(45,212,191,0);border-color:rgba(45,212,191,.22)}50%{box-shadow:0 0 24px rgba(45,212,191,.32);border-color:rgba(45,212,191,.7)}}
+.glow-text{animation:bdGlow 3.8s ease-in-out infinite}
+.glow-box{border:1px solid rgba(45,212,191,.22);animation:bdGlowBox 3.8s ease-in-out infinite}
+@media (prefers-reduced-motion:reduce){.glow-text,.glow-box{animation:none}.glow-text{color:#99f6e4;opacity:1;text-shadow:0 0 8px rgba(45,212,191,.5)}}
+</style>
+<link rel="stylesheet" href="theme.css">
+<script src="theme.js"></script>
+</head>
+<body class="bg-slate-900 text-slate-100 font-sans antialiased selection:bg-teal-500 selection:text-white min-h-screen flex flex-col">
+
+<a href="promotion.html" class="block offer-gradient text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-2.5 flex items-center justify-center gap-2 text-[11px] sm:text-xs font-black uppercase tracking-wider text-center">
+        <i class="fas fa-tag"></i>
+        <span>Early Customer Discount: Up to 50% Off Your Quote &mdash; Plus &euro;5 Credit Per Referral</span>
+        <i class="fas fa-arrow-right"></i>
+    </div>
+</a>
+
+    <nav class="bg-slate-950/90 backdrop-blur-xl sticky top-0 z-40 border-b border-slate-800/80">
+    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-20">
+            <div class="flex items-center">
+                <a href="index.html" class="flex items-center gap-2 sm:gap-3 shrink-0">
+                    <img src="bd-logo.png" alt="BD Premium Property Care logo" class="w-11 h-11 rounded-full" width="44" height="44">
+                    <div class="h-6 w-[1px] bg-slate-800 max-[380px]:hidden"></div>
+                    <span class="whitespace-nowrap text-[10px] sm:text-[11px] tracking-wider sm:tracking-widest max-[380px]:text-[9px] max-[380px]:tracking-normal text-slate-400 font-black uppercase xl:hidden min-[1400px]:inline">Premium Property Care</span>
+                </a>
+            </div>
+            <div class="hidden xl:flex items-center gap-x-5 2xl:gap-x-7 font-bold text-[11px] uppercase tracking-wider whitespace-nowrap">
+                <a href="about.html" class="text-slate-300 hover:text-sky-400 transition-colors">About Us</a>
+                <div class="relative group"><a href="index.html#scope" class="text-slate-300 hover:text-sky-400 transition-colors">Services <i class="fas fa-chevron-down text-[8px] ml-1"></i></a><div class="hidden group-hover:block group-focus-within:block absolute left-0 top-full pt-3 z-50"><div class="w-56 bg-slate-950 border border-slate-800 rounded-xl shadow-2xl py-2"><a href="pressure-washing.html" class="block px-4 py-2.5 text-slate-300 hover:text-teal-400 hover:bg-slate-900 normal-case tracking-normal text-xs whitespace-nowrap">Pressure Washing</a><a href="soft-washing.html" class="block px-4 py-2.5 text-slate-300 hover:text-teal-400 hover:bg-slate-900 normal-case tracking-normal text-xs whitespace-nowrap">Soft Washing</a><a href="steam-cleaning.html" class="block px-4 py-2.5 text-slate-300 hover:text-teal-400 hover:bg-slate-900 normal-case tracking-normal text-xs whitespace-nowrap">Steam Cleaning</a><a href="windows.html" class="block px-4 py-2.5 text-slate-300 hover:text-teal-400 hover:bg-slate-900 normal-case tracking-normal text-xs whitespace-nowrap">Window Cleaning</a><a href="gutter-cleaning.html" class="block px-4 py-2.5 text-slate-300 hover:text-teal-400 hover:bg-slate-900 normal-case tracking-normal text-xs whitespace-nowrap">Gutter Cleaning</a><a href="grounds-repairs.html" class="block px-4 py-2.5 text-slate-300 hover:text-teal-400 hover:bg-slate-900 normal-case tracking-normal text-xs whitespace-nowrap">Grounds &amp; Repairs</a></div></div></div>
+                <a href="gallery.html" class="text-slate-300 hover:text-sky-400 transition-colors">Equipment &amp; Results</a>
+                <a href="book.html" class="text-slate-300 hover:text-sky-400 transition-colors">Book Online</a>
+                <div class="relative group"><span tabindex="0" class="text-slate-300 hover:text-sky-400 transition-colors cursor-pointer">More <i class="fas fa-chevron-down text-[8px] ml-1"></i></span><div class="hidden group-hover:block group-focus-within:block absolute left-0 top-full pt-3 z-50"><div class="w-56 bg-slate-950 border border-slate-800 rounded-xl shadow-2xl py-2"><a href="index.html#why-choose-us" class="block px-4 py-2.5 text-slate-300 hover:text-teal-400 hover:bg-slate-900 normal-case tracking-normal text-xs whitespace-nowrap">Why Us</a><a href="index.html#areas-we-cover" class="block px-4 py-2.5 text-slate-300 hover:text-teal-400 hover:bg-slate-900 normal-case tracking-normal text-xs whitespace-nowrap">Areas Covered</a><a href="price-calculator.html" class="block px-4 py-2.5 text-slate-300 hover:text-teal-400 hover:bg-slate-900 normal-case tracking-normal text-xs whitespace-nowrap">Price Guide</a><a href="blog.html" class="block px-4 py-2.5 text-slate-300 hover:text-teal-400 hover:bg-slate-900 normal-case tracking-normal text-xs whitespace-nowrap">Blog</a><a href="index.html#faq" class="block px-4 py-2.5 text-slate-300 hover:text-teal-400 hover:bg-slate-900 normal-case tracking-normal text-xs whitespace-nowrap">FAQ</a><a href="referral.html" class="block px-4 py-2.5 text-slate-300 hover:text-teal-400 hover:bg-slate-900 normal-case tracking-normal text-xs whitespace-nowrap">Refer &amp; Earn</a></div></div></div>
+                <a href="promotion.html" class="text-amber-400 hover:text-amber-300 transition-colors"><i class="fas fa-tag mr-1"></i> Early Customer Offer</a>
+                <button type="button" role="switch" aria-checked="false" title="Dark / Light" aria-label="Switch to light mode" class="bd-theme-toggle bd-switch mr-4"><span class="bd-switch-knob"><svg class="bd-ic-moon" viewBox="0 0 24 24" aria-hidden="true"><path fill="#1e293b" d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg class="bd-ic-sun" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#9a3412" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4" fill="#fff7ed"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></span></button>
+                <a href="book.html" class="accent-gradient text-slate-950 px-4 py-3 rounded-xl hover:opacity-90 transition shadow-lg font-black whitespace-nowrap">Submit Project Details</a>
+            </div>
+            <div class="flex items-center xl:hidden">
+                <button type="button" role="switch" aria-checked="false" title="Dark / Light" aria-label="Switch to light mode" class="bd-theme-toggle bd-switch mr-3"><span class="bd-switch-knob"><svg class="bd-ic-moon" viewBox="0 0 24 24" aria-hidden="true"><path fill="#1e293b" d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg class="bd-ic-sun" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#9a3412" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4" fill="#fff7ed"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></span></button>
+                <button id="bd-burger" type="button" aria-label="Menu" aria-expanded="false" class="text-slate-300 p-2 bg-slate-900 rounded-xl border border-slate-800"><i class="fas fa-bars-staggered text-lg"></i></button>
+            </div>
+        </div>
+    </div>
+    <div id="bd-drawer" class="hidden xl:hidden bg-slate-950 border-t border-slate-800 px-6 py-5 space-y-1 shadow-2xl max-h-[80vh] overflow-y-auto">
+        <a href="about.html" class="block py-2 text-sm font-bold uppercase text-slate-300">About Us</a>
+<a href="index.html#why-choose-us" class="block py-2 text-sm font-bold uppercase text-slate-300">Why Us</a>
+<p class="pt-2 text-[10px] font-black uppercase tracking-widest text-slate-500">Services</p><a href="pressure-washing.html" class="block py-2 text-sm font-bold uppercase text-slate-300 pl-4"><i class="fas fa-bolt-lightning text-teal-400 mr-3 w-4 text-center"></i>Pressure Washing</a><a href="soft-washing.html" class="block py-2 text-sm font-bold uppercase text-slate-300 pl-4"><i class="fas fa-droplet text-teal-400 mr-3 w-4 text-center"></i>Soft Washing</a><a href="steam-cleaning.html" class="block py-2 text-sm font-bold uppercase text-slate-300 pl-4"><i class="fas fa-temperature-high text-teal-400 mr-3 w-4 text-center"></i>Steam Cleaning</a><a href="windows.html" class="block py-2 text-sm font-bold uppercase text-slate-300 pl-4"><i class="fas fa-window-maximize text-teal-400 mr-3 w-4 text-center"></i>Window Cleaning</a><a href="gutter-cleaning.html" class="block py-2 text-sm font-bold uppercase text-slate-300 pl-4"><i class="fas fa-broom text-teal-400 mr-3 w-4 text-center"></i>Gutter Cleaning</a><a href="grounds-repairs.html" class="block py-2 text-sm font-bold uppercase text-slate-300 pl-4"><i class="fas fa-trowel-bricks text-teal-400 mr-3 w-4 text-center"></i>Grounds &amp; Repairs</a>
+<a href="gallery.html" class="block py-2 text-sm font-bold uppercase text-slate-300">Equipment &amp; Results</a>
+<a href="index.html#areas-we-cover" class="block py-2 text-sm font-bold uppercase text-slate-300">Areas Covered</a>
+<a href="price-calculator.html" class="block py-2 text-sm font-bold uppercase text-slate-300">Price Guide</a>
+<a href="book.html" class="block py-2 text-sm font-bold uppercase text-slate-300"><i class="fas fa-calendar-check text-teal-400 mr-3"></i>Book Online</a>
+<a href="blog.html" class="block py-2 text-sm font-bold uppercase text-slate-300">Blog</a>
+<a href="index.html#faq" class="block py-2 text-sm font-bold uppercase text-slate-300">FAQ</a>
+<a href="referral.html" class="block py-2 text-sm font-bold uppercase text-slate-300">Refer &amp; Earn</a>
+<a href="promotion.html" class="block py-2 text-sm font-bold uppercase text-slate-300 !text-amber-400"><i class="fas fa-tag mr-3"></i>Early Customer Offer</a>
+        <a href="book.html" class="block text-center accent-gradient text-slate-950 py-3.5 rounded-xl font-black text-sm uppercase mt-3">Submit Request</a>
+    </div>
+    <script>(function(){var b=document.getElementById('bd-burger'),d=document.getElementById('bd-drawer');b.addEventListener('click',function(){var h=d.classList.toggle('hidden');b.setAttribute('aria-expanded',String(!h));b.firstElementChild.className='fas text-lg '+(h?'fa-bars-staggered':'fa-times')});d.addEventListener('click',function(e){if(e.target.closest('a'))d.classList.add('hidden')})})();</script>
+</nav>
+<main class="flex-grow" x-data="wiz()" x-cloak>
+<section class="max-w-2xl mx-auto px-4 py-8 sm:py-12">
+  <p class="text-teal-400 font-black uppercase tracking-widest text-[11px] mb-2">Price Estimate Calculator</p>
+  <h1 class="text-3xl sm:text-4xl font-black text-white leading-tight mb-2">What Will It Cost?</h1>
+  <p class="text-slate-400 text-sm leading-relaxed mb-6">Answer a few quick questions for an indicative price range. We confirm your exact price in writing after a free, no-obligation assessment.</p>
+
+  <!-- progress -->
+  <div class="flex items-center gap-2 mb-6 text-[11px] font-black uppercase tracking-wider">
+    <template x-for="(t,i) in ['Services','Details','Estimate']" :key="t">
+      <div class="flex-1">
+        <div class="h-1.5 rounded-full mb-1.5" :class="step>=i+1 ? 'bg-teal-400' : 'bg-slate-800'"></div>
+        <span :class="step===i+1 ? 'text-teal-300' : 'text-slate-500'" x-text="(i+1)+'. '+t"></span>
+      </div>
+    </template>
+  </div>
+
+  <!-- STEP 1 -->
+  <div x-show="step===1">
+    <h2 class="text-white font-black text-lg mb-1">What do you need done?</h2>
+    <p class="text-xs text-slate-500 mb-4">Tap everything that applies.</p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <template x-for="o in options" :key="o.k">
+        <button type="button" @click="sel[o.k]=!sel[o.k]" class="text-left rounded-2xl border p-4 transition"
+          :class="sel[o.k] ? 'border-teal-400 bg-teal-500/10' : 'border-slate-800 bg-slate-950 hover:border-slate-600'">
+          <div class="flex items-center justify-between mb-1">
+            <span class="flex items-center gap-2 text-white font-black text-sm"><i class="fas text-teal-400" :class="o.i"></i><span x-text="o.n"></span></span>
+            <i class="fas" :class="sel[o.k] ? 'fa-circle-check text-teal-400' : 'fa-circle text-slate-700'"></i>
+          </div>
+          <p class="text-xs text-slate-400 leading-snug" x-text="o.d"></p>
+        </button>
+      </template>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div x-show="step===2" class="space-y-5">
+    <!-- washing -->
+    <div x-show="sel.wash" class="bg-slate-950 border border-slate-800 rounded-2xl p-5">
+      <h2 class="text-white font-black text-lg mb-1">Pressure &amp; soft washing</h2>
+      <p class="text-xs text-slate-500 mb-4">Add each surface. We match the method to the surface.</p>
+      <template x-for="(s,i) in surfaces" :key="i">
+        <div class="border border-slate-800 rounded-xl p-4 mb-3 bg-slate-900/60">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-[11px] font-black uppercase tracking-wider text-slate-400" x-text="'Surface '+(i+1)"></span>
+            <button type="button" x-show="surfaces.length>1" @click="surfaces.splice(i,1)" class="text-xs text-slate-500 hover:text-red-400"><i class="fas fa-trash mr-1"></i>Remove</button>
+          </div>
+          <p class="text-xs text-slate-400 font-bold mb-2">What is it?</p>
+          <div class="flex flex-wrap gap-2 mb-3">
+            <template x-for="t in surfTypes" :key="t.k">
+              <button type="button" @click="s.type=t.k; s.cond='unsure'" :class="chip(s.type===t.k)" x-text="t.n"></button>
+            </template>
+          </div>
+          <div x-show="typeOf(s).cond" class="mb-3">
+            <p class="text-xs text-slate-400 font-bold mb-2">How dirty is it?</p>
+            <div class="flex flex-wrap gap-2">
+              <button type="button" @click="s.cond='light'" :class="chip(s.cond==='light')" x-text="typeOf(s).lightN"></button>
+              <button type="button" @click="s.cond='heavy'" :class="chip(s.cond==='heavy')" x-text="typeOf(s).heavyN"></button>
+              <button type="button" @click="s.cond='unsure'" :class="chip(s.cond==='unsure')">Not sure</button>
+            </div>
+          </div>
+          <p class="text-xs text-slate-400 font-bold mb-2">How big is it?</p>
+          <div class="flex items-center gap-2 mb-2">
+            <input type="number" inputmode="decimal" min="0" placeholder="0" x-model.number="s.area" class="w-28 bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-right text-white text-sm focus:outline-none focus:border-teal-400">
+            <span class="text-xs text-slate-500">m²</span>
+          </div>
+          <div class="flex items-center gap-2 text-xs text-slate-500">
+            <span>Or measure:</span>
+            <input type="number" inputmode="decimal" min="0" placeholder="length" x-model.number="s.L" @input="calcArea(s)" class="w-20 bg-slate-950 border border-slate-700 rounded-lg px-2 py-1.5 text-right text-white text-xs focus:outline-none focus:border-teal-400">
+            <span>m ×</span>
+            <input type="number" inputmode="decimal" min="0" placeholder="width" x-model.number="s.W" @input="calcArea(s)" class="w-20 bg-slate-950 border border-slate-700 rounded-lg px-2 py-1.5 text-right text-white text-xs focus:outline-none focus:border-teal-400">
+            <span>m</span>
+          </div>
+          <label x-show="bioOk(s)" class="flex items-start gap-3 mt-3 cursor-pointer select-none">
+            <input type="checkbox" x-model="s.bio" class="mt-0.5 w-4 h-4 rounded border-slate-700 bg-slate-950 accent-teal-400">
+            <span class="text-xs text-slate-300 leading-snug">Add algae / biocide treatment to slow regrowth</span>
+          </label>
+        </div>
+      </template>
+      <button type="button" @click="addSurface()" class="text-teal-400 hover:text-teal-300 text-xs font-black uppercase tracking-wider"><i class="fas fa-plus mr-1"></i>Add another surface</button>
+    </div>
+
+    <!-- gutters -->
+    <div x-show="sel.gutter" class="bg-slate-950 border border-slate-800 rounded-2xl p-5">
+      <h2 class="text-white font-black text-lg mb-1">Gutter cleaning</h2>
+      <p class="text-xs text-slate-500 mb-4">High-reach from the ground, up to 40ft. Measure along the roofline and add up every side.</p>
+      <p class="text-xs text-slate-400 font-bold mb-2">Total gutter length</p>
+      <div class="flex items-center gap-2 mb-4">
+        <input type="number" inputmode="decimal" min="0" placeholder="0" x-model.number="gutter.m" class="w-28 bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-right text-white text-sm focus:outline-none focus:border-teal-400">
+        <span class="text-xs text-slate-500">metres</span>
+      </div>
+      <p class="text-xs text-slate-400 font-bold mb-2">Condition</p>
+      <div class="flex flex-wrap gap-2 mb-4">
+        <button type="button" @click="gutter.cond='light'" :class="chip(gutter.cond==='light')">Standard clearance</button>
+        <button type="button" @click="gutter.cond='heavy'" :class="chip(gutter.cond==='heavy')">Heavy / blocked, with flush</button>
+        <button type="button" @click="gutter.cond='unsure'" :class="chip(gutter.cond==='unsure')">Not sure</button>
+      </div>
+      <label class="flex items-start gap-3 cursor-pointer select-none">
+        <input type="checkbox" x-model="gutter.wash" class="mt-0.5 w-4 h-4 rounded border-slate-700 bg-slate-950 accent-teal-400">
+        <span class="text-xs text-slate-300 leading-snug">Also wash the outside of the gutters, fascia and soffit</span>
+      </label>
+    </div>
+
+    <!-- windows -->
+    <div x-show="sel.windows" class="bg-slate-950 border border-slate-800 rounded-2xl p-5">
+      <h2 class="text-white font-black text-lg mb-1">Window cleaning</h2>
+      <p class="text-xs text-slate-500 mb-4">External pure-water cleaning.</p>
+      <p class="text-xs text-slate-400 font-bold mb-2">Number of windows</p>
+      <div class="flex items-center gap-2 mb-4">
+        <input type="number" inputmode="numeric" min="0" placeholder="0" x-model.number="win.n" class="w-28 bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-right text-white text-sm focus:outline-none focus:border-teal-400">
+        <span class="text-xs text-slate-500">windows</span>
+      </div>
+      <p class="text-xs text-slate-400 font-bold mb-2">Type of property</p>
+      <div class="flex flex-wrap gap-2 mb-4">
+        <button type="button" @click="win.kind='res'" :class="chip(win.kind==='res')">Home (standard)</button>
+        <button type="button" @click="win.kind='com'" :class="chip(win.kind==='com')">Commercial / heavy build-up</button>
+      </div>
+      <label class="flex items-start gap-3 cursor-pointer select-none">
+        <input type="checkbox" x-model="win.internal" class="mt-0.5 w-4 h-4 rounded border-slate-700 bg-slate-950 accent-teal-400">
+        <span class="text-xs text-slate-300 leading-snug">Also clean the inside of the windows</span>
+      </label>
+    </div>
+
+    <!-- repairs -->
+    <div x-show="sel.repairs" class="bg-slate-950 border border-slate-800 rounded-2xl p-5">
+      <h2 class="text-white font-black text-lg mb-1">Grounds &amp; minor repairs</h2>
+      <p class="text-xs text-slate-500 mb-4">Handyman jobs, grass cutting, painting and minor repairs, charged by the hour.</p>
+      <p class="text-xs text-slate-400 font-bold mb-2">Estimated hours</p>
+      <div class="flex items-center gap-2 mb-4">
+        <button type="button" @click="rep.h=Math.max(0,(num(rep.h)-0.5))" class="w-10 h-10 rounded-lg border border-slate-700 text-white font-black">−</button>
+        <input type="number" inputmode="decimal" min="0" step="0.5" placeholder="0" x-model.number="rep.h" class="w-24 bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-center text-white text-sm focus:outline-none focus:border-teal-400">
+        <button type="button" @click="rep.h=num(rep.h)+0.5" class="w-10 h-10 rounded-lg border border-slate-700 text-white font-black">+</button>
+        <span class="text-xs text-slate-500">hours</span>
+      </div>
+      <p class="text-xs text-slate-500">Not sure how long? Give your best guess. We confirm after assessing the job.</p>
+    </div>
+
+    <!-- steam -->
+    <div x-show="sel.steam" class="bg-slate-950 border border-slate-800 rounded-2xl p-5">
+      <h2 class="text-white font-black text-lg mb-1">Steam cleaning</h2>
+      <p class="text-sm text-slate-300 leading-relaxed">Steam cleaning is priced after we see the job, so there is no online estimate for it. Select it when you book and we will include it in your free quote.</p>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div x-show="step===3">
+    <template x-if="!t">
+      <div class="bg-slate-950 border border-slate-800 rounded-2xl p-5">
+        <h2 class="text-white font-black text-lg mb-2">No estimate yet</h2>
+        <p class="text-sm text-slate-400 leading-relaxed" x-text="sel.steam && !sel.wash && !sel.gutter && !sel.windows && !sel.repairs ? 'Steam cleaning is quoted after assessment. Tap the button below and we will price it for you for free.' : 'Go back and add a size or quantity for at least one service to see your estimate.'"></p>
+      </div>
+    </template>
+    <template x-if="t">
+      <div>
+        <div class="bg-slate-950 border border-teal-500/40 rounded-2xl p-5 mb-4">
+          <p class="text-[11px] font-black uppercase tracking-wider text-slate-400 mb-1">Your estimated price, including VAT</p>
+          <p class="text-3xl sm:text-4xl font-black text-white mb-1" x-text="range(t.gLo,t.gHi)"></p>
+          <p class="text-xs text-slate-500 mb-4" x-text="'Excluding VAT: '+range(t.eLo,t.eHi)+' · VAT at '+(VAT*100)+'%'"></p>
+          <div class="border-t border-slate-800 pt-4 space-y-2 text-sm">
+            <template x-for="l in t.lines" :key="l.n+l.d">
+              <div class="flex justify-between gap-4 text-slate-300">
+                <span><span x-text="l.n"></span><span class="block text-xs text-slate-500" x-text="l.d"></span></span>
+                <span class="font-bold text-white whitespace-nowrap" x-text="rng(l.lo,l.hi)"></span>
+              </div>
+            </template>
+            <div class="flex justify-between gap-4 text-slate-300">
+              <span>Mobilisation, travel &amp; setup<span class="block text-xs text-slate-500">Fixed, all jobs</span></span>
+              <span class="font-bold text-white" x-text="fmt(CALL)"></span>
+            </div>
+            <template x-if="t.minApplied">
+              <p class="text-xs text-slate-500">A minimum job charge of <span x-text="fmt(MIN)"></span> (before VAT) applies to small jobs.</p>
+            </template>
+          </div>
+          <label class="flex items-start gap-3 mt-5 pt-4 border-t border-slate-800 cursor-pointer select-none">
+            <input type="checkbox" x-model="offer" class="mt-0.5 w-4 h-4 rounded border-slate-700 bg-slate-950 accent-teal-400">
+            <span class="text-xs text-slate-300 leading-relaxed">Show my price with the early customer offer (50% off, up to €150, before VAT). <a href="promotion.html" class="text-teal-400 underline font-bold">Offer terms</a></span>
+          </label>
+          <template x-if="offer">
+            <p class="mt-3 text-sm text-teal-300 font-bold" x-text="'Early customer saving: '+range(t.dLo,t.dHi)+' off before VAT'"></p>
+          </template>
+        </div>
+        <div class="text-xs text-slate-500 leading-relaxed space-y-2 mb-5">
+          <p x-show="hasUnsure()"><strong class="text-slate-400">Why the range?</strong> Where you chose "Not sure", the range runs from our lighter-condition rate to our heavy-condition rate. Other prices carry a small allowance either side.</p>
+          <p>We flag issues before we start, such as pre-existing damage, drainage problems or access limits, and recommend a different method where one suits the surface better. Any of these can change the final price.</p>
+          <p x-show="sel.steam">Steam cleaning is not included in this estimate. We quote it after assessing the job.</p>
+        </div>
+      </div>
+    </template>
+  </div>
+
+  <!-- nav buttons -->
+  <div class="flex items-center gap-3 mt-6">
+    <button type="button" x-show="step>1" @click="step--; window.scrollTo({top:0,behavior:'smooth'})" class="border border-slate-700 text-slate-200 hover:border-teal-400 font-black uppercase tracking-wider text-xs rounded-xl px-5 py-4">Back</button>
+    <button type="button" x-show="step<3" @click="next()" :disabled="!anySel()" class="flex-1 accent-gradient text-slate-950 font-black uppercase tracking-wider text-sm rounded-xl px-6 py-4 disabled:opacity-40" x-text="step===1 ? 'Next: Details' : 'See My Estimate'"></button>
+    <a x-show="step===3" href="book.html" class="flex-1 accent-gradient text-slate-950 text-center font-black uppercase tracking-wider text-sm rounded-xl px-6 py-4">Get My Free Quote</a>
+  </div>
+  <div x-show="step===3 && t" class="mt-3">
+    <button type="button" @click="copy()" class="w-full border border-slate-700 text-slate-200 hover:border-teal-400 font-black uppercase tracking-wider text-xs rounded-xl px-6 py-3">
+      <span x-text="copied ? 'Copied. Paste it into the booking form notes' : 'Copy my estimate for the booking form'"></span>
+    </button>
+  </div>
+  <p class="text-[11px] text-slate-600 mt-6 leading-relaxed">This calculator gives an indicative guide only and is not a binding quote. VAT is shown at the rate we expect to apply to cleaning and maintenance services. The rate on your written quote is final.</p>
+</section>
+</main>
+<script>
+function wiz(){
+  const num=v=>{v=parseFloat(v);return isFinite(v)&&v>0?v:0;};
+  return {
+    VAT:0.135, CALL:50, MIN:150, CAP:150, SPREAD:0.10,
+    step:1, offer:false, copied:false, num,
+    sel:{wash:false,gutter:false,windows:false,repairs:false,steam:false},
+    options:[
+      {k:'wash',n:'Pressure & soft washing',i:'fa-droplet',d:'Driveways, patios, paths, block paving and tarmac.'},
+      {k:'gutter',n:'Gutter cleaning',i:'fa-house',d:'High-reach clearing from the ground, up to 40ft.'},
+      {k:'windows',n:'Window cleaning',i:'fa-table-cells-large',d:'External pure-water cleaning, with optional inside clean.'},
+      {k:'repairs',n:'Grounds & minor repairs',i:'fa-screwdriver-wrench',d:'Handyman jobs, grass cutting and painting, by the hour.'},
+      {k:'steam',n:'Steam cleaning',i:'fa-cloud',d:'Priced after assessment. Included in your free quote.'}
+    ],
+    surfTypes:[
+      {k:'concrete',n:'Concrete',cond:true,lightN:'Light dirt / algae',heavyN:'Heavy build-up',light:5,heavy:8.5},
+      {k:'block',n:'Block paving',cond:true,lightN:'Standard',heavyN:'Heavy moss',light:6.5,heavy:11},
+      {k:'stone',n:'Natural stone / patio',cond:false,light:8.5,heavy:8.5},
+      {k:'tarmac',n:'Tarmac',cond:true,lightN:'Soft wash / low pressure',heavyN:'Heavy clean + biocide',light:4.5,heavy:7.5}
+    ],
+    surfaces:[{type:'concrete',cond:'unsure',area:'',L:'',W:'',bio:false}],
+    gutter:{m:'',cond:'unsure',wash:false},
+    win:{n:'',kind:'res',internal:false},
+    rep:{h:''},
+    chip(on){return 'px-3 py-2 rounded-lg border text-xs font-bold transition '+(on?'border-teal-400 bg-teal-500/10 text-teal-300':'border-slate-700 text-slate-300 hover:border-slate-500');},
+    typeOf(s){return this.surfTypes.find(t=>t.k===s.type)||this.surfTypes[0];},
+    addSurface(){this.surfaces.push({type:'concrete',cond:'unsure',area:'',L:'',W:'',bio:false});},
+    calcArea(s){if(num(s.L)>0&&num(s.W)>0)s.area=Math.round(s.L*s.W*10)/10;},
+    bioOk(s){return !(s.type==='tarmac'&&s.cond==='heavy');},
+    anySel(){return Object.values(this.sel).some(Boolean);},
+    next(){if(!this.anySel())return;this.step++;window.scrollTo({top:0,behavior:'smooth'});},
+    hasUnsure(){return (this.sel.wash&&this.surfaces.some(s=>num(s.area)>0&&this.typeOf(s).cond&&s.cond==='unsure'))||(this.sel.gutter&&num(this.gutter.m)>0&&this.gutter.cond==='unsure');},
+    // price range [lo,hi] per unit for a light/heavy pair
+    pair(l,h,cond){const S=this.SPREAD;if(cond==='unsure'&&l!==h)return[l,h];const p=cond==='heavy'?h:l;return[p*(1-S),p*(1+S)];},
+    fix(p){const S=this.SPREAD;return[p*(1-S),p*(1+S)];},
+    get t(){
+      const L=[];
+      if(this.sel.wash)this.surfaces.forEach(s=>{
+        const a=num(s.area);if(!a)return;const ty=this.typeOf(s);
+        const cond=ty.cond?s.cond:'light';
+        const r=this.pair(ty.light,ty.heavy,cond);
+        const cl=ty.cond?(cond==='light'?ty.lightN:cond==='heavy'?ty.heavyN:'condition to be confirmed'):'';
+        L.push({n:ty.n,d:a+' m²'+(cl?' · '+cl:''),lo:a*r[0],hi:a*r[1]});
+        if(s.bio&&this.bioOk(s)){const b=this.fix(3);L.push({n:'Algae / biocide treatment',d:a+' m² · '+ty.n,lo:a*b[0],hi:a*b[1]});}
+      });
+      if(this.sel.gutter){const m=num(this.gutter.m);if(m){
+        const r=this.pair(3.25,5.5,this.gutter.cond);
+        const cl=this.gutter.cond==='light'?'standard clearance':this.gutter.cond==='heavy'?'heavy / blocked, with flush':'condition to be confirmed';
+        L.push({n:'Gutter cleaning',d:m+' m · '+cl,lo:m*r[0],hi:m*r[1]});
+        if(this.gutter.wash){const w=this.fix(6.75);L.push({n:'Gutter, fascia & soffit wash',d:m+' m',lo:m*w[0],hi:m*w[1]});}
+      }}
+      if(this.sel.windows){const n=num(this.win.n);if(n){
+        const r=this.fix(this.win.kind==='com'?12:10);
+        L.push({n:'Window cleaning (external)',d:n+' windows · '+(this.win.kind==='com'?'commercial / heavy build-up':'standard'),lo:n*r[0],hi:n*r[1]});
+        if(this.win.internal){const w=this.fix(14);L.push({n:'Internal window cleaning',d:n+' windows',lo:n*w[0],hi:n*w[1]});}
+      }}
+      if(this.sel.repairs){const h=num(this.rep.h);if(h){const r=this.fix(70);L.push({n:'Grounds & minor repairs',d:h+' hours',lo:h*r[0],hi:h*r[1]});}}
+      if(!L.length)return null;
+      const sLo=L.reduce((a,l)=>a+l.lo,0),sHi=L.reduce((a,l)=>a+l.hi,0);
+      const eLo=Math.max(this.MIN,sLo+this.CALL),eHi=Math.max(this.MIN,sHi+this.CALL);
+      const dLo=this.offer?Math.min(eLo*0.5,this.CAP):0,dHi=this.offer?Math.min(eHi*0.5,this.CAP):0;
+      const nLo=eLo-dLo,nHi=eHi-dHi;
+      return {lines:L,minApplied:sLo+this.CALL<this.MIN,eLo:nLo,eHi:nHi,dLo:dLo,dHi:dHi,gLo:nLo*(1+this.VAT),gHi:nHi*(1+this.VAT)};
+    },
+    fmt(n){return '€'+Number(n).toLocaleString('en-IE',{minimumFractionDigits:(n%1?2:0),maximumFractionDigits:2});},
+    rng(a,b){const x=Math.round(a),y=Math.round(b);return x===y?this.fmt(x):this.fmt(x)+' – '+this.fmt(y);},
+    range(a,b){const x=Math.floor(a/5)*5,y=Math.ceil(b/5)*5;return x===y?this.fmt(x):this.fmt(x)+' – '+this.fmt(y);},
+    copy(){
+      const t=this.t;if(!t)return;
+      let s='BD Premium Property Care – price estimate (indicative)\n';
+      t.lines.forEach(l=>{s+=l.n+' ('+l.d+'): '+this.rng(l.lo,l.hi)+'\n';});
+      s+='Mobilisation, travel & setup: '+this.fmt(this.CALL)+'\n';
+      if(this.offer)s+='Early customer offer applied (before VAT)\n';
+      s+='Estimate excl. VAT: '+this.range(t.eLo,t.eHi)+'\n';
+      s+='Estimate incl. VAT ('+(this.VAT*100)+'%): '+this.range(t.gLo,t.gHi)+'\n';
+      if(this.sel.steam)s+='Steam cleaning: please quote\n';
+      const done=()=>{this.copied=true;setTimeout(()=>this.copied=false,3000);};
+      const fallback=()=>{const ta=document.createElement('textarea');ta.value=s;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');done();}catch(e){}document.body.removeChild(ta);};
+      if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(s).then(done,fallback);}else{fallback();}
+    }
+  };
+}
+</script>
+
+<footer class="bg-slate-950 border-t border-slate-800 py-10 text-center text-xs text-slate-500">
+<p class="mb-4">&copy; 2026 BD Premium Property Care Limited. All Rights Reserved.</p>
+<p class="space-x-4">
+<a href="about.html" class="text-slate-400 hover:text-teal-400 underline transition font-bold">About Us</a>
+<span class="text-slate-700">|</span>
+<a href="blog.html" class="text-slate-400 hover:text-teal-400 underline transition font-bold">Blog</a>
+<span class="text-slate-700">|</span>
+<a href="index.html" onclick="sessionStorage.setItem('bdOpenModal','privacy')" class="text-slate-400 hover:text-teal-400 underline transition font-bold">Company Information &amp; Privacy Policy</a>
+<span class="text-slate-700">|</span>
+<a href="index.html" onclick="sessionStorage.setItem('bdOpenModal','terms')" class="text-slate-400 hover:text-teal-400 underline transition font-bold">Terms &amp; Conditions of Service</a>
+</p>
+</footer>
+</body>
+</html>
