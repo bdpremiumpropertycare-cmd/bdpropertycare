@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Price Estimate Calculator | BD Premium Property Care Cork</title>
-    <meta name="description" content="Get an instant, indicative price estimate for pressure washing, soft washing, gutter clearing, window cleaning and repairs in County Cork. Final quote confirmed after a free assessment.">
+    <title>Price Guide Calculator | BD Premium Property Care Cork</title>
+    <meta name="description" content="Get an indicative guide price range for pressure washing, soft washing, steam cleaning, gutter clearing, window cleaning and repairs in County Cork. Your exact price is confirmed in writing after a free assessment.">
     <link rel="canonical" href="https://www.bdpropertycare.ie/price-calculator.html">
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.bdpropertycare.ie/price-calculator.html">
-    <meta property="og:title" content="Price Estimate Calculator | BD Premium Property Care">
+    <meta property="og:title" content="Price Guide Calculator | BD Premium Property Care">
     <meta property="og:image" content="https://www.bdpropertycare.ie/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Price Estimate Calculator | BD Premium Property Care">
-    <meta name="twitter:description" content="Indicative price estimates for exterior property care in County Cork.">
+    <meta name="twitter:title" content="Price Guide Calculator | BD Premium Property Care">
+    <meta name="twitter:description" content="Indicative guide price ranges for exterior property care in County Cork.">
     <meta name="twitter:image" content="https://www.bdpropertycare.ie/og-image.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -92,9 +92,10 @@
 </nav>
 <main class="flex-grow" x-data="wiz()" x-cloak>
 <section class="max-w-2xl mx-auto px-4 py-8 sm:py-12">
-  <p class="text-teal-400 font-black uppercase tracking-widest text-[11px] mb-2">Price Estimate Calculator</p>
-  <h1 class="text-3xl sm:text-4xl font-black text-white leading-tight mb-2">What Will It Cost?</h1>
-  <p class="text-slate-400 text-sm leading-relaxed mb-6">Answer a few quick questions for an indicative price range. We confirm your exact price in writing after a free, no-obligation assessment.</p>
+  <p class="text-teal-400 font-black uppercase tracking-widest text-[11px] mb-2">Guide Price Calculator</p>
+  <h1 class="text-3xl sm:text-4xl font-black text-white leading-tight mb-2">What Might It Cost?</h1>
+  <p class="text-slate-400 text-sm leading-relaxed mb-3">Answer a few quick questions for a rough guide price range. This is not a quote. Every property is different, so we confirm your exact price in writing after a free, no-obligation assessment.</p>
+  <p class="text-xs text-slate-500 leading-relaxed mb-6"><i class="fas fa-circle-info text-teal-400 mr-1"></i>Treat the figures as a starting point to help you plan. Your final price may be lower or higher.</p>
 
   <!-- progress -->
   <div class="flex items-center gap-2 mb-6 text-[11px] font-black uppercase tracking-wider">
@@ -174,7 +175,7 @@
     <!-- gutters -->
     <div x-show="sel.gutter" class="bg-slate-950 border border-slate-800 rounded-2xl p-5">
       <h2 class="text-white font-black text-lg mb-1">Gutter cleaning</h2>
-      <p class="text-xs text-slate-500 mb-4">High-reach from the ground, up to 40ft. Measure along the roofline and add up every side.</p>
+      <p class="text-xs text-slate-500 mb-4">High-reach clearing from the ground. A rough measure along the roofline is fine. Add up every side.</p>
       <p class="text-xs text-slate-400 font-bold mb-2">Total gutter length</p>
       <div class="flex items-center gap-2 mb-4">
         <input type="number" inputmode="decimal" min="0" placeholder="0" x-model.number="gutter.m" class="w-28 bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-right text-white text-sm focus:outline-none focus:border-teal-400">
@@ -195,7 +196,7 @@
     <!-- windows -->
     <div x-show="sel.windows" class="bg-slate-950 border border-slate-800 rounded-2xl p-5">
       <h2 class="text-white font-black text-lg mb-1">Window cleaning</h2>
-      <p class="text-xs text-slate-500 mb-4">External pure-water cleaning.</p>
+      <p class="text-xs text-slate-500 mb-4">External pure-water pole cleaning only. We do not offer internal window cleaning.</p>
       <p class="text-xs text-slate-400 font-bold mb-2">Number of windows</p>
       <div class="flex items-center gap-2 mb-4">
         <input type="number" inputmode="numeric" min="0" placeholder="0" x-model.number="win.n" class="w-28 bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-right text-white text-sm focus:outline-none focus:border-teal-400">
@@ -206,10 +207,6 @@
         <button type="button" @click="win.kind='res'" :class="chip(win.kind==='res')">Home (standard)</button>
         <button type="button" @click="win.kind='com'" :class="chip(win.kind==='com')">Commercial / heavy build-up</button>
       </div>
-      <label class="flex items-start gap-3 cursor-pointer select-none">
-        <input type="checkbox" x-model="win.internal" class="mt-0.5 w-4 h-4 rounded border-slate-700 bg-slate-950 accent-teal-400">
-        <span class="text-xs text-slate-300 leading-snug">Also clean the inside of the windows</span>
-      </label>
     </div>
 
     <!-- repairs -->
@@ -229,7 +226,13 @@
     <!-- steam -->
     <div x-show="sel.steam" class="bg-slate-950 border border-slate-800 rounded-2xl p-5">
       <h2 class="text-white font-black text-lg mb-1">Steam cleaning</h2>
-      <p class="text-sm text-slate-300 leading-relaxed">Steam cleaning is priced after we see the job, so there is no online estimate for it. Select it when you book and we will include it in your free quote.</p>
+      <p class="text-xs text-slate-500 mb-4">Gentle, low-chemical cleaning for delicate stone, masonry and similar surfaces. It is slower, more specialist work, so the guide range is wider.</p>
+      <p class="text-xs text-slate-400 font-bold mb-2">Approximate area</p>
+      <div class="flex items-center gap-2 mb-2">
+        <input type="number" inputmode="decimal" min="0" placeholder="0" x-model.number="steam.a" class="w-28 bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-right text-white text-sm focus:outline-none focus:border-teal-400">
+        <span class="text-xs text-slate-500">m²</span>
+      </div>
+      <p class="text-xs text-slate-500">Not sure? A rough guess is fine. We confirm the method and price after seeing the surface.</p>
     </div>
   </div>
 
@@ -237,16 +240,20 @@
   <div x-show="step===3">
     <template x-if="!t">
       <div class="bg-slate-950 border border-slate-800 rounded-2xl p-5">
-        <h2 class="text-white font-black text-lg mb-2">No estimate yet</h2>
-        <p class="text-sm text-slate-400 leading-relaxed" x-text="sel.steam && !sel.wash && !sel.gutter && !sel.windows && !sel.repairs ? 'Steam cleaning is quoted after assessment. Tap the button below and we will price it for you for free.' : 'Go back and add a size or quantity for at least one service to see your estimate.'"></p>
+        <h2 class="text-white font-black text-lg mb-2">No guide price yet</h2>
+        <p class="text-sm text-slate-400 leading-relaxed">Go back and add a size or quantity for at least one service to see a guide price.</p>
       </div>
     </template>
     <template x-if="t">
       <div>
+        <div class="bg-amber-500/10 border border-amber-500/30 rounded-2xl p-4 mb-4 flex gap-3">
+          <i class="fas fa-triangle-exclamation text-amber-400 mt-0.5"></i>
+          <p class="text-xs text-amber-100/90 leading-relaxed"><strong class="text-amber-300">A guide, not a quote.</strong> This range is only to help you plan. We confirm your exact price in writing after a free assessment.</p>
+        </div>
         <div class="bg-slate-950 border border-teal-500/40 rounded-2xl p-5 mb-4">
-          <p class="text-[11px] font-black uppercase tracking-wider text-slate-400 mb-1">Your estimated price, including VAT</p>
-          <p class="text-3xl sm:text-4xl font-black text-white mb-1" x-text="range(t.gLo,t.gHi)"></p>
-          <p class="text-xs text-slate-500 mb-4" x-text="'Excluding VAT: '+range(t.eLo,t.eHi)+' · VAT at '+(VAT*100)+'%'"></p>
+          <p class="text-[11px] font-black uppercase tracking-wider text-slate-400 mb-1">Guide price range, including VAT</p>
+          <p class="text-3xl sm:text-4xl font-black text-white mb-1" x-text="head(t.gLo,t.gHi,t.single)"></p>
+          <p class="text-xs text-slate-500 mb-4" x-text="'Excluding VAT: '+head(t.eLo,t.eHi,t.single)+' · VAT at '+(VAT*100)+'%'"></p>
           <div class="border-t border-slate-800 pt-4 space-y-2 text-sm">
             <template x-for="l in t.lines" :key="l.n+l.d">
               <div class="flex justify-between gap-4 text-slate-300">
@@ -254,26 +261,29 @@
                 <span class="font-bold text-white whitespace-nowrap" x-text="rng(l.lo,l.hi)"></span>
               </div>
             </template>
-            <div class="flex justify-between gap-4 text-slate-300">
-              <span>Mobilisation, travel &amp; setup<span class="block text-xs text-slate-500">Fixed, all jobs</span></span>
-              <span class="font-bold text-white" x-text="fmt(CALL)"></span>
-            </div>
+            <p class="text-xs text-slate-500 pt-1">Line prices are shown before VAT and rounded.</p>
             <template x-if="t.minApplied">
               <p class="text-xs text-slate-500">A minimum job charge of <span x-text="fmt(MIN)"></span> (before VAT) applies to small jobs.</p>
             </template>
           </div>
           <label class="flex items-start gap-3 mt-5 pt-4 border-t border-slate-800 cursor-pointer select-none">
             <input type="checkbox" x-model="offer" class="mt-0.5 w-4 h-4 rounded border-slate-700 bg-slate-950 accent-teal-400">
-            <span class="text-xs text-slate-300 leading-relaxed">Show my price with the early customer offer (50% off, up to €150, before VAT). <a href="promotion.html" class="text-teal-400 underline font-bold">Offer terms</a></span>
+            <span class="text-xs text-slate-300 leading-relaxed">Show my guide price with the early customer offer (50% off, up to €150, before VAT). <a href="promotion.html" class="text-teal-400 underline font-bold">Offer terms</a></span>
           </label>
           <template x-if="offer">
             <p class="mt-3 text-sm text-teal-300 font-bold" x-text="'Early customer saving: '+range(t.dLo,t.dHi)+' off before VAT'"></p>
           </template>
         </div>
-        <div class="text-xs text-slate-500 leading-relaxed space-y-2 mb-5">
-          <p x-show="hasUnsure()"><strong class="text-slate-400">Why the range?</strong> Where you chose "Not sure", the range runs from our lighter-condition rate to our heavy-condition rate. Other prices carry a small allowance either side.</p>
-          <p>We flag issues before we start, such as pre-existing damage, drainage problems or access limits, and recommend a different method where one suits the surface better. Any of these can change the final price.</p>
-          <p x-show="sel.steam">Steam cleaning is not included in this estimate. We quote it after assessing the job.</p>
+        <div class="bg-slate-950 border border-slate-800 rounded-2xl p-5 mb-5">
+          <h3 class="text-white font-black text-sm mb-3">Please note</h3>
+          <ul class="space-y-2 text-xs text-slate-400 leading-relaxed">
+            <li class="flex gap-2"><i class="fas fa-check text-teal-400 mt-0.5"></i><span>Your final price depends on the surface, its condition, access, water supply and anything we find on the day of assessment.</span></li>
+            <li class="flex gap-2"><i class="fas fa-check text-teal-400 mt-0.5"></i><span>We assess the job for free, with no obligation. You get the price in writing and decide with no pressure.</span></li>
+            <li class="flex gap-2"><i class="fas fa-check text-teal-400 mt-0.5"></i><span>We flag issues before we start, such as existing damage, drainage problems or access limits, and recommend a different method where one suits your surface better.</span></li>
+            <li class="flex gap-2"><i class="fas fa-check text-teal-400 mt-0.5"></i><span>A small travel charge may apply for longer distances within County Cork. We confirm this in your quote.</span></li>
+            <li x-show="hasUnsure()" class="flex gap-2"><i class="fas fa-check text-teal-400 mt-0.5"></i><span>Where you chose "Not sure", the range runs from our lighter-condition rate to our heavy-condition rate.</span></li>
+            <li x-show="sel.steam" class="flex gap-2"><i class="fas fa-check text-teal-400 mt-0.5"></i><span>Steam cleaning is specialist work. Its guide range is wider and we firm it up after seeing the surface.</span></li>
+          </ul>
         </div>
       </div>
     </template>
@@ -282,41 +292,45 @@
   <!-- nav buttons -->
   <div class="flex items-center gap-3 mt-6">
     <button type="button" x-show="step>1" @click="step--; window.scrollTo({top:0,behavior:'smooth'})" class="border border-slate-700 text-slate-200 hover:border-teal-400 font-black uppercase tracking-wider text-xs rounded-xl px-5 py-4">Back</button>
-    <button type="button" x-show="step<3" @click="next()" :disabled="!anySel()" class="flex-1 accent-gradient text-slate-950 font-black uppercase tracking-wider text-sm rounded-xl px-6 py-4 disabled:opacity-40" x-text="step===1 ? 'Next: Details' : 'See My Estimate'"></button>
-    <a x-show="step===3" href="book.html" class="flex-1 accent-gradient text-slate-950 text-center font-black uppercase tracking-wider text-sm rounded-xl px-6 py-4">Get My Free Quote</a>
+    <button type="button" x-show="step<3" @click="next()" :disabled="!anySel()" class="flex-1 accent-gradient text-slate-950 font-black uppercase tracking-wider text-sm rounded-xl px-6 py-4 disabled:opacity-40" x-text="step===1 ? 'Next: Details' : 'See My Guide Price'"></button>
+    <a x-show="step===3" href="book.html" class="flex-1 accent-gradient text-slate-950 text-center font-black uppercase tracking-wider text-sm rounded-xl px-6 py-4">Request My Free Assessment</a>
   </div>
   <div x-show="step===3 && t" class="mt-3">
     <button type="button" @click="copy()" class="w-full border border-slate-700 text-slate-200 hover:border-teal-400 font-black uppercase tracking-wider text-xs rounded-xl px-6 py-3">
-      <span x-text="copied ? 'Copied. Paste it into the booking form notes' : 'Copy my estimate for the booking form'"></span>
+      <span x-text="copied ? 'Copied. Paste it into the booking form notes' : 'Copy my guide price for the booking form'"></span>
     </button>
   </div>
-  <p class="text-[11px] text-slate-600 mt-6 leading-relaxed">This calculator gives an indicative guide only and is not a binding quote. VAT is shown at the rate we expect to apply to cleaning and maintenance services. The rate on your written quote is final.</p>
+  <p class="text-[11px] text-slate-600 mt-6 leading-relaxed">This calculator gives an indicative guide only. It is not a quote, an offer or a binding price. Actual prices depend on a free assessment of your property. VAT is shown at the rate we expect to apply. The rate on your written quote is final.</p>
 </section>
 </main>
 <script>
 function wiz(){
   const num=v=>{v=parseFloat(v);return isFinite(v)&&v>0?v:0;};
+  const c5=n=>Math.ceil(n/5)*5, f5=n=>Math.floor(n/5)*5;
   return {
-    VAT:0.135, CALL:50, MIN:150, CAP:150, SPREAD:0.10,
+    // Guide-price settings (all rates are EUR before VAT)
+    VAT:0.135, MIN:90, CAP:150, TIER_AT:50, TIER_F:0.8,
     step:1, offer:false, copied:false, num,
     sel:{wash:false,gutter:false,windows:false,repairs:false,steam:false},
     options:[
       {k:'wash',n:'Pressure & soft washing',i:'fa-droplet',d:'Driveways, patios, paths, block paving and tarmac.'},
-      {k:'gutter',n:'Gutter cleaning',i:'fa-house',d:'High-reach clearing from the ground, up to 40ft.'},
-      {k:'windows',n:'Window cleaning',i:'fa-table-cells-large',d:'External pure-water cleaning, with optional inside clean.'},
+      {k:'gutter',n:'Gutter cleaning',i:'fa-house',d:'High-reach gutter clearing from the ground.'},
+      {k:'windows',n:'Window cleaning',i:'fa-table-cells-large',d:'External pure-water pole cleaning only.'},
       {k:'repairs',n:'Grounds & minor repairs',i:'fa-screwdriver-wrench',d:'Handyman jobs, grass cutting and painting, by the hour.'},
-      {k:'steam',n:'Steam cleaning',i:'fa-cloud',d:'Priced after assessment. Included in your free quote.'}
+      {k:'steam',n:'Steam cleaning',i:'fa-cloud',d:'Gentle steam cleaning for delicate stone and masonry.'}
     ],
     surfTypes:[
-      {k:'concrete',n:'Concrete',cond:true,lightN:'Light dirt / algae',heavyN:'Heavy build-up',light:5,heavy:8.5},
-      {k:'block',n:'Block paving',cond:true,lightN:'Standard',heavyN:'Heavy moss',light:6.5,heavy:11},
-      {k:'stone',n:'Natural stone / patio',cond:false,light:8.5,heavy:8.5},
-      {k:'tarmac',n:'Tarmac',cond:true,lightN:'Soft wash / low pressure',heavyN:'Heavy clean + biocide',light:4.5,heavy:7.5}
+      {k:'concrete',n:'Concrete',cond:true,lightN:'Light dirt / algae',heavyN:'Heavy build-up',light:[4,5.5],heavy:[5.5,7]},
+      {k:'block',n:'Block paving',cond:true,lightN:'Standard',heavyN:'Heavy moss',light:[5,6.5],heavy:[6.5,9]},
+      {k:'stone',n:'Natural stone / patio',cond:false,light:[6,9],heavy:[6,9]},
+      {k:'tarmac',n:'Tarmac',cond:true,lightN:'Soft wash / low pressure',heavyN:'Heavy clean + biocide',light:[3.5,5],heavy:[5,6.5]}
     ],
+    RATES:{bio:[2,3.5],gutterLight:[3.5,4.5],gutterHeavy:[4.5,6],gutterWash:[2,3],winExt:[8,10],winExtCom:[10,13],hour:[60,75],steam:[6,12]},
     surfaces:[{type:'concrete',cond:'unsure',area:'',L:'',W:'',bio:false}],
     gutter:{m:'',cond:'unsure',wash:false},
-    win:{n:'',kind:'res',internal:false},
+    win:{n:'',kind:'res'},
     rep:{h:''},
+    steam:{a:''},
     chip(on){return 'px-3 py-2 rounded-lg border text-xs font-bold transition '+(on?'border-teal-400 bg-teal-500/10 text-teal-300':'border-slate-700 text-slate-300 hover:border-slate-500');},
     typeOf(s){return this.surfTypes.find(t=>t.k===s.type)||this.surfTypes[0];},
     addSurface(){this.surfaces.push({type:'concrete',cond:'unsure',area:'',L:'',W:'',bio:false});},
@@ -325,50 +339,53 @@ function wiz(){
     anySel(){return Object.values(this.sel).some(Boolean);},
     next(){if(!this.anySel())return;this.step++;window.scrollTo({top:0,behavior:'smooth'});},
     hasUnsure(){return (this.sel.wash&&this.surfaces.some(s=>num(s.area)>0&&this.typeOf(s).cond&&s.cond==='unsure'))||(this.sel.gutter&&num(this.gutter.m)>0&&this.gutter.cond==='unsure');},
-    // price range [lo,hi] per unit for a light/heavy pair
-    pair(l,h,cond){const S=this.SPREAD;if(cond==='unsure'&&l!==h)return[l,h];const p=cond==='heavy'?h:l;return[p*(1-S),p*(1+S)];},
-    fix(p){const S=this.SPREAD;return[p*(1-S),p*(1+S)];},
+    // pick [lo,hi] unit rate from a light/heavy pair of ranges
+    pick(l,h,cond){return cond==='heavy'?h:cond==='light'?l:[Math.min(l[0],h[0]),Math.max(l[1],h[1])];},
+    // larger areas get a lower rate beyond TIER_AT m2
+    eff(a){return a<=this.TIER_AT?a:this.TIER_AT+(a-this.TIER_AT)*this.TIER_F;},
     get t(){
-      const L=[];
+      const L=[],R=this.RATES;
       if(this.sel.wash)this.surfaces.forEach(s=>{
         const a=num(s.area);if(!a)return;const ty=this.typeOf(s);
         const cond=ty.cond?s.cond:'light';
-        const r=this.pair(ty.light,ty.heavy,cond);
+        const r=this.pick(ty.light,ty.heavy,cond);
+        const ea=this.eff(a);
         const cl=ty.cond?(cond==='light'?ty.lightN:cond==='heavy'?ty.heavyN:'condition to be confirmed'):'';
-        L.push({n:ty.n,d:a+' m²'+(cl?' · '+cl:''),lo:a*r[0],hi:a*r[1]});
-        if(s.bio&&this.bioOk(s)){const b=this.fix(3);L.push({n:'Algae / biocide treatment',d:a+' m² · '+ty.n,lo:a*b[0],hi:a*b[1]});}
+        L.push({n:ty.n,d:a+' m²'+(cl?' · '+cl:'')+(a>this.TIER_AT?' · larger-area rate':''),lo:ea*r[0],hi:ea*r[1]});
+        if(s.bio&&this.bioOk(s)){L.push({n:'Algae / biocide treatment',d:a+' m² · '+ty.n,lo:ea*R.bio[0],hi:ea*R.bio[1]});}
       });
       if(this.sel.gutter){const m=num(this.gutter.m);if(m){
-        const r=this.pair(3.25,5.5,this.gutter.cond);
+        const r=this.pick(R.gutterLight,R.gutterHeavy,this.gutter.cond);
         const cl=this.gutter.cond==='light'?'standard clearance':this.gutter.cond==='heavy'?'heavy / blocked, with flush':'condition to be confirmed';
         L.push({n:'Gutter cleaning',d:m+' m · '+cl,lo:m*r[0],hi:m*r[1]});
-        if(this.gutter.wash){const w=this.fix(6.75);L.push({n:'Gutter, fascia & soffit wash',d:m+' m',lo:m*w[0],hi:m*w[1]});}
+        if(this.gutter.wash){L.push({n:'Gutter, fascia & soffit wash',d:m+' m',lo:m*R.gutterWash[0],hi:m*R.gutterWash[1]});}
       }}
       if(this.sel.windows){const n=num(this.win.n);if(n){
-        const r=this.fix(this.win.kind==='com'?12:10);
+        const r=this.win.kind==='com'?R.winExtCom:R.winExt;
         L.push({n:'Window cleaning (external)',d:n+' windows · '+(this.win.kind==='com'?'commercial / heavy build-up':'standard'),lo:n*r[0],hi:n*r[1]});
-        if(this.win.internal){const w=this.fix(14);L.push({n:'Internal window cleaning',d:n+' windows',lo:n*w[0],hi:n*w[1]});}
       }}
-      if(this.sel.repairs){const h=num(this.rep.h);if(h){const r=this.fix(70);L.push({n:'Grounds & minor repairs',d:h+' hours',lo:h*r[0],hi:h*r[1]});}}
+      if(this.sel.repairs){const h=num(this.rep.h);if(h){L.push({n:'Grounds & minor repairs',d:h+' hours',lo:h*R.hour[0],hi:h*R.hour[1]});}}
+      if(this.sel.steam){const a=num(this.steam.a);if(a){L.push({n:'Steam cleaning',d:a+' m² · to be confirmed on assessment',lo:a*R.steam[0],hi:a*R.steam[1]});}}
       if(!L.length)return null;
-      const sLo=L.reduce((a,l)=>a+l.lo,0),sHi=L.reduce((a,l)=>a+l.hi,0);
-      const eLo=Math.max(this.MIN,sLo+this.CALL),eHi=Math.max(this.MIN,sHi+this.CALL);
+      const sLo=L.reduce((x,l)=>x+l.lo,0),sHi=L.reduce((x,l)=>x+l.hi,0);
+      const eLo=Math.max(this.MIN,sLo),eHi=Math.max(this.MIN,sHi);
       const dLo=this.offer?Math.min(eLo*0.5,this.CAP):0,dHi=this.offer?Math.min(eHi*0.5,this.CAP):0;
       const nLo=eLo-dLo,nHi=eHi-dHi;
-      return {lines:L,minApplied:sLo+this.CALL<this.MIN,eLo:nLo,eHi:nHi,dLo:dLo,dHi:dHi,gLo:nLo*(1+this.VAT),gHi:nHi*(1+this.VAT)};
+      return {lines:L,single:nLo===nHi,minApplied:sLo<this.MIN,eLo:nLo,eHi:nHi,dLo:dLo,dHi:dHi,gLo:nLo*(1+this.VAT),gHi:nHi*(1+this.VAT)};
     },
     fmt(n){return '€'+Number(n).toLocaleString('en-IE',{minimumFractionDigits:(n%1?2:0),maximumFractionDigits:2});},
     rng(a,b){const x=Math.round(a),y=Math.round(b);return x===y?this.fmt(x):this.fmt(x)+' – '+this.fmt(y);},
-    range(a,b){const x=Math.floor(a/5)*5,y=Math.ceil(b/5)*5;return x===y?this.fmt(x):this.fmt(x)+' – '+this.fmt(y);},
+    range(a,b){const x=f5(a),y=c5(b);return x===y?this.fmt(x):this.fmt(x)+' – '+this.fmt(y);},
+    // headline: a range, or "From" when the minimum charge makes both ends the same
+    head(a,b,one){const x=f5(a),y=c5(b);return (one||x===y)?'From '+this.fmt(x):this.fmt(x)+' – '+this.fmt(y);},
     copy(){
       const t=this.t;if(!t)return;
-      let s='BD Premium Property Care – price estimate (indicative)\n';
-      t.lines.forEach(l=>{s+=l.n+' ('+l.d+'): '+this.rng(l.lo,l.hi)+'\n';});
-      s+='Mobilisation, travel & setup: '+this.fmt(this.CALL)+'\n';
+      let s='BD Premium Property Care – guide price (indicative only, not a quote)\n';
+      t.lines.forEach(l=>{s+=l.n+' ('+l.d+'): '+this.rng(l.lo,l.hi)+' + VAT\n';});
       if(this.offer)s+='Early customer offer applied (before VAT)\n';
-      s+='Estimate excl. VAT: '+this.range(t.eLo,t.eHi)+'\n';
-      s+='Estimate incl. VAT ('+(this.VAT*100)+'%): '+this.range(t.gLo,t.gHi)+'\n';
-      if(this.sel.steam)s+='Steam cleaning: please quote\n';
+      s+='Guide excl. VAT: '+this.head(t.eLo,t.eHi,t.single)+'\n';
+      s+='Guide incl. VAT ('+(this.VAT*100)+'%): '+this.head(t.gLo,t.gHi,t.single)+'\n';
+      s+='Please confirm my exact price after a free assessment.\n';
       const done=()=>{this.copied=true;setTimeout(()=>this.copied=false,3000);};
       const fallback=()=>{const ta=document.createElement('textarea');ta.value=s;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');done();}catch(e){}document.body.removeChild(ta);};
       if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(s).then(done,fallback);}else{fallback();}
