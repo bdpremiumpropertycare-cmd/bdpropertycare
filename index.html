@@ -188,25 +188,7 @@
         }
       }">
 
-   <div class="bg-gradient-to-r from-teal-600 via-sky-600 to-teal-600 text-white text-center py-4 px-4 shadow-2xl relative z-50 border-b border-teal-500/30">
-    <div class="relative z-10 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 text-xs sm:text-sm font-black uppercase tracking-wider">
-        <span>Now Accepting New Customers Across County Cork</span>
-        <span class="hidden sm:inline text-white/40">|</span>
-        <span class="text-teal-100 font-bold normal-case text-center">
-            Fully Insured Residential & Commercial Property Maintenance Services
-        </span>
-    </div>
-</div>
-
-    <a href="promotion.html" class="block offer-gradient text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-2.5 flex items-center justify-center gap-2 text-[11px] sm:text-xs font-black uppercase tracking-wider text-center">
-            <i class="fas fa-tag"></i>
-            <span>Early Customer Discount: Up to 50% Off Your Quote &mdash; Plus &euro;5 Credit Per Referral</span>
-            <i class="fas fa-arrow-right"></i>
-        </div>
-    </a>
-
-    <div x-data="{ fabVisible: true, fabTimer: null, resetFab() { this.fabVisible = true; clearTimeout(this.fabTimer); this.fabTimer = setTimeout(() => { this.fabVisible = false }, 2500) }, init() { this.resetFab() } }" @scroll.window="resetFab()" @touchstart.window="resetFab()">
+       <div x-data="{ fabVisible: true, fabTimer: null, resetFab() { this.fabVisible = true; clearTimeout(this.fabTimer); this.fabTimer = setTimeout(() => { this.fabVisible = false }, 2500) }, init() { this.resetFab() } }" @scroll.window="resetFab()" @touchstart.window="resetFab()">
         <div class="fixed bottom-24 left-6 z-40 lg:hidden transition-all duration-500" :class="fabVisible ? 'opacity-100 translate-x-0 pointer-events-auto' : 'opacity-0 -translate-x-4 pointer-events-none'">
             <a href="https://forms.gle/Vki1WeTkTdkCjz1T6" target="_blank" rel="noopener" @click.prevent="openBookingGate()" class="accent-gradient text-slate-950 font-black px-4 py-3.5 rounded-xl shadow-2xl text-xs uppercase tracking-wider flex items-center gap-2 border border-teal-300/30">
                 <i class="fas fa-calendar-check text-sm" :class="fabVisible ? 'animate-bounce' : ''"></i> Free Estimate
@@ -230,7 +212,7 @@
                 <a href="index.html" class="flex items-center gap-2 sm:gap-3 shrink-0">
                     <img src="bd-logo.png" alt="BD Premium Property Care logo" class="w-11 h-11 rounded-full" width="44" height="44">
                     <div class="h-6 w-[1px] bg-slate-800 max-[380px]:hidden"></div>
-                    <span class="whitespace-nowrap text-[10px] sm:text-[11px] tracking-wider sm:tracking-widest max-[380px]:text-[9px] max-[380px]:tracking-normal text-slate-400 font-black uppercase xl:hidden min-[1400px]:inline">Premium Property Care</span>
+                    <span class="flex flex-col leading-tight whitespace-nowrap xl:hidden min-[1400px]:flex"><span class="text-[15px] sm:text-base max-[380px]:text-[13px] font-black text-white uppercase tracking-wide">BD Premium</span><span class="text-[11px] sm:text-xs max-[380px]:text-[10px] font-bold text-teal-300 uppercase tracking-[0.18em] max-[380px]:tracking-wider">Property Care</span></span>
                 </a>
             </div>
             <div class="hidden xl:flex items-center gap-x-5 2xl:gap-x-7 font-bold text-[11px] uppercase tracking-wider whitespace-nowrap">
@@ -266,10 +248,10 @@
     <script>(function(){var b=document.getElementById('bd-burger'),d=document.getElementById('bd-drawer');b.addEventListener('click',function(){var h=d.classList.toggle('hidden');b.setAttribute('aria-expanded',String(!h));b.firstElementChild.className='fas text-lg '+(h?'fa-bars-staggered':'fa-times')});d.addEventListener('click',function(e){if(e.target.closest('a'))d.classList.add('hidden')})})();</script>
 </nav>
 
-    <section class="relative neon-gradient pt-14 pb-16 lg:py-20 overflow-hidden border-b border-slate-800">
+    <section class="relative neon-gradient pt-8 pb-10 sm:pt-14 sm:pb-16 lg:py-20 overflow-hidden border-b border-slate-800">
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(45,212,191,0.08),transparent_50%)]"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid lg:grid-cols-12 gap-12 items-center">
-            <div class="space-y-6 text-center  lg:col-span-12 max-w-4xl mx-auto">
+            <div class="space-y-4 sm:space-y-6 text-center  lg:col-span-12 max-w-4xl mx-auto">
                 <div class="flex flex-wrap items-center gap-3 justify-center lg:justify-center">
                     <div class="inline-flex items-center gap-2 bg-teal-500/10 border border-teal-500/30 text-teal-400 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest">
                         <i class="fas fa-shield-check text-xs"></i> Fully Insured Exterior Restoration
@@ -285,7 +267,7 @@
                 <p class="text-base text-slate-300 max-w-xl mx-auto  leading-relaxed font-medium">
                     Commercial-grade power washing, soft washing, steam cleaning, gutter and window cleaning from ground level, and precision grounds upkeep across Cork City & County Cork. Engineered for property managers and homeowners who demand immaculate results.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-center pt-2">
+                <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-center pt-1 sm:pt-2">
                     <a href="https://forms.gle/Vki1WeTkTdkCjz1T6" target="_blank" rel="noopener" @click.prevent="openBookingGate()" class="accent-gradient text-slate-950 font-black px-8 py-4 rounded-xl shadow-xl hover:scale-105 transition duration-300 text-center text-xs uppercase tracking-wider">
                         <i class="fas fa-calendar-check mr-2"></i> Book a Free Quote
                     </a>
@@ -300,7 +282,7 @@
         </div>
     </section>
 
-    <section id="scope" class="py-10 sm:py-16 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="scope" class="py-6 sm:py-16 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-6 sm:mb-10">
             <span class="text-teal-400 font-extrabold tracking-widest text-xs uppercase block mb-2">What We Do</span>
             <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight">Our Professional Scope</h2>
@@ -342,7 +324,7 @@
         <p class="text-center mt-4"><a href="gallery.html" class="text-teal-400 hover:text-teal-300 text-xs font-black uppercase tracking-wider">See Our Equipment, Before &amp; After Results <i class="fas fa-arrow-right ml-1"></i></a></p>
     </section>
 
-    <section id="why-choose-us" class="py-10 sm:py-16 bg-slate-950/40 border-y border-slate-800/60">
+    <section id="why-choose-us" class="py-8 sm:py-16 bg-slate-950/40 border-y border-slate-800/60">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-6 sm:mb-10">
                 <span class="text-teal-400 font-extrabold tracking-widest text-xs uppercase block mb-1 sm:mb-2">Why Choose Us</span>
@@ -398,7 +380,7 @@
         </div>
     </section>
 
-    <section id="areas-we-cover" class="py-10 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="areas-we-cover" class="py-6 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-6 sm:mb-10">
             <span class="text-teal-400 font-extrabold tracking-widest text-xs uppercase block mb-2">Local Coverage</span>
             <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight">Areas We Cover</h2>
@@ -443,7 +425,7 @@
 
     
 
-    <section id="estimation-engine" class="py-16 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="estimation-engine" class="py-6 sm:py-16 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="bg-gradient-to-b from-slate-950 to-slate-900 border border-slate-800 rounded-3xl p-8 sm:p-10 text-center shadow-2xl">
             <span class="text-teal-400 font-extrabold tracking-widest text-xs uppercase block mb-3">Price Guide</span>
             <h2 class="text-3xl sm:text-4xl font-black text-white leading-tight mb-4">What Will It Cost?</h2>
@@ -452,85 +434,23 @@
         </div>
     </section>
 
-    <section id="contact-hub" class="py-16 max-w-5xl mx-auto px-4 sm:px-6">
-        <div class="bg-slate-950 border border-slate-800/80 rounded-3xl shadow-2xl overflow-hidden grid md:grid-cols-12">
-            <div class="bg-gradient-to-b from-slate-900 to-slate-950 p-8 md:col-span-5 flex flex-col justify-between border-b md:border-b-0 md:border-r border-slate-800">
-                <div class="space-y-4">
-                    <h3 class="text-2xl font-black text-white">Let's Get Your Free Quote Sorted</h3>
-                    <p class="text-slate-400 text-xs font-medium leading-relaxed">Pop your details in below and we'll take a look at what you need done, then come back to you with a clear, accurate price.</p>
-                </div>
-                <div class="space-y-3.5 pt-8 text-xs font-bold text-slate-300">
-                    <p class="flex items-center gap-3"><i class="fas fa-phone text-teal-400 text-sm"></i> 089 206 6711</p>
-                    <p class="flex items-center gap-3"><i class="fas fa-envelope text-teal-400 text-sm"></i> info@bdpropertycare.ie</p>
-                    <p class="flex items-center gap-3"><i class="fas fa-shield-halved text-teal-400 text-sm"></i> Fully Insured Public Liability Coverage</p>
-                </div>
-                <div class="pt-8">
-                    <p class="text-[11px] text-slate-500 font-medium mb-3">Prefer a quick form? Book directly online:</p>
-                    <a href="https://forms.gle/Vki1WeTkTdkCjz1T6" target="_blank" rel="noopener" @click.prevent="openBookingGate()" class="w-full bg-slate-900 border border-slate-800 hover:border-teal-500/60 text-white font-black py-3.5 rounded-xl text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition">
-                        <i class="fas fa-calendar-check text-teal-400"></i> Booking & Quote Request Form
-                    </a>
-                </div>
+    <section id="contact-hub" class="py-6 sm:py-16 max-w-3xl mx-auto px-4 sm:px-6">
+        <div class="bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800/80 rounded-3xl shadow-2xl p-6 sm:p-10 text-center">
+            <h3 class="text-2xl sm:text-3xl font-black text-white mb-3">Let's Get Your Free Quote Sorted</h3>
+            <p class="text-slate-400 text-sm font-medium leading-relaxed max-w-xl mx-auto mb-6">Send us your details using our quick booking form. We'll take a look at what you need done, then come back to you with a clear, accurate price.</p>
+            <a href="https://forms.gle/Vki1WeTkTdkCjz1T6" target="_blank" rel="noopener" @click.prevent="openBookingGate()" class="accent-gradient text-slate-950 font-black py-4 px-8 rounded-xl text-xs uppercase tracking-widest inline-flex items-center justify-center gap-2 shadow-xl hover:-translate-y-0.5 transition">
+                <i class="fas fa-calendar-check"></i> Booking &amp; Quote Request Form
+            </a>
+            <div class="mt-7 pt-6 border-t border-slate-800 space-y-3 text-sm font-bold text-slate-300">
+                <p><a href="tel:+353892066711" class="inline-flex items-center gap-3 hover:text-teal-300 transition"><i class="fas fa-phone text-teal-400"></i> 089 206 6711</a></p>
+                <p><a href="mailto:info@bdpropertycare.ie" class="inline-flex items-center gap-3 hover:text-teal-300 transition"><i class="fas fa-envelope text-teal-400"></i> info@bdpropertycare.ie</a></p>
+                <p class="inline-flex items-center gap-3 text-xs text-slate-400"><i class="fas fa-shield-halved text-teal-400 text-sm"></i> Fully Insured Public Liability Coverage</p>
             </div>
-            
-            <form action="https://formspree.io/f/xeebgyae" method="POST" class="p-8 md:col-span-7 space-y-5 text-sm"
-                  @submit.prevent="
-                    fetch($event.target.action, {
-                        method: 'POST',
-                        body: new FormData($event.target),
-                        headers: { 'Accept': 'application/json' }
-                    }).then(() => { formSubmitted = true; }).catch(() => { formSubmitted = true; });
-                  ">
-                <input type="text" name="_gotcha" style="display:none">
-                
-                <div class="grid sm:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-xs font-black uppercase text-slate-400 mb-1 tracking-wider">Your Full Name</label>
-                        <input type="text" name="Client Name" required class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-teal-500 font-semibold" placeholder="First & Last Name">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-black uppercase text-slate-400 mb-1 tracking-wider">Address / Eircode</label>
-                        <input type="text" name="Property Location Address" required class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-teal-500 font-semibold" placeholder="E.g., Cork City / T12 X345">
-                    </div>
-                </div>
-                <div class="grid sm:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-xs font-black uppercase text-slate-400 mb-1 tracking-wider">Mobile Contact Number</label>
-                        <input type="tel" name="Phone Contact" required class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-teal-500 font-semibold" placeholder="E.g., 089 206 6711">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-black uppercase text-slate-400 mb-1 tracking-wider">Email Address</label>
-                        <input type="email" name="Email Address" required class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-teal-500 font-semibold" placeholder="info@bdpropertycare.ie">
-                    </div>
-                </div>
-                <div>
-                        <label class="block text-xs font-black uppercase text-slate-400 mb-1 tracking-wider">Referral Credit Code <span class="text-slate-600 normal-case font-medium">(optional)</span></label>
-                        <input type="text" name="Referral Credit Code" maxlength="40" autocomplete="off" placeholder="Enter your code to use your credit" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-teal-500 text-sm">
-                    </div>
-                    <div>
-                    <label class="block text-xs font-black uppercase text-slate-400 mb-1 tracking-wider">Project Scope / Material Notes</label>
-                    <textarea rows="4" name="Project Details Description" required class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-teal-500 font-semibold" placeholder="Please list details (e.g., Grass cut areas, Repair requirements)..."></textarea>
-                </div>
-
-                <div class="bg-slate-900/60 border border-slate-800/80 rounded-xl p-4 space-y-3">
-                    <label class="flex items-start gap-3 cursor-pointer select-none">
-                        <input type="checkbox" x-model="gdprConsent" required class="mt-1 w-4 h-4 rounded border-slate-700 bg-slate-950 text-teal-500 focus:ring-teal-500 focus:ring-offset-slate-900 accent-teal-400">
-                        <span class="text-xs text-slate-300 font-medium leading-relaxed">
-                            I agree to let BD Premium Property Care store my name, address, phone number and email to prepare my estimate, in line with the <button type="button" @click="showPrivacy = true" class="text-teal-400 underline font-bold hover:text-teal-300">Privacy Policy</button> and <button type="button" @click="showTerms = true" class="text-teal-400 underline font-bold hover:text-teal-300">Terms & Conditions</button>.
-                        </span>
-                    </label>
-                    <hr class="border-slate-800/60">
-                    <p class="text-[10px] text-slate-500 font-medium leading-normal">
-                        Your details are sent securely to our form provider, are never sold, and you can ask us to delete them anytime at <a href="mailto:info@bdpropertycare.ie" class="text-sky-400 hover:underline">info@bdpropertycare.ie</a>.
-                    </p>
-                </div>
-
-                <button type="submit" :disabled="!gdprConsent || formSubmitted" :class="(gdprConsent && !formSubmitted) ? 'accent-gradient text-slate-950 opacity-100 cursor-pointer hover:-translate-y-0.5' : 'bg-slate-800 text-slate-500 opacity-50 cursor-not-allowed'" class="w-full font-black py-4 rounded-xl shadow-xl transition transform uppercase text-xs tracking-widest" x-text="formSubmitted ? 'Submitted' : 'Submit'"></button>
-            </form>
         </div>
     </section>
 
-    <section id="faq" class="py-16 max-w-4xl mx-auto px-4 sm:px-6">
-        <div class="text-center mb-10">
+    <section id="faq" class="py-6 sm:py-16 max-w-4xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-6 sm:mb-10">
             <span class="text-teal-400 font-extrabold tracking-widest text-xs uppercase block mb-2">Common Questions</span>
             <h2 class="text-3xl sm:text-4xl font-black text-white">Frequently Asked Questions</h2>
             <p class="text-slate-400 mt-4 max-w-xl mx-auto font-medium">Answers straight from our Terms &amp; Conditions and service standards. Don't see yours? <a href="#contact-hub" class="text-teal-400 underline font-bold">Ask us directly</a>.</p>
@@ -566,13 +486,13 @@
         </div>
     </section>
 
-    <section id="reviews" class="py-16 max-w-4xl mx-auto px-4 sm:px-6">
-        <div class="text-center max-w-2xl mx-auto mb-10">
+    <section id="reviews" class="py-6 sm:py-16 max-w-4xl mx-auto px-4 sm:px-6">
+        <div class="text-center max-w-2xl mx-auto mb-6 sm:mb-10">
             <span class="text-teal-400 font-extrabold tracking-widest text-xs uppercase block mb-2">Customer Feedback</span>
             <h2 class="text-3xl sm:text-4xl font-black text-white tracking-tight">What Our Customers Say</h2>
         </div>
         <div x-data="bdReviews" x-init="start()" @mouseenter="stop()" @mouseleave="start()" @focusin="stop()" @focusout="start()">
-            <a :href="current.url" target="_blank" rel="noopener" class="block bg-slate-900/60 border border-slate-800/80 hover:border-teal-500/50 rounded-2xl p-8 sm:p-10 transition min-h-[260px] flex flex-col justify-between" aria-label="Open this review on Google">
+            <a :href="current.url" target="_blank" rel="noopener" class="block bg-slate-900/60 border border-slate-800/80 hover:border-teal-500/50 rounded-2xl p-6 sm:p-10 transition min-h-[200px] sm:min-h-[260px] flex flex-col justify-between" aria-label="Open this review on Google">
                 <div class="transition-opacity duration-200" :class="fading ? 'opacity-0' : 'opacity-100'">
                     <div class="flex items-center gap-1 mb-4 text-amber-400 text-lg">
                         <template x-for="n in current.stars" :key="n"><i class="fas fa-star"></i></template>
@@ -615,7 +535,7 @@
     });
     </script>
 
-    <section id="google-profile" class="py-12 max-w-4xl mx-auto px-4 sm:px-6">
+    <section id="google-profile" class="py-6 sm:py-12 max-w-4xl mx-auto px-4 sm:px-6">
         <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-8 sm:p-10 text-center">
             <div class="w-14 h-14 rounded-2xl accent-gradient flex items-center justify-center mx-auto mb-5">
                 <i class="fab fa-google text-slate-950 text-2xl"></i>
@@ -722,7 +642,7 @@
 <li>Payment and invoicing information necessary to process or record payments.</li>
 <li>Information relating to complaints, incidents, damage or disputes.</li>
 <li>Information required for insurance, legal, accounting or regulatory purposes.</li>
-<li>Information you voluntarily provide through our website forms, Google Forms or other enquiry channels.</li>
+<li>Information you voluntarily provide through our Google Forms (such as our booking and quote request form and our referral code request form), email, telephone, WhatsApp or other enquiry channels.</li>
 <li>Technical information about your use of our website, where collected through cookies or similar technologies.</li>
 </ul>
 <p class="mb-2">We generally do not need sensitive personal information to provide our services. Please avoid providing sensitive personal information unless it is genuinely necessary.</p>
@@ -732,7 +652,8 @@
 <p class="mb-2">We may collect information when you:</p>
 <ul class="list-disc pl-5 mb-2 space-y-1">
 <li>Visit or use our website.</li>
-<li>Complete a website enquiry or contact form.</li>
+<li>Complete our online booking and quote request form or our referral code request form (both are Google Forms).</li>
+<li>Use our online price guide and choose to send us the result by WhatsApp or email. The price guide works in your browser and does not send what you enter to us unless you choose to share it.</li>
 <li>Complete a Google Form.</li>
 <li>Request an estimate or quotation.</li>
 <li>Contact us by email, telephone, WhatsApp, text message or social media.</li>
@@ -816,7 +737,7 @@
 <li>Contractors or subcontractors where required to provide or administer a service.</li>
 <li>Accountants, bookkeepers and professional advisers.</li>
 <li>Payment providers and financial institutions.</li>
-<li>Website, hosting, form, email, communication or IT service providers.</li>
+<li>Website, hosting, online form (such as Google Forms), email, communication or IT service providers.</li>
 <li>Insurance providers or claims handlers.</li>
 <li>Legal advisers where appropriate.</li>
 <li>Public authorities, regulators, courts or law-enforcement bodies where legally required or permitted.</li>
@@ -849,7 +770,7 @@
 <h4 class="font-black text-white uppercase text-xs text-teal-400 mb-2">11. Security</h4>
 <p class="mb-2">We take reasonable technical and organisational measures to protect personal information against unauthorised access, loss, misuse, alteration or disclosure.</p>
 <p class="mb-2">However, no website, electronic communication system or method of storing information can be guaranteed to be completely secure.</p>
-<p class="mb-2">You should avoid sending unnecessary sensitive information through ordinary email, messaging services or website forms.</p>
+<p class="mb-2">You should avoid sending unnecessary sensitive information through ordinary email, messaging services or online forms.</p>
 </section>
 <section id="privacy-sec-12" class="scroll-mt-20 pt-2 border-t border-slate-800/60 first:border-t-0 first:pt-0">
 <h4 class="font-black text-white uppercase text-xs text-teal-400 mb-2">12. Cookies and Similar Technologies</h4>
