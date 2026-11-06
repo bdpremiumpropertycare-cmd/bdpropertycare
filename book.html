@@ -109,11 +109,6 @@
             </div>
 
             <div class="bg-slate-950 border border-slate-800 rounded-2xl p-6 space-y-5">
-                <div>
-                    <label for="creditCode" class="block text-[11px] font-black uppercase tracking-wider text-slate-400 mb-1">Referral Credit Code <span class="text-slate-600 normal-case font-medium">(optional)</span></label>
-                    <input id="creditCode" type="text" maxlength="40" autocomplete="off" placeholder="Enter code to use your &euro;5 credits" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-teal-500">
-                    <p class="text-[10px] text-slate-500 font-medium mt-1.5">Quote this code in the booking form notes and we will deduct your credit from your quote. Credit is valid for two years from the date earned and can only be used against our services. Included automatically if you message us on WhatsApp.</p>
-                </div>
                 <label class="flex items-start gap-3 cursor-pointer select-none">
                     <input type="checkbox" x-model="consentChecked" class="mt-1 w-4 h-4 rounded border-slate-700 bg-slate-950 text-teal-500 focus:ring-teal-500 focus:ring-offset-slate-900 accent-teal-400">
                     <span class="text-xs text-slate-300 font-medium leading-relaxed">I have read and agree to BD Premium Property Care's <a href="index.html" target="_blank" onclick="sessionStorage.setItem('bdOpenModal','terms')" class="text-teal-400 underline font-bold hover:text-teal-300">Terms & Conditions</a> and <a href="index.html" target="_blank" onclick="sessionStorage.setItem('bdOpenModal','privacy')" class="text-teal-400 underline font-bold hover:text-teal-300">Privacy Policy</a>.</span>
@@ -145,6 +140,5 @@
     <footer class="border-t border-slate-900 py-6 text-center text-[10px] text-slate-600 font-medium">
         &copy; 2026 BD Premium Property Care Limited. All Rights Reserved.
     </footer>
-<script>(function(){var i=document.getElementById('creditCode'),w=document.querySelector('a[href^="https://wa.me"]');if(!i||!w)return;var base=w.href;try{i.value=sessionStorage.getItem('bdCreditCode')||''}catch(e){}function u(){var c=i.value.trim();w.href=c?base+encodeURIComponent(' My referral credit code is '+c+'.'):base;try{sessionStorage.setItem('bdCreditCode',c)}catch(e){}}i.addEventListener('input',u);u()})();</script>
 </body>
 </html>
