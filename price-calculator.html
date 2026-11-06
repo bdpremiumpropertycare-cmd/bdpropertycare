@@ -131,6 +131,10 @@
     <div x-show="sel.wash" class="bg-slate-950 border border-slate-800 rounded-2xl p-5">
       <h2 class="text-white font-black text-lg mb-1">Pressure &amp; soft washing</h2>
       <p class="text-xs text-slate-500 mb-4">Add each surface. We match the method to the surface.</p>
+      <div x-show="TIER_F<1" class="bg-teal-500/10 border border-teal-400/40 rounded-xl p-3 mb-4 flex gap-3 items-start">
+        <i class="fas fa-gift text-teal-300 mt-0.5"></i>
+        <p class="text-xs text-teal-100 leading-relaxed"><strong class="text-teal-300 uppercase tracking-wide">Large area offer.</strong> <span x-text="'Save '+Math.round((1-TIER_F)*100)+'% on the rate for every m² over '+TIER_AT+' m² on a surface. The bigger the area, the more you save.'"></span></p>
+      </div>
       <template x-for="(s,i) in surfaces" :key="i">
         <div class="border border-slate-800 rounded-xl p-4 mb-3 bg-slate-900/60">
           <div class="flex items-center justify-between mb-3">
@@ -163,6 +167,7 @@
             <input type="number" inputmode="decimal" min="0" placeholder="width" x-model.number="s.W" @input="calcArea(s)" class="w-20 bg-slate-950 border border-slate-700 rounded-lg px-2 py-1.5 text-right text-white text-xs focus:outline-none focus:border-teal-400">
             <span>m</span>
           </div>
+          <p x-show="TIER_F<1 && num(s.area)>TIER_AT" class="text-xs text-teal-300 font-bold mt-2"><i class="fas fa-gift mr-1"></i>Large area offer applied to this surface</p>
           <label x-show="bioOk(s)" class="flex items-start gap-3 mt-3 cursor-pointer select-none">
             <input type="checkbox" x-model="s.bio" class="mt-0.5 w-4 h-4 rounded border-slate-700 bg-slate-950 accent-teal-400">
             <span class="text-xs text-slate-300 leading-snug">Add algae / biocide treatment to slow regrowth</span>
@@ -282,6 +287,7 @@
                 <span class="font-bold text-teal-300 whitespace-nowrap">Custom quote</span>
               </div>
             </template>
+            <p x-show="t.tierHi>0" class="text-xs text-teal-300 font-bold pt-1"><i class="fas fa-gift mr-1"></i><span x-text="'Large area offer applied: you save about '+range(t.tierLo,t.tierHi)+' before VAT (already taken off above)'"></span></p>
             <p class="text-xs text-slate-500 pt-1">Line prices are shown before VAT and rounded.</p>
             <p x-show="t.custom.length" class="text-xs text-slate-500">The total above does not include grounds &amp; repairs, which we quote after assessment.</p>
             <template x-if="t.minApplied">
@@ -305,6 +311,7 @@
             <li class="flex gap-2"><i class="fas fa-check text-teal-400 mt-0.5"></i><span>We flag issues before we start, such as existing damage, drainage problems or access limits, and recommend a different method where one suits your surface better.</span></li>
             <li class="flex gap-2"><i class="fas fa-check text-teal-400 mt-0.5"></i><span>A small travel charge may apply for longer distances within County Cork. We confirm this in your quote.</span></li>
             <li x-show="hasUnsure()" class="flex gap-2"><i class="fas fa-check text-teal-400 mt-0.5"></i><span>Where you chose "Not sure", the range runs from our lighter-condition rate to our heavy-condition rate.</span></li>
+            <li x-show="t.tierHi>0" class="flex gap-2"><i class="fas fa-check text-teal-400 mt-0.5"></i><span x-text="'The large area offer applies to pressure and soft washing, to the part of any single surface over '+TIER_AT+' m². It is confirmed in your written quote.'"></span></li>
             <li x-show="sel.steam" class="flex gap-2"><i class="fas fa-check text-teal-400 mt-0.5"></i><span>Steam cleaning is specialist work. Its guide range is wider and we firm it up after seeing the surface.</span></li>
             <li x-show="sel.repairs" class="flex gap-2"><i class="fas fa-check text-teal-400 mt-0.5"></i><span>Grounds and repairs are priced per job, not per hour, so you know the cost before we start.</span></li>
           </ul>
@@ -378,15 +385,15 @@ function wiz(){
     // larger areas get a lower rate beyond TIER_AT m2
     eff(a){return a<=this.TIER_AT?a:this.TIER_AT+(a-this.TIER_AT)*this.TIER_F;},
     get t(){
-      const L=[],R=this.RATES;
+      const L=[],R=this.RATES;let tLo=0,tHi=0;
       if(this.sel.wash)this.surfaces.forEach(s=>{
         const a=num(s.area);if(!a)return;const ty=this.typeOf(s);
         const cond=ty.cond?s.cond:'light';
         const r=this.pick(ty.light,ty.heavy,cond);
-        const ea=this.eff(a);
+        const ea=this.eff(a);const dz=a-ea;if(dz>0){tLo+=dz*r[0];tHi+=dz*r[1];}
         const cl=ty.cond?(cond==='light'?ty.lightN:cond==='heavy'?ty.heavyN:'condition to be confirmed'):'';
-        L.push({n:ty.n,d:a+' m²'+(cl?' · '+cl:'')+(a>this.TIER_AT?' · larger-area rate':''),lo:ea*r[0],hi:ea*r[1]});
-        if(s.bio&&this.bioOk(s)){L.push({n:'Algae / biocide treatment',d:a+' m² · '+ty.n,lo:ea*R.bio[0],hi:ea*R.bio[1]});}
+        L.push({n:ty.n,d:a+' m²'+(cl?' · '+cl:'')+(a>this.TIER_AT&&this.TIER_F<1?' · large area offer':''),lo:ea*r[0],hi:ea*r[1]});
+        if(s.bio&&this.bioOk(s)){if(dz>0){tLo+=dz*R.bio[0];tHi+=dz*R.bio[1];}L.push({n:'Algae / biocide treatment',d:a+' m² · '+ty.n,lo:ea*R.bio[0],hi:ea*R.bio[1]});}
       });
       if(this.sel.gutter){const m=num(this.gutter.m);if(m){
         const r=this.pick(R.gutterLight,R.gutterHeavy,this.gutter.cond);
@@ -406,7 +413,7 @@ function wiz(){
       const eLo=Math.max(this.MIN,sLo),eHi=Math.max(this.MIN,sHi);
       const dLo=this.offer?Math.min(eLo*0.5,this.CAP):0,dHi=this.offer?Math.min(eHi*0.5,this.CAP):0;
       const nLo=eLo-dLo,nHi=eHi-dHi;
-      return {lines:L,custom:custom,customOnly:false,single:nLo===nHi,minApplied:sLo<this.MIN,eLo:nLo,eHi:nHi,dLo:dLo,dHi:dHi,gLo:nLo*(1+this.VAT),gHi:nHi*(1+this.VAT)};
+      return {lines:L,custom:custom,customOnly:false,tierLo:tLo,tierHi:tHi,single:nLo===nHi,minApplied:sLo<this.MIN,eLo:nLo,eHi:nHi,dLo:dLo,dHi:dHi,gLo:nLo*(1+this.VAT),gHi:nHi*(1+this.VAT)};
     },
     fmt(n){return '€'+Number(n).toLocaleString('en-IE',{minimumFractionDigits:(n%1?2:0),maximumFractionDigits:2});},
     rng(a,b){const x=Math.round(a),y=Math.round(b);return x===y?this.fmt(x):this.fmt(x)+' – '+this.fmt(y);},
@@ -419,6 +426,7 @@ function wiz(){
       t.lines.forEach(l=>{s+='- '+l.n+' ('+l.d+'): '+this.rng(l.lo,l.hi)+' + VAT\n';});
       t.custom.forEach(c=>{s+='- '+c.n+': custom quote needed. Details: '+c.d.replace(/\n/g,'; ')+'\n';});
       if(!t.customOnly){
+        if(t.tierHi>0)s+='Large area offer applied (saving about '+this.range(t.tierLo,t.tierHi)+' before VAT)\n';
         if(this.offer)s+='Early customer offer applied (before VAT)\n';
         s+='\nGuide incl. VAT ('+(this.VAT*100)+'%): '+this.head(t.gLo,t.gHi,t.single)+'\n';
         if(t.custom.length)s+='(Excludes grounds & repairs, which need a custom quote)\n';
@@ -485,6 +493,7 @@ function wiz(){
         if(!t.customOnly){T('Line prices are before VAT and rounded.',P,y+18,'500 22px '+F,'#64748b');y+=30;}
         if(!t.customOnly&&t.custom.length){y+=30;T('Total excludes grounds & repairs, which we quote after assessment.',P,y,'500 22px '+F,'#64748b');}
         if(t.minApplied){y+=30;T('A minimum job charge of '+this.fmt(this.MIN)+' (before VAT) applies to small jobs.',P,y,'500 22px '+F,'#64748b');}
+        if(!t.customOnly&&t.tierHi>0){y+=44;T('Large area offer applied: you save about '+this.range(t.tierLo,t.tierHi)+' before VAT',P,y,'800 26px '+F,'#5eead4');}
         if(this.offer&&!t.customOnly){y+=44;T('Early customer saving: '+this.range(t.dLo,t.dHi)+' off before VAT',P,y,'800 26px '+F,'#5eead4');}
         y+=36;
         if(!dry){x.fillStyle='rgba(148,163,184,.25)';x.fillRect(P,y,IW,2);}
