@@ -212,15 +212,16 @@
     <!-- repairs -->
     <div x-show="sel.repairs" class="bg-slate-950 border border-slate-800 rounded-2xl p-5">
       <h2 class="text-white font-black text-lg mb-1">Grounds &amp; minor repairs</h2>
-      <p class="text-xs text-slate-500 mb-4">Handyman jobs, grass cutting, painting and minor repairs, charged by the hour.</p>
-      <p class="text-xs text-slate-400 font-bold mb-2">Estimated hours</p>
-      <div class="flex items-center gap-2 mb-4">
-        <button type="button" @click="rep.h=Math.max(0,(num(rep.h)-0.5))" class="w-10 h-10 rounded-lg border border-slate-700 text-white font-black">−</button>
-        <input type="number" inputmode="decimal" min="0" step="0.5" placeholder="0" x-model.number="rep.h" class="w-24 bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-center text-white text-sm focus:outline-none focus:border-teal-400">
-        <button type="button" @click="rep.h=num(rep.h)+0.5" class="w-10 h-10 rounded-lg border border-slate-700 text-white font-black">+</button>
-        <span class="text-xs text-slate-500">hours</span>
+      <p class="text-xs text-slate-500 mb-4">Every job is different, so we quote this work individually after seeing it. Tell us a little about what you need and we will give you a clear price in writing.</p>
+      <p class="text-xs text-slate-400 font-bold mb-2">What kind of work? <span class="font-medium text-slate-500">(tap all that apply)</span></p>
+      <div class="flex flex-wrap gap-2 mb-4">
+        <template x-for="k in repTypes" :key="k">
+          <button type="button" @click="toggleRep(k)" :class="chip(rep.types.includes(k))" x-text="k"></button>
+        </template>
       </div>
-      <p class="text-xs text-slate-500">Not sure how long? Give your best guess. We confirm after assessing the job.</p>
+      <p class="text-xs text-slate-400 font-bold mb-2">Tell us about the job</p>
+      <textarea x-model="rep.notes" rows="4" maxlength="500" placeholder="For example: what needs doing, roughly how big the area or job is, and anything we should know about access." class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-teal-400 mb-2"></textarea>
+      <p class="text-xs text-slate-500">Photos help a lot. You can send them on WhatsApp after you request your assessment.</p>
     </div>
 
     <!-- steam -->
@@ -241,15 +242,29 @@
     <template x-if="!t">
       <div class="bg-slate-950 border border-slate-800 rounded-2xl p-5">
         <h2 class="text-white font-black text-lg mb-2">No guide price yet</h2>
-        <p class="text-sm text-slate-400 leading-relaxed">Go back and add a size or quantity for at least one service to see a guide price.</p>
+        <p class="text-sm text-slate-400 leading-relaxed">Go back and add a size or quantity for at least one service to see a guide price, or describe your grounds and repairs job.</p>
       </div>
     </template>
     <template x-if="t">
       <div>
         <div class="bg-amber-500/10 border border-amber-500/30 rounded-2xl p-4 mb-4 flex gap-3">
           <i class="fas fa-triangle-exclamation text-amber-400 mt-0.5"></i>
-          <p class="text-xs text-amber-100/90 leading-relaxed"><strong class="text-amber-300">A guide, not a quote.</strong> This range is only to help you plan. We confirm your exact price in writing after a free assessment.</p>
+          <p class="text-xs text-amber-100/90 leading-relaxed"><strong class="text-amber-300">A guide, not a quote.</strong> <span x-text="t.customOnly ? 'This work is priced per job. We confirm your exact price in writing after a free assessment.' : 'This range is only to help you plan. We confirm your exact price in writing after a free assessment.'"></span></p>
         </div>
+        <template x-if="t.customOnly">
+          <div class="bg-slate-950 border border-teal-500/40 rounded-2xl p-5 mb-4">
+            <p class="text-[11px] font-black uppercase tracking-wider text-slate-400 mb-1">Grounds &amp; minor repairs</p>
+            <p class="text-3xl font-black text-white mb-2">Custom quote</p>
+            <p class="text-sm text-slate-400 leading-relaxed mb-4">We price this kind of work per job. Send us your details and we will arrange a free assessment and give you a clear price in writing.</p>
+            <template x-for="c in t.custom" :key="c.d">
+              <div class="border-t border-slate-800 pt-4 text-sm text-slate-300">
+                <p class="font-bold text-white" x-text="c.n"></p>
+                <p class="text-xs text-slate-500 mt-1 whitespace-pre-line" x-text="c.d"></p>
+              </div>
+            </template>
+          </div>
+        </template>
+        <template x-if="!t.customOnly">
         <div class="bg-slate-950 border border-teal-500/40 rounded-2xl p-5 mb-4">
           <p class="text-[11px] font-black uppercase tracking-wider text-slate-400 mb-1">Guide price range, including VAT</p>
           <p class="text-3xl sm:text-4xl font-black text-white mb-1" x-text="head(t.gLo,t.gHi,t.single)"></p>
@@ -261,7 +276,14 @@
                 <span class="font-bold text-white whitespace-nowrap" x-text="rng(l.lo,l.hi)"></span>
               </div>
             </template>
+            <template x-for="c in t.custom" :key="c.d">
+              <div class="flex justify-between gap-4 text-slate-300">
+                <span><span x-text="c.n"></span><span class="block text-xs text-slate-500 whitespace-pre-line" x-text="c.d"></span></span>
+                <span class="font-bold text-teal-300 whitespace-nowrap">Custom quote</span>
+              </div>
+            </template>
             <p class="text-xs text-slate-500 pt-1">Line prices are shown before VAT and rounded.</p>
+            <p x-show="t.custom.length" class="text-xs text-slate-500">The total above does not include grounds &amp; repairs, which we quote after assessment.</p>
             <template x-if="t.minApplied">
               <p class="text-xs text-slate-500">A minimum job charge of <span x-text="fmt(MIN)"></span> (before VAT) applies to small jobs.</p>
             </template>
@@ -274,6 +296,7 @@
             <p class="mt-3 text-sm text-teal-300 font-bold" x-text="'Early customer saving: '+range(t.dLo,t.dHi)+' off before VAT'"></p>
           </template>
         </div>
+        </template>
         <div class="bg-slate-950 border border-slate-800 rounded-2xl p-5 mb-5">
           <h3 class="text-white font-black text-sm mb-3">Please note</h3>
           <ul class="space-y-2 text-xs text-slate-400 leading-relaxed">
@@ -283,6 +306,7 @@
             <li class="flex gap-2"><i class="fas fa-check text-teal-400 mt-0.5"></i><span>A small travel charge may apply for longer distances within County Cork. We confirm this in your quote.</span></li>
             <li x-show="hasUnsure()" class="flex gap-2"><i class="fas fa-check text-teal-400 mt-0.5"></i><span>Where you chose "Not sure", the range runs from our lighter-condition rate to our heavy-condition rate.</span></li>
             <li x-show="sel.steam" class="flex gap-2"><i class="fas fa-check text-teal-400 mt-0.5"></i><span>Steam cleaning is specialist work. Its guide range is wider and we firm it up after seeing the surface.</span></li>
+            <li x-show="sel.repairs" class="flex gap-2"><i class="fas fa-check text-teal-400 mt-0.5"></i><span>Grounds and repairs are priced per job, not per hour, so you know the cost before we start.</span></li>
           </ul>
         </div>
       </div>
@@ -295,10 +319,17 @@
     <button type="button" x-show="step<3" @click="next()" :disabled="!anySel()" class="flex-1 accent-gradient text-slate-950 font-black uppercase tracking-wider text-sm rounded-xl px-6 py-4 disabled:opacity-40" x-text="step===1 ? 'Next: Details' : 'See My Guide Price'"></button>
     <a x-show="step===3" href="book.html" class="flex-1 accent-gradient text-slate-950 text-center font-black uppercase tracking-wider text-sm rounded-xl px-6 py-4">Request My Free Assessment</a>
   </div>
-  <div x-show="step===3 && t" class="mt-3">
-    <button type="button" @click="copy()" class="w-full border border-slate-700 text-slate-200 hover:border-teal-400 font-black uppercase tracking-wider text-xs rounded-xl px-6 py-3">
-      <span x-text="copied ? 'Copied. Paste it into the booking form notes' : 'Copy my guide price for the booking form'"></span>
+  <div x-show="step===3 && t" class="mt-3 space-y-3">
+    <button type="button" @click="shareCard()" :disabled="busy" class="w-full border border-teal-400/60 bg-teal-500/10 text-teal-200 hover:bg-teal-500/20 font-black uppercase tracking-wider text-xs rounded-xl px-6 py-4 disabled:opacity-50">
+      <i class="fab fa-whatsapp mr-2"></i><span x-text="busy ? 'Preparing your image...' : 'Save & share my guide price'"></span>
     </button>
+    <div class="grid grid-cols-2 gap-3">
+      <button type="button" @click="saveCard()" :disabled="busy" class="border border-slate-700 text-slate-200 hover:border-teal-400 font-black uppercase tracking-wider text-[11px] rounded-xl px-3 py-3 disabled:opacity-50"><i class="fas fa-download mr-1.5"></i>Save image</button>
+      <a :href="waLink()" target="_blank" rel="noopener" class="border border-slate-700 text-slate-200 hover:border-teal-400 font-black uppercase tracking-wider text-[11px] rounded-xl px-3 py-3 text-center"><i class="fab fa-whatsapp mr-1.5"></i>WhatsApp us</a>
+    </div>
+    <a :href="mailLink()" class="block border border-slate-700 text-slate-200 hover:border-teal-400 font-black uppercase tracking-wider text-[11px] rounded-xl px-3 py-3 text-center"><i class="fas fa-envelope mr-1.5"></i>Email us this guide price</a>
+    <p x-show="msg" x-text="msg" class="text-xs text-teal-300 leading-relaxed text-center"></p>
+    <p class="text-[11px] text-slate-600 leading-relaxed text-center">Tip: choose WhatsApp or Mail in the share window to send the image to us, or "Save Image" to keep it on your phone.</p>
   </div>
   <p class="text-[11px] text-slate-600 mt-6 leading-relaxed">This calculator gives an indicative guide only. It is not a quote, an offer or a binding price. Actual prices depend on a free assessment of your property. VAT is shown at the rate we expect to apply. The rate on your written quote is final.</p>
 </section>
@@ -310,13 +341,13 @@ function wiz(){
   return {
     // Guide-price settings (all rates are EUR before VAT)
     VAT:0.135, MIN:90, CAP:150, TIER_AT:50, TIER_F:0.8,
-    step:1, offer:false, copied:false, num,
+    step:1, offer:false, busy:false, msg:'', num,
     sel:{wash:false,gutter:false,windows:false,repairs:false,steam:false},
     options:[
       {k:'wash',n:'Pressure & soft washing',i:'fa-droplet',d:'Driveways, patios, paths, block paving and tarmac.'},
       {k:'gutter',n:'Gutter cleaning',i:'fa-house',d:'High-reach gutter clearing from the ground.'},
       {k:'windows',n:'Window cleaning',i:'fa-table-cells-large',d:'External pure-water pole cleaning only.'},
-      {k:'repairs',n:'Grounds & minor repairs',i:'fa-screwdriver-wrench',d:'Handyman jobs, grass cutting and painting, by the hour.'},
+      {k:'repairs',n:'Grounds & minor repairs',i:'fa-screwdriver-wrench',d:'Handyman jobs, grass cutting and painting, quoted per job.'},
       {k:'steam',n:'Steam cleaning',i:'fa-cloud',d:'Gentle steam cleaning for delicate stone and masonry.'}
     ],
     surfTypes:[
@@ -325,11 +356,14 @@ function wiz(){
       {k:'stone',n:'Natural stone / patio',cond:false,light:[6,9],heavy:[6,9]},
       {k:'tarmac',n:'Tarmac',cond:true,lightN:'Soft wash / low pressure',heavyN:'Heavy clean + biocide',light:[3.5,5],heavy:[5,6.5]}
     ],
-    RATES:{bio:[2,3.5],gutterLight:[3.5,4.5],gutterHeavy:[4.5,6],gutterWash:[2,3],winExt:[8,10],winExtCom:[10,13],hour:[60,75],steam:[6,12]},
+    RATES:{bio:[2,3.5],gutterLight:[3.5,4.5],gutterHeavy:[4.5,6],gutterWash:[2,3],winExt:[8,10],winExtCom:[10,13],steam:[6,12]},
     surfaces:[{type:'concrete',cond:'unsure',area:'',L:'',W:'',bio:false}],
     gutter:{m:'',cond:'unsure',wash:false},
     win:{n:'',kind:'res'},
-    rep:{h:''},
+    rep:{types:[],notes:''},
+    repTypes:['Grass cutting','Hedge trimming','Painting','Fencing / gates','Small repairs','Something else'],
+    toggleRep(k){const i=this.rep.types.indexOf(k);if(i>-1)this.rep.types.splice(i,1);else this.rep.types.push(k);},
+    repDesc(){const a=this.rep.types.join(', ');const n=(this.rep.notes||'').trim();return (a&&n)?a+'\n'+n:(a||n||'Details to be confirmed');},
     steam:{a:''},
     chip(on){return 'px-3 py-2 rounded-lg border text-xs font-bold transition '+(on?'border-teal-400 bg-teal-500/10 text-teal-300':'border-slate-700 text-slate-300 hover:border-slate-500');},
     typeOf(s){return this.surfTypes.find(t=>t.k===s.type)||this.surfTypes[0];},
@@ -364,31 +398,141 @@ function wiz(){
         const r=this.win.kind==='com'?R.winExtCom:R.winExt;
         L.push({n:'Window cleaning (external)',d:n+' windows · '+(this.win.kind==='com'?'commercial / heavy build-up':'standard'),lo:n*r[0],hi:n*r[1]});
       }}
-      if(this.sel.repairs){const h=num(this.rep.h);if(h){L.push({n:'Grounds & minor repairs',d:h+' hours',lo:h*R.hour[0],hi:h*R.hour[1]});}}
       if(this.sel.steam){const a=num(this.steam.a);if(a){L.push({n:'Steam cleaning',d:a+' m² · to be confirmed on assessment',lo:a*R.steam[0],hi:a*R.steam[1]});}}
-      if(!L.length)return null;
+      const custom=this.sel.repairs?[{n:'Grounds & minor repairs',d:this.repDesc()}]:[];
+      if(!L.length&&!custom.length)return null;
+      if(!L.length)return {lines:[],custom:custom,customOnly:true,single:false,minApplied:false,eLo:0,eHi:0,dLo:0,dHi:0,gLo:0,gHi:0};
       const sLo=L.reduce((x,l)=>x+l.lo,0),sHi=L.reduce((x,l)=>x+l.hi,0);
       const eLo=Math.max(this.MIN,sLo),eHi=Math.max(this.MIN,sHi);
       const dLo=this.offer?Math.min(eLo*0.5,this.CAP):0,dHi=this.offer?Math.min(eHi*0.5,this.CAP):0;
       const nLo=eLo-dLo,nHi=eHi-dHi;
-      return {lines:L,single:nLo===nHi,minApplied:sLo<this.MIN,eLo:nLo,eHi:nHi,dLo:dLo,dHi:dHi,gLo:nLo*(1+this.VAT),gHi:nHi*(1+this.VAT)};
+      return {lines:L,custom:custom,customOnly:false,single:nLo===nHi,minApplied:sLo<this.MIN,eLo:nLo,eHi:nHi,dLo:dLo,dHi:dHi,gLo:nLo*(1+this.VAT),gHi:nHi*(1+this.VAT)};
     },
     fmt(n){return '€'+Number(n).toLocaleString('en-IE',{minimumFractionDigits:(n%1?2:0),maximumFractionDigits:2});},
     rng(a,b){const x=Math.round(a),y=Math.round(b);return x===y?this.fmt(x):this.fmt(x)+' – '+this.fmt(y);},
     range(a,b){const x=f5(a),y=c5(b);return x===y?this.fmt(x):this.fmt(x)+' – '+this.fmt(y);},
     // headline: a range, or "From" when the minimum charge makes both ends the same
     head(a,b,one){const x=f5(a),y=c5(b);return (one||x===y)?'From '+this.fmt(x):this.fmt(x)+' – '+this.fmt(y);},
-    copy(){
-      const t=this.t;if(!t)return;
-      let s='BD Premium Property Care – guide price (indicative only, not a quote)\n';
-      t.lines.forEach(l=>{s+=l.n+' ('+l.d+'): '+this.rng(l.lo,l.hi)+' + VAT\n';});
-      if(this.offer)s+='Early customer offer applied (before VAT)\n';
-      s+='Guide excl. VAT: '+this.head(t.eLo,t.eHi,t.single)+'\n';
-      s+='Guide incl. VAT ('+(this.VAT*100)+'%): '+this.head(t.gLo,t.gHi,t.single)+'\n';
-      s+='Please confirm my exact price after a free assessment.\n';
-      const done=()=>{this.copied=true;setTimeout(()=>this.copied=false,3000);};
-      const fallback=()=>{const ta=document.createElement('textarea');ta.value=s;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');done();}catch(e){}document.body.removeChild(ta);};
-      if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(s).then(done,fallback);}else{fallback();}
+    summary(){
+      const t=this.t;if(!t)return '';
+      let s='Hi, I used the BD Premium Property Care price guide.\n\n'+(t.customOnly?'My job details (please quote):':'My guide price (not a quote):')+'\n';
+      t.lines.forEach(l=>{s+='- '+l.n+' ('+l.d+'): '+this.rng(l.lo,l.hi)+' + VAT\n';});
+      t.custom.forEach(c=>{s+='- '+c.n+': custom quote needed. Details: '+c.d.replace(/\n/g,'; ')+'\n';});
+      if(!t.customOnly){
+        if(this.offer)s+='Early customer offer applied (before VAT)\n';
+        s+='\nGuide incl. VAT ('+(this.VAT*100)+'%): '+this.head(t.gLo,t.gHi,t.single)+'\n';
+        if(t.custom.length)s+='(Excludes grounds & repairs, which need a custom quote)\n';
+      }
+      if(this.sel.steam&&!num(this.steam.a))s+='Steam cleaning: please quote\n';
+      s+='\nPlease arrange a free assessment so you can confirm my exact price. Thank you.';
+      return s;
+    },
+    waLink(){return 'https://wa.me/353892066711?text='+encodeURIComponent(this.summary());},
+    mailLink(){return 'mailto:info@bdpropertycare.ie?subject='+encodeURIComponent('Guide price from your website - please arrange a free assessment')+'&body='+encodeURIComponent(this.summary());},
+    loadLogo(){return new Promise(r=>{const i=new Image();i.onload=()=>r(i);i.onerror=()=>r(null);i.src='bd-logo.png';});},
+    // draws the guide price as a neat, shareable image
+    async card(){
+      const t=this.t;if(!t)return null;
+      const logo=await this.loadLogo();
+      const W=1080,P=64,IW=W-2*P;
+      const F='system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif';
+      const cv=document.createElement('canvas');cv.width=W;cv.height=200;
+      const x=cv.getContext('2d');
+      const wrap=(txt,mw,f)=>{x.font=f;const out=[];let cur='';String(txt).split(' ').forEach(w=>{const tt=cur?cur+' '+w:w;if(x.measureText(tt).width>mw&&cur){out.push(cur);cur=w;}else cur=tt;});if(cur)out.push(cur);return out;};
+      const rr=(a,b,w,h,r)=>{x.beginPath();x.moveTo(a+r,b);x.arcTo(a+w,b,a+w,b+h,r);x.arcTo(a+w,b+h,a,b+h,r);x.arcTo(a,b+h,a,b,r);x.arcTo(a,b,a+w,b,r);x.closePath();};
+      const when=new Date().toLocaleDateString('en-IE',{day:'numeric',month:'long',year:'numeric'});
+      const paint=(H)=>{
+        const dry=H===null;let y=P;
+        const T=(txt,a,b,font,col,al)=>{if(dry)return;x.font=font;x.fillStyle=col;x.textAlign=al||'left';x.textBaseline='alphabetic';x.fillText(txt,a,b);};
+        if(!dry){
+          const g=x.createLinearGradient(0,0,0,H);g.addColorStop(0,'#0b1220');g.addColorStop(1,'#020617');
+          x.fillStyle=g;x.fillRect(0,0,W,H);
+          x.strokeStyle='rgba(45,212,191,.55)';x.lineWidth=3;rr(18,18,W-36,H-36,36);x.stroke();
+          x.fillStyle='#38bdf8';x.fillRect(P,0,IW,0);
+        }
+        // header
+        if(!dry){
+          if(logo){x.save();x.beginPath();x.arc(P+40,y+40,40,0,Math.PI*2);x.closePath();x.clip();x.drawImage(logo,P,y,80,80);x.restore();}
+          else{x.fillStyle='#0ea5e9';x.beginPath();x.arc(P+40,y+40,40,0,Math.PI*2);x.fill();}
+        }
+        T('BD PREMIUM PROPERTY CARE',P+104,y+36,'800 28px '+F,'#e2e8f0');
+        T('GUIDE PRICE  |  COUNTY CORK',P+104,y+72,'700 22px '+F,'#2dd4bf');
+        y+=80+56;
+        T(t.customOnly?'GROUNDS & MINOR REPAIRS':'GUIDE PRICE RANGE, INCLUDING VAT',P,y,'800 24px '+F,'#94a3b8');y+=26;
+        const hd=t.customOnly?'Custom quote':this.head(t.gLo,t.gHi,t.single);let fs=t.customOnly?88:104;
+        x.font='900 '+fs+'px '+F;while(x.measureText(hd).width>IW&&fs>48){fs-=4;x.font='900 '+fs+'px '+F;}
+        y+=fs;T(hd,P,y,'900 '+fs+'px '+F,'#ffffff');y+=24;
+        wrap(t.customOnly?'Priced per job after a free assessment':'Excluding VAT: '+this.head(t.eLo,t.eHi,t.single)+'  |  VAT at '+(this.VAT*100)+'%',IW,'500 25px '+F).forEach(l=>{y+=30;T(l,P,y,'500 25px '+F,'#94a3b8');});
+        y+=34;
+        if(!dry){x.fillStyle='rgba(148,163,184,.25)';x.fillRect(P,y,IW,2);}
+        y+=20;
+        // line items
+        t.lines.forEach(l=>{
+          const pr=this.rng(l.lo,l.hi);
+          y+=36;
+          const dl=wrap(l.d,IW-300,'500 24px '+F);
+          wrap(l.n,IW-300,'700 31px '+F).forEach((nl,i)=>{if(i)y+=38;T(nl,P,y,'700 31px '+F,'#f1f5f9');});
+          T(pr,W-P,y,'800 31px '+F,'#ffffff','right');
+          dl.forEach(d=>{y+=32;T(d,P,y,'500 24px '+F,'#64748b');});
+          y+=22;
+        });
+        t.custom.forEach(c=>{
+          y+=36;T(c.n,P,y,'700 31px '+F,'#f1f5f9');
+          T('Custom quote',W-P,y,'800 31px '+F,'#5eead4','right');
+          c.d.split('\n').forEach(ln=>wrap(ln,IW-40,'500 24px '+F).forEach(d=>{y+=32;T(d,P,y,'500 24px '+F,'#64748b');}));
+          y+=22;
+        });
+        if(!t.customOnly){T('Line prices are before VAT and rounded.',P,y+18,'500 22px '+F,'#64748b');y+=30;}
+        if(!t.customOnly&&t.custom.length){y+=30;T('Total excludes grounds & repairs, which we quote after assessment.',P,y,'500 22px '+F,'#64748b');}
+        if(t.minApplied){y+=30;T('A minimum job charge of '+this.fmt(this.MIN)+' (before VAT) applies to small jobs.',P,y,'500 22px '+F,'#64748b');}
+        if(this.offer&&!t.customOnly){y+=44;T('Early customer saving: '+this.range(t.dLo,t.dHi)+' off before VAT',P,y,'800 26px '+F,'#5eead4');}
+        y+=36;
+        if(!dry){x.fillStyle='rgba(148,163,184,.25)';x.fillRect(P,y,IW,2);}
+        y+=30;
+        // caution box
+        const cl=wrap('This is a guide, not a quote. Your exact price is confirmed in writing after a free, no-obligation assessment, and depends on the surface, its condition, access and anything found on the day.',IW-64,'500 25px '+F);
+        const bh=cl.length*34+84;
+        if(!dry){x.fillStyle='rgba(245,158,11,.10)';rr(P,y,IW,bh,24);x.fill();x.strokeStyle='rgba(245,158,11,.45)';x.lineWidth=2;rr(P,y,IW,bh,24);x.stroke();}
+        T('A GUIDE, NOT A QUOTE',P+32,y+44,'800 23px '+F,'#fbbf24');
+        cl.forEach((l,i)=>T(l,P+32,y+82+i*34,'500 25px '+F,'#fde68a'));
+        y+=bh+44;
+        // contact
+        T('BD Premium Property Care Limited',P,y,'800 28px '+F,'#f1f5f9');y+=42;
+        T('089 206 6711  |  info@bdpropertycare.ie',P,y,'600 26px '+F,'#cbd5e1');y+=40;
+        T('www.bdpropertycare.ie',P,y,'700 26px '+F,'#2dd4bf');y+=44;
+        T('Prepared on '+when+'. Fully insured. Free quotes.',P,y,'500 21px '+F,'#64748b');y+=P;
+        return y;
+      };
+      const H=paint(null);
+      cv.height=H;
+      paint(H);
+      return await new Promise(r=>cv.toBlob(r,'image/png'));
+    },
+    makeFile(blob){return new File([blob],'BD-Premium-Property-Care-guide-price.png',{type:'image/png'});},
+    download(blob){
+      const u=URL.createObjectURL(blob),a=document.createElement('a');
+      a.href=u;a.download='BD-Premium-Property-Care-guide-price.png';document.body.appendChild(a);a.click();document.body.removeChild(a);
+      setTimeout(()=>URL.revokeObjectURL(u),4000);
+      this.msg='Image saved to your phone. Open WhatsApp or your email and attach it, or tap "WhatsApp us" / "Email us" to send the details as text.';
+    },
+    async saveCard(){
+      if(this.busy)return;this.busy=true;this.msg='';
+      try{const b=await this.card();if(b)this.download(b);}catch(e){this.msg='Sorry, we could not create the image. Please take a screenshot instead.';}
+      this.busy=false;
+    },
+    async shareCard(){
+      if(this.busy)return;this.busy=true;this.msg='';
+      try{
+        const b=await this.card();if(!b){this.busy=false;return;}
+        const f=this.makeFile(b);
+        if(navigator.canShare&&navigator.canShare({files:[f]})){
+          await navigator.share({files:[f],title:'My guide price - BD Premium Property Care',text:this.summary()});
+          this.msg='Thank you. If you chose "Save Image" it is now in your photos.';
+        }else{this.download(b);}
+      }catch(e){
+        if(!(e&&e.name==='AbortError')){this.msg='Sharing is not available on this device. Use "Save image", "WhatsApp us" or "Email us" below.';}
+      }
+      this.busy=false;
     }
   };
 }
