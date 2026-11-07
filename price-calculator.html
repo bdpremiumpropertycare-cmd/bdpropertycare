@@ -127,54 +127,88 @@
 
   <!-- STEP 2 -->
   <div x-show="step===2" class="space-y-5">
-    <!-- washing -->
-    <div x-show="sel.wash" class="bg-slate-950 border border-slate-800 rounded-2xl p-5">
-      <h2 class="text-white font-black text-lg mb-1">Pressure &amp; soft washing</h2>
-      <p class="text-xs text-slate-500 mb-4">Add each surface. We match the method to the surface.</p>
+
+    <!-- pressure + soft washing -->
+    <template x-for="g in ['press','soft']" :key="g">
+    <div x-show="sel[g]" class="bg-slate-950 border border-slate-800 rounded-2xl p-5">
+      <h2 class="text-white font-black text-lg mb-1" x-text="g==='press' ? 'Pressure washing' : 'Soft washing'"></h2>
+      <p class="text-xs text-slate-500 mb-4" x-text="g==='press' ? 'Add each surface. Pick the surface, how dirty it is and its size.' : 'A gentle, low-pressure wash for walls and delicate surfaces. Add each surface.'"></p>
       <div x-show="TIER_F<1" class="bg-teal-500/10 border border-teal-400/40 rounded-xl p-3 mb-4 flex gap-3 items-start">
         <i class="fas fa-gift text-teal-300 mt-0.5"></i>
-        <p class="text-xs text-teal-100 leading-relaxed"><strong class="text-teal-300 uppercase tracking-wide">Large area offer.</strong> <span x-text="'Save '+Math.round((1-TIER_F)*100)+'% on the rate for every m² over '+TIER_AT+' m² on a surface. The bigger the area, the more you save.'"></span></p>
+        <p class="text-xs text-teal-100 leading-relaxed"><strong class="text-teal-300 uppercase tracking-wide">Large area offer.</strong> <span x-text="'Save '+Math.round((1-TIER_F)*100)+'% on the washing rate for every m² over '+TIER_AT+' m² on a surface.'"></span></p>
       </div>
-      <template x-for="(s,i) in surfaces" :key="i">
+      <template x-for="(s,i) in lists[g]" :key="s.id">
         <div class="border border-slate-800 rounded-xl p-4 mb-3 bg-slate-900/60">
           <div class="flex items-center justify-between mb-3">
             <span class="text-[11px] font-black uppercase tracking-wider text-slate-400" x-text="'Surface '+(i+1)"></span>
-            <button type="button" x-show="surfaces.length>1" @click="surfaces.splice(i,1)" class="text-xs text-slate-500 hover:text-red-400"><i class="fas fa-trash mr-1"></i>Remove</button>
+            <button type="button" x-show="lists[g].length>1" @click="lists[g].splice(i,1)" class="text-xs text-slate-500 hover:text-red-400"><i class="fas fa-trash mr-1"></i>Remove</button>
           </div>
           <p class="text-xs text-slate-400 font-bold mb-2">What is it?</p>
           <div class="flex flex-wrap gap-2 mb-3">
-            <template x-for="t in surfTypes" :key="t.k">
-              <button type="button" @click="s.type=t.k; s.cond='unsure'" :class="chip(s.type===t.k)" x-text="t.n"></button>
+            <template x-for="ty in types[g]" :key="ty.k">
+              <button type="button" @click="setType(s,ty.k)" :class="chip(s.type===ty.k)" x-text="ty.n"></button>
             </template>
           </div>
-          <div x-show="typeOf(s).cond" class="mb-3">
-            <p class="text-xs text-slate-400 font-bold mb-2">How dirty is it?</p>
-            <div class="flex flex-wrap gap-2">
-              <button type="button" @click="s.cond='light'" :class="chip(s.cond==='light')" x-text="typeOf(s).lightN"></button>
-              <button type="button" @click="s.cond='heavy'" :class="chip(s.cond==='heavy')" x-text="typeOf(s).heavyN"></button>
-              <button type="button" @click="s.cond='unsure'" :class="chip(s.cond==='unsure')">Not sure</button>
+          <!-- something else -->
+          <div x-show="typeOf(g,s).other" class="mb-3">
+            <p class="text-xs text-slate-400 font-bold mb-2">Describe the surface</p>
+            <input type="text" maxlength="120" x-model="s.desc" placeholder="For example: gravel drive edging, steps, retaining wall" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-teal-400">
+            <p class="text-xs text-slate-500 mt-2">We price this one individually after seeing it.</p>
+          </div>
+          <div x-show="!typeOf(g,s).other">
+            <div class="mb-3">
+              <p class="text-xs text-slate-400 font-bold mb-2">How dirty is it?</p>
+              <div class="flex flex-wrap gap-2">
+                <button type="button" @click="s.cond='light'" :class="chip(s.cond==='light')" x-text="typeOf(g,s).lN"></button>
+                <button type="button" @click="s.cond='heavy'" :class="chip(s.cond==='heavy')" x-text="typeOf(g,s).hN"></button>
+                <button type="button" @click="s.cond='unsure'" :class="chip(s.cond==='unsure')">Not sure</button>
+              </div>
+            </div>
+            <p class="text-xs text-slate-400 font-bold mb-2">How big is it?</p>
+            <div class="flex items-center gap-2 mb-2">
+              <input type="number" inputmode="decimal" min="0" placeholder="0" x-model.number="s.area" class="w-28 bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-right text-white text-sm focus:outline-none focus:border-teal-400">
+              <span class="text-xs text-slate-500">m²</span>
+            </div>
+            <div class="flex items-center gap-2 text-xs text-slate-500">
+              <span>Or measure:</span>
+              <input type="number" inputmode="decimal" min="0" placeholder="length" x-model.number="s.L" @input="calcArea(s)" class="w-20 bg-slate-950 border border-slate-700 rounded-lg px-2 py-1.5 text-right text-white text-xs focus:outline-none focus:border-teal-400">
+              <span>m ×</span>
+              <input type="number" inputmode="decimal" min="0" placeholder="width" x-model.number="s.W" @input="calcArea(s)" class="w-20 bg-slate-950 border border-slate-700 rounded-lg px-2 py-1.5 text-right text-white text-xs focus:outline-none focus:border-teal-400">
+              <span>m</span>
+            </div>
+            <p x-show="TIER_F<1 && num(s.area)>TIER_AT" class="text-xs text-teal-300 font-bold mt-2"><i class="fas fa-gift mr-1"></i>Large area offer applied to this surface</p>
+            <div x-show="bioOk(g,s)||resandOk(g,s)||sealOk(g,s)" class="mt-4 pt-3 border-t border-slate-800 space-y-3">
+              <p class="text-[11px] font-black uppercase tracking-wider text-slate-500">Optional extras</p>
+              <label x-show="bioOk(g,s)" class="flex items-start gap-3 cursor-pointer select-none">
+                <input type="checkbox" x-model="s.bio" class="mt-0.5 w-4 h-4 rounded border-slate-700 bg-slate-950 accent-teal-400">
+                <span class="text-xs text-slate-300 leading-snug">Algae / biocide treatment to slow regrowth</span>
+              </label>
+              <label x-show="resandOk(g,s)" class="flex items-start gap-3 cursor-pointer select-none">
+                <input type="checkbox" x-model="s.resand" class="mt-0.5 w-4 h-4 rounded border-slate-700 bg-slate-950 accent-teal-400">
+                <span class="text-xs text-slate-300 leading-snug">Re-sand the joints after washing</span>
+              </label>
+              <label x-show="sealOk(g,s)" class="flex items-start gap-3 cursor-pointer select-none">
+                <input type="checkbox" x-model="s.seal" class="mt-0.5 w-4 h-4 rounded border-slate-700 bg-slate-950 accent-teal-400">
+                <span class="text-xs text-slate-300 leading-snug">Apply a protective sealant</span>
+              </label>
             </div>
           </div>
-          <p class="text-xs text-slate-400 font-bold mb-2">How big is it?</p>
-          <div class="flex items-center gap-2 mb-2">
-            <input type="number" inputmode="decimal" min="0" placeholder="0" x-model.number="s.area" class="w-28 bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-right text-white text-sm focus:outline-none focus:border-teal-400">
-            <span class="text-xs text-slate-500">m²</span>
-          </div>
-          <div class="flex items-center gap-2 text-xs text-slate-500">
-            <span>Or measure:</span>
-            <input type="number" inputmode="decimal" min="0" placeholder="length" x-model.number="s.L" @input="calcArea(s)" class="w-20 bg-slate-950 border border-slate-700 rounded-lg px-2 py-1.5 text-right text-white text-xs focus:outline-none focus:border-teal-400">
-            <span>m ×</span>
-            <input type="number" inputmode="decimal" min="0" placeholder="width" x-model.number="s.W" @input="calcArea(s)" class="w-20 bg-slate-950 border border-slate-700 rounded-lg px-2 py-1.5 text-right text-white text-xs focus:outline-none focus:border-teal-400">
-            <span>m</span>
-          </div>
-          <p x-show="TIER_F<1 && num(s.area)>TIER_AT" class="text-xs text-teal-300 font-bold mt-2"><i class="fas fa-gift mr-1"></i>Large area offer applied to this surface</p>
-          <label x-show="bioOk(s)" class="flex items-start gap-3 mt-3 cursor-pointer select-none">
-            <input type="checkbox" x-model="s.bio" class="mt-0.5 w-4 h-4 rounded border-slate-700 bg-slate-950 accent-teal-400">
-            <span class="text-xs text-slate-300 leading-snug">Add algae / biocide treatment to slow regrowth</span>
-          </label>
         </div>
       </template>
-      <button type="button" @click="addSurface()" class="text-teal-400 hover:text-teal-300 text-xs font-black uppercase tracking-wider"><i class="fas fa-plus mr-1"></i>Add another surface</button>
+      <button type="button" @click="addSurface(g)" class="text-teal-400 hover:text-teal-300 text-xs font-black uppercase tracking-wider"><i class="fas fa-plus mr-1"></i>Add another surface</button>
+    </div>
+    </template>
+
+    <!-- steam -->
+    <div x-show="sel.steam" class="bg-slate-950 border border-slate-800 rounded-2xl p-5">
+      <h2 class="text-white font-black text-lg mb-1">Steam cleaning</h2>
+      <p class="text-xs text-slate-500 mb-4">Gentle, low-chemical cleaning for delicate stone, masonry and similar surfaces. It is slower, more specialist work, so the guide range is wider.</p>
+      <p class="text-xs text-slate-400 font-bold mb-2">Approximate area</p>
+      <div class="flex items-center gap-2 mb-2">
+        <input type="number" inputmode="decimal" min="0" placeholder="0" x-model.number="steam.a" class="w-28 bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-right text-white text-sm focus:outline-none focus:border-teal-400">
+        <span class="text-xs text-slate-500">m²</span>
+      </div>
+      <p class="text-xs text-slate-500">Not sure? A rough guess is fine. We confirm the method and price after seeing the surface.</p>
     </div>
 
     <!-- gutters -->
@@ -208,7 +242,7 @@
         <span class="text-xs text-slate-500">windows</span>
       </div>
       <p class="text-xs text-slate-400 font-bold mb-2">Type of property</p>
-      <div class="flex flex-wrap gap-2 mb-4">
+      <div class="flex flex-wrap gap-2">
         <button type="button" @click="win.kind='res'" :class="chip(win.kind==='res')">Home (standard)</button>
         <button type="button" @click="win.kind='com'" :class="chip(win.kind==='com')">Commercial / heavy build-up</button>
       </div>
@@ -228,18 +262,6 @@
       <textarea x-model="rep.notes" rows="4" maxlength="500" placeholder="For example: what needs doing, roughly how big the area or job is, and anything we should know about access." class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-teal-400 mb-2"></textarea>
       <p class="text-xs text-slate-500">Photos help a lot. You can send them on WhatsApp after you request your assessment.</p>
     </div>
-
-    <!-- steam -->
-    <div x-show="sel.steam" class="bg-slate-950 border border-slate-800 rounded-2xl p-5">
-      <h2 class="text-white font-black text-lg mb-1">Steam cleaning</h2>
-      <p class="text-xs text-slate-500 mb-4">Gentle, low-chemical cleaning for delicate stone, masonry and similar surfaces. It is slower, more specialist work, so the guide range is wider.</p>
-      <p class="text-xs text-slate-400 font-bold mb-2">Approximate area</p>
-      <div class="flex items-center gap-2 mb-2">
-        <input type="number" inputmode="decimal" min="0" placeholder="0" x-model.number="steam.a" class="w-28 bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-right text-white text-sm focus:outline-none focus:border-teal-400">
-        <span class="text-xs text-slate-500">m²</span>
-      </div>
-      <p class="text-xs text-slate-500">Not sure? A rough guess is fine. We confirm the method and price after seeing the surface.</p>
-    </div>
   </div>
 
   <!-- STEP 3 -->
@@ -258,10 +280,10 @@
         </div>
         <template x-if="t.customOnly">
           <div class="bg-slate-950 border border-teal-500/40 rounded-2xl p-5 mb-4">
-            <p class="text-[11px] font-black uppercase tracking-wider text-slate-400 mb-1">Grounds &amp; minor repairs</p>
-            <p class="text-3xl font-black text-white mb-2">Custom quote</p>
-            <p class="text-sm text-slate-400 leading-relaxed mb-4">We price this kind of work per job. Send us your details and we will arrange a free assessment and give you a clear price in writing.</p>
-            <template x-for="c in t.custom" :key="c.d">
+            <p class="text-[11px] font-black uppercase tracking-wider text-slate-400 mb-1">Custom quote needed</p>
+            <p class="text-3xl font-black text-white mb-2">Priced per job</p>
+            <p class="text-sm text-slate-400 leading-relaxed mb-4">Send us your details and we will arrange a free assessment and give you a clear price in writing.</p>
+            <template x-for="c in t.custom" :key="c.n+c.d">
               <div class="border-t border-slate-800 pt-4 text-sm text-slate-300">
                 <p class="font-bold text-white" x-text="c.n"></p>
                 <p class="text-xs text-slate-500 mt-1 whitespace-pre-line" x-text="c.d"></p>
@@ -273,7 +295,7 @@
         <div class="bg-slate-950 border border-teal-500/40 rounded-2xl p-5 mb-4">
           <p class="text-[11px] font-black uppercase tracking-wider text-slate-400 mb-1">Guide price range, including VAT</p>
           <p class="text-3xl sm:text-4xl font-black text-white mb-1" x-text="head(t.gLo,t.gHi,t.single)"></p>
-          <p class="text-xs text-slate-500 mb-4" x-text="'Excluding VAT: '+head(t.eLo,t.eHi,t.single)+' · VAT at '+(VAT*100)+'%'"></p>
+          <p class="text-xs text-slate-500 mb-4">Full breakdown below. All figures are ranges and are rounded.</p>
           <div class="border-t border-slate-800 pt-4 space-y-2 text-sm">
             <template x-for="l in t.lines" :key="l.n+l.d">
               <div class="flex justify-between gap-4 text-slate-300">
@@ -281,26 +303,27 @@
                 <span class="font-bold text-white whitespace-nowrap" x-text="rng(l.lo,l.hi)"></span>
               </div>
             </template>
-            <template x-for="c in t.custom" :key="c.d">
+            <template x-for="c in t.custom" :key="c.n+c.d">
               <div class="flex justify-between gap-4 text-slate-300">
                 <span><span x-text="c.n"></span><span class="block text-xs text-slate-500 whitespace-pre-line" x-text="c.d"></span></span>
                 <span class="font-bold text-teal-300 whitespace-nowrap">Custom quote</span>
               </div>
             </template>
-            <p x-show="t.tierHi>0" class="text-xs text-teal-300 font-bold pt-1"><i class="fas fa-gift mr-1"></i><span x-text="'Large area offer applied: you save about '+range(t.tierLo,t.tierHi)+' before VAT (already taken off above)'"></span></p>
-            <p class="text-xs text-slate-500 pt-1">Line prices are shown before VAT and rounded.</p>
-            <p x-show="t.custom.length" class="text-xs text-slate-500">The total above does not include grounds &amp; repairs, which we quote after assessment.</p>
-            <template x-if="t.minApplied">
-              <p class="text-xs text-slate-500">A minimum job charge of <span x-text="fmt(MIN)"></span> (before VAT) applies to small jobs.</p>
+          </div>
+          <div class="border-t border-slate-800 mt-4 pt-4 space-y-2 text-sm">
+            <template x-for="r in rows(t)" :key="r.l">
+              <div class="flex justify-between gap-4" :class="r.teal ? 'text-teal-300' : 'text-slate-300'">
+                <span :class="r.bold ? 'font-black text-white' : ''" x-text="r.l"></span>
+                <span class="font-bold whitespace-nowrap" :class="r.bold ? 'text-white' : ''" x-text="rv(r,t)"></span>
+              </div>
             </template>
+            <p x-show="t.custom.length" class="text-xs text-slate-500">The totals above do not include grounds &amp; repairs or any "something else" surface, which we quote after assessment.</p>
+            <p class="text-xs text-slate-500">Additional call-out charges may apply depending on how far your property is from Cork city. We confirm any charge in your quote.</p>
           </div>
           <label class="flex items-start gap-3 mt-5 pt-4 border-t border-slate-800 cursor-pointer select-none">
             <input type="checkbox" x-model="offer" class="mt-0.5 w-4 h-4 rounded border-slate-700 bg-slate-950 accent-teal-400">
             <span class="text-xs text-slate-300 leading-relaxed">Show my guide price with the early customer offer (50% off, up to €150, before VAT). <a href="promotion.html" class="text-teal-400 underline font-bold">Offer terms</a></span>
           </label>
-          <template x-if="offer">
-            <p class="mt-3 text-sm text-teal-300 font-bold" x-text="'Early customer saving: '+range(t.dLo,t.dHi)+' off before VAT'"></p>
-          </template>
         </div>
         </template>
         <div class="bg-slate-950 border border-slate-800 rounded-2xl p-5 mb-5">
@@ -309,9 +332,9 @@
             <li class="flex gap-2"><i class="fas fa-check text-teal-400 mt-0.5"></i><span>Your final price depends on the surface, its condition, access, water supply and anything we find on the day of assessment.</span></li>
             <li class="flex gap-2"><i class="fas fa-check text-teal-400 mt-0.5"></i><span>We assess the job for free, with no obligation. You get the price in writing and decide with no pressure.</span></li>
             <li class="flex gap-2"><i class="fas fa-check text-teal-400 mt-0.5"></i><span>We flag issues before we start, such as existing damage, drainage problems or access limits, and recommend a different method where one suits your surface better.</span></li>
-            <li class="flex gap-2"><i class="fas fa-check text-teal-400 mt-0.5"></i><span>A small travel charge may apply for longer distances within County Cork. We confirm this in your quote.</span></li>
+            <li class="flex gap-2"><i class="fas fa-check text-teal-400 mt-0.5"></i><span>A minimum job charge of <span x-text="fmt(MIN)"></span> (before VAT) applies to small jobs. Additional call-out charges may apply depending on distance.</span></li>
             <li x-show="hasUnsure()" class="flex gap-2"><i class="fas fa-check text-teal-400 mt-0.5"></i><span>Where you chose "Not sure", the range runs from our lighter-condition rate to our heavy-condition rate.</span></li>
-            <li x-show="t.tierHi>0" class="flex gap-2"><i class="fas fa-check text-teal-400 mt-0.5"></i><span x-text="'The large area offer applies to pressure and soft washing, to the part of any single surface over '+TIER_AT+' m². It is confirmed in your written quote.'"></span></li>
+            <li x-show="t.tierHi>0" class="flex gap-2"><i class="fas fa-check text-teal-400 mt-0.5"></i><span x-text="'The large area offer applies to the washing rate for the part of any single surface over '+TIER_AT+' m². It is confirmed in your written quote.'"></span></li>
             <li x-show="sel.steam" class="flex gap-2"><i class="fas fa-check text-teal-400 mt-0.5"></i><span>Steam cleaning is specialist work. Its guide range is wider and we firm it up after seeing the surface.</span></li>
             <li x-show="sel.repairs" class="flex gap-2"><i class="fas fa-check text-teal-400 mt-0.5"></i><span>Grounds and repairs are priced per job, not per hour, so you know the cost before we start.</span></li>
           </ul>
@@ -327,6 +350,11 @@
     <a x-show="step===3" href="book.html" class="flex-1 accent-gradient text-slate-950 text-center font-black uppercase tracking-wider text-sm rounded-xl px-6 py-4">Request My Free Assessment</a>
   </div>
   <div x-show="step===3 && t" class="mt-3 space-y-3">
+    <div class="bg-slate-950 border border-slate-800 rounded-2xl p-4">
+      <label for="eirIn" class="block text-xs text-slate-400 font-bold mb-2">Eircode <span class="font-medium text-slate-500">(optional)</span></label>
+      <input id="eirIn" type="text" x-model="eir" @input="eirFmt()" maxlength="8" autocapitalize="characters" autocomplete="off" placeholder="For example: T12 X345" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-white text-sm uppercase focus:outline-none focus:border-teal-400">
+      <p class="text-[11px] text-slate-500 mt-2 leading-relaxed">Shown on your saved image so we can find your property. It stays on your phone unless you choose to send it to us.</p>
+    </div>
     <button type="button" @click="shareCard()" :disabled="busy" class="w-full border border-teal-400/60 bg-teal-500/10 text-teal-200 hover:bg-teal-500/20 font-black uppercase tracking-wider text-xs rounded-xl px-6 py-4 disabled:opacity-50">
       <i class="fab fa-whatsapp mr-2"></i><span x-text="busy ? 'Preparing your image...' : 'Save & share my guide price'"></span>
     </button>
@@ -345,93 +373,125 @@
 function wiz(){
   const num=v=>{v=parseFloat(v);return isFinite(v)&&v>0?v:0;};
   const c5=n=>Math.ceil(n/5)*5, f5=n=>Math.floor(n/5)*5;
+  let uid=1;
+  const mk=()=>({id:uid++,type:'',cond:'unsure',area:'',L:'',W:'',bio:false,resand:false,seal:false,desc:''});
+  // surface type: k=key, n=name, b=base (low end) price per m2, lN/hN=condition labels
+  const T=(k,n,b,lN,hN)=>({k,n,b,lN,hN});
+  const O={k:'other',n:'Something else',other:true,lN:'',hN:''};
   return {
-    // Guide-price settings (all rates are EUR before VAT)
-    VAT:0.135, MIN:90, CAP:150, TIER_AT:50, TIER_F:0.8,
-    step:1, offer:false, busy:false, msg:'', num,
-    sel:{wash:false,gutter:false,windows:false,repairs:false,steam:false},
+    // ===== Guide-price settings. All prices are EUR before VAT. =====
+    // Every range runs from a base price to base x UP (30% above). Heavy condition starts where standard ends.
+    VAT:0.135, MIN:100, CAP:150, TIER_AT:50, TIER_F:0.8, UP:1.3,
+    EX:{bio:4,resand:3,seal:8},
+    GUT:{base:6,wash:5},
+    WIN:{res:10,com:14},
+    STEAM:10,
+    step:1, offer:false, busy:false, msg:'', eir:'', num,
+    sel:{press:false,soft:false,steam:false,gutter:false,windows:false,repairs:false},
     options:[
-      {k:'wash',n:'Pressure & soft washing',i:'fa-droplet',d:'Driveways, patios, paths, block paving and tarmac.'},
+      {k:'press',n:'Pressure washing',i:'fa-bolt-lightning',d:'Driveways, patios, paths, decking and tarmac.'},
+      {k:'soft',n:'Soft washing',i:'fa-droplet',d:'Gentle low-pressure cleaning for walls, render, cladding and delicate stone.'},
+      {k:'steam',n:'Steam cleaning',i:'fa-cloud',d:'Gentle steam cleaning for delicate stone and masonry.'},
       {k:'gutter',n:'Gutter cleaning',i:'fa-house',d:'High-reach gutter clearing from the ground.'},
       {k:'windows',n:'Window cleaning',i:'fa-table-cells-large',d:'External pure-water pole cleaning only.'},
-      {k:'repairs',n:'Grounds & minor repairs',i:'fa-screwdriver-wrench',d:'Handyman jobs, grass cutting and painting, quoted per job.'},
-      {k:'steam',n:'Steam cleaning',i:'fa-cloud',d:'Gentle steam cleaning for delicate stone and masonry.'}
+      {k:'repairs',n:'Grounds & minor repairs',i:'fa-screwdriver-wrench',d:'Handyman jobs, grass cutting and painting, quoted per job.'}
     ],
-    surfTypes:[
-      {k:'concrete',n:'Concrete',cond:true,lightN:'Light dirt / algae',heavyN:'Heavy build-up',light:[4,5.5],heavy:[5.5,7]},
-      {k:'block',n:'Block paving',cond:true,lightN:'Standard',heavyN:'Heavy moss',light:[5,6.5],heavy:[6.5,9]},
-      {k:'stone',n:'Natural stone / patio',cond:false,light:[6,9],heavy:[6,9]},
-      {k:'tarmac',n:'Tarmac',cond:true,lightN:'Soft wash / low pressure',heavyN:'Heavy clean + biocide',light:[3.5,5],heavy:[5,6.5]}
-    ],
-    RATES:{bio:[2,3.5],gutterLight:[3.5,4.5],gutterHeavy:[4.5,6],gutterWash:[2,3],winExt:[8,10],winExtCom:[10,13],steam:[6,12]},
-    surfaces:[{type:'concrete',cond:'unsure',area:'',L:'',W:'',bio:false}],
+    types:{
+      press:[T('concrete','Concrete',5,'Light dirt / algae','Heavy build-up'),T('block','Block paving',5.5,'Standard','Heavy moss'),T('stone','Natural stone / patio',6,'Standard','Heavy staining'),T('tarmac','Tarmac',6,'Light','Heavy'),T('decking','Decking',6,'Light','Heavy / green growth'),O],
+      soft:[T('render','Render / painted walls',6,'Light','Heavy algae / staining'),T('cladding','Cladding / uPVC',6,'Light','Heavy'),T('walls','Garden walls & fences',6,'Light','Heavy'),T('delicate','Delicate stone / patio',8,'Light','Heavy'),O]
+    },
+    lists:{press:[],soft:[]},
     gutter:{m:'',cond:'unsure',wash:false},
     win:{n:'',kind:'res'},
     rep:{types:[],notes:''},
     repTypes:['Grass cutting','Hedge trimming','Painting','Fencing / gates','Small repairs','Something else'],
+    steam:{a:''},
+    init(){this.lists.press.push(Object.assign(mk(),{type:'concrete'}));this.lists.soft.push(Object.assign(mk(),{type:'render'}));},
+    chip(on){return 'px-3 py-2 rounded-lg border text-xs font-bold transition '+(on?'border-teal-400 bg-teal-500/10 text-teal-300':'border-slate-700 text-slate-300 hover:border-slate-500');},
+    typeOf(g,s){return this.types[g].find(t=>t.k===s.type)||this.types[g][0];},
+    setType(s,k){s.type=k;s.cond='unsure';if(!(k==='block'))s.resand=false;if(!['block','concrete','stone','tarmac'].includes(k))s.seal=false;if(k==='other'){s.bio=false;s.resand=false;s.seal=false;}},
+    addSurface(g){this.lists[g].push(Object.assign(mk(),{type:this.types[g][0].k}));},
+    calcArea(s){if(num(s.L)>0&&num(s.W)>0)s.area=Math.round(s.L*s.W*10)/10;},
+    bioOk(g,s){return g==='press'&&s.type!=='other';},
+    resandOk(g,s){return g==='press'&&s.type==='block';},
+    sealOk(g,s){return g==='press'&&['block','concrete','stone','tarmac'].includes(s.type);},
     toggleRep(k){const i=this.rep.types.indexOf(k);if(i>-1)this.rep.types.splice(i,1);else this.rep.types.push(k);},
     repDesc(){const a=this.rep.types.join(', ');const n=(this.rep.notes||'').trim();return (a&&n)?a+'\n'+n:(a||n||'Details to be confirmed');},
-    steam:{a:''},
-    chip(on){return 'px-3 py-2 rounded-lg border text-xs font-bold transition '+(on?'border-teal-400 bg-teal-500/10 text-teal-300':'border-slate-700 text-slate-300 hover:border-slate-500');},
-    typeOf(s){return this.surfTypes.find(t=>t.k===s.type)||this.surfTypes[0];},
-    addSurface(){this.surfaces.push({type:'concrete',cond:'unsure',area:'',L:'',W:'',bio:false});},
-    calcArea(s){if(num(s.L)>0&&num(s.W)>0)s.area=Math.round(s.L*s.W*10)/10;},
-    bioOk(s){return !(s.type==='tarmac'&&s.cond==='heavy');},
     anySel(){return Object.values(this.sel).some(Boolean);},
     next(){if(!this.anySel())return;this.step++;window.scrollTo({top:0,behavior:'smooth'});},
-    hasUnsure(){return (this.sel.wash&&this.surfaces.some(s=>num(s.area)>0&&this.typeOf(s).cond&&s.cond==='unsure'))||(this.sel.gutter&&num(this.gutter.m)>0&&this.gutter.cond==='unsure');},
-    // pick [lo,hi] unit rate from a light/heavy pair of ranges
-    pick(l,h,cond){return cond==='heavy'?h:cond==='light'?l:[Math.min(l[0],h[0]),Math.max(l[1],h[1])];},
-    // larger areas get a lower rate beyond TIER_AT m2
-    eff(a){return a<=this.TIER_AT?a:this.TIER_AT+(a-this.TIER_AT)*this.TIER_F;},
+    eirFmt(){const x=String(this.eir||'').toUpperCase().replace(/[^A-Z0-9]/g,'').slice(0,7);this.eir=x.length>3?x.slice(0,3)+' '+x.slice(3):x;},
+    hasUnsure(){
+      const w=['press','soft'].some(g=>this.sel[g]&&this.lists[g].some(s=>!this.typeOf(g,s).other&&num(s.area)>0&&s.cond==='unsure'));
+      return w||(this.sel.gutter&&num(this.gutter.m)>0&&this.gutter.cond==='unsure');
+    },
+    // [low,high] unit price for light / heavy / unsure
+    pick(b,cond){const U=this.UP;const l=[b,b*U],h=[b*U,b*U*U];return cond==='heavy'?h:cond==='light'?l:[b,b*U*U];},
     get t(){
-      const L=[],R=this.RATES;let tLo=0,tHi=0;
-      if(this.sel.wash)this.surfaces.forEach(s=>{
-        const a=num(s.area);if(!a)return;const ty=this.typeOf(s);
-        const cond=ty.cond?s.cond:'light';
-        const r=this.pick(ty.light,ty.heavy,cond);
-        const ea=this.eff(a);const dz=a-ea;if(dz>0){tLo+=dz*r[0];tHi+=dz*r[1];}
-        const cl=ty.cond?(cond==='light'?ty.lightN:cond==='heavy'?ty.heavyN:'condition to be confirmed'):'';
-        L.push({n:ty.n,d:a+' m²'+(cl?' · '+cl:'')+(a>this.TIER_AT&&this.TIER_F<1?' · large area offer':''),lo:ea*r[0],hi:ea*r[1]});
-        if(s.bio&&this.bioOk(s)){if(dz>0){tLo+=dz*R.bio[0];tHi+=dz*R.bio[1];}L.push({n:'Algae / biocide treatment',d:a+' m² · '+ty.n,lo:ea*R.bio[0],hi:ea*R.bio[1]});}
+      const L=[],C=[],X=this.EX,U=this.UP;let tLo=0,tHi=0;
+      ['press','soft'].forEach(g=>{
+        if(!this.sel[g])return;
+        const gn=g==='press'?'Pressure washing':'Soft washing';
+        this.lists[g].forEach(s=>{
+          const ty=this.typeOf(g,s);
+          if(ty.other){const d=(s.desc||'').trim();if(d)C.push({n:gn+': something else',d:d});return;}
+          const a=num(s.area);if(!a)return;
+          const r=this.pick(ty.b,s.cond);
+          const cl=s.cond==='light'?ty.lN:s.cond==='heavy'?ty.hN:'condition to be confirmed';
+          L.push({n:ty.n+(g==='press'?' (pressure wash)':' (soft wash)'),d:a+' m² · '+cl,lo:a*r[0],hi:a*r[1]});
+          if(this.TIER_F<1&&a>this.TIER_AT){const dz=(a-this.TIER_AT)*(1-this.TIER_F);tLo+=dz*r[0];tHi+=dz*r[1];}
+          if(s.bio&&this.bioOk(g,s))L.push({n:'Algae / biocide treatment',d:a+' m² · '+ty.n,lo:a*X.bio,hi:a*X.bio*U});
+          if(s.resand&&this.resandOk(g,s))L.push({n:'Re-sanding joints',d:a+' m² · '+ty.n,lo:a*X.resand,hi:a*X.resand*U});
+          if(s.seal&&this.sealOk(g,s))L.push({n:'Protective sealant',d:a+' m² · '+ty.n,lo:a*X.seal,hi:a*X.seal*U});
+        });
       });
+      if(this.sel.steam){const a=num(this.steam.a);if(a)L.push({n:'Steam cleaning',d:a+' m² · to be confirmed on assessment',lo:a*this.STEAM,hi:a*this.STEAM*U});}
       if(this.sel.gutter){const m=num(this.gutter.m);if(m){
-        const r=this.pick(R.gutterLight,R.gutterHeavy,this.gutter.cond);
+        const r=this.pick(this.GUT.base,this.gutter.cond);
         const cl=this.gutter.cond==='light'?'standard clearance':this.gutter.cond==='heavy'?'heavy / blocked, with flush':'condition to be confirmed';
         L.push({n:'Gutter cleaning',d:m+' m · '+cl,lo:m*r[0],hi:m*r[1]});
-        if(this.gutter.wash){L.push({n:'Gutter, fascia & soffit wash',d:m+' m',lo:m*R.gutterWash[0],hi:m*R.gutterWash[1]});}
+        if(this.gutter.wash)L.push({n:'Gutter, fascia & soffit wash',d:m+' m',lo:m*this.GUT.wash,hi:m*this.GUT.wash*U});
       }}
       if(this.sel.windows){const n=num(this.win.n);if(n){
-        const r=this.win.kind==='com'?R.winExtCom:R.winExt;
-        L.push({n:'Window cleaning (external)',d:n+' windows · '+(this.win.kind==='com'?'commercial / heavy build-up':'standard'),lo:n*r[0],hi:n*r[1]});
+        const b=this.win.kind==='com'?this.WIN.com:this.WIN.res;
+        L.push({n:'Window cleaning (external)',d:n+' windows · '+(this.win.kind==='com'?'commercial / heavy build-up':'standard'),lo:n*b,hi:n*b*U});
       }}
-      if(this.sel.steam){const a=num(this.steam.a);if(a){L.push({n:'Steam cleaning',d:a+' m² · to be confirmed on assessment',lo:a*R.steam[0],hi:a*R.steam[1]});}}
-      const custom=this.sel.repairs?[{n:'Grounds & minor repairs',d:this.repDesc()}]:[];
-      if(!L.length&&!custom.length)return null;
-      if(!L.length)return {lines:[],custom:custom,customOnly:true,single:false,minApplied:false,eLo:0,eHi:0,dLo:0,dHi:0,gLo:0,gHi:0};
+      if(this.sel.repairs)C.push({n:'Grounds & minor repairs',d:this.repDesc()});
+      if(!L.length&&!C.length)return null;
+      if(!L.length)return {lines:[],custom:C,customOnly:true,single:false,tierLo:0,tierHi:0,gLo:0,gHi:0};
       const sLo=L.reduce((x,l)=>x+l.lo,0),sHi=L.reduce((x,l)=>x+l.hi,0);
-      const eLo=Math.max(this.MIN,sLo),eHi=Math.max(this.MIN,sHi);
-      const dLo=this.offer?Math.min(eLo*0.5,this.CAP):0,dHi=this.offer?Math.min(eHi*0.5,this.CAP):0;
-      const nLo=eLo-dLo,nHi=eHi-dHi;
-      return {lines:L,custom:custom,customOnly:false,tierLo:tLo,tierHi:tHi,single:nLo===nHi,minApplied:sLo<this.MIN,eLo:nLo,eHi:nHi,dLo:dLo,dHi:dHi,gLo:nLo*(1+this.VAT),gHi:nHi*(1+this.VAT)};
+      const netLo=Math.max(this.MIN,sLo-tLo),netHi=Math.max(this.MIN,sHi-tHi);
+      const adjLo=Math.max(0,this.MIN-(sLo-tLo)),adjHi=Math.max(0,this.MIN-(sHi-tHi));
+      const offLo=this.offer?Math.min(netLo*0.5,this.CAP):0,offHi=this.offer?Math.min(netHi*0.5,this.CAP):0;
+      const totLo=netLo-offLo,totHi=netHi-offHi;
+      return {lines:L,custom:C,customOnly:false,single:totLo===totHi,sLo,sHi,tierLo:tLo,tierHi:tHi,adjLo,adjHi,offLo,offHi,totLo,totHi,vatLo:totLo*this.VAT,vatHi:totHi*this.VAT,gLo:totLo*(1+this.VAT),gHi:totHi*(1+this.VAT)};
     },
+    rows(t){
+      const r=[{l:'Services subtotal',lo:t.sLo,hi:t.sHi}];
+      if(t.tierHi>0)r.push({l:'Large area offer',lo:t.tierLo,hi:t.tierHi,neg:true,teal:true});
+      if(t.adjHi>0||t.adjLo>0)r.push({l:'Minimum job charge applies',txt:'Brought up to '+this.fmt(this.MIN)});
+      if(this.offer&&t.offHi>0)r.push({l:'Early customer offer',lo:t.offLo,hi:t.offHi,neg:true,teal:true});
+      r.push({l:'Total before VAT',lo:t.totLo,hi:t.totHi,bold:true,h:true});
+      r.push({l:'VAT at '+(this.VAT*100)+'%',lo:t.vatLo,hi:t.vatHi});
+      r.push({l:'Total including VAT',lo:t.gLo,hi:t.gHi,bold:true,h:true});
+      return r;
+    },
+    rv(r,t){if(r.txt)return r.txt;const v=r.h?this.head(r.lo,r.hi,t.single):this.rng(r.lo,r.hi);return (r.neg?'− ':'')+v;},
     fmt(n){return '€'+Number(n).toLocaleString('en-IE',{minimumFractionDigits:(n%1?2:0),maximumFractionDigits:2});},
     rng(a,b){const x=Math.round(a),y=Math.round(b);return x===y?this.fmt(x):this.fmt(x)+' – '+this.fmt(y);},
     range(a,b){const x=f5(a),y=c5(b);return x===y?this.fmt(x):this.fmt(x)+' – '+this.fmt(y);},
-    // headline: a range, or "From" when the minimum charge makes both ends the same
-    head(a,b,one){const x=f5(a),y=c5(b);return (one||x===y)?'From '+this.fmt(x):this.fmt(x)+' – '+this.fmt(y);},
+    head(a,b,one){if(one)return 'From '+this.fmt(Math.round(a));const x=f5(a),y=c5(b);return x===y?'From '+this.fmt(x):this.fmt(x)+' – '+this.fmt(y);},
     summary(){
       const t=this.t;if(!t)return '';
       let s='Hi, I used the BD Premium Property Care price guide.\n\n'+(t.customOnly?'My job details (please quote):':'My guide price (not a quote):')+'\n';
       t.lines.forEach(l=>{s+='- '+l.n+' ('+l.d+'): '+this.rng(l.lo,l.hi)+' + VAT\n';});
       t.custom.forEach(c=>{s+='- '+c.n+': custom quote needed. Details: '+c.d.replace(/\n/g,'; ')+'\n';});
       if(!t.customOnly){
-        if(t.tierHi>0)s+='Large area offer applied (saving about '+this.range(t.tierLo,t.tierHi)+' before VAT)\n';
-        if(this.offer)s+='Early customer offer applied (before VAT)\n';
+        this.rows(t).forEach(r=>{if(r.l!=='Total including VAT')s+=r.l+': '+this.rv(r,t)+'\n';});
         s+='\nGuide incl. VAT ('+(this.VAT*100)+'%): '+this.head(t.gLo,t.gHi,t.single)+'\n';
-        if(t.custom.length)s+='(Excludes grounds & repairs, which need a custom quote)\n';
+        if(t.custom.length)s+='(Excludes items needing a custom quote)\n';
+        s+='(Additional call-out charges may apply depending on distance)\n';
       }
-      if(this.sel.steam&&!num(this.steam.a))s+='Steam cleaning: please quote\n';
+      if(this.eir)s+='\nEircode: '+this.eir+'\n';
       s+='\nPlease arrange a free assessment so you can confirm my exact price. Thank you.';
       return s;
     },
@@ -449,67 +509,62 @@ function wiz(){
       const wrap=(txt,mw,f)=>{x.font=f;const out=[];let cur='';String(txt).split(' ').forEach(w=>{const tt=cur?cur+' '+w:w;if(x.measureText(tt).width>mw&&cur){out.push(cur);cur=w;}else cur=tt;});if(cur)out.push(cur);return out;};
       const rr=(a,b,w,h,r)=>{x.beginPath();x.moveTo(a+r,b);x.arcTo(a+w,b,a+w,b+h,r);x.arcTo(a+w,b+h,a,b+h,r);x.arcTo(a,b+h,a,b,r);x.arcTo(a,b,a+w,b,r);x.closePath();};
       const when=new Date().toLocaleDateString('en-IE',{day:'numeric',month:'long',year:'numeric'});
+      const rows=t.customOnly?[]:this.rows(t).slice(0,-1);
       const paint=(H)=>{
         const dry=H===null;let y=P;
-        const T=(txt,a,b,font,col,al)=>{if(dry)return;x.font=font;x.fillStyle=col;x.textAlign=al||'left';x.textBaseline='alphabetic';x.fillText(txt,a,b);};
+        const D=(txt,a,b,font,col,al)=>{if(dry)return;x.font=font;x.fillStyle=col;x.textAlign=al||'left';x.textBaseline='alphabetic';x.fillText(txt,a,b);};
+        const line=()=>{if(!dry){x.fillStyle='rgba(148,163,184,.25)';x.fillRect(P,y,IW,2);}};
         if(!dry){
           const g=x.createLinearGradient(0,0,0,H);g.addColorStop(0,'#0b1220');g.addColorStop(1,'#020617');
           x.fillStyle=g;x.fillRect(0,0,W,H);
           x.strokeStyle='rgba(45,212,191,.55)';x.lineWidth=3;rr(18,18,W-36,H-36,36);x.stroke();
-          x.fillStyle='#38bdf8';x.fillRect(P,0,IW,0);
-        }
-        // header
-        if(!dry){
           if(logo){x.save();x.beginPath();x.arc(P+40,y+40,40,0,Math.PI*2);x.closePath();x.clip();x.drawImage(logo,P,y,80,80);x.restore();}
           else{x.fillStyle='#0ea5e9';x.beginPath();x.arc(P+40,y+40,40,0,Math.PI*2);x.fill();}
         }
-        T('BD PREMIUM PROPERTY CARE',P+104,y+36,'800 28px '+F,'#e2e8f0');
-        T('GUIDE PRICE  |  COUNTY CORK',P+104,y+72,'700 22px '+F,'#2dd4bf');
+        D('BD PREMIUM PROPERTY CARE',P+104,y+36,'800 28px '+F,'#e2e8f0');
+        D('GUIDE PRICE  |  COUNTY CORK',P+104,y+72,'700 22px '+F,'#2dd4bf');
         y+=80+56;
-        T(t.customOnly?'GROUNDS & MINOR REPAIRS':'GUIDE PRICE RANGE, INCLUDING VAT',P,y,'800 24px '+F,'#94a3b8');y+=26;
-        const hd=t.customOnly?'Custom quote':this.head(t.gLo,t.gHi,t.single);let fs=t.customOnly?88:104;
+        D(t.customOnly?'CUSTOM QUOTE NEEDED':'GUIDE PRICE RANGE, INCLUDING VAT',P,y,'800 24px '+F,'#94a3b8');y+=26;
+        const hd=t.customOnly?'Priced per job':this.head(t.gLo,t.gHi,t.single);let fs=t.customOnly?84:104;
         x.font='900 '+fs+'px '+F;while(x.measureText(hd).width>IW&&fs>48){fs-=4;x.font='900 '+fs+'px '+F;}
-        y+=fs;T(hd,P,y,'900 '+fs+'px '+F,'#ffffff');y+=24;
-        wrap(t.customOnly?'Priced per job after a free assessment':'Excluding VAT: '+this.head(t.eLo,t.eHi,t.single)+'  |  VAT at '+(this.VAT*100)+'%',IW,'500 25px '+F).forEach(l=>{y+=30;T(l,P,y,'500 25px '+F,'#94a3b8');});
-        y+=34;
-        if(!dry){x.fillStyle='rgba(148,163,184,.25)';x.fillRect(P,y,IW,2);}
-        y+=20;
-        // line items
+        y+=fs;D(hd,P,y,'900 '+fs+'px '+F,'#ffffff');y+=24;
+        if(t.customOnly){y+=30;D('Free assessment, then a clear written price',P,y,'500 25px '+F,'#94a3b8');}
+        else{y+=30;D('All figures are ranges, before VAT unless stated.',P,y,'500 25px '+F,'#94a3b8');}
+        if(this.eir){y+=44;D('Property Eircode:  '+this.eir,P,y,'800 28px '+F,'#5eead4');}
+        y+=34;line();y+=20;
         t.lines.forEach(l=>{
-          const pr=this.rng(l.lo,l.hi);
           y+=36;
-          const dl=wrap(l.d,IW-300,'500 24px '+F);
-          wrap(l.n,IW-300,'700 31px '+F).forEach((nl,i)=>{if(i)y+=38;T(nl,P,y,'700 31px '+F,'#f1f5f9');});
-          T(pr,W-P,y,'800 31px '+F,'#ffffff','right');
-          dl.forEach(d=>{y+=32;T(d,P,y,'500 24px '+F,'#64748b');});
+          wrap(l.n,IW-300,'700 31px '+F).forEach((nl,i)=>{if(i)y+=38;D(nl,P,y,'700 31px '+F,'#f1f5f9');});
+          D(this.rng(l.lo,l.hi),W-P,y,'800 31px '+F,'#ffffff','right');
+          wrap(l.d,IW-300,'500 24px '+F).forEach(d=>{y+=32;D(d,P,y,'500 24px '+F,'#64748b');});
           y+=22;
         });
         t.custom.forEach(c=>{
-          y+=36;T(c.n,P,y,'700 31px '+F,'#f1f5f9');
-          T('Custom quote',W-P,y,'800 31px '+F,'#5eead4','right');
-          c.d.split('\n').forEach(ln=>wrap(ln,IW-40,'500 24px '+F).forEach(d=>{y+=32;T(d,P,y,'500 24px '+F,'#64748b');}));
+          y+=36;D(c.n,P,y,'700 31px '+F,'#f1f5f9');
+          D('Custom quote',W-P,y,'800 31px '+F,'#5eead4','right');
+          c.d.split('\n').forEach(ln=>wrap(ln,IW-40,'500 24px '+F).forEach(d=>{y+=32;D(d,P,y,'500 24px '+F,'#64748b');}));
           y+=22;
         });
-        if(!t.customOnly){T('Line prices are before VAT and rounded.',P,y+18,'500 22px '+F,'#64748b');y+=30;}
-        if(!t.customOnly&&t.custom.length){y+=30;T('Total excludes grounds & repairs, which we quote after assessment.',P,y,'500 22px '+F,'#64748b');}
-        if(t.minApplied){y+=30;T('A minimum job charge of '+this.fmt(this.MIN)+' (before VAT) applies to small jobs.',P,y,'500 22px '+F,'#64748b');}
-        if(!t.customOnly&&t.tierHi>0){y+=44;T('Large area offer applied: you save about '+this.range(t.tierLo,t.tierHi)+' before VAT',P,y,'800 26px '+F,'#5eead4');}
-        if(this.offer&&!t.customOnly){y+=44;T('Early customer saving: '+this.range(t.dLo,t.dHi)+' off before VAT',P,y,'800 26px '+F,'#5eead4');}
-        y+=36;
-        if(!dry){x.fillStyle='rgba(148,163,184,.25)';x.fillRect(P,y,IW,2);}
-        y+=30;
-        // caution box
-        const cl=wrap('This is a guide, not a quote. Your exact price is confirmed in writing after a free, no-obligation assessment, and depends on the surface, its condition, access and anything found on the day.',IW-64,'500 25px '+F);
+        if(rows.length){
+          y+=6;line();y+=14;
+          rows.forEach(r=>{
+            y+=44;
+            D(r.l,P,y,(r.bold?'800 ':'600 ')+'28px '+F,r.teal?'#5eead4':(r.bold?'#ffffff':'#cbd5e1'));
+            D(this.rv(r,t),W-P,y,'800 28px '+F,r.teal?'#5eead4':'#ffffff','right');
+          });
+          y+=18;
+        }
+        y+=14;line();y+=30;
+        const cl=wrap('This is a guide, not a quote. Your exact price is confirmed in writing after a free, no-obligation assessment, and depends on the surface, its condition, access and anything found on the day. Additional call-out charges may apply depending on distance.',IW-64,'500 25px '+F);
         const bh=cl.length*34+84;
         if(!dry){x.fillStyle='rgba(245,158,11,.10)';rr(P,y,IW,bh,24);x.fill();x.strokeStyle='rgba(245,158,11,.45)';x.lineWidth=2;rr(P,y,IW,bh,24);x.stroke();}
-        T('A GUIDE, NOT A QUOTE',P+32,y+44,'800 23px '+F,'#fbbf24');
-        cl.forEach((l,i)=>T(l,P+32,y+82+i*34,'500 25px '+F,'#fde68a'));
+        D('A GUIDE, NOT A QUOTE',P+32,y+44,'800 23px '+F,'#fbbf24');
+        cl.forEach((l,i)=>D(l,P+32,y+82+i*34,'500 25px '+F,'#fde68a'));
         y+=bh+44;
-        // contact
-        T('BD Premium Property Care Limited',P,y,'800 28px '+F,'#f1f5f9');y+=42;
-        T('089 206 6711  |  info@bdpropertycare.ie',P,y,'600 26px '+F,'#cbd5e1');y+=40;
-        T('www.bdpropertycare.ie',P,y,'700 26px '+F,'#2dd4bf');y+=44;
-        T('Prepared on '+when+'. Fully insured. Free quotes.',P,y,'500 21px '+F,'#64748b');y+=P;
+        D('BD Premium Property Care Limited',P,y,'800 28px '+F,'#f1f5f9');y+=42;
+        D('089 206 6711  |  info@bdpropertycare.ie',P,y,'600 26px '+F,'#cbd5e1');y+=40;
+        D('www.bdpropertycare.ie',P,y,'700 26px '+F,'#2dd4bf');y+=44;
+        D('Prepared on '+when+'. Fully insured. Free quotes.',P,y,'500 21px '+F,'#64748b');y+=P;
         return y;
       };
       const H=paint(null);
