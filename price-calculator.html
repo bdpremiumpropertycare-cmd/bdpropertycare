@@ -293,9 +293,9 @@
         </template>
         <template x-if="!t.customOnly">
         <div class="bg-slate-950 border border-teal-500/40 rounded-2xl p-5 mb-4">
-          <p class="text-[11px] font-black uppercase tracking-wider text-slate-400 mb-1">Guide price range, including VAT</p>
+          <p class="text-[11px] font-black uppercase tracking-wider text-slate-400 mb-1" x-text="offer ? 'Guide price after offer, including VAT' : 'Guide price range, including VAT'"></p>
           <p class="text-3xl sm:text-4xl font-black text-white mb-1" x-text="head(t.gLo,t.gHi,t.single)"></p>
-          <p class="text-xs text-slate-500 mb-4">Full breakdown below. All figures are ranges and are rounded.</p>
+          <p class="text-xs text-slate-500 mb-4">Full breakdown below. Every figure is a range, rounded to the nearest euro.</p>
           <div class="border-t border-slate-800 pt-4 space-y-2 text-sm">
             <template x-for="l in t.lines" :key="l.n+l.d">
               <div class="flex justify-between gap-4 text-slate-300">
@@ -318,11 +318,12 @@
               </div>
             </template>
             <p x-show="t.custom.length" class="text-xs text-slate-500">The totals above do not include grounds &amp; repairs or any "something else" surface, which we quote after assessment.</p>
+            <p x-show="offer" class="text-xs text-slate-500">The early customer offer is 50% off your total including VAT, capped at €150.</p>
             <p class="text-xs text-slate-500">Additional call-out charges may apply depending on how far your property is from Cork city. We confirm any charge in your quote.</p>
           </div>
           <label class="flex items-start gap-3 mt-5 pt-4 border-t border-slate-800 cursor-pointer select-none">
             <input type="checkbox" x-model="offer" class="mt-0.5 w-4 h-4 rounded border-slate-700 bg-slate-950 accent-teal-400">
-            <span class="text-xs text-slate-300 leading-relaxed">Show my guide price with the early customer offer (50% off, up to €150, before VAT). <a href="promotion.html" class="text-teal-400 underline font-bold">Offer terms</a></span>
+            <span class="text-xs text-slate-300 leading-relaxed">Show my guide price with the early customer offer (50% off, up to a maximum of €150 off your total including VAT). <a href="promotion.html" class="text-teal-400 underline font-bold">Offer terms</a></span>
           </label>
         </div>
         </template>
@@ -458,36 +459,45 @@ function wiz(){
       if(this.sel.repairs)C.push({n:'Grounds & minor repairs',d:this.repDesc()});
       if(!L.length&&!C.length)return null;
       if(!L.length)return {lines:[],custom:C,customOnly:true,single:false,tierLo:0,tierHi:0,gLo:0,gHi:0};
+      L.forEach(l=>{l.lo=Math.round(l.lo);l.hi=Math.round(l.hi);});
       const sLo=L.reduce((x,l)=>x+l.lo,0),sHi=L.reduce((x,l)=>x+l.hi,0);
+      tLo=Math.round(tLo);tHi=Math.round(tHi);
       const netLo=Math.max(this.MIN,sLo-tLo),netHi=Math.max(this.MIN,sHi-tHi);
       const adjLo=Math.max(0,this.MIN-(sLo-tLo)),adjHi=Math.max(0,this.MIN-(sHi-tHi));
-      const offLo=this.offer?Math.min(netLo*0.5,this.CAP):0,offHi=this.offer?Math.min(netHi*0.5,this.CAP):0;
-      const totLo=netLo-offLo,totHi=netHi-offHi;
-      return {lines:L,custom:C,customOnly:false,single:totLo===totHi,sLo,sHi,tierLo:tLo,tierHi:tHi,adjLo,adjHi,offLo,offHi,totLo,totHi,vatLo:totLo*this.VAT,vatHi:totHi*this.VAT,gLo:totLo*(1+this.VAT),gHi:totHi*(1+this.VAT)};
+      const vatLo=Math.round(netLo*this.VAT),vatHi=Math.round(netHi*this.VAT);
+      const grossLo=netLo+vatLo,grossHi=netHi+vatHi;
+      // early customer offer: 50% off the total INCLUDING VAT, capped at CAP (also including VAT)
+      const offLo=this.offer?Math.min(Math.floor(grossLo*0.5),this.CAP):0,offHi=this.offer?Math.min(Math.floor(grossHi*0.5),this.CAP):0;
+      return {lines:L,custom:C,customOnly:false,single:grossLo-offLo===grossHi-offHi,sLo,sHi,tierLo:tLo,tierHi:tHi,adjLo,adjHi,netLo,netHi,vatLo,vatHi,grossLo,grossHi,offLo,offHi,gLo:grossLo-offLo,gHi:grossHi-offHi};
     },
     rows(t){
       const r=[{l:'Services subtotal',lo:t.sLo,hi:t.sHi}];
       if(t.tierHi>0)r.push({l:'Large area offer',lo:t.tierLo,hi:t.tierHi,neg:true,teal:true});
       if(t.adjHi>0||t.adjLo>0)r.push({l:'Minimum job charge applies',txt:'Brought up to '+this.fmt(this.MIN)});
-      if(this.offer&&t.offHi>0)r.push({l:'Early customer offer',lo:t.offLo,hi:t.offHi,neg:true,teal:true});
-      r.push({l:'Total before VAT',lo:t.totLo,hi:t.totHi,bold:true,h:true});
+      r.push({l:'Total before VAT',lo:t.netLo,hi:t.netHi,bold:true,h:true,one:t.netLo===t.netHi});
       r.push({l:'VAT at '+(this.VAT*100)+'%',lo:t.vatLo,hi:t.vatHi});
-      r.push({l:'Total including VAT',lo:t.gLo,hi:t.gHi,bold:true,h:true});
+      if(this.offer&&t.offHi>0){
+        r.push({l:'Total including VAT',lo:t.grossLo,hi:t.grossHi,bold:true,h:true,one:t.netLo===t.netHi});
+        r.push({l:'Early customer offer (VAT included)',lo:t.offLo,hi:t.offHi,neg:true,teal:true});
+        r.push({l:'Final price including VAT',lo:t.gLo,hi:t.gHi,bold:true,h:true,big:true,one:t.single});
+      }else{
+        r.push({l:'Total including VAT',lo:t.gLo,hi:t.gHi,bold:true,h:true,big:true,one:t.single});
+      }
       return r;
     },
-    rv(r,t){if(r.txt)return r.txt;const v=r.h?this.head(r.lo,r.hi,t.single):this.rng(r.lo,r.hi);return (r.neg?'− ':'')+v;},
+    rv(r,t){if(r.txt)return r.txt;if(r.neg){const x=Math.round(r.lo),y=Math.round(r.hi);return x===y?'−'+this.fmt(x):'−'+this.fmt(x)+' to −'+this.fmt(y);}return r.h?this.head(r.lo,r.hi,r.one):this.rng(r.lo,r.hi);},
     fmt(n){return '€'+Number(n).toLocaleString('en-IE',{minimumFractionDigits:(n%1?2:0),maximumFractionDigits:2});},
     rng(a,b){const x=Math.round(a),y=Math.round(b);return x===y?this.fmt(x):this.fmt(x)+' – '+this.fmt(y);},
     range(a,b){const x=f5(a),y=c5(b);return x===y?this.fmt(x):this.fmt(x)+' – '+this.fmt(y);},
-    head(a,b,one){if(one)return 'From '+this.fmt(Math.round(a));const x=f5(a),y=c5(b);return x===y?'From '+this.fmt(x):this.fmt(x)+' – '+this.fmt(y);},
+    head(a,b,one){const x=Math.round(a),y=Math.round(b);return (one||x===y)?'From '+this.fmt(x):this.fmt(x)+' – '+this.fmt(y);},
     summary(){
       const t=this.t;if(!t)return '';
       let s='Hi, I used the BD Premium Property Care price guide.\n\n'+(t.customOnly?'My job details (please quote):':'My guide price (not a quote):')+'\n';
       t.lines.forEach(l=>{s+='- '+l.n+' ('+l.d+'): '+this.rng(l.lo,l.hi)+' + VAT\n';});
       t.custom.forEach(c=>{s+='- '+c.n+': custom quote needed. Details: '+c.d.replace(/\n/g,'; ')+'\n';});
       if(!t.customOnly){
-        this.rows(t).forEach(r=>{if(r.l!=='Total including VAT')s+=r.l+': '+this.rv(r,t)+'\n';});
-        s+='\nGuide incl. VAT ('+(this.VAT*100)+'%): '+this.head(t.gLo,t.gHi,t.single)+'\n';
+        this.rows(t).forEach(r=>{if(!r.big)s+=r.l+': '+this.rv(r,t)+'\n';});
+        s+='\n'+(this.offer&&t.offHi>0?'Final price':'Guide')+' incl. VAT ('+(this.VAT*100)+'%): '+this.head(t.gLo,t.gHi,t.single)+'\n';
         if(t.custom.length)s+='(Excludes items needing a custom quote)\n';
         s+='(Additional call-out charges may apply depending on distance)\n';
       }
@@ -509,7 +519,7 @@ function wiz(){
       const wrap=(txt,mw,f)=>{x.font=f;const out=[];let cur='';String(txt).split(' ').forEach(w=>{const tt=cur?cur+' '+w:w;if(x.measureText(tt).width>mw&&cur){out.push(cur);cur=w;}else cur=tt;});if(cur)out.push(cur);return out;};
       const rr=(a,b,w,h,r)=>{x.beginPath();x.moveTo(a+r,b);x.arcTo(a+w,b,a+w,b+h,r);x.arcTo(a+w,b+h,a,b+h,r);x.arcTo(a,b+h,a,b,r);x.arcTo(a,b,a+w,b,r);x.closePath();};
       const when=new Date().toLocaleDateString('en-IE',{day:'numeric',month:'long',year:'numeric'});
-      const rows=t.customOnly?[]:this.rows(t).slice(0,-1);
+      const rows=t.customOnly?[]:this.rows(t);
       const paint=(H)=>{
         const dry=H===null;let y=P;
         const D=(txt,a,b,font,col,al)=>{if(dry)return;x.font=font;x.fillStyle=col;x.textAlign=al||'left';x.textBaseline='alphabetic';x.fillText(txt,a,b);};
@@ -524,7 +534,7 @@ function wiz(){
         D('BD PREMIUM PROPERTY CARE',P+104,y+36,'800 28px '+F,'#e2e8f0');
         D('GUIDE PRICE  |  COUNTY CORK',P+104,y+72,'700 22px '+F,'#2dd4bf');
         y+=80+56;
-        D(t.customOnly?'CUSTOM QUOTE NEEDED':'GUIDE PRICE RANGE, INCLUDING VAT',P,y,'800 24px '+F,'#94a3b8');y+=26;
+        D(t.customOnly?'CUSTOM QUOTE NEEDED':(this.offer?'GUIDE PRICE AFTER OFFER, INCLUDING VAT':'GUIDE PRICE RANGE, INCLUDING VAT'),P,y,'800 24px '+F,'#94a3b8');y+=26;
         const hd=t.customOnly?'Priced per job':this.head(t.gLo,t.gHi,t.single);let fs=t.customOnly?84:104;
         x.font='900 '+fs+'px '+F;while(x.measureText(hd).width>IW&&fs>48){fs-=4;x.font='900 '+fs+'px '+F;}
         y+=fs;D(hd,P,y,'900 '+fs+'px '+F,'#ffffff');y+=24;
@@ -549,8 +559,9 @@ function wiz(){
           y+=6;line();y+=14;
           rows.forEach(r=>{
             y+=44;
-            D(r.l,P,y,(r.bold?'800 ':'600 ')+'28px '+F,r.teal?'#5eead4':(r.bold?'#ffffff':'#cbd5e1'));
-            D(this.rv(r,t),W-P,y,'800 28px '+F,r.teal?'#5eead4':'#ffffff','right');
+            const fz=r.big?'34px ':'28px ';if(r.big){y+=8;}
+            D(r.l,P,y,(r.bold?'800 ':'600 ')+fz+F,r.teal?'#5eead4':(r.bold?'#ffffff':'#cbd5e1'));
+            D(this.rv(r,t),W-P,y,'800 '+fz+F,r.big?'#5eead4':(r.teal?'#5eead4':'#ffffff'),'right');
           });
           y+=18;
         }
